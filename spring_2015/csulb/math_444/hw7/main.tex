@@ -138,6 +138,77 @@
                   the group has.
             \item Use Burnside's Lemma to count the orbits.
          \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item Suppose
+               $\left(\begin{tabular}{@{}l r@{}}
+                  1 & 1 \\
+                  0 & 1
+               \end{tabular}\right)\left(\begin{tabular}{@{}c@{}}
+                  $a$ \\
+                  $b$
+               \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                  $a$ \\
+                  $b$
+               \end{tabular}\right)$ for some $a, b \in \Z_{11}$. Then it
+               follows that
+               $$\left(\begin{tabular}{@{}c@{}}
+                  $a + b$ \\
+                  $b$
+               \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                  $a$ \\
+                  $b$
+               \end{tabular}\right),$$
+               so that $b = 0$. Thus the matrix
+               $\left(\begin{tabular}{@{}l r@{}}
+                  1 & 1 \\
+                  0 & 1
+               \end{tabular}\right)$ fixes 11 elements and they are
+               $$\left\{\left(\begin{tabular}{@{}c@{}}
+                  $a$ \\
+                  0
+               \end{tabular}\right) : a \in \Z_{11}\right\}.$$
+         \item Suppose
+               $\left(\begin{tabular}{@{}l r@{}}
+                  3 & 0 \\
+                  0 & 4
+               \end{tabular}\right)\left(\begin{tabular}{@{}c@{}}
+                  $a$ \\
+                  $b$
+               \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                  $a$ \\
+                  $b$
+               \end{tabular}\right)$ for some $a, b \in \Z_{11}$. Then it
+               follows that
+               $$\left(\begin{tabular}{@{}c@{}}
+                  $3a$ \\
+                  $4b$
+               \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                  $a$ \\
+                  $b$
+               \end{tabular}\right),$$
+               so that $2a = 0$ and $3b = 0$. Multiply the former equality by 6
+               and the latter by 4 to get $a = b = 0$.Thus the matrix
+               $\left(\begin{tabular}{@{}l r@{}}
+                  3 & 0 \\
+                  0 & 4
+               \end{tabular}\right)$ fixes only 1 element, the zero vector.
+         \item There are 44 matrices of the form
+               $\left(\begin{tabular}{@{}l r@{}}
+                  $b$ & $x$ \\
+                  0 & $b^{-1}$
+               \end{tabular}\right)$, with $b \neq 1$, and each only fixes the
+               zero vector. The identity matrix fixes all the vectors
+               (121 of them), while each of the remaining 10 matrices fixes
+               exactly 11 vectors.
+         \item Let $n$ be the number of orbits. Using our results from
+               \circled{3} and Burnside's Lemma, it follows that
+               that
+               $$n \cdot 55 = 44 \cdot 1 + 1 \cdot 121 + 10 \cdot 11 = 275,$$
+               so that $n = 5$.
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let the vertices of the cube be given as follows:
          $$
