@@ -68,10 +68,37 @@
                $|g| = 300$, it follows that the number of generators of $G$ is
                the number of positive integers relatively prime to 300, which is
                80.
-         \item False. We have that $g^{100} \neq g^{200}$ (since $|g| = 300)$
+         \item False.
+
+               \textbf{Counterexample.} We have that $g^{100} \neq g^{200}$
+               (since $|g| = 300)$
                and
                $$|g^{100}| = \frac{300}{\gcd(300, 100)} = 3 = 
                  \frac{300}{\gcd(300, 200)} = |g^{200}|.$$
+         \item False.
+
+               \textbf{Proof.} It suffices to show that $S_{30}$ has no element
+               of order 300. Suppose to the contrary that $\sigma \in S_{30}$
+               has order 300. Then we can write $\sigma$ as a product of
+               disjoint cycles (each of length greater than 1)
+               $$\sigma = \alpha_1\alpha_2\cdots\alpha_n$$
+               so that $|\sigma| = \text{lcm}(|\alpha_1|, |\alpha_2|, \cdots,
+               |\alpha_n|) = 300$. Now since $5^2 \mid 300$, it follows that
+               $5^2$ must divide the order of at least one of the cycles. We can
+               assume without loss that $5^2 \mid |\alpha_1|$. Thus $\alpha_1$
+               must be a 25-cycle. By a similar argument, it follows that $2^2$
+               must divide the order of at least one of the cycles. Assume
+               without loss that $2^2 \mid |\alpha_2|$. Since there are 25
+               elements in $\alpha_1$, there can be at most 5 elements in
+               $\alpha_2$, so that $\alpha_2$ is a 4-cycle. Thus
+               $$\sigma = \alpha_1\alpha_2,$$
+               a contradiction since
+               $\text{lcm}(|\alpha_1|, |\alpha_2|) = 100 \neq 300$.
+               \qed
+         \item True. This subgroup of $G$, $\langle g^{15}\rangle$, has 20
+               elements.
+         \item True. Since the number of positive divisors of 300 is 18, it
+               follows that $G$ has exactly 18 subgroups.
                
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -87,7 +114,9 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item w
+         \item The element $a^8$ has order 15.
+         \item $\displaystyle|b^{10}| = \frac{72}{\gcd(72, 10)} = 36$.
+         \item The element $a^{24}b$ has order 360.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the non-abelian group of order 55 from \textbf{Homework \#4}.
