@@ -57,7 +57,7 @@ DELAY:
          RET
 END
          \end{verbatim}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[Activity 2.] \begin{verbatim}
          MOV      P0, #0      ; P0 = OUTPUT
          MOV      P2, #0      ; P1 = OUTPUT
@@ -71,5 +71,26 @@ END
 
 END
          \end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[Activity 3.]
+      \begin{enumerate}
+         \item[1.] Upon reset, all the ports of the 8051 are configured as
+                   \textbf{input}.
+         \item[2.] To make all the bits of a port an output port we must write
+                   \textbf{0} hex to it.
+         \item[3.] Which ports of the 8051 are bits addressable?
+         
+                   \textbf{Ans: } P0, P1, P2, and P3.
+         \item[4.] \begin{verbatim}
+         
+         
+         
+MOV      P1, #0                  ; P1 = OUTPUT
+HIGH:
+         JB       P2.4, HIGH
+         MOV      P1, #55H
+END         
+         \end{verbatim}
+      \end{enumerate}
 \end{enumerate}
 \end{document}
