@@ -51,9 +51,9 @@ TOGGLE:
 			
 DELAY:
          MOV      R0, #250			
-         LOOP0:   MOV R1, #164		
-         LOOP1:   DJNZ R1, LOOP1
-                  DJNZ R0, LOOP0
+         LOOP0:   MOV      R1, #164		
+         LOOP1:   DJNZ     R1, LOOP1
+                  DJNZ     R0, LOOP0
          RET
 END
          \end{verbatim}
@@ -85,7 +85,7 @@ END
          
          
          
-MOV      P1, #0                  ; P1 = OUTPUT
+MOV      P1, #0               ; P1 = OUTPUT
 HIGH:
          JB       P2.4, HIGH
          MOV      P1, #55H
