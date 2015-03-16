@@ -32,6 +32,44 @@
 \begin{document}
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item k
+   \item[Activity 1.] \begin{verbatim}
+TOGGLE:
+         MOV      A, #55H     ; A  <- 01010101B
+         MOV      P0, A       ; P0 <- 01010101B
+         MOV      P1, A       ; P1 <- 01010101B
+         MOV      P2, A       ; P2 <- 01010101B
+         
+         ACALL    DELAY
+         
+         MOV      A, #0AAH    ; A  <- 10101010B
+         MOV      P0, A       ; P0 <- 10101010B
+         MOV      P1, A       ; P1 <- 10101010B
+         MOV      P2, A       ; P2 <- 10101010B
+         
+         ACALL    DELAY			
+         SJMP     TOGGLE
+			
+DELAY:
+         MOV      R0, #250			
+         LOOP0:   MOV R1, #164		
+         LOOP1:   DJNZ R1, LOOP1
+                  DJNZ R0, LOOP0
+         RET
+END
+         \end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[Activity 2.] \begin{verbatim}
+         MOV      P0, #0      ; P0 = OUTPUT
+         MOV      P2, #0      ; P1 = OUTPUT
+
+         MOV      A, P1       ; A  <- P1
+         MOV      P0, A       ; P0 <- P1
+         MOV      P2, A       ; P2 <- P1
+         MOV      R0, A       ; R0 <- P1
+         MOV      R1, A       ; R1 <- P1
+         MOV      R2, A       ; R2 <- P1
+
+END
+         \end{verbatim}
 \end{enumerate}
 \end{document}
