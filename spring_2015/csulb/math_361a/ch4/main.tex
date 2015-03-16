@@ -50,6 +50,57 @@
    \item Prove that if $f$ is continuous at $x_0$ and $f$ is nonnegative then
          $h(x) = \sqrt{f(x)}$ is continuous at $x_0$.
          
-      \textbf{Proof.}
+      \textbf{Proof.} Let $\varepsilon > 0$. We want to find $\delta > 0$ such
+      that if $|x - x_0| < \delta$, then $|h(x) - h(x_0)| < \varepsilon$. Now
+      since $f$ is continuous at $x_0$, it follows by definition that there
+      exists a $\delta_1 > 0$ such that $|f(x) - f(x_0)| < \varepsilon$
+      whenever $|x - x_0| < \delta_1$. Let
+      $x \in (x_0 - \delta_1, x_0 + \delta_1)$, with
+      $h(x) + h(x_0) = \sqrt{f(x)} + \sqrt{f(x_0)}\neq 0$.
+      Then it follows that
+      \begin{align*}
+         |h(x) - h(x_0)| &= |\sqrt{f(x)} - \sqrt{f(x_0)}| \\
+                         &= |\sqrt{f(x)} - \sqrt{f(x_0)}| \cdot
+                            \frac{|\sqrt{f(x)} + \sqrt{f(x_0)}|}
+                                 {|\sqrt{f(x)} + \sqrt{f(x_0)}|} \\
+                         &= \frac{|f(x) - f(x_0)|}
+                                 {|\sqrt{f(x)} + \sqrt{f(x_0)}|} \\
+                         &= \frac{|f(x) - f(x_0)|}
+                                 {\sqrt{f(x)} + \sqrt{f(x_0)}}
+                            &[\text{Since }f \text{ is nonnegative}] \\
+                         &\le \frac{|f(x) - f(x_0)|}
+                                 {\sqrt{f(x)} + \sqrt{f(x_0)} + 1}.
+      \end{align*}
+      If $\sqrt{f(x)} + \sqrt{f(x_0)} = 0$, so that
+      $\sqrt{f(x)} = \sqrt{f(x_0)} = 0$, then the inequality above still holds.
+      Thus if $x \in (x_0 - \delta_1, x_0 + \delta_1)$, we must have that
+      $$|h(x) - h(x_0)| \le \frac{|f(x) - f(x_0)|}
+                                 {\sqrt{f(x)} + \sqrt{f(x_0)} + 1}.$$
+                                 
+      Let $x \in (x_0 - \delta_1, x_0 + \delta_1)$. Since $f$ is nonnegative, it
+      follows that $\sqrt{f}$ is also nonnegative
+      so that
+      $$\sqrt{f(x)} + \sqrt{f(x_0)} + 1 \ge 1, $$
+      and thus
+      \begin{equation}
+         \frac{1}{\sqrt{f(x)} + \sqrt{f(x_0)} + 1} \le 1. \label{eq_a}
+      \end{equation}
+      
+      Multiply the inequality in \eqref{eq_a} by the nonnegative number
+      $|f(x) - f(x_0)|$ to get
+      \begin{align*}
+         \frac{|f(x) - f(x_0)|}{\sqrt{f(x)} + \sqrt{f(x_0)} + 1}
+            \le |f(x) - f(x_0)| < \varepsilon.
+      \end{align*}
+      
+      We have thus shown that if $x \in (x_0 - \delta_1, x_0 + \delta_1)$, then
+      \begin{align*}
+         |h(x) - h(x_0)| \le \frac{|f(x) - f(x_0)|}
+            {\sqrt{f(x)} + \sqrt{f(x_0)} + 1} \le |f(x) - f(x_0)| < \varepsilon.
+      \end{align*}
+      
+      Thus it follows by definition that
+      $$\lim_{x\rightarrow x_0}h(x) = h(x_0),$$
+      so that $h$ is continuous at $x_0$. \qed
 \end{enumerate}
 \end{document}
