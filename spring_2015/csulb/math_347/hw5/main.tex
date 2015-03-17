@@ -45,7 +45,25 @@
                $$\cyc{u, v} = \frac{||u + v||^2 - ||u - v||^2}{4}$$
                for all $u. v \in V$.
 
-      \textbf{Proof.} 
+      \textbf{Proof.} Let $V$ be a real inner-product space and let
+      $u, v \in V$. We have that
+      \begin{align*}
+         \frac{||u + v||^2 - ||u - v||^2}{4}
+            &= \frac{\cyc{u + v, u + v} - \cyc{u - v, u - v}}{4} \\
+            &= \frac{\cyc{u, u + v} + \cyc{v, u + v} -
+                     \cyc{u, u - v} - \cyc{-v, u - v}}{4} \\
+            &= \frac{\cyc{u + v, u} + \cyc{u + v, v} -
+                     \cyc{u - v, u} + \cyc{v, u - v}}{4} \\
+            &= \frac{\cyc{u, u} + \cyc{v, u} + \cyc{u, v} + \cyc{v, v} -
+                     \cyc{u, u} + \cyc{v, u} + \cyc{u - v, v}}{4} \\
+            &= \frac{\cyc{v, u} + \cyc{u, v} + \cyc{v, v} + 
+                     \cyc{v, u} + \cyc{u - v, v}}{4} \\
+            &= \frac{\cyc{v, u} + \cyc{u, v} + \cyc{v, v} + 
+                     \cyc{v, u} + \cyc{u, v} - \cyc{v, v}}{4} \\
+            &= \frac{\cyc{v, u} + \cyc{u, v} + \cyc{v, u} + \cyc{u, v}}{4} \\
+            &= \frac{\cyc{u, v} + \cyc{u, v} + \cyc{u, v} + \cyc{u, v}}{4} \\
+            &= \frac{4\cyc{u, v}}{4} = \cyc{u, v}.
+      \end{align*} \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[6.10] On $\mathcal{P}_2(\R)$, consider the inner product given by
                $$\cyc{p, q} = \int_0^1p(x)q(x) dx.$$
@@ -60,7 +78,20 @@
                $$||v||^2 = |\cyc{v, e_1}|^2 + \cdots + |\cyc{v, e_m}|^2$$
                if and only if $v \in \text{span}(e_1, \ldots, e_m)$.
                
-      \textbf{Proof.} 
+      \textbf{Proof.} Suppose $(e_1, \ldots, e_m)$ is an orthonormal list of
+      vectors in $V$ and let $v \in V$.
+      
+      $(\Leftarrow)$ Assume that $v \in \text{span}(e_1, \ldots, e_m)$.
+      Therefore $v = a_1e_1 + \cdots + a_me_m$ for some scalars
+      $a_1, \ldots, a_m$. By the orthonomality of $(e_1, \ldots, e_m)$, it
+      follows that $\cyc{v, e_j} = a_j$ for all $j \in \{1, 2,  \ldots, m\}$, so
+      we have that
+      \begin{align*}
+         ||v||^2 &= ||a_1e_1 + \cdots + a_me_m||^2 \\
+                 &= ||\cyc{v, e_1}e_1 + \cdots + \cyc{v, e_m}e_m||^2 \\
+                 &= |\cyc{v, e_1}|^2 + \cdots + |\cyc{v, e_m}|^2
+                    &[\text{Proposition }6.15]
+      \end{align*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[6.17] Prove that if $P \in \mathcal{L}(V)$ is such that $P^2 = P$ and
                every vector in null $P$ is orthogonal to every vector in range
