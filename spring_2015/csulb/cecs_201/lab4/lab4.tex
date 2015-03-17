@@ -1,0 +1,82 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+%\setcounter{section}{-1}
+
+\begin{document}
+\topskip0pt
+\vspace*{\fill}
+\begin{center}
+{\Huge \begin{tabular}{@{}ll@{}}
+   Class: & CECS 201, Section 7 \\ \\ \\
+   Lab: & 4 \\ \\ \\
+   Title: & Gate Substitution and Boolean Algebra \\ \\ \\
+   Student Name: & Barry Joseph Okonoboh \\ \\ \\
+   Due Date: & 07:00:00 P.M., 16, March 2015 \\ \\ \\
+   Instructor: & Dan Cregg
+\end{tabular}}
+\end{center}
+\vspace*{\fill}
+\newpage
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[b.] \textbf{Introduction.} This lab involves observing the outputs of
+             the AND, OR, NAND, NOR, NOT and XOR logic gates, with varying
+             input.
+   \item[c.] \textbf{Project Description.} This lab is similar to lab 3 with the
+             restriction that the AND gate be built using NOR gates, the OR
+             gates using NAND gates, the NAND gate using NOR gates, the NOR gate
+             using NAND gates, the XOR gate using NOR gates, and the NOT gates
+             using NAND gates.
+  	\item[d.] \textbf{Schematic.}
+             \begin{center}
+                \includegraphics[width=\textwidth]{schematic.png}
+             \end{center}
+             
+             \textbf{Truth Table.}   
+   
+   \begin{center}
+    \begin{tabular}{@{}|c|c|c|c|c|c|c|c|@{}}
+   \hline
+   $A$ & $B$ & $AB$ & $A+B$ & $\overline{AB}$ & $\overline{A+B}$ & $A \oplus B$ & $\overline{A}$ \\ 
+   \hline
+   0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 \\
+   \hline
+   0 & 1 & 0 & 1 & 1 & 0 & 1 & 1 \\
+   \hline
+   1 & 0 & 0 & 1 & 1 & 0 & 1 & 0 \\
+   \hline
+   1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+   \hline
+\end{tabular}
+   \end{center}
+\end{enumerate}
+\end{document}
