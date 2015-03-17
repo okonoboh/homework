@@ -1,0 +1,77 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{cancel}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 347, Spring 2015\\Section 1 (1872)\\
+  HW \#5, Due: 2015, March 17
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[6.6]  Prove that if $V$ is a real inner-product space, then
+               $$\cyc{u, v} = \frac{||u + v||^2 - ||u - v||^2}{4}$$
+               for all $u. v \in V$.
+
+      \textbf{Proof.} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[6.10] On $\mathcal{P}_2(\R)$, consider the inner product given by
+               $$\cyc{p, q} = \int_0^1p(x)q(x) dx.$$
+
+               Apply the Gram-Schmidt procedure to the basis $(1, x, x^2)$ to
+               produce an orthonormal basis of $\mathcal{P}_2(\R)$.
+
+      \textbf{Solution.} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[6.13] Suppose $(e_1, \ldots, e_m)$ is an orthonormal list of vectors in
+               $V$. Let $v \in V$. Prove that
+               $$||v||^2 = |\cyc{v, e_1}|^2 + \cdots + |\cyc{v, e_m}|^2$$
+               if and only if $v \in \text{span}(e_1, \ldots, e_m)$.
+               
+      \textbf{Proof.} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[6.17] Prove that if $P \in \mathcal{L}(V)$ is such that $P^2 = P$ and
+               every vector in null $P$ is orthogonal to every vector in range
+               $P$, then $P$ is an orthogonal projection.
+               
+      \textbf{Proof.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.29%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[6.29] Suppose $T \in \mathcal{L(V)}$ and $U$ is a subspace of $V$.
+               Prove that $U$ is invariant under $T$ if and only if $U^\perp$
+               is invariant under $T*$.
+               
+      \textbf{Proof.}
+\end{enumerate}
+\end{document}
