@@ -71,7 +71,28 @@
                Apply the Gram-Schmidt procedure to the basis $(1, x, x^2)$ to
                produce an orthonormal basis of $\mathcal{P}_2(\R)$.
 
-      \textbf{Solution.} 
+      \textbf{Solution.} We want to construct an orthonormal basis
+      $(e_1, e_2, e_3)$ for $\mathcal{P}_2(\R)$; so applying the Gram-Schmidt
+      procedure to the basis $(1, x, x^2)$, we have
+      \begin{align*}
+         e_1 &= \frac{1}{||1||} \\
+         e_2 &= \frac{x - \cyc{x, e_1}e_1}{||x - \cyc{x, e_1}e_1||} \\
+         e_3 &= \frac{x^2 - \cyc{x^2, e_1}e_1 - \cyc{x^2, e_2}e_2}
+                     {||x^2 - \cyc{x^2, e_1}e_1 - \cyc{x^2, e_2}e_2||}. \\
+      \end{align*}
+      So $$||1|| = \sqrt{\cyc{1, 1}} = \sqrt{\int_0^11\;dx} = \sqrt{1} = 1,$$
+      so that $e_1 = 1$. Now
+      $$\cyc{x, e_1} = \int_0^1x\;dx = \frac{1}{2},$$
+      and
+      $$
+         \left|\left|x - \frac{1}{2}\right|\right| = \sqrt{\int_0^1\left(x - \frac{1}{2}\right)^2\;dx}
+                 = \frac{\sqrt{3}}{6}.$$
+      Thus $\displaystyle e_2 = (x - \frac{1}{2}) \cdot \frac{6}{\sqrt{3}} = 2x\sqrt{3} - \sqrt{3}.$
+
+      Similarly we find that
+      $$\cyc{x^2, e_1}e_1 = \int_0^1 x^2\;dx = \frac{1}{3},$$
+      and
+      $$\cyc{x^2, e_2}e_2 = \left(\int_0^1(2x^3\sqrt{3} - x^2\sqrt{3}\right)\;dx)(2x\sqrt{3} - \sqrt{3})$$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[6.13] Suppose $(e_1, \ldots, e_m)$ is an orthonormal list of vectors in
                $V$. Let $v \in V$. Prove that
@@ -92,6 +113,28 @@
                  &= |\cyc{v, e_1}|^2 + \cdots + |\cyc{v, e_m}|^2
                     &[\text{Proposition }6.15]
       \end{align*}
+      
+      $(\Rightarrow)$ Now assume that
+      $||v||^2 = |\cyc{v, e_1}|^2 + \cdots + |\cyc{v, e_m}|^2$. Extend the
+      orthonormal list $(e_1, \ldots, e_m)$ to an orthonormal basis
+      $(e_1, \ldots, e_m, e_{m+1}, \ldots, e_{m+n})$ for $V$. Thus there exist
+      scalars $b_1, \ldots, b_{m+n}$ such that
+      $v = b_1e_1 + \cdots + b_{m+n}e_{m+n}$. Thus
+      \begin{align*}
+         |b_1|^2 + \cdots + |b_m|^2 &=
+         |\cyc{v, e_1}|^2 + \cdots + |\cyc{v, e_m}|^2 \\
+            &= ||v||^2 \\
+            &= ||b_1e_1 + \cdots + b_{m+n}e_{m+n}|| \\
+            &= |b_1|^2 + \cdots + |b_{m+n}|^2 \\
+            &= |b_1|^2 + \cdots + |b_m|^2 +
+               |b_{m+1}|^2 + \cdots + |b_{m+n}|^2,
+      \end{align*}
+      
+      so that $|b_{m+1}|^2 + \cdots + |b_{m+n}|^2 = 0$. Since
+      $|b_{m+i}|$ is nonnegative for all $i \in \{1, \ldots, n\}$, it
+      follows that $b_{m+1} = \cdots =  b_{m+n} = 0$, so
+      that $v = b_1e_1 + \cdots + b_m$. That is
+      $$v \in \text{span}(e_1, \ldots, e_m).$$ \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[6.17] Prove that if $P \in \mathcal{L}(V)$ is such that $P^2 = P$ and
                every vector in null $P$ is orthogonal to every vector in range
@@ -101,8 +144,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.29%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[6.29] Suppose $T \in \mathcal{L(V)}$ and $U$ is a subspace of $V$.
                Prove that $U$ is invariant under $T$ if and only if $U^\perp$
-               is invariant under $T*$.
+               is invariant under $T^*$.
                
-      \textbf{Proof.}
+      \textbf{Proof.} Suppose $T \in \mathcal{L(V)}$ and $U$ is a subspace of
+      $V$. 
+      
+      ($\Rightarrow$) Assume that $U$ is invariant under $T$. Let
+      $v \in U^\perp$. In order to show that $U^\perp$ is invariant under
+      $T^*$, it suffices to show that $T^*v \in U^\perp$. That is, we must show
+      that $\cyc{u, T^*v} = 0$ for all $u \in U$. So let $u \in U$. Thus
+      \begin{align*}
+         \cyc{u, T^*v} &= \cyc{Tu, v} &[\text{Definition}] \\
+          &= 0 &[Tu \in U \text{ and } v \in U^\perp],
+      \end{align*}
+      which is what we wanted to show.
+      
+      ($\Leftarrow$) Now assume that $U^\perp$ is invariant under $T^*$. Let
+      $u \in U$. We want to show that $Tu \in U$. Consider any $v \in U^\perp$.
+      We have that
+      \begin{align*}
+         \cyc{Tu, v} = \cyc{u, T^*v} &[\text{Definition}] \\
+          &= 0 &[u \in U \text{ and } T^*v \in U^\perp],
+      \end{align*}
+      so that $Tu$ is orthogonal to every vector in $U^\perp$. That is,
+      $Tu \in (U^\perp)^\perp$; but $(U^\perp)^\perp = U$. Thus $Tu \in U$, so
+      that $U$ is invariant under $T$. \qed
+      
 \end{enumerate}
 \end{document}
