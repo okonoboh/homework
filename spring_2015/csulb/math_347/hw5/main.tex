@@ -52,15 +52,18 @@
             &= \frac{\cyc{u + v, u + v} - \cyc{u - v, u - v}}{4} \\
             &= \frac{\cyc{u, u + v} + \cyc{v, u + v} -
                      \cyc{u, u - v} - \cyc{-v, u - v}}{4} \\
+            &= \frac{\cyc{\overline{u + v, u}} + \cyc{\overline{u + v, v}} -
+                     \cyc{\overline{u - v, u}} + \cyc{v, u - v}}{4} \\
             &= \frac{\cyc{u + v, u} + \cyc{u + v, v} -
                      \cyc{u - v, u} + \cyc{v, u - v}}{4} \\
             &= \frac{\cyc{u, u} + \cyc{v, u} + \cyc{u, v} + \cyc{v, v} -
-                     \cyc{u, u} + \cyc{v, u} + \cyc{u - v, v}}{4} \\
+                     \cyc{u, u} + \cyc{v, u} + \cyc{\overline{u - v, v}}}{4} \\
             &= \frac{\cyc{v, u} + \cyc{u, v} + \cyc{v, v} + 
                      \cyc{v, u} + \cyc{u - v, v}}{4} \\
             &= \frac{\cyc{v, u} + \cyc{u, v} + \cyc{v, v} + 
                      \cyc{v, u} + \cyc{u, v} - \cyc{v, v}}{4} \\
             &= \frac{\cyc{v, u} + \cyc{u, v} + \cyc{v, u} + \cyc{u, v}}{4} \\
+            &= \frac{\cyc{\overline{u, v}} + \cyc{u, v} + \cyc{\overline{u, v}} + \cyc{u, v}}{4} \\
             &= \frac{\cyc{u, v} + \cyc{u, v} + \cyc{u, v} + \cyc{u, v}}{4} \\
             &= \frac{4\cyc{u, v}}{4} = \cyc{u, v}.
       \end{align*} \qed
@@ -85,14 +88,28 @@
       $$\cyc{x, e_1} = \int_0^1x\;dx = \frac{1}{2},$$
       and
       $$
-         \left|\left|x - \frac{1}{2}\right|\right| = \sqrt{\int_0^1\left(x - \frac{1}{2}\right)^2\;dx}
+         \left|\left|x - \frac{1}{2}\right|\right| =
+         \sqrt{\int_0^1\left(x - \frac{1}{2}\right)^2\;dx}
                  = \frac{\sqrt{3}}{6}.$$
-      Thus $\displaystyle e_2 = (x - \frac{1}{2}) \cdot \frac{6}{\sqrt{3}} = 2x\sqrt{3} - \sqrt{3}.$
+      Thus $\displaystyle e_2 = \left(x - \frac{1}{2}\right) \cdot
+            \frac{6}{\sqrt{3}} = 2x\sqrt{3} - \sqrt{3}.$
 
       Similarly we find that
       $$\cyc{x^2, e_1}e_1 = \int_0^1 x^2\;dx = \frac{1}{3},$$
       and
-      $$\cyc{x^2, e_2}e_2 = \left(\int_0^1(2x^3\sqrt{3} - x^2\sqrt{3}\right)\;dx)(2x\sqrt{3} - \sqrt{3})$$
+      $$x^2 - \cyc{x^2, e_2}e_2 = x^2 - \left(\int_0^1(2x^3\sqrt{3} - 
+         x^2\sqrt{3})\;dx\right)(2x\sqrt{3} - \sqrt{3}) =
+         x^2 - x + \frac{1}{6},$$
+      so that
+      $$\left|\left|x^2 - x + \frac{1}{6}\right|\right| =
+        \sqrt{\int_0^1\left(x^2 - x + \frac{1}{6}\right)^2\;dx}
+                 = \frac{1}{6\sqrt{5}}.$$
+
+      Thus $\displaystyle e_3 = \left(x^2 - x + \frac{1}{6}\right) \cdot
+            6\sqrt{5} = 6x^2\sqrt{5} - 6x\sqrt{5} + \sqrt{5}$.
+
+      Thus an orthonormal basis for $\mathcal{P}_2(\R)$ is
+      $$(1, 2x\sqrt{3} - \sqrt{3}, 6x^2\sqrt{5} - 6x\sqrt{5} + \sqrt{5}).$$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[6.13] Suppose $(e_1, \ldots, e_m)$ is an orthonormal list of vectors in
                $V$. Let $v \in V$. Prove that
@@ -124,8 +141,8 @@
          |b_1|^2 + \cdots + |b_m|^2 &=
          |\cyc{v, e_1}|^2 + \cdots + |\cyc{v, e_m}|^2 \\
             &= ||v||^2 \\
-            &= ||b_1e_1 + \cdots + b_{m+n}e_{m+n}|| \\
-            &= |b_1|^2 + \cdots + |b_{m+n}|^2 \\
+            &= ||b_1e_1 + \cdots + b_{m+n}e_{m+n}||^2 \\
+            &= |b_1|^2 + \cdots + |b_{m+n}|^2 &[\text{Proposition }6.15] \\
             &= |b_1|^2 + \cdots + |b_m|^2 +
                |b_{m+1}|^2 + \cdots + |b_{m+n}|^2,
       \end{align*}
@@ -140,7 +157,51 @@
                every vector in null $P$ is orthogonal to every vector in range
                $P$, then $P$ is an orthogonal projection.
                
-      \textbf{Proof.}
+      \textbf{Proof.} Suppose $P \in \mathcal{L}(V)$ such that $P^2 = P$. Also
+      suppose that every vector in null $P$ is orthogonal to every vector in
+      range $P$. First we want to show that
+      $V = \text{range }P \oplus \text{ null }P$. Let
+      $v \in \text{range }P \cap \text{ null }P$. By our hypothesis, we must
+      have that $\cyc{v, v} = 0$, so that $v = 0$; i.e.,
+      $\text{range }P \cap \text{ null }P = \{0\}$. Now let dim range $P = m$
+      and let dim null $P = n$. Then there exist a basis $(b_1, \ldots, b_m)$
+      for range $P$ and a basis $(e_1, \ldots, e_n)$ for null $P$. We claim that
+      the list $(b_1, \ldots, b_m, e_1, \ldots, e_n)$ is linearly independent.
+      So consider the equation
+      $$\alpha_1b_1 + \cdots + \alpha_mb_m +
+        \alpha_{m+1}e_1 + \cdots + \alpha_{m+n}e_n = 0.$$
+      It follows that
+      $$\alpha_1b_1 + \cdots + \alpha_mb_m =
+        \alpha_{m+1}e_1 + \cdots + \alpha_{m+n}e_n$$
+      and since $\text{range }P \cap \text{ null }P = \{0\}$, it must be the
+      case that
+      $$\alpha_1b_1 + \cdots + \alpha_mb_m =
+        \alpha_{m+1}e_1 + \cdots + \alpha_{m+n}e_n = 0,$$
+      so that by the linear independence of $(b_1, \ldots, b_m)$ and
+      $(e_1, \ldots, e_n)$, we must have that
+      $$\alpha_1 = \cdots = \alpha_m =
+        \alpha_{m+1} = \cdots = \alpha_{m+n} = 0.$$
+
+      By the Rank-Nullity Theorem, we have that $\dim V = m + n$. Thus the list \\
+      ${(b_1, \ldots, b_m, e_1, \ldots, e_n)}$
+      forms a basis for $V$, so that $V = \text{range }P + \text{ null }P$. We
+      have thus shown that ${V = \text{range }P \oplus \text{ null }P}$. To
+      complete the proof, we now want to show that $P = P_{\text{range} P}$.
+      Let $v \in V$. Then we can write $v = r + n$ for unique
+      $r \in $ range $P$ and $n \in $ null $P$. To show that
+      $P = P_{\text{range} P}$, it suffices to show that $Pv = r$.
+      Now we have that $r - P(r) \in $ null $P$ because
+      $$P(r - P(r)) = P(r) - P(P(r)) = P(r) - P(r) = 0.$$
+      Notice that $r = P(r) + (r - P(r))$, where
+      $P(r) \in $ range $P$ and $r - P(r) \in $ null $P$. But $r = r + 0$,
+      so that $r = P(r)$ by the uniqueness of decomposition in direct sums. Thus
+      \begin{align*}
+         P(v) &= P(r + n) \\
+              &= P(r) + P(n) \\
+              &= P(r) + 0 \\
+              &= P(r) = r,
+      \end{align*}       
+      which is what we wanted to show. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6.29%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[6.29] Suppose $T \in \mathcal{L(V)}$ and $U$ is a subspace of $V$.
                Prove that $U$ is invariant under $T$ if and only if $U^\perp$
