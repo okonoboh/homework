@@ -38,10 +38,12 @@
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\I}{\mathbb{I}}
 \newcommand{\M}{\mathbb{M}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\displaystyle}
 %\setcounter{section}{-1}
 
 \begin{document}
@@ -90,5 +92,52 @@
       Thus it follows by definition that
       $$\lim_{x\rightarrow x_0}h(x) = h(x_0),$$
       so that $h$ is continuous at $x_0$. \qed
+   \item Suppose $f$ is continuous on $(a, b)$. Prove that if
+         $\lim_{x\rightarrow a^+} f(x)$ and $\lim_{x\rightarrow b^-} f(x)$ both
+         exist then $f$ is bounded on $(a, b)$ but the converse does not hold.
+         
+      \textbf{Proof.} Assume $f$ is continuous on $(a, b)$. Now suppose that
+      $\lim_{x\rightarrow a^+} f(x)$ and $\lim_{x\rightarrow b^-} f(x)$ both
+      exist. Let
+      $$\lim_{x\rightarrow a^+} f(x) = R \text{ and }
+        \lim_{x\rightarrow b^-} f(x) = L.$$
+      It follows by definition that there exists a $\delta_1 > 0$ such that if
+      $x \in (a, a + \delta_1)$ then $|f(x) - R| < 1$, so that
+      $|f(x)| < 1 + |R|$. Similarly, there exists a $\delta_2 > 0$ such that if
+      $x \in (b - \delta_2, b)$ then $|f(x) - L| < 1$, so that
+      $|f(x)| < 1 + |L|$. Let
+      $$\delta = \min\left\{\frac{b - a}{3},\delta_1, \delta_2\right\}.$$
+      Now since $f$ is continuous on $(a, b)$ it must also be continuous on
+      $[a + \delta, b - \delta]$, so that by Theorem 4.2, there exists $N > 0$
+      such that if $x \in [a + \delta, b - \delta]$, then $|f(x)| \le N$. Let
+      $$M = \max\{N, 1 + |R|, 1 + |L|\}.$$
+      Finally consider any $x \in (a, b)$. It must be the case that $x$ is in
+      exactly one of the following intervals: $(a, a + \delta)$,
+      $[a + \delta, b - \delta]$, and $(b - \delta, b)$. The first interval is
+      bounded by $1 + |R|$, the second by $1 + |L|$, and the third by $N$, so
+      that $|f(x)| \le M$. Thus by definition $f$ is bounded on $(a, b)$.
+      
+      \textbf{Converse.} Suppose that $f$ is bounded on $(a, b)$. Fix some
+      positive integer $N$ such that $\D N > \frac{1}{b - a}$, so that
+      $\D\frac{1}{N} < b - a$. Let
+      $$X_1 = \left\{\left[a + \frac{1}{n+1},\; a + \frac{1}{n}\right) :
+      n \in \N, n \ge N \right\} \text{ and } X_2 = \left[a + \frac{1}{N}, \;b\right),$$
+      so that $(a, b) = X_1 \cup X_2$. Let $P \in X_1$. Then 
+      $$P = \left[a + \frac{1}{N + i + 1},\; a + \frac{1}{N + i}\right)$$
+      for some nonnegative integer $i$. We want to map $P$ to the interval
+      $[0, 1)$ for even $i$ and $[1, 0)$ for odd $i$ such that $f(P)$ is a
+      straight line. If $i$ is even, for every $x \in P$, let
+      
+      $$f(x) = \left(\frac{1}{\D\frac{1}{N+i} - \frac{1}{N+i+1}}\right)
+               \left(x - a - \frac{1}{N+i+1}\right),$$
+      and if $i$ is odd, for every $x \in P$, let
+      
+      $$f(x) = \left(\frac{-1}{\D\frac{1}{N+i} - \frac{1}{N+i+1}}\right)
+               \left(x - a - \frac{1}{N+i+1}\right) + 1.$$
+      Now if $x \in X_2$, let $f(x) = 1$. Notice that $f$ oscillates between 0
+      and 1 for $x$ close to $a$, so that $\lim_{x\rightarrow a^+}$ does not
+      exist. \qed
+      
+      
 \end{enumerate}
 \end{document}

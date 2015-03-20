@@ -1,0 +1,106 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+%\setcounter{section}{-1}
+
+\begin{document}
+\topskip0pt
+\vspace*{\fill}
+\begin{center}
+{\Huge \begin{tabular}{@{}ll@{}}
+   Class: & CECS 201, Section 7 \\ \\ \\
+   Lab: & 6 \\ \\ \\
+   Title: & Logic Word Problem \\ \\ \\
+   Student Name: & Barry Joseph Okonoboh \\ \\ \\
+   Due Date: & 07:00:00 P.M., 18, March 2015 \\ \\ \\
+   Instructor: & Dan Cregg
+\end{tabular}}
+\end{center}
+\vspace*{\fill}
+\newpage
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[b.] \textbf{Introduction.} This lab involves using logic gates to
+               determine if a four bit unsigned number is a prime.
+   \item[c.] \textbf{Project Description.} The four bits of the number are
+             mapped to four inputs $A$, $B$, $C$ and $D$. If the number
+             represented by the bits is true, then the output is 1; otherwise,
+             it is 0. A Karnaugh map is used to simplify the equation and both
+             the simplified and unsimplified equations are simultaneously tested
+             using the Diligent board.
+  	\item[d.] \textbf{Schematic.}
+             \begin{center}
+                \includegraphics[width=\textwidth]{schematic.png}
+             \end{center}
+             
+             \textbf{Truth Table.}   
+   
+   \begin{center}
+    \begin{tabular}{@{}|c|c|c|c|c|@{}}
+   \hline
+         $A$ & $B$ & $C$ & $D$ & $X$ \\ \hline
+         0 & 0 & 0 & 0 & 0 \\ \hline
+         0 & 0 & 0 & 1 & 0 \\ \hline
+         0 & 0 & 1 & 0 & 1 \\ \hline
+         0 & 0 & 1 & 1 & 1 \\ \hline
+         0 & 1 & 0 & 0 & 0 \\ \hline
+         0 & 1 & 0 & 1 & 1 \\ \hline
+         0 & 1 & 1 & 0 & 0 \\ \hline
+         0 & 1 & 1 & 1 & 1 \\ \hline
+         1 & 0 & 0 & 0 & 0 \\ \hline
+         1 & 0 & 0 & 1 & 0 \\ \hline
+         1 & 0 & 1 & 0 & 0 \\ \hline
+         1 & 0 & 1 & 1 & 1 \\ \hline
+         1 & 1 & 0 & 0 & 0 \\ \hline
+         1 & 1 & 0 & 1 & 1 \\ \hline
+         1 & 1 & 1 & 0 & 0 \\ \hline
+         1 & 1 & 1 & 1 & 0 \\ \hline
+\end{tabular}
+   \end{center}
+   
+   \textbf{Karnaugh Map.}   
+   
+   Using Karnaugh map, we have that
+            \begin{center}
+            \begin{tabular}{@{}|c|c|c|c|c|@{}}
+            \hline
+            & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+            \textbf{00} & 0 & 0 & 1 & 1 \\ \hline
+            \textbf{01} & 0 & 1 & 1 & 0 \\ \hline
+            \textbf{11} & 0 & 1 & 0 & 0 \\ \hline
+            \textbf{10} & 0 & 0 & 1 & 0 \\
+            \hline
+\end{tabular}
+            \end{center}
+            so that $X(A, B, C, D) = \overline{A}\overline{B}C + \overline{A}BD
+            + B\overline{C}D + \overline{B}CD$.
+\end{enumerate}
+\end{document}
