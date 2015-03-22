@@ -7,6 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
+\usepackage[retainorgcmds]{IEEEtrantools}
 
 
 \usepackage{tikz}
@@ -116,7 +117,8 @@
       \begin{enumerate}[label=\protect\circled{\arabic*}]
          \item The element $a^8$ has order 15.
          \item $\displaystyle|b^{10}| = \frac{72}{\gcd(72, 10)} = 36$.
-         \item The element $a^{24}b$ has order 360.
+         \item The element $a^{24}$ has order 5; since $\gcd(5, 72) = 1$, it
+               follows that $a^{24}b$ has order 360.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the non-abelian group of order 55 from \textbf{Homework \#4}.
@@ -266,8 +268,9 @@
                   of size 3. \\ \\
                   Assume these 24 matrices form a group $G$. \textbf{Bonus.}
                   Prove this. \\
-                  Assume these $G \simeq S_4$. \textbf{Bonus.}
+                  Assume $G \simeq S_4$. \textbf{Bonus.}
                   Prove this. \\
+            \item Find the conjugacy classes of $G$.
             \item Find the number of ways to color a cube with two colors.
             \item Find the number of ways to color a cube with three colors.
             \item[\textbf{Bonus.}]  Find the number of ways to color the cube
@@ -277,7 +280,297 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item s
+         \item We have (Right Hand Coordinate System)
+               \begin{center}
+               \begin{tabular}{@{}lll@{}}
+                  $A$ & $=$ & $\{1, 2, 3, 5\}$ \\
+                  $A'$ & $=$ & $\{4, 6, 7, 8\}$ \\
+                  $B$ & $=$ & $\{1, 2, 4, 6\}$ \\
+                  $B'$ & $=$ & $\{3, 5, 7, 8\}$ \\
+                  $C$ & $=$ & $\{1, 3, 4, 7\}$ \\
+                  $C'$ & $=$ & $\{2, 3, 5, 8\}$
+               \end{tabular}
+               \end{center}
+         \item \text{ }
+
+               \begin{tabular}{@{}rcl@{}}
+                  P(faces) &=& Permutation of faces \\
+                  P(vertices) &=& Permutation of vertices \\
+                  ccw &=& counterclockwise \\
+                  $\overrightarrow{ab}$ &=& line that passes through vertices
+                  $a$ and $b$. \\
+                  $B(\overrightarrow{abcd})$ &=& line that bisects egdes $ab$ 
+                  and $cd$.
+               \end{tabular}               
+               
+               \begin{center}
+               \begin{tabular}{@{}|c|c|c|c|c|@{}}
+                  \hline
+                  & Matrix & P(vertices) & P(faces) & Rotation \\ 
+                  \hline
+                  1 & $\left(\begin{tabular}{@{}ccc@{}}
+                     1 & 0 & 0 \\
+                     0 & 1 & 0 \\
+                     0 & 0 & 1
+                  \end{tabular}\right)$ & (1) & $(A)$ & Identity \\
+                  \hline
+                  2 & $\left(\begin{tabular}{@{}crc@{}}
+                     0 & $-1$ & 0 \\
+                     1 & 0 & 0 \\
+                     0 & 0 & 1
+                  \end{tabular}\right)$ & (1 4 7 3)(2 6 8 5) & $(A B A' B')$ &
+                  $90^\circ$ ccw across $z\text{-axis}$. \\
+                  \hline
+                  3 & $\left(\begin{tabular}{@{}rrc@{}}
+                     $-1$ & 0 & 0 \\
+                     0 & $-1$ & 0 \\
+                     0 & 0 & 1
+                  \end{tabular}\right)$ & (1 7)(2 8)(3 4)(5 6) &
+                  $(A A')(B B')$ & $180^\circ$ ccw across $z\text{-axis}$. \\
+                  \hline
+                  4 & $\left(\begin{tabular}{@{}rcc@{}}
+                     0 & 1 & 0 \\
+                     $-1$ & 0 & 0 \\
+                     0 & 0 & 1
+                  \end{tabular}\right)$ & (1 3 7 4)(2 5 8 6) & $(A B' A' B)$ &
+                  $270^\circ$ ccw across $z\text{-axis}$. \\
+                  \hline
+                  5 & $\left(\begin{tabular}{@{}ccr@{}}
+                     1 & 0 & 0 \\
+                     0 & 0 & $-1$ \\
+                     0 & 1 & 0
+                  \end{tabular}\right)$ & (1 3 5 2)(4 7 8 6) & $(B C B' C')$ &
+                  $90^\circ$ ccw across $x\text{-axis}$. \\
+                  \hline
+                  6 & $\left(\begin{tabular}{@{}crr@{}}
+                     1 & 0 & 0 \\
+                     0 & $-1$ & 0 \\
+                     0 & 0 & $-1$
+                  \end{tabular}\right)$ & (1 5)(2 3)(4 8)(6 7) & $(B B')(C C')$ 
+                  & $180^\circ$ ccw across $x\text{-axis}$. \\
+                  \hline
+                  7 & $\left(\begin{tabular}{@{}crc@{}}
+                     1 & 0 & 0 \\
+                     0 & 0 & 1 \\
+                     0 & $-1$ & 0
+                  \end{tabular}\right)$ & (1 2 5 3)(4 6 8 7) & $(B C' B' C)$ &
+                  $270^\circ$ ccw across $x\text{-axis}$. \\
+                  \hline
+                  8 & $\left(\begin{tabular}{@{}rcc@{}}
+                     0 & 0 & 1 \\
+                     0 & 1 & 0 \\
+                     $-1$ & 0 & 0
+                  \end{tabular}\right)$ & (1 2 6 4)(3 5 8 7) & $(A C' A' C)$ &
+                  $90^\circ$ ccw across $y\text{-axis}$. \\
+                  \hline
+               \end{tabular}
+               \end{center}
+
+               \begin{center}
+               \begin{tabular}{@{}|c|c|c|c|l|@{}}
+                  \hline
+                  & Matrix & P(vertices) & P(faces) & Rotation \\ 
+                  \hline
+                  9 & $\left(\begin{tabular}{@{}rcr@{}}
+                     $-1$ & 0 & 0 \\
+                     0 & 1 & 0 \\
+                     0 & 0 & $-1$
+                  \end{tabular}\right)$ & (1 6)(2 4)(3 8)(5 7) &
+                  $(A A')(C C')$ & $180^\circ$ ccw across $y\text{-axis}$. \\
+                  \hline
+                  10 & $\left(\begin{tabular}{@{}ccr@{}}
+                     0 & 0 & $-1$ \\
+                     0 & 1 & 0 \\
+                     1 & 0 & 0
+                  \end{tabular}\right)$ & (1 4 6 2)(3 7 8 5) & $(A C A' C')$ &
+                  $270^\circ$ ccw across $y\text{-axis}$. \\
+                  \hline
+                  11 & $\left(\begin{tabular}{@{}ccc@{}}
+                     0 & 1 & 0 \\
+                     0 & 0 & 1 \\
+                     1 & 0 & 0
+                  \end{tabular}\right)$ & (2 3 4)(5 7 6) & $(A C B)(A' C' B')$ &
+                  $120^\circ$ ccw across $\overrightarrow{18}$. \\
+                  \hline
+                  12 & $\left(\begin{tabular}{@{}ccc@{}}
+                     0 & 0 & 1 \\
+                     1 & 0 & 0 \\
+                     0 & 1 & 0
+                  \end{tabular}\right)$ & (2 4 3)(5 6 7) & $(A B C)(A' B' C')$ &
+                   $240^\circ$ ccw across $\overrightarrow{18}$. \\
+                  \hline                  
+                  13 & $\left(\begin{tabular}{@{}rcr@{}}
+                     0 & 0 & $-1$ \\
+                     $-1$ & 0 & 0 \\
+                     0 & 1 & 0
+                  \end{tabular}\right)$ & (1 7 6)(2 3 8) & $(A B' C')(B C A')$ &
+                  $120^\circ$ ccw across $\overrightarrow{45}$. \\
+                  \hline
+                  14 & $\left(\begin{tabular}{@{}rrc@{}}
+                     0 & $-1$ & 0 \\
+                     0 & 0 & 1 \\
+                     $-1$ & 0 & 0
+                  \end{tabular}\right)$ & (1 6 7)(2 8 3) & $(A C' B')(A' C B)$ &
+                   $240^\circ$ ccw across $\overrightarrow{45}$. \\
+                  \hline
+                  15 & $\left(\begin{tabular}{@{}rrc@{}}
+                     0 & 0 & $-1$ \\
+                     1 & 0 & 0 \\
+                     0 & $-1$ & 0
+                  \end{tabular}\right)$ & (1 6 5)(3 4 8) & $(A B C')(A' B' C)$ &
+                   $120^\circ$ ccw across $\overrightarrow{27}$. \\
+                  \hline
+                  16 & $\left(\begin{tabular}{@{}rrc@{}}
+                     0 & 1 & 0 \\
+                     0 & 0 & $-1$ \\
+                     $-1$ & 0 & 0
+                  \end{tabular}\right)$ & (1 5 6)(3 8 4) & $(A C' B)(A' C B')$ &
+                   $240^\circ$ ccw across $\overrightarrow{27}$. \\
+                  \hline
+               \end{tabular}
+               \end{center}
+
+               \begin{center}
+               \begin{tabular}{@{}|c|c|c|c|l|@{}}
+                  \hline
+                  & Matrix & P(vertices) & P(faces) & Rotation \\ 
+                  \hline
+                  17 & $\left(\begin{tabular}{@{}crr@{}}
+                     0 & $-1$ & 0 \\
+                     0 & 0 & $-1$ \\
+                     1 & 0 & 0
+                  \end{tabular}\right)$ & (1 7 5)(2 4 8) & $(A C B')(B A' C')$ &
+                  $120^\circ$ ccw across $\overrightarrow{36}$. \\
+                  \hline
+                  18 & $\left(\begin{tabular}{@{}crr@{}}
+                     $-1$ & 0 & 0 \\
+                     0 & 0 & 1 \\
+                     0 & 1 & 0
+                  \end{tabular}\right)$ & (1 5 7)(2 8 4) & $(A B' C)(A' B C')$ &
+                  $240^\circ$ ccw across $\overrightarrow{36}$. \\
+                  \hline
+                  19 & $\left(\begin{tabular}{@{}rrr@{}}
+                     0 & $-1$ & 0 \\
+                     $-1$ & 0 & 0 \\
+                     0 & 0 & $-1$
+                  \end{tabular}\right)$ & (1 8)(2 7)(3 5)(4 6) &
+                  $(A B')(B A')(C C')$ &
+                  $180^\circ$ ccw across $B(\overrightarrow{4635})$. \\
+                  \hline
+                  20 & $\left(\begin{tabular}{@{}ccr@{}}
+                     0 & 1 & 0 \\
+                     1 & 0 & 0 \\
+                     0 & 0 & $-1$
+                  \end{tabular}\right)$ & (1 2)(3 6)(4 5)(7 8) &
+                  $(A B)(C C')(A' B')$ &
+                  $180^\circ$ ccw across $B(\overrightarrow{1278})$. \\
+                  \hline
+                  21 & $\left(\begin{tabular}{@{}rrr@{}}
+                     $-1$ & 0 & 0 \\
+                     0 & 0 & $-1$ \\
+                     0 & $-1$ & 0
+                  \end{tabular}\right)$ & (1 8)(2 6)(3 7)(4 5) &
+                  $(A A')(B C')(B' C)$ &
+                  $180^\circ$ ccw across $B(\overrightarrow{2637})$. \\
+                  \hline
+                  22 & $\left(\begin{tabular}{@{}rrr@{}}
+                     $-1$ & 0 & 0 \\
+                     0 & 0 & 1 \\
+                     0 & 1 & 0
+                  \end{tabular}\right)$ & (1 4)(2 7)(3 6)(5 8) &
+                  $(A A')(B C)(B' C')$ &
+                  $180^\circ$ ccw across $B(\overrightarrow{1458})$. \\
+                  \hline
+                  23 & $\left(\begin{tabular}{@{}rrr@{}}
+                     0 & 0 & $-1$ \\
+                     0 & $-1$ & 0 \\
+                     $-1$ & 0 & 0
+                  \end{tabular}\right)$ & (1 8)(2 5)(3 6)(4 7) &
+                  $(A C')(A' C)(B B')$ &
+                  $180^\circ$ ccw across $B(\overrightarrow{6813})$. \\
+                  \hline
+                  24 & $\left(\begin{tabular}{@{}rrr@{}}
+                     0 & 0 & 1 \\
+                     0 & $-1$ & 0 \\
+                     1 & 0 & 0
+                  \end{tabular}\right)$ & (1 3)(2 7)(4 5)(6 8) &
+                  $(A C)(B B')(A' C')$ &
+                  $180^\circ$ ccw across $B(\overrightarrow{7452})$. \\
+                  \hline
+               \end{tabular}
+               \end{center}
+         \item[\textbf{Bonus.}] Show that $G$ is a group.
+
+               \textbf{Proof.} The set $G$ is associative under multiplication
+               because matrix multiplication is associative under
+               multiplication. The set $G$ contains the $3 \times 3$ identity so
+               that $G$ has an identity. Since $G$ is finite, we need only show
+               that it is closed under multiplication to complete the proof. Let
+               $A$ and $B$ be two matrices in $G$. Then $A$ and $B$ correspond 
+               to some permutations $\sigma_A$ and $\sigma_B$ of the vertices of
+               the cube. Thus $AB$ corresponds to $\sigma_A \circ \sigma_B$
+               which is also a permutation of the vertices of the cube. Since
+               $\sigma_A$ and $\sigma_B$ are rotations,
+               $\sigma_A \circ \sigma_B$ must also be a rotation so that
+               $AB \in G$. Thus $G$ is a group under multiplication. \qed
+         \item Let $M_i$ denote the matrix on line $i$ from our results in 
+               \circled{1}. Since $G \simeq S_4$, it follows that the conjugacy 
+               classes of $G$ are:
+               \begin{IEEEeqnarray*}{rCl}
+                  1 + 1 + 1 + 1 & = & \{M_1\} \\
+                  2 + 1 + 1 & = & \{M_{19}, M_{20}, M_{21}, M_{22},
+                                    M_{23}, M_{24}\} \\
+                  3 + 1 & = & \{M_{11}, M_{12}, M_{13}, M_{14},
+                                M_{15}, M_{16}, M_{17}, M_{18}\} \\
+                  2 + 2 & = & \{M_3, M_6, M_9\} \\
+                  4 & = & \{M_2, M_4, M_5, M_7, M_8, M_{10}\}
+               \end{IEEEeqnarray*}
+         \item Setting $n = 3$ in the equation in the Bonus below we have that 
+               there are 57 ways to color a cube with three colors.
+         \item Setting $n = 2$ in the equation in the Bonus below we have that 
+               there are 10 ways to color a cube with three colors.
+         \item[\textbf{Bonus.}] \text{ }
+
+               \begin{center}
+               \begin{tabular}{@{}|l|c|c|c|@{}}
+                  \hline
+                  Conjugacy Class & Representative $g$ & \#g & \# of elements \\
+                  \hline
+                  1 + 1 + 1 + 1 & $\left(\begin{tabular}{@{}ccc@{}}
+                     1 & 0 & 0 \\
+                     0 & 1 & 0 \\
+                     0 & 0 & 1
+                  \end{tabular}\right)$ & $n^6$ & 1 \\
+                  \hline
+                  2 + 1 + 1 & $\left(\begin{tabular}{@{}rrr@{}}
+                     0 & $-1$ & 0 \\
+                     $-1$ & 1 & 0 \\
+                     0 & 0 & $-1$
+                  \end{tabular}\right)$ & $n^3$ & 6 \\
+                  \hline
+                  3 + 1 & $\left(\begin{tabular}{@{}ccc@{}}
+                     0 & 1 & 0 \\
+                     0 & 0 & 1 \\
+                     1 & 0 & 0
+                  \end{tabular}\right)$ & $n^2$ & 8 \\
+                  \hline
+                  2 + 2 & $\left(\begin{tabular}{@{}ccc@{}}
+                     $-1$ & 0 & 0 \\
+                     0 & $-1$ & 0 \\
+                     0 & 0 & 1
+                  \end{tabular}\right)$ & $n^4$ & 3 \\
+                  \hline
+                  4 & $\left(\begin{tabular}{@{}ccc@{}}
+                     0 & $-1$ & 0 \\
+                     1 & 0 & 0 \\
+                     0 & 0 & 1
+                  \end{tabular}\right)$ & $n^3$ & 6 \\
+                  \hline
+               \end{tabular}
+               \end{center}
+               Thus the number of ways to color a cube with $n$ colors is
+               $$\frac{n^6 + 6n^3 + 8n^2 + 3n^4 + 6n^3}{24} =
+                 \frac{n^6 + 3n^4 + 12n^3 + 8n^2}{24}.$$
       \end{enumerate}
 \end{enumerate}
 \end{document}
