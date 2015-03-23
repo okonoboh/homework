@@ -7,7 +7,6 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
-\usepackage[retainorgcmds]{IEEEtrantools}
 
 
 \usepackage{tikz}
@@ -67,7 +66,40 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a               
+         \item True. 
+
+               \textbf{Proof.} Assume that $g \in G$ is the only element of
+               order 2. Let $h$ be an arbitrary element in $G$. It suffices to
+               show that $gh = hg$. We claim that $|hgh^{-1}| = 2$. So we have
+               that $(hgh^{-1})^2 = hgh^{-1}hgh^{-1} = hg^2h^{-1} = hh^{-1} =e$.
+               Now suppose that $hgh^{-1} = e$. Then it must be the case that
+               $g = h^{-1}h = e$, a contradiction since $|g| = 2$. Thus we have
+               that $|hgh^{-1}| = 2$. But since $g$ is the only element of order
+               2, it follows that $hgh^{-1} = g$, so that $hg = gh$; since the
+               choice of $h$ was arbitrary, we can conclude that $g \in Z(G)$.
+               \qed
+         \item True.
+         
+               \textbf{Proof.} Let $H_1 \le G$, $H_2 \le G$, and
+               $H' = H_1 \cap H_2$. Since $e$ is in both $H_1$ and $H_2$, it
+               follows that $e \in H'$. The set $H'$ is also associative
+               because it is a subset of $G$. Now let $a, b \in H'$. Thus we
+               must have that $a, b \in H_1$ and $a, b \in H_2$. Since $H_1$ and
+               $H_2$ are groups, it follows that they both contain $ab$ and
+               $a^{-1}$ so that $ab, a^{-1} \in H'$. That is, $H$ is closed
+               under the operation of $G$ and also closed under taking inverses.
+               Thus $H' \le G$. \qed
+         \item False.
+         
+               \textbf{Counterexample:} Consider $2\Z, 3\Z \le \Z$. We have that
+               $2 \in 2\Z$ and $3 \in 3\Z$, but $2 + 3 = 5 \notin 2\Z \cup 3\Z$.
+         \item True.
+         \item True.
+         
+               \textbf{Proof.} Let $g$ and $h$ have orders 10 and 12 in some
+               abelian group. The element $g^2$ has order 5 and the element
+               $h^2$ has order 6. Since $\gcd(5, 6) = 1$, it follows that
+               $|g^2h^2| = 5 \cdot 6 = 30$. \qed
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item We have beads of four different colors.
