@@ -5,7 +5,6 @@
 \usepackage{amsfonts}
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
-\usepackage[retainorgcmds]{IEEEtrantools}
 
 \voffset = -50pt
 %\textheight = 700pt
@@ -34,6 +33,7 @@
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\I}{\mathbb{I}}
+\newcommand{\D}{\displaystyle}
 %\setcounter{section}{-1}
 
 
@@ -44,5 +44,54 @@
          $p(y) = ky(1/4)^y$, $y = 0, 1, 2, 3, \ldots$. Find
 
          $(a)\;k \qquad \text{ and } \qquad (b)\;E(Y) \text{ and } V(Y)$.
+         
+      \textbf{Solution.} Let $p = 1/4$.
+      
+      \begin{enumerate}
+         \item We have that
+               \begin{align*}
+                  1 &= \sum_{y=0}^\infty kyp^y \\
+                    &= \sum_{y=0}^\infty kp\left(\frac{d}{dp}p^y\right) \\
+                    &= kp\frac{d}{dp}\sum_{y=0}^\infty p^y \\
+                    &= kp\frac{d}{dp}\left(\frac{1}{1 - p}\right) \\
+                    &= \frac{kp}{(1 - p)^2}.
+               \end{align*}
+               It follows that $\D k = \frac{(1 - p)^2}{p} = \frac{9}{4}$.
+         \item  We have that
+               \begin{align*}
+                  E(Y) &= \sum_{y=0}^\infty ky^2p^y \\
+                       &= \sum_{y=0}^\infty ky^2p^y - \sum_{y=0}^\infty kyp^y
+                          + \sum_{y=0}^\infty kyp^y    \\
+                       &= \sum_{y=0}^\infty k(y^2-y)p^y +
+                          \sum_{y=0}^\infty kyp^y    \\
+                       &= \sum_{y=0}^\infty kp^2\left(\frac{d^2}{dp^2}p^y\right)
+                          + \sum_{y=0}^\infty kyp^y \\
+                       &= kp^2\frac{d^2}{dp^2}\sum_{y=0}^\infty p^y + 1 \\
+                       &= kp^2\frac{d^2}{dp^2}\left(\frac{1}{1 - p}\right) + 1\\
+                       &= \frac{2kp^2}{(1-p)^3} + 1 \\
+                       &= \frac{5}{3},
+               \end{align*}
+               and
+               \begin{align*}
+                  E(Y^2) &= \sum_{y=0}^\infty ky^3p^y \\
+                       &= \sum_{y=0}^\infty ky^3p^y - 3\sum_{y=0}^\infty ky^2p^y
+                          + 2\sum_{y=0}^\infty kyp^y
+                          + 3\sum_{y=0}^\infty ky^2p^y
+                          - 2\sum_{y=0}^\infty kyp^y   \\
+                       &= \sum_{y=0}^\infty k(y^3-3y^2+2y)p^y + 3E(Y) - 2 \\
+                       &= \sum_{y=0}^\infty ky(y-1)(y-2)p^y + 3 \\
+                       &= \sum_{y=0}^\infty kp^3\left(\frac{d^3}{dp^3}p^y\right)
+                          + 3 \\
+                       &= kp^3\frac{d^3}{dp^3}\sum_{y=0}^\infty p^y + 3 \\
+                       &= \frac{6kp^3}{(1 - p)^4} + 3.
+               \end{align*}
+               
+               Since $V(Y) = E(Y^2) - E(Y)^2$, it follows that
+               \begin{align*}
+                  V(Y) &= E(Y^2) - E(Y)^2 \\
+                       &= \frac{6kp^3}{(1 - p)^4} + 3 - \frac{25}{9} \\
+                       &= \frac{8}{9}.
+               \end{align*}
+      \end{enumerate}
 \end{enumerate}
 \end{document}
