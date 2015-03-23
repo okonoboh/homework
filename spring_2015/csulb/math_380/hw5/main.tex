@@ -240,5 +240,28 @@
                  &= \frac{nr}{N}\left(\frac{N-r}{N}\right)
                     \left(\frac{N-n}{N-1}\right).
          \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item The number of chocolate chips in 1 cup of chocolate chip ice cream has
+         a Poisson distribution with a mean of 10 chips per cup.
+         \begin{enumerate}
+            \item What is the probability that a cup of chocolate chip ice
+                  cream has 9 chocolate chips.
+            \item What is the probability that a half cup of chocolate chip ice
+                  cream has at least 3 chocolate chips?
+         \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item We have that $\lambda = 10$, so that
+               $$P(Y = 9) = p(9) = \frac{10^9}{9!}e^{-10} \approx 0.12511.$$
+         \item Now $\lambda = 5$, so that
+               \begin{align*}
+                  P(Y \ge 3) &= 1 - P(Y < 3) \\
+                             &= 1 - p(0) - p(1) - p(2) \\
+                             &= 1 - e^{-5} - 5e^{-5} - \frac{5^2}{2}e^{-5} \\
+                             &\approx 0.875348.
+               \end{align*} 
+      \end{enumerate}
 \end{enumerate}
 \end{document}
