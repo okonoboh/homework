@@ -122,5 +122,32 @@
                 &= npE[(X + 1)^{k-1}],
       \end{align*}
       which is what we wanted to show. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Using the recursion relation found in problem 2 for the binomial random
+         variable with parameters $n$ and $p$, find $E[Y^2]$ and then $V(Y)$.
+
+      \textbf{Solution.} If we set $k = 2$ in the formula in problem 2, we get
+      \begin{align*}
+         E[Y^2] &= npE[(X + 1)] \\
+                &= np(E[X] + E[1]) \\
+                &= np((n-1)p + 1) \\
+                &= (np)^2 - np^2 + np.
+      \end{align*}
+      Thus
+      \begin{align*}
+         V(Y) &= E[Y^2] - E[Y]^2 \\
+              &= (np)^2 - np^2 + np - (np)^2 \\
+              &= np - np^2 \\
+              &= np(1 - p).
+      \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Using the identity from problem 2, show that
+         \begin{enumerate}
+            \item if $Y$ is a negative binomial random variable with parameters
+                  $r$ and $p$, then $E[Y^k] = \frac{r}{p}E[(X-1)^{k-1}]$, where
+                  $X$ is a negative binomial random variable with parameters
+                  $r + 1$ and $p$.
+            \item Use the relation in (a) to find $E[Y]$ and $V(Y)$.
+         \end{enumerate}
 \end{enumerate}
 \end{document}
