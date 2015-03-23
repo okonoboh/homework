@@ -144,10 +144,48 @@
    \item Using the identity from problem 2, show that
          \begin{enumerate}
             \item if $Y$ is a negative binomial random variable with parameters
-                  $r$ and $p$, then $E[Y^k] = \frac{r}{p}E[(X-1)^{k-1}]$, where
-                  $X$ is a negative binomial random variable with parameters
-                  $r + 1$ and $p$.
+                  $r$ and $p$, then
+                  $$E[Y^k] = \frac{r}{p}E[(X-1)^{k-1}],$$
+                  where $X$ is a negative binomial random variable with 
+                  parameters $r + 1$ and $p$.
             \item Use the relation in (a) to find $E[Y]$ and $V(Y)$.
          \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item From problem 2, we know that 
+               $$\frac{1}{r}\binom{y-1}{r-1} = \frac{1}{y}\binom{y}{r};$$
+               thus
+               \begin{align*}
+                  E[Y^k] &= \sum_{y=r}^\infty y^kp(y) \\
+                         &= \sum_{y=r}^\infty y^k \binom{y-1}{r-1}
+                            p^r(1-p)^{y-r} \\
+                         &= \frac{r}{p}\frac{p}{r}\sum_{y=r}^\infty
+                            y^k \binom{y-1}{r-1} p^r(1-p)^{y-r} \\
+                         &= \frac{r}{p}\sum_{y=r}^\infty
+                            y^k\frac{1}{r}\binom{y-1}{r-1} p^{r+1}(1-p)^{y-r} \\
+                         &= \frac{r}{p}\sum_{y=r}^\infty
+                            y^k\frac{1}{y}\binom{y}{r} p^{r+1}(1-p)^{y-r} \\
+                         &= \frac{r}{p}\sum_{y=r}^\infty
+                            y^{k-1}\binom{y}{r} p^{r+1}(1-p)^{y-r} \\
+                         &= \frac{r}{p}\sum_{x=r+1}^\infty
+                            (x-1)^{k-1}\binom{x-1}{r} p^{r+1}(1-p)^{(x-1)-r} \\
+                         &= \frac{r}{p}\sum_{x=r+1}^\infty (x-1)^{k-1}p(x) \\
+                         &= \frac{r}{p}E[(X-1)^{k-1}]. \\
+               \end{align*}
+         \item If we set $k = 1$ in (a), we immediately get that
+               $\D E[Y] = \frac{r}{p}$. Now
+               \begin{align*}
+                  V(Y) &= E[Y^2] - E[Y]^2 \\
+                       &= \frac{r}{p}E[(X-1)] - \frac{r^2}{p^2} \\
+                       &= \frac{r}{p}(E[X]- E[1]) - \frac{r^2}{p^2} \\
+                       &= \frac{r}{p}\left(\frac{r + 1}{p}- 1\right) -
+                          \frac{r^2}{p^2} \\
+                       &= \frac{r^2 + r}{p^2}- \frac{r}{p} - \frac{r^2}{p^2} \\
+                       &= \frac{r - pr}{p^2} \\
+                       &= \frac{r(1 - p)}{p^2}.
+               \end{align*}
+      \end{enumerate}
 \end{enumerate}
 \end{document}
