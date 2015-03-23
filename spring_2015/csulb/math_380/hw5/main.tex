@@ -349,6 +349,31 @@
                Since $E[Y]$ does not exist, it follows that $V(Y)$ does not
                exist.
       \end{enumerate}
-   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item A point is chosen at random on a line segment of length $L$. Find the
+         probability that the ratio of the shorter segment to the longer segment
+         is less than $1/4$.
+
+      \textbf{Solution} Let $Y$ be a random variable that represents the point
+      on the line. Let $x$ be a point on the line segment. Then we have two
+      cases:
+
+      \textbf{Case 1.} The left segment is no bigger than the right. Thus we
+      want $\D\frac{x}{L - x} < \frac{1}{4},$ so that $4x < L - x$; that is,
+      $\D x < \frac{L}{5}$.
+
+      \textbf{Case 2.} The right segment is no bigger than the left. Thus we
+      want $\D\frac{L-x}{x} < \frac{1}{4},$ so that $4L - 4x < x$; that is,
+      $\D x > \frac{4L}{5}$.
+
+      If $X$ is a random variable representing a point on the line segment, we
+      want $\D P\left(X < \frac{L}{5}\right)$ or
+      $\D P\left(X > \frac{4L}{5}\right)$. Thus
+      \begin{align*}
+         P\left(X < \frac{L}{5}\right) + P\left(X > \frac{4L}{5}\right) &=
+         P\left(X < \frac{L}{5}\right) + 1 - P\left(X \le \frac{4L}{5}\right) \\
+            &= \frac{L/5}{L} + 1 - \frac{4L/5}{L} \\
+            &= \frac{2}{5}.
+      \end{align*}
 \end{enumerate}
 \end{document}
