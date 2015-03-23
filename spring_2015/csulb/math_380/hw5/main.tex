@@ -263,5 +263,50 @@
                              &\approx 0.875348.
                \end{align*} 
       \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose the distribution function of $Y$ is given by
+         \begin{equation*}
+            F(y) = \begin{cases}
+               0   & \text{if } y < 0 \\
+               y^3 & \text{if } 0 \le y \le 1 \\
+               1   & \text{if } y > 1.
+            \end{cases}
+         \end{equation*}
+         Find (a) $\D P\left(Y > \frac{3}{4}\right)$ \qquad (b) $E[Y]$ \qquad 
+                  and \qquad (c) $V(Y)$.
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item We have that
+               \begin{align*}
+                  P\left(Y > \frac{3}{4}\right) &=
+                     1 - P\left(Y \le \frac{3}{4}\right) \\
+                     &= 1 - F\left(\frac{3}{4}\right) \\
+                     &= 0.578125.
+               \end{align*}
+         \item The probability density function, $f(y)$, is
+               \begin{equation*}
+                  \frac{dF(y)}{dy} = \begin{cases}
+                     0   & \text{if } y < 0 \\
+                     3y^2 & \text{if } 0 \le y < 1 \\
+                     0   & \text{if } y > 1,
+                  \end{cases}
+               \end{equation*}
+               so that
+               \begin{align*}
+                  E[Y] &= \int_{-\infty}^{\infty} y f(y) dy \\
+                     &= \int_0^1 y f(y) dy \\
+                     &= \int_0^1 3y^3 dy = 0.75.
+               \end{align*}
+         \item By definition
+               \begin{align*}
+                  V(Y) &= E[Y^2] - E[Y]^2 \\
+                     &= \int_{-\infty}^{\infty} y^2f(y) dy - 0.75^2 \\
+                     &= \int_0^1 3y^4 dy - 0.75^2 \\
+                     &= 0.0375.
+               \end{align*}
+               
+      \end{enumerate}
 \end{enumerate}
 \end{document}
