@@ -128,7 +128,7 @@
 
       \textbf{Solution.} If we set $k = 2$ in the formula in problem 2, we get
       \begin{align*}
-         E[Y^2] &= npE[(X + 1)] \\
+         E[Y^2] &= npE[X + 1] \\
                 &= np(E[X] + E[1]) \\
                 &= np((n-1)p + 1) \\
                 &= (np)^2 - np^2 + np.
@@ -178,7 +178,7 @@
                $\D E[Y] = \frac{r}{p}$. Now
                \begin{align*}
                   V(Y) &= E[Y^2] - E[Y]^2 \\
-                       &= \frac{r}{p}E[(X-1)] - \frac{r^2}{p^2} \\
+                       &= \frac{r}{p}E[X-1] - \frac{r^2}{p^2} \\
                        &= \frac{r}{p}(E[X]- E[1]) - \frac{r^2}{p^2} \\
                        &= \frac{r}{p}\left(\frac{r + 1}{p}- 1\right) -
                           \frac{r^2}{p^2} \\
@@ -212,5 +212,33 @@
                 &= \frac{nr}{N}E[(X+1)^{k-1}],
       \end{align*}
       which is what we wanted to prove. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item If $Y$ is a hypergeometric random variable with parameters $N$, $r$,
+         and $n$, use the recursion relation found in problem 5 to find $E[Y]$
+         and $V(Y)$.
+
+         \textbf{Solution.} Plugging in $k = 1$ in the formula from problem 5
+         immediately shows us that $\D E[Y] = \frac{nr}{N}$. Using this same
+         formula, we have that
+         \begin{align*}
+            V(Y) &= E[Y^2] - E[Y]^2 \\
+                 &= \frac{nr}{N}E[X+1] - \left(\frac{nr}{N}\right)^2 \\
+                 &= \frac{nr}{N}(E[X]+E[1]) - \left(\frac{nr}{N}\right)^2 \\
+                 &= \frac{nr}{N}\left(\frac{(n-1)(r-1)}{N-1}+1\right) -
+                    \left(\frac{nr}{N}\right)^2 \\
+                 &= \frac{nr}{N}\left(\frac{(n-1)(r-1)+N-1}{N-1}\right) -
+                    \left(\frac{nr}{N}\right)^2 \\
+                 &= \frac{nr}{N}\left(\frac{(n-1)(r-1)+N-1}{N-1}-
+                    \frac{nr}{N}\right) \\
+                 &= \frac{nr}{N}\left(
+                    \frac{N(n-1)(r-1)+N^2-N-nr(N-1)}{N(N-1)}\right) \\
+                 &= \frac{nr}{N}\left(
+                    \frac{Nnr-Nn-Nr+N+N^2-N-Nnr+nr}{N(N-1)}\right) \\
+                 &= \frac{nr}{N}\left(\frac{-Nn-Nr+N^2+nr}{N(N-1)}\right) \\
+                 &= \frac{nr}{N}\left(\frac{N^2-Nr-Nn+nr}{N(N-1)}\right) \\
+                 &= \frac{nr}{N}\left(\frac{N(N-r)-n(N-r)}{N(N-1)}\right) \\
+                 &= \frac{nr}{N}\left(\frac{N-r}{N}\right)
+                    \left(\frac{N-n}{N-1}\right).
+         \end{align*}
 \end{enumerate}
 \end{document}
