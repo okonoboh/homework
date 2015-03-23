@@ -187,5 +187,30 @@
                        &= \frac{r(1 - p)}{p^2}.
                \end{align*}
       \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Using the identity from problem 2, show that if $Y$ is a hypergeometric
+         random variable with parameters $N$, $r$, amd $n$, then
+         $$E[Y^k] = \frac{nr}{N}E[(X+1)^{k-1}],$$
+         where $X$ is a hypergeometric random variable with parameters $N - 1$,
+         $r - 1$, and $n - 1$.
+
+      \textbf{Proof.} We have that
+      \begin{align*}
+         E[Y^k] &= \sum_{y=0}^ny^kp(y) \\
+                &= \sum_{y=0}^ny^k \frac{\D\binom{r}{y}\binom{N-r}{n-y}}
+                                        {\D\binom{N}{n}} \\
+                &= \sum_{y=1}^ny^k \frac{\D\binom{r}{y}\binom{N-r}{n-y}}
+                                        {\D\binom{N}{n}} \\
+                &= \sum_{y=1}^ny^k \frac{\D\frac{r}{y}\binom{r-1}{y-1}
+                   \binom{N-r}{n-y}}{\D\frac{N}{n}\binom{N-1}{n-1}} \\
+                &= \frac{nr}{N}\sum_{y=1}^ny^{k-1} \frac{\D\binom{r-1}{y-1}
+                   \binom{N-r}{n-y}}{\D\binom{N-1}{n-1}} \\
+                &= \frac{nr}{N}\sum_{x=0}^{n-1}(x+1)^{k-1}\frac{\D\binom{r-1}{x}
+                   \binom{(N-1)-(r-1)}{(n-1)-x)}}{\D\binom{N-1}{n-1}}
+                   &[\text{Let } y = x + 1] \\
+                &= \frac{nr}{N}\sum_{x=0}^{n-1}(x+1)^{k-1}p(x) \\
+                &= \frac{nr}{N}E[(X+1)^{k-1}],
+      \end{align*}
+      which is what we wanted to prove. \qed
 \end{enumerate}
 \end{document}
