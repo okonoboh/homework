@@ -93,5 +93,34 @@
                        &= \frac{8}{9}.
                \end{align*}
       \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Verify the identity $\D\binom{n}{k} = \frac{n}{k}\binom{n-1}{k-1}$ and
+         use it to show that $E[Y^k] = npE[(X+1)^{k-1}]$ where $Y$ is a binomial
+         random variable with parameters $n$ and $p$ and $X$ is a binomial
+         random variable with parameters $n - 1$ and $p$.
+
+      \textbf{Proof.} We have that
+      \begin{align*}
+         \binom{n}{k} &= \frac{n!}{k!(n - k)!} \\
+            &= \frac{n(n - 1)!}{k(k - 1)!(n - k)!} \\
+            &= \frac{n}{k}\frac{(n - 1)!}{(k - 1)!(n - k)!} \\
+            &= \frac{n}{k}\frac{(n - 1)!}{(k - 1)!((n - 1) - (k - 1))!} \\
+            &= \frac{n}{k}\binom{n - 1}{k - 1}.
+      \end{align*}
+
+      Now
+      \begin{align*}
+         E[Y^k] &= \sum_{y=0}^ny^kp(y) &[\text{Definition}] \\
+                &= \sum_{y=0}^ny^k\binom{n}{y}p^y(1 - p)^{n - y} \\
+                &= \sum_{y=1}^ny^k\binom{n}{y}p^y(1 - p)^{n - y} \\
+                &= \sum_{y=1}^ny^{k-1}n\binom{n - 1}{y - 1}p^y(1 - p)^{n - y} \\
+                &= np\sum_{y=1}^ny^{k-1}\binom{n - 1}{y - 1}
+                   p^{y-1}(1 - p)^{n - y} \\
+                &= np\sum_{x=0}^{n-1}(x + 1)^{k-1}\binom{n - 1}{x}
+                   p^{x}(1 - p)^{(n - 1)-x} &[\text{Let }y = x + 1] \\
+                &= np\sum_{x=0}^{n-1}(x + 1)^{k-1}p(x) \\
+                &= npE[(X + 1)^{k-1}],
+      \end{align*}
+      which is what we wanted to show. \qed
 \end{enumerate}
 \end{document}
