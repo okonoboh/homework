@@ -305,8 +305,50 @@
                      &= \int_{-\infty}^{\infty} y^2f(y) dy - 0.75^2 \\
                      &= \int_0^1 3y^4 dy - 0.75^2 \\
                      &= 0.0375.
-               \end{align*}
-               
+               \end{align*}               
       \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $Y$ be a continuous random variable with density function
+         $$f(y) = \frac{k}{1 + y^2}, \infty < y < \infty.$$
+         Find (a) $k$ \qquad (b) $E[Y]$ \qquad and $V(Y)$, if they exist. (Such 
+         a distribution is called a Cauchy distribution.)
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item We must have that
+               \begin{align*}
+                  1 &= \int_{-\infty}^{\infty} f(y) dy \\
+                    &= \int_{-\infty}^{\infty} \frac{k}{1 + y^2} dy \\
+                    &= \int_{-\infty}^a \frac{k}{1 + y^2} dy +
+                       \int_a^\infty \frac{k}{1 + y^2} dy \\
+                    &= \lim_{t\rightarrow-\infty}\int_t^a \frac{k}{1 + y^2} dy +
+                       \lim_{s\rightarrow\infty}\int_a^s \frac{k}{1 + y^2} dy \\
+                    &= k\lim_{t\rightarrow-\infty}(
+                       \text{arctan}(a) - \text{arctan}(t)) +
+                       k\lim_{s\rightarrow\infty}(
+                       \text{arctan}(s) - \text{arctan}(a)) \\
+                    &= k\left(\text{arctan}(a) + \frac{\pi}{2}\right) +
+                       k\left(\frac{\pi}{2} - \text{arctan}(a)\right) \\
+                    &= k\pi,
+               \end{align*}
+               so that $\D k = \frac{1}{\pi}$.
+         \item \begin{align*}
+                  E[Y] &= \int_{-\infty}^{\infty} y f(y) dy \\
+                    &= \int_{-\infty}^{\infty} \frac{ky}{1 + y^2} dy \\
+                    &= \lim_{t\rightarrow-\infty}\int_t^a
+                       \frac{ky}{1 + y^2} dy +
+                       \lim_{s\rightarrow\infty}\int_a^s \frac{ky}{1 + y^2} dy\\
+                    &= \frac{k}{2}\lim_{t\rightarrow-\infty}(
+                       \text{ln}(1 + a^2) - \text{ln}(1+t^2)) +
+                       \frac{k}{2}\lim_{s\rightarrow\infty}(
+                       \text{ln}(1+s^2) - \text{ln}(1+a^2)) \\
+                    &= \text{Does Not Exist}.
+               \end{align*}
+
+               Since $E[Y]$ does not exist, it follows that $V(Y)$ does not
+               exist.
+      \end{enumerate}
+   
 \end{enumerate}
 \end{document}
