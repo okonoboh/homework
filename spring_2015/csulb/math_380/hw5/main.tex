@@ -43,7 +43,7 @@
    \item Suppose $Y$ is a discrete random variable with probability function
          $p(y) = ky(1/4)^y$, $y = 0, 1, 2, 3, \ldots$. Find
 
-         $(a)\;k \qquad \text{ and } \qquad (b)\;E(Y) \text{ and } V(Y)$.
+         $(a)\;k \qquad \text{ and } \qquad (b)\;E[Y] \text{ and } V(Y)$.
          
       \textbf{Solution.} Let $p = 1/4$.
       
@@ -59,7 +59,7 @@
                It follows that $\D k = \frac{(1 - p)^2}{p} = \frac{9}{4}$.
          \item  We have that
                \begin{align*}
-                  E(Y) &= \sum_{y=0}^\infty ky^2p^y \\
+                  E[Y] &= \sum_{y=0}^\infty ky^2p^y \\
                        &= \sum_{y=0}^\infty ky^2p^y - \sum_{y=0}^\infty kyp^y
                           + \sum_{y=0}^\infty kyp^y    \\
                        &= \sum_{y=0}^\infty k(y^2-y)p^y +
@@ -73,12 +73,12 @@
                \end{align*}
                and
                \begin{align*}
-                  E(Y^2) &= \sum_{y=0}^\infty ky^3p^y \\
+                  E[Y^2] &= \sum_{y=0}^\infty ky^3p^y \\
                        &= \sum_{y=0}^\infty ky^3p^y - 3\sum_{y=0}^\infty ky^2p^y
                           + 2\sum_{y=0}^\infty kyp^y
                           + 3\sum_{y=0}^\infty ky^2p^y
                           - 2\sum_{y=0}^\infty kyp^y   \\
-                       &= \sum_{y=0}^\infty k(y^3-3y^2+2y)p^y + 3E(Y) - 2 \\
+                       &= \sum_{y=0}^\infty k(y^3-3y^2+2y)p^y + 3E[Y] - 2 \\
                        &= \sum_{y=0}^\infty ky(y-1)(y-2)p^y + 3 \\
                        &= \sum_{y=0}^\infty kp^3\left(\frac{d^3}{dp^3}p^y\right)
                           + 3 \\
@@ -86,9 +86,9 @@
                        &= \frac{6kp^3}{(1 - p)^4} + 3.
                \end{align*}
                
-               Since $V(Y) = E(Y^2) - E(Y)^2$, it follows that
+               Since $V(Y) = E[Y^2] - E[Y]^2$, it follows that
                \begin{align*}
-                  V(Y) &= E(Y^2) - E(Y)^2 \\
+                  V(Y) &= E[Y^2] - E[Y]^2 \\
                        &= \frac{6kp^3}{(1 - p)^4} + 3 - \frac{25}{9} \\
                        &= \frac{8}{9}.
                \end{align*}

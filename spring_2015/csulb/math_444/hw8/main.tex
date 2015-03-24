@@ -93,7 +93,18 @@
          
                \textbf{Counterexample:} Consider $2\Z, 3\Z \le \Z$. We have that
                $2 \in 2\Z$ and $3 \in 3\Z$, but $2 + 3 = 5 \notin 2\Z \cup 3\Z$.
-         \item True.
+         \item True. The permutation
+               $$\sigma = (1\;2\;3\;4\;5)(6\;7\;8\;9)(10\;11\;12)$$
+               has order 60. Let Suppose $\alpha \in S_{12}$ has order greater
+               than 60. Now write $\alpha$ as a product of disjoint cycles
+               $$\alpha = \alpha_1\alpha_2\cdots\alpha_n.$$
+               Let $j \in \{1, 2, \ldots, n\}$. Then $\alpha_j$ cannot be a
+               12-cycle since that would imply that $|\alpha| = 12$. For the
+               same reason $\alpha_j$ can neither be an 11-cycle or a 10-cycle.
+               If $\alpha_j$ is a 9-cycle, then $|\alpha|$ is either 9 (9+3)or
+               18 (9+2+1).
+               Now if $\alpha_j$ is a 8-cycle, then $|\alpha|$ is either 8
+               (8+4, 8+2+2, 8+2+1+1) or 24(8+3+1).
          \item True.
          
                \textbf{Proof.} Let $g$ and $h$ have orders 10 and 12 in some
