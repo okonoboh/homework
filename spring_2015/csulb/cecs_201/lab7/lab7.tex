@@ -48,14 +48,22 @@
 \newpage
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[b.] \textbf{Introduction.} This lab involves using logic gates to
-               determine if a four bit unsigned number is a prime.
-   \item[c.] \textbf{Project Description.} The four bits of the number are
-             mapped to four inputs $A$, $B$, $C$ and $D$. If the number
-             represented by the bits is true, then the output is 1; otherwise,
-             it is 0. A Karnaugh map is used to simplify the equation and both
-             the simplified and unsimplified equations are simultaneously tested
-             using the Diligent board.
+   \item[b.] \textbf{Introduction.} In this lab we create a 4-binary input to a
+              7 segment LED Binary to Hexidecimal decoder.
+   \item[c.] \textbf{Project Description.} An led contains 7 segment, each of
+             which can be in the on (0) or off (1) state. The state of each 
+             segment depends on the character that is currently being displayed. 
+             In this lab, we are interested in the 16 hexadecimal characters 
+             namely:
+             $$0, 1, 2, 3, 4, 5, 6, 7, 8, 9 A, b, C, d, E, F.$$
+             Each of these characters maps to a unique input, and the truth 
+             table below shows the segments that are on and off for these 
+             characters.
+
+             The ledEnable output ensures that only a character whose binary 
+             input contains at least a 1 is displayed; that is, only 0 is not
+             displayed.
+
   	\item[d.] \textbf{Schematic.}
              \begin{center}
                 \includegraphics[width=\textwidth]{schematic.png}
