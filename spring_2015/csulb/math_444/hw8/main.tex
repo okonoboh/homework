@@ -150,7 +150,120 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a               
+         \item We claim that $S_1$ and $S_2$ are both commutative rings.
+
+               \textbf{Proof.} First we want to show that $(S_1, +)$ and
+               $(S_2, +)$ are abelian groups. 
+               
+               \textbf{Identity.} It is clear that $S_1$ and $S_2$ both contain
+               the zero matrix, which is the identity under addition.
+               
+               \textbf{Associativity, Closure \& Commutativity under +.} Since
+               $\Z$ is associative, closed, and commutative under addition, it
+               follows that $S_1$ and $S_2$ are both associative, closed, and
+               commutative under addition.
+               
+               \textbf{Inverse.} For each matrix $A$ in $S_1$ (resp. $S_2$) we
+               have that $-A$ is in $S_1$ (resp. $S_2$) so that $S_1$ and $S_2$
+               are both closed under taking inverses. \\
+               
+               Thus we have shown that $S_1$ and $S_2$ are abelian groups.
+              
+               \textbf{Identity under multiplication.} It is clear that $S_1$
+               and $S_2$ both contain the $2\times 2$ identity matrix, which
+               serves as the multiplicative identity.
+               
+               \textbf{Associativity, Closure \& Commutativity under
+               multiplication.} Let
+               $$\left(\begin{tabular}{@{}c c@{}}
+                     $a$ & $b$ \\
+                     $b$ & $a$
+                  \end{tabular}\right), \left(\begin{tabular}{@{}c c@{}}
+                     $c$ & $d$ \\
+                     $d$ & $c$
+                  \end{tabular}\right) \in S_1 \text{ and }
+                  \left(\begin{tabular}{@{}r c@{}}
+                     $e$ & $f$ \\
+                     $-f$ & $e$
+                  \end{tabular}\right), \left(\begin{tabular}{@{}r c@{}}
+                     $g$ & $h$ \\
+                     $-h$ & $g$
+                  \end{tabular}\right) \in S_2.$$
+                  Then it follows that
+                  $$\left(\begin{tabular}{@{}c c@{}}
+                     $a$ & $b$ \\
+                     $b$ & $a$
+                  \end{tabular}\right)\left(\begin{tabular}{@{}c c@{}}
+                     $c$ & $d$ \\
+                     $d$ & $c$
+                  \end{tabular}\right) = \left(\begin{tabular}{@{}c c@{}}
+                     $ac+bd$ & $ad+bc$ \\
+                     $ad+bc$ & $ac+bd$
+                  \end{tabular}\right) = \left(\begin{tabular}{@{}c c@{}}
+                     $c$ & $d$ \\
+                     $d$ & $c$
+                  \end{tabular}\right)\left(\begin{tabular}{@{}c c@{}}
+                     $a$ & $b$ \\
+                     $b$ & $a$
+                  \end{tabular}\right) \in S_1$$
+                  and
+                  $$\left(\begin{tabular}{@{}r c@{}}
+                     $e$ & $f$ \\
+                     $-f$ & $e$
+                  \end{tabular}\right)\left(\begin{tabular}{@{}r c@{}}
+                     $g$ & $h$ \\
+                     $-h$ & $g$
+                  \end{tabular}\right) = \left(\begin{tabular}{@{}r c@{}}
+                     $eg-fh$ & $eh+fg$ \\
+                     $-eh-fg$ & $eg-fh$
+                  \end{tabular}\right) = \left(\begin{tabular}{@{}r c@{}}
+                     $g$ & $h$ \\
+                     $-h$ & $g$
+                  \end{tabular}\right)\left(\begin{tabular}{@{}r c@{}}
+                     $e$ & $f$ \\
+                     $-f$ & $e$
+                  \end{tabular}\right) \in S_2$$
+               so that $S_1$ and $S_2$ are both closed and commutative under
+               multiplication. Associativity follows since matrices are
+               associative under multiplication.
+               
+               \textbf{Distributivity.} For any $n \times n$ matrices $A$, $B$,
+               and $C$, we know that
+               $$A(B + C) = AB + AC \text{ and that }
+                (B + C)A = BA + CA;$$ thus multiplication distributes over
+               addition in $S_1$ and $S_2$. \\
+               
+               From the arguments above, we have thus shown that $S_1$ and $S_2$
+               are rings. \qed
+         \item $S_1$ is not an integral domain because we have that
+               $$A = \left(\begin{tabular}{@{}r r@{}}
+                     1 & $-1$ \\
+                     $-1$ & 1
+                  \end{tabular}\right), B = \left(\begin{tabular}{@{}r c@{}}
+                     1 & 1 \\
+                     1 & 1
+                  \end{tabular}\right) \in S_1,$$
+               with $A$ and $B$ nonzero but $AB = 0$. We now claim that $S_2$ is
+               an integral domain. 
+               
+               \textbf{Proof.} Suppose to the contrary that $S_2$ is not an
+               integral domain. Then there exist nonzero matrices
+               $A, B \in S_2$, where
+               $$A = \left(\begin{tabular}{@{}r r@{}}
+                     $a$ & $b$ \\
+                     $-b$ & $a$
+                  \end{tabular}\right), B = \left(\begin{tabular}{@{}r c@{}}
+                     $c$ & $d$ \\
+                     $-d$ & $c$
+                  \end{tabular}\right),$$
+                  such that $AB = 0$. Then it follows that
+                  $0 = \det(0) = \det(A)\det(B)$. Since $\det(A)$ and $\det(B)$
+                  are integers and since $\Z$ is an integral domain, it follows
+                  that $\det(A) = 0$ or $\det(B) = 0$. Assume without loss that
+                  $\det(A) = 0$. Then it follows that $a^2 + b^2 = 0$, so that
+                  $a = b = 0$, a contradiction since $A$ is nonzero. Thus $S_2$
+                  is an integral domain. \qed
+               
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $R$ be a ring. An additive subgroup $I$ is called an ideal if
