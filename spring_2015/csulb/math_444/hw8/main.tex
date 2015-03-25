@@ -165,13 +165,86 @@
             \item Let $S$ be a ring, and let $\alpha : R \rightarrow S$ be a
                   ring homomorphism---this means with respect to both
                   operations. Show
-                  $I = \ker(\alpha) = \{a \in \R : \alpha(a) = 0\}$ is an ideal.
+                  $I = \ker(\alpha) = \{a \in R : \alpha(a) = 0\}$ is an ideal.
          \end{enumerate}
 
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a               
+         \item Consider $n\Z < \Z$, with $n > 1$. Let $x \in n\Z$ and let
+               $z \in \Z$. Then $x = nm$ for some integer $m$, so that
+               $zx = xz = (nm)z = n(mz) \in n\Z$. Thus $n\Z$ is an ideal of
+               $\Z$, so that $444\Z$ and $410\Z$ are both nontrivial ideals of
+               $\Z$.
+         \item \textbf{Proof.} Let $I$ be an ideal. Assume that
+               $x, y, m, n \in R$ such that $I + x = I + y$ and $I + m = I + n$.
+               We want to show that $I + (x + m) \subseteq I + (y + n)$ and
+               $I + xm \subseteq I + yn$. So let $r_1 \in I + (x + m)$ and
+               $r_2 \in I + xm$. Thus
+               \begin{align*}
+                  r_1 &= i_1 + (x + m) &[\text{for some }i_1 \in I] \\
+                    &= (i_1 + x) + m \\
+                    &= (i_2 + y) + m &[I + x = I + y; i_2 \in I] \\
+                    &= (i_2 + m) + y &[(R, +) \text{ is abelian}] \\
+                    &= (i_3 + n) + y &[I + m = I + n; i_3 \in I] \\
+                    &= i_3 + (y + n) \in I + (y + n)
+               \end{align*}
+               and $r_2 = i_4 + xm$ for some $i_4 \in I$. Since $I + x = I + y$
+               and $I + m = I + n$, it follows that $i_4 + x = i_5 + y$ and
+               $i_4 + m = i_6 + n$ for some $i_5, i_6 \in I$. Thus we have that
+               $x = y + i_5 - i_4$ and $m = n + i_6 - i_4$, so that
+               \begin{align*}
+                  r_2 &= i_4 + xm \\
+                      &= i_4 + (y + i_5 - i_4)(n + i_6 - i_4) \\
+                      &= i_4 + y(i_6 - i_4) + n(i_5 - i_4) +
+                         (i_5 - i_4)(i_6 - i_4) + yn.
+               \end{align*}
+               Since $I$ is an ideal, it must be the case that
+               $$i_4 + y(i_6 - i_4) + n(i_5 - i_4) + 
+                        (i_5 - i_4)(i_6 - i_4)\in I.$$
+               Thus $r_2 \in I + yn$. We have thus shown that
+               $I + (x + m) \subseteq I +(y + n)$ and $I + xm \subseteq I + yn$.
+               The argument that
+               $I + (y + n) \subseteq I + (x + m)$ and $I + yn \subseteq I + xm$
+               follows by symmetry. Thus $I + (x + m) = I +(y + n)$ and
+               $I + xm = I + yn$. \qed
+         \item \textbf{Proof.} Let $\alpha : R \rightarrow S$ be a homomorphism
+               of rings. To show that $\ker(\alpha)$ is an ideal of $R$, we have
+               to first show that $(\ker(\alpha), +) \le (R, +)$.
+               
+               \textbf{Identity.} Since $\alpha$ is also a group homomorphism,
+               we know from our discussion in group theory that $\alpha(1) = 1$,
+               so that $1 \in \ker(\alpha)$.
+               
+               \textbf{Closure.} Let $a, b \in \ker(\alpha)$. Then we have that
+               $\alpha(a + b) = \alpha(a) + \alpha(b) = 0 + 0 = 0$, so that
+               $a + b \in \ker(\alpha)$; i.e., $\ker(\alpha)$ is closed under
+               addition.
+               
+               \textbf{Inverse.} Let $a \in \ker(\alpha)$. Then we have that
+               \begin{align*}
+                  \alpha(-a) &= \alpha(-1 \cdot a) \\
+                     &= \alpha(-1) \cdot \alpha(a) \\
+                     &= \alpha(-1) \cdot 0 = 0,
+               \end{align*}
+               so that $-a \in \ker(\alpha)$, and thus $\ker(\alpha)$ is closed
+               under taking inverses. \\
+               
+               It follows from above that $\ker(\alpha)$ is an additive subgroup
+               of $R$. Now let ${a \in \ker(\alpha)}$, ${r \in R}$. To complete
+               the proof, we must show that $ar \in \ker(\alpha)$ and
+               $ra \in \ker(\alpha)$. Thus
+               \begin{align*}
+                  0 &= 0 \cdot \alpha(r) \\
+                    &= \alpha(a) \cdot \alpha(r) &[\alpha(a) \in \ker(\alpha)]\\
+                    &= \alpha(ar) &[\text{so that } ar \in \ker(\alpha)] \\
+                    &= 0 \\
+                    &= \alpha(r) \cdot \alpha(a) \\
+                    &= \alpha(ra), &[\text{so that } ra \in \ker(\alpha)]
+               \end{align*}
+               so that$ra, ar \in \ker(\alpha)$ and $\ker(\alpha)$ is an ideal.
+               \qed
+               
       \end{enumerate}
 \end{enumerate}
 \end{document}
