@@ -32,4 +32,19 @@ WHERE customers.id NOT IN
 FROM customers
 INNER JOIN depositors
 ON customers.id = depositors.cid);
+
+
+SELECT c.id, IFNULL(SUM(loan_number), 0)
+FROM customers AS c
+LEFT JOIN loans
+ON c.id = loans.owner_id
+GROUP BY c.id;
+
+SELECT c.id, IFNULL(SUM(loan_number), 0)
+FROM customers AS c
+LEFT JOIN loans
+ON c.id = loans.owner_id
+GROUP BY c.id
+
+
  

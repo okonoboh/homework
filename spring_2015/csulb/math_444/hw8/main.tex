@@ -43,6 +43,7 @@
 \newcommand{\I}{\mathbb{I}}
 \newcommand{\M}{\mathbb{M}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\displaystyle}
 %\setcounter{section}{-1}
 
 \begin{document}
@@ -104,7 +105,12 @@
                If $\alpha_j$ is a 9-cycle, then $|\alpha|$ is either 9 (9+3)or
                18 (9+2+1).
                Now if $\alpha_j$ is a 8-cycle, then $|\alpha|$ is either 8
-               (8+4, 8+2+2, 8+2+1+1) or 24(8+3+1).
+               (8+4, 8+2+2, 8+2+1+1) or 24(8+3+1). If $\alpha_j$ is a 7-cycle
+               then the largest order of $\alpha$ has to be 35 (7+3+2 If
+               $\alpha_j$ is a 6-cycle then the largest order of $\alpha$ has to
+               be 30 (6+5+1). If we inspect the remaining possible partitions of
+               $\alpha$, we observe that none of them can have order bigger than
+               $\sigma$, so that $|\sigma|$ is of maximum order in $S_{12}$. \qed
          \item True.
          
                \textbf{Proof.} Let $g$ and $h$ have orders 10 and 12 in some
@@ -126,7 +132,126 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a               
+         \item We shall let $D_8$ act on the set of beads.
+
+               \begin{center}
+               \begin{tabular}{@{}|l|c|c|c|@{}}
+                  \hline
+                  Conjugacy Class & Representative $g$ & \#g & \# of elements \\
+                  \hline
+                  1 + 1 + 1 + 1 & (1)        & $4^4$ & 1 \\
+                  \hline
+                  2 + 1 + 1     & (2 4)      & $4^3$ & 2 \\
+                  \hline
+                  2 + 2         & (1 2)(3 4) & $4^2$ & 3 \\
+                  \hline
+                  4             & (1 2 3 4)  & $4^1$ & 2 \\
+                  \hline
+               \end{tabular}
+               \end{center}
+               Thus we have $\D\frac{4^4 \cdot 1 + 4^3 \cdot 2 + 4^2 \cdot 3 +
+               4^1 \cdot 2}{8} = 55$ distinct beads.
+         \item We shall let $D_{10}$ act on the set of beads.
+
+               \begin{center}
+               \begin{tabular}{@{}|l|c|c|c|@{}}
+                  \hline
+                  Conjugacy Class & Representative $g$ & \#g & \# of elements \\
+                  \hline
+                  1 + 1 + 1 + 1 + 1 & (1)        & $4^5$ & 1 \\
+                  \hline
+                  2 + 2             & (1 3)(4 5) & $4^3$ & 5 \\
+                  \hline
+                  4                 & (1 2 3 4 5)& $4^1$ & 4 \\
+                  \hline
+               \end{tabular}
+               \end{center}
+               Thus we have $\D\frac{4^5 \cdot 1 + 4^3 \cdot 5 +
+               4^1 \cdot 4}{10} = 136$ distinct beads.
+         \item Let $D_{12}$ act on the set of beads.
+
+               \begin{center}
+               \begin{tabular}{@{}|l|c|c|c|@{}}
+                  \hline
+                  Conjugacy Class & Representative $g$ & \#g & \# of elements \\
+                  \hline
+                  1 + 1 + 1 + 1 + 1 & (1)             & $4^6$ & 1 \\
+                  \hline
+                  2 + 2             & (1 5)(2 4)      & $4^4$ & 3 \\
+                  \hline
+                  2 + 2 + 2         & (1 2)(3 6)(4 5) & $4^3$ & 4 \\
+                  \hline
+                  3 + 3             & (1 5 3)(2 6 4)  & $4^2$ & 2 \\
+                  \hline
+                  6                 & (1 2 3 4 5 6)   & $4^1$ & 2 \\
+               \end{tabular}
+               \end{center}
+               Thus we have $\D\frac{4^6 \cdot 1 + 4^4 \cdot 3 +
+               4^3 \cdot 4 + 4^2 \cdot 2 + 4^1 \cdot 2}{12} = 430$ distinct
+               beads.
+      \end{enumerate}
+
+      \textbf{Bonus.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item We shall let $D_8$ act on the set of beads.
+
+               \begin{center}
+               \begin{tabular}{@{}|l|c|c|c|@{}}
+                  \hline
+                  Conjugacy Class & Representative $g$ & \#g & \# of elements \\
+                  \hline
+                  1 + 1 + 1 + 1 & (1)        & $5^4$ & 1 \\
+                  \hline
+                  2 + 1 + 1     & (2 4)      & $5^3$ & 2 \\
+                  \hline
+                  2 + 2         & (1 2)(3 4) & $5^2$ & 3 \\
+                  \hline
+                  4             & (1 2 3 4)  & $5^1$ & 2 \\
+                  \hline
+               \end{tabular}
+               \end{center}
+               Thus we have $\D\frac{5^4 \cdot 1 + 5^3 \cdot 2 + 5^2 \cdot 3 +
+               5^1 \cdot 2}{8} = 120$ distinct beads.
+         \item We shall let $D_{10}$ act on the set of beads.
+
+               \begin{center}
+               \begin{tabular}{@{}|l|c|c|c|@{}}
+                  \hline
+                  Conjugacy Class & Representative $g$ & \#g & \# of elements \\
+                  \hline
+                  1 + 1 + 1 + 1 + 1 & (1)        & $5^5$ & 1 \\
+                  \hline
+                  2 + 2             & (1 3)(4 5) & $5^3$ & 5 \\
+                  \hline
+                  4                 & (1 2 3 4 5)& $5^1$ & 4 \\
+                  \hline
+               \end{tabular}
+               \end{center}
+               Thus we have $\D\frac{5^5 \cdot 1 + 5^3 \cdot 5 +
+               5^1 \cdot 4}{10} = 377$ distinct beads.
+         \item Let $D_{12}$ act on the set of beads.
+
+               \begin{center}
+               \begin{tabular}{@{}|l|c|c|c|@{}}
+                  \hline
+                  Conjugacy Class & Representative $g$ & \#g & \# of elements \\
+                  \hline
+                  1 + 1 + 1 + 1 + 1 & (1)             & $5^6$ & 1 \\
+                  \hline
+                  2 + 2             & (1 5)(2 4)      & $5^4$ & 3 \\
+                  \hline
+                  2 + 2 + 2         & (1 2)(3 6)(4 5) & $5^3$ & 4 \\
+                  \hline
+                  3 + 3             & (1 5 3)(2 6 4)  & $5^2$ & 2 \\
+                  \hline
+                  6                 & (1 2 3 4 5 6)   & $5^1$ & 2 \\
+                  \hline
+               \end{tabular}
+               \end{center}
+               Thus we have $\D\frac{5^6 \cdot 1 + 5^4 \cdot 3 +
+               5^3 \cdot 4 + 5^2 \cdot 2 + 5^1 \cdot 2}{12} = 1505$ distinct
+               beads.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the following two sets of matrices 
@@ -256,13 +381,83 @@
                      $c$ & $d$ \\
                      $-d$ & $c$
                   \end{tabular}\right),$$
-                  such that $AB = 0$. Then it follows that
-                  $0 = \det(0) = \det(A)\det(B)$. Since $\det(A)$ and $\det(B)$
-                  are integers and since $\Z$ is an integral domain, it follows
-                  that $\det(A) = 0$ or $\det(B) = 0$. Assume without loss that
-                  $\det(A) = 0$. Then it follows that $a^2 + b^2 = 0$, so that
-                  $a = b = 0$, a contradiction since $A$ is nonzero. Thus $S_2$
-                  is an integral domain. \qed
+               such that $AB = 0$. Then it follows that
+               $0 = \det(0) = \det(A)\det(B)$. Since $\det(A)$ and $\det(B)$
+               are integers and since $\Z$ is an integral domain, it follows
+               that $\det(A) = 0$ or $\det(B) = 0$. Assume without loss that
+               $\det(A) = 0$. Then it follows that $a^2 + b^2 = 0$, so that
+               $a = b = 0$, a contradiction since $A$ is nonzero. Thus $S_2$
+               is an integral domain. \qed
+         \item Suppose first that some matrix
+               $\left(\begin{tabular}{@{}c c@{}}
+                  $a$ & $b$ \\
+                  $b$ & $a$
+                \end{tabular}\right) \in S_1$ satisfies the equation
+                $x^2 + 1 = 0$. So we must have that
+               $$\left(\begin{tabular}{@{}c c@{}}
+                  $a$ & $b$ \\
+                  $b$ & $a$
+                \end{tabular}\right)\left(\begin{tabular}{@{}c c@{}}
+                  $a$ & $b$ \\
+                  $b$ & $a$
+                \end{tabular}\right) + \left(\begin{tabular}{@{}c c@{}}
+                  1 & 0 \\
+                  0 & 1
+                \end{tabular}\right) = \left(\begin{tabular}{@{}c c@{}}
+                  0 & 0 \\
+                  0 & 0
+                \end{tabular}\right),$$
+                so that
+                $$\left(\begin{tabular}{@{}r l@{}}
+                  $a^2 + b^2 + 1$ & $2ab$ \\
+                  $2ab$ & $a^2 + b^2 + 1$
+                \end{tabular}\right) = \left(\begin{tabular}{@{}c c@{}}
+                  0 & 0 \\
+                  0 & 0
+                \end{tabular}\right).$$
+                By equating corresponding entries, we get that
+                $2ab = 0$ and $a^2 + b^2 + 1 = 0$. Since $\Z$ is an integral
+                domain, we can assume without loss that $a = 0$, so that
+                $b^2 + 1 = 0$. This preceding equation has no solution for any
+                integer $b$. Now if we assume that $b = 0$, we shall reach the
+                same conclusion; thus we must conclude that $x^2 + 1$ has no
+                roots in $S_1$. Now suppose tha
+                $$\left(\begin{tabular}{@{}r c@{}}
+                  $c$ & $d$ \\
+                  $-d$ & $c$
+                \end{tabular}\right)\left(\begin{tabular}{@{}r c@{}}
+                  $c$ & $d$ \\
+                  $-d$ & $c$
+                \end{tabular}\right) + \left(\begin{tabular}{@{}c c@{}}
+                  1 & 0 \\
+                  0 & 1
+                \end{tabular}\right) = \left(\begin{tabular}{@{}c c@{}}
+                  0 & 0 \\
+                  0 & 0
+                \end{tabular}\right),$$
+                so that
+                $$\left(\begin{tabular}{@{}r l@{}}
+                  $c^2 - d^2 + 1$ & $2cd$ \\
+                  $-2cd$ & $c^2 - d^2 + 1$
+                \end{tabular}\right) = \left(\begin{tabular}{@{}c c@{}}
+                  0 & 0 \\
+                  0 & 0
+                \end{tabular}\right).$$
+                
+                Thus we get that $2cd = 0$, $-2cd = 0$, and $c^2 - d^2 + 1 = 0$.
+                The equations $2cd = 0$ and $-2cd$ reduce to $cd = 0$. So assume
+                first that $d = 0$. Then we have that $c^2 + 1 = 0$, a dead end;
+                so assume that $c = 0$ to get $0 = 1 - d^2 = (1 + d)(1 - d)$.
+                Thus the equation $x^2 + 1$ has two roots in $S_2$, namely:
+                $$\left(\begin{tabular}{@{}r c@{}}
+                  0 & 1 \\
+                  $-1$ & 0
+                \end{tabular}\right) \text{ and }
+                \left(\begin{tabular}{@{}c r@{}}
+                  0 & $-1$ \\
+                  1 & 0
+                \end{tabular}\right).$$
+               
                
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
