@@ -1,0 +1,134 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 285, Spring 2015\\Section 1 (4344)\\
+  HW \#5, Due: 2015, March 18
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH, 013755064\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[Activities 1 \& 2.] \begin{verbatim}
+      MOV      DPTR, #MYDATA     ;address of string
+      MOV      R0, #30H          ;destination address
+
+
+LOOP:
+      CLR      A                 ;A <- 0
+      MOVC     A, @A+DPTR        ;A <- Next Character
+      JZ       ACT2              ;Go to Activity two if character is null
+      MOV      @R0, A            ;copy to destination
+      INC      DPTR              ;address of next character
+      INC      R0                ;address of next destination
+      SJMP     LOOP              ;try to get next character
+
+
+ACT2:								
+      MOV      R0, #40H          ;R0 <- 0x40
+      MOV      R1, #60H          ;R1 <- 0x60
+	
+LOOP2:
+      MOV      A, @R0            ;A <- RAM[R0]
+      MOV      @R1, A            ;RAM[R1] <- RAM[R0]
+      INC      R0                ;R0 <- R0 + 1
+      INC      R1                ;R1 <- R1 + 1
+      CJNE     R0, #60H, LOOP2   ;Keep copying RAM[R0] into RAM[R1]
+                                 ;unitl R0 == 0x60
+
+
+      ORG      200H              ;address of string
+
+MYDATA:
+      DB       "Joseph Okonoboh", 0
+
+END
+         \end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[Activity 3.] \begin{verbatim}
+      MOV      DPTR, #MYDATA     ;address of y values
+
+      MOV      A, R0             ;A <- x
+      MOVC     A, @A+DPTR        ;A <- x^2 + 2x + 9
+      MOV      R2, A             ;R2 <- x^2 + 2x + 9
+
+
+      ORG      200H
+MYDATA:
+      DB       9, 12, 17, 24, 33, 44, 57, 72, 89, 108
+END
+		
+         \end{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.] Explain the difference between the following two instructions:
+   \begin{verbatim}
+MOVC  A, @A+DPTR
+MOV   A, @R0
+         \end{verbatim}
+         
+\textbf{Answer.} Both instructions are register indirect addressing; however,
+the first instruction is capable of accessing data stored in external RAM or
+ROM since the \verb|DPTR| register is 16-bits, while the latter instruction is
+limited to accessing internal RAM. Additionally, in the first instruction, the
+value in the \verb|A| register is used as an offset to the address in the
+\verb|DPTR| register.
+   \item[2.] The invalid instructions are:
+   \begin{verbatim}
+MOV   A, @R2
+MOVC  A, @R0+DPTR
+         \end{verbatim}
+   \item[3.] Explain the difference between the following two instructions:
+   \begin{verbatim}
+MOV   A, 40H
+MOV   A, #40H
+         \end{verbatim}
+         
+\textbf{Answer.} The first instruction reads the byte at RAM location 0x40
+into register \verb|A|, while the latter instruction stores the decimal number
+64 in \verb|A|.
+   \item[4.] Explain the difference between the following two instructions:
+   \begin{verbatim}
+MOV   40H, A
+MOV   40H, #0A
+         \end{verbatim}
+         
+\textbf{Answer.} The first instruction copies the value in register \verb|A|
+into the RAM location at 0x40, while the latter instruction copies the decimal
+value 10 into the same RAM location.
+   \item[5.] Give the RAM address for the following registers.
+   
+             \begin{tabular}{@{}l c l@{}}
+                \verb|A| & = & 0xE0 \\
+                \verb|B| & = & 0xF0 \\
+                \verb|R0| & = & 0x00 \\
+                \verb|R2| & = & 0x02 \\
+                \verb|PSW| & = & 0xD0 \\
+                \verb|SP| & = &  0x81 \\
+                \verb|DPL| & = & 0x82 \\
+                \verb|DPH| & = & 0x83 \\
+             \end{tabular}
+\end{enumerate}
+\end{document}

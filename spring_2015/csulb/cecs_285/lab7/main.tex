@@ -1,0 +1,113 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 285, Spring 2015\\Section 1 (4344)\\
+  Lab \#7, Due: 2015, March 25
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH, 013755064\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \begin{verbatim}; JOSEPH OKONOBOH
+; 0137755064
+; SWITCH BASED-COMBO LOCK
+      
+      MASK     EQU      0x0F
+      LED      EQU      P0       ;LED port
+      switch   EQU      P1       ;switches port
+      num1     EQU      0x04     ;1st input
+      num2     EQU      0x05     ;2nd input
+      num3     EQU      0x07     ;3rd input
+      num4     EQU      0x0F     ;final input
+      s0       EQU      0x00     ;state 0
+      s1       EQU      0x01     ;state 1
+      s2       EQU      0x02     ;state 2
+      s3       EQU      0x03     ;state 3
+      state    EQU      0x07
+
+;----------   Initialization   ----------;
+      MOV      LED,  #0x00    ;set Port as output
+      MOV      R7,   #s0      ;R7 contains present state
+      MOV      LED,  #s0
+
+; read data from switch into accumulator
+READ_DATA:
+      MOV      A,    switch
+      ANL      A,    #MASK
+      
+
+STATE0:
+      CJNE     R7,   #s0,     STATE1      ;if not in state0 go to state 1
+      CJNE     A,    #num1,   READ_DATA   ;if first input is wrong re-read data from switch
+      MOV      R7,   #s1                  ;go to state 1
+      MOV      LED,  #s1                  ;signal user that state was successfully changed
+      SJMP     READ_DATA                  ;read next input
+STATE1:
+      CJNE     R7,   #s1,     STATE2      ;if not in state1 go to state 2
+      CJNE     A,    #num2,   READ_DATA   ;if second input is wrong re-read data from switch
+      MOV      R7,   #s2                  ;go to state 2
+      MOV      LED,  #s2                  ;signal user that input two was correct
+      SJMP     READ_DATA                  ;read next input
+STATE2:
+      CJNE     R7,   #s2,     STATE3      ;if not in state2 go to state 3
+      CJNE     A,    #num3,   READ_DATA   ;if third input is wrong re-read data from switch
+      MOV      R7,   #s3                  ;go to state 2
+      MOV      LED,  #s3                  ;signal user that input three was correct
+      SJMP     READ_DATA                  ;read next input
+STATE3:
+      CJNE     R7,   #s3,     READ_DATA   ;if not in state3 or if input is wrong read data from switch
+      CJNE     A,    #num4,   READ_DATA
+
+;;;;; Repeatedly display LED for 1s and turn off led for 1s
+BLINK:
+      MOV      LED,  #0xFF      
+      ACALL    DELAY
+      MOV      LED,  #0x00      
+      ACALL    DELAY
+      SJMP     BLINK
+
+;;;;; 0.5Hz timing delay (1s ON, 1s OFF)
+DELAY:
+      MOV      R0,   #175
+      
+LOOP0:
+      MOV      R1,   #250		
+LOOP1:
+      MOV      R2,   #250
+LOOP2:	
+      DJNZ     R2,   LOOP2      
+      DJNZ     R1,   LOOP1
+
+      DJNZ     R0,   LOOP0
+      RET
+
+
+END
+         \end{verbatim}
+\end{enumerate}
+\end{document}

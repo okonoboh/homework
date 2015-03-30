@@ -1,0 +1,98 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{cancel}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 347, Spring 2015\\Section 1 (1872)\\
+  HW \#6, Due: 2015, March 26
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.1]  Make $\mathcal{P}_2(\R)$ into an inner-product space by defining
+               $$\cyc{p, q} = \int_0^1p(x)q(x)\;dx.$$
+               Define $T \in \mathcal{L}(\mathcal{P}_2(\R))$ by
+               $T(a_0 + a_1x + a_2x^2) = a_1x$.
+               \begin{enumerate}
+                  \item Show that $T$ is not self-adjoint.
+                  \item The matrix of $T$ with respect to the basis
+                        $(1, x, x^2)$ is
+                        $$\left[\begin{tabular}{@{}c c c@{}}
+                           0 & 0 & 0 \\
+                           0 & 1 & 0 \\
+                           0 & 0 & 0
+                        \end{tabular}\right].$$
+                        The matrix equals its conjugate transpose, even though
+                        $T$ is not self-adjoint. Explain why this is not a
+                        contradiction.
+               \end{enumerate}
+               
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item Suppose to the contrary that $T$ is self-adjoint. Consider
+               $x, 1 \in \mathcal{P}_2(\R)$. Then we must have that
+               $\cyc{T(1), x} = \cyc{T^*(1), x} = \cyc{1, T(x)}$. But
+               \begin{align*}
+                  \cyc{T^*(1), x} &= \cyc{T(1), x} \\
+                                 &= \cyc{0, x} \\
+                                 &= 0,
+               \end{align*}
+               and
+               \begin{align*}
+                  \cyc{1, T(x)} &= \cyc{1, x} \\
+                                &= \int_0^1 x\;dx \\
+                                &= \frac{1}{2},
+               \end{align*}
+               so that $\cyc{T(1), x} \neq  \cyc{T(x), 1}$; i.e., $T$ is not
+               self-adjoint.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.4]  Suppose $P \in \mathcal{L}(V)$ is such that $P^2 = P$. Prove that
+               $P$ is an orthogonal projection if and only if $P$ is
+               self-adjoint.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.6]  Prove that if $T \in \mathcal{L}(V)$ is normal, then
+               $$\text{range } T = \text{range } T^*.$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.7]  Prove that if $T \in \mathcal{L}(V)$ is normal, then
+               $$\text{null } T^k = \text{null } T \text{ and }
+                 \text{range }T^k = \text{range }T$$
+               for every positive integer $k$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.9%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.9]  Prove that a normal operator on a complex inner-product space is
+               self-adjoint if and only if all its eigenvalues are real.
+\end{enumerate}
+\end{document}
