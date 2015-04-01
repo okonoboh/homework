@@ -41,6 +41,19 @@
 \begin{document}
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[\textbf{Lemma 7.1}]  \textit{If $T \in \mathcal{L}(V)$ is normal, then
+                              $\text{null }T = \text{null }T^*$}.
+
+      \textbf{Proof.} Assume that $T \in \mathcal{L}(V)$ is normal. Thus
+      \begin{align*}
+         x \in \text{null }T &\Longleftrightarrow Tx = 0 \\
+         &\Longleftrightarrow \cyc{Tx, Tx} = 0 \\
+         &\Longleftrightarrow \cyc{T^*x, T^*x} = 0 &[\text{Proposition }7.6] \\
+         &\Longleftrightarrow T^*x = 0 \\
+         &\Longleftrightarrow x \in \text{null }T^*,
+      \end{align*}
+      so that $\text{null }T = \text{null }T^*$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.1]  Make $\mathcal{P}_2(\R)$ into an inner-product space by defining
                $$\cyc{p, q} = \int_0^1p(x)q(x)\;dx.$$
                Define $T \in \mathcal{L}(\mathcal{P}_2(\R))$ by
@@ -64,35 +77,156 @@
       \begin{enumerate}
          \item Suppose to the contrary that $T$ is self-adjoint. Consider
                $x, 1 \in \mathcal{P}_2(\R)$. Then we must have that
-               $\cyc{T(1), x} = \cyc{T^*(1), x} = \cyc{1, T(x)}$. But
+               $\cyc{T1, x} = \cyc{T^*1, x} = \cyc{1, Tx}$. But
                \begin{align*}
-                  \cyc{T^*(1), x} &= \cyc{T(1), x} \\
+                  \cyc{T^*1, x} &= \cyc{T1, x} \\
                                  &= \cyc{0, x} \\
                                  &= 0,
                \end{align*}
                and
                \begin{align*}
-                  \cyc{1, T(x)} &= \cyc{1, x} \\
+                  \cyc{1, Tx} &= \cyc{1, x} \\
                                 &= \int_0^1 x\;dx \\
                                 &= \frac{1}{2},
                \end{align*}
-               so that $\cyc{T(1), x} \neq  \cyc{T(x), 1}$; i.e., $T$ is not
+               so that $\cyc{T1, x} \neq  \cyc{1, Tx}$; i.e., $T$ is not
                self-adjoint.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.4]  Suppose $P \in \mathcal{L}(V)$ is such that $P^2 = P$. Prove that
                $P$ is an orthogonal projection if and only if $P$ is
                self-adjoint.
+
+      \textbf{Proof.} Let $P \in \mathcal{L}(V)$ such that $P^2 = P$.
+
+      ($\Longrightarrow$) Suppose that $P$ is an orthogonal projection. Then we
+      have that $P = P_{U,U^\perp}$ for some subspace $U$ of $V$. To prove that
+      $P$ is self-adjoint, we must show that $Px = P^*x$ for all $x \in V$. So
+      let $v_1, v_2 \in V$. There exist unique $u_1, u_2 \in U$ and
+      $u_1', u_2' \in U^\perp$ such that $v_1 = u_1 + u_1'$ and
+      $v_2 = u_2 + u_2'$. Thus
+      \begin{align*}
+         \cyc{Pv_1 - P^*v_1, v_2} &= \cyc{Pv_1, v_2} - \cyc{P^*v_1, v_2} \\
+            &= \cyc{u_1, v_2} - \cyc{v_1, Pv_2} \\
+            &= \cyc{u_1, v_2} - \cyc{v_1, u_2} \\
+            &= \cyc{u_1, u_2 + u_2'} - \cyc{u_1 + u_1', u_2} \\
+            &= \cyc{u_1, u_2} + \cyc{u_1, u_2'} -
+               \cyc{u_1, u_2} - \cyc{u_1', u_2} \\
+            &= \cyc{u_1, u_2'} - \cyc{u_1', u_2} \\
+            &= 0 - 0 = 0.
+      \end{align*}
+      Since $v_2$ was arbitrary, we have that $\cyc{Pv_1 - P^*v_1, v_2} = 0$
+      for all $v_2 \in V$. Setting $v_2 = Pv_1 - P^*v_1$ gives us that
+      $\cyc{Pv_1 - P^*v_1, Pv_1 - P^*v_1} = 0$, so that $Pv_1 - P^*v_1 = 0$;
+      i.e., $Pv_1 = P^*v_1$. Thus $P$ is self-adjoint.
+
+      ($\Longleftarrow$) Suppose that $P$ is self-adjoint. We have that
+      \begin{align*}
+         \text{null }P &= (\text{range P*})^\perp &[\text{Proposition }6.46] \\
+            &= (\text{range P})^\perp &[P \text{ is self-adjoint}],
+      \end{align*}
+      so that every vector in $\text{null }P$ is orthogonal to every vector in
+      $\text{range }P$. It follows by Homework 5, Problem 6.17 that $P$ is an
+      orthogonal projection of $V$ onto $\text{range }P$, with null space
+      $\text{null }P$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.6]  Prove that if $T \in \mathcal{L}(V)$ is normal, then
                $$\text{range } T = \text{range } T^*.$$
+
+      \textbf{Proof.} Assume that $T \in \mathcal{L}(V)$ is normal. We have that
+      \begin{align*}
+         \text{range } T &= (\text{null } T^*)^\perp
+            &[\text{Proposition }6.46] \\
+            &= (\text{null } T)^\perp  &[\text{Lemma }7.1] \\
+            &= \text{range } T^*, &[\text{Proposition }6.46]
+      \end{align*}
+      which is what we wanted to prove. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.7]  Prove that if $T \in \mathcal{L}(V)$ is normal, then
-               $$\text{null } T^k = \text{null } T \text{ and }
-                 \text{range }T^k = \text{range }T$$
+               $$
+                  \text{null } T^k = \text{null } T \text{ and }
+                  \text{range }T^k = \text{range }T$$
                for every positive integer $k$.
+
+      \textbf{Proof.} We shall first proceed by induction on $k$ to show that
+      $\text{null } T^k = \text{null } T$.
+
+      \textbf{Base Case.} $k = 1$. It follows trivially that
+      $\text{null } T^1 = \text{null } T$.
+
+      \textbf{Inductive Hypothesis.} Suppose that
+      $\text{null } T^n = \text{null }T$ for some positive integer $n$. \\
+
+      Now we shall show that $\text{null } T^{n+1} = \text{null }T$. We have 
+      that
+      \begin{align*}
+         x \in \text{null }T &\Longrightarrow x \in \text{null }T^n
+                  &[\text{Inductive Hypothesis}] \\
+                  &\Longrightarrow T^nx = 0 \\
+                  &\Longrightarrow T(T^nx) = T(0) = 0 \\
+                  &\Longrightarrow T^{n+1}x = 0 \\
+                  &\Longrightarrow x \in \text{null }T^{n+1},
+      \end{align*}
+      so that $\text{null } T \subseteq \text{null } T^{n+1}$. Now let
+      $x \in \text{null }T^{n+1}$. By Problem 7.6, we know that
+      $\text{range } T = \text{range } T^*$; thus $Tx = T^*y'$ for some
+      $y' \in V$. Now
+      \begin{align*}
+         x \in \text{null }T^{n+1} &\Longrightarrow T^{n+1}x = 0 \\
+                  &\Longrightarrow TT^nx = 0 \\
+                  &\Longrightarrow \cyc{TT^nx, T^{n-1}y'} = 0 \\
+                  &\Longrightarrow \cyc{T^nx, T^*T^{n-1}y'} = 0 \\
+                  &\Longrightarrow \cyc{T^nx, T^{n-1}T^*y'} = 0
+                  &[T\text{ is normal}] \\
+                  &\Longrightarrow \cyc{T^nx, T^{n-1}Tx} \\
+                  &\Longrightarrow \cyc{T^nx, T^nx} = 0 \\
+                  &\Longrightarrow T^nx = 0 \\
+                  &\Longrightarrow x \in \text{null }T^n \\
+                  &\Longrightarrow x \in \text{null }T,
+                  &[\text{Inductive Hypothesis}]
+      \end{align*}
+      so that $\text{null } T^{n+1} \subseteq \text{null } T$. We have thus 
+      shown that $\text{null } T = \text{null } T^{n+1}$. It follows by
+      Mathematical Induction that $\text{null } T^k = \text{null } T$ for each
+      positive integer $k$. Let $m$ be a positive integer. Observe that $T^m$ is
+      also normal; thus
+      \begin{align*}
+         \text{range }T^m &= (\text{null }(T^m)^*)^\perp
+            &[\text{Proposition }6.46] \\
+            &= (\text{null } T^m)^\perp &[\text{Lemma }7.1] \\
+            &= (\text{null } T)^\perp &[\text{null }T^m = \text{null }T] \\
+            &= \text{range } T^* &[\text{Proposition }6.46] \\
+            &= \text{range } T, &[\text{Problem }7.6]
+      \end{align*}
+      which is what we wanted to show. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.9%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.9]  Prove that a normal operator on a complex inner-product space is
                self-adjoint if and only if all its eigenvalues are real.
+
+      \textbf{Proof.} Let $T \in \mathcal{L}(V)$ be normal, where $V$ is a 
+      complex inner-product space.
+
+      ($\Longrightarrow$) Suppose that $T$ is self-adjoint. It follows by 
+      Proposition 7.1 that all the eigenvalues of $T$ are real.
+
+      ($\Longleftarrow$) Suppose that all the eigenvalues of $T$ are real. Note
+      that if $u$ is an eigenvector of $T$ with eigenvalue $\lambda$, then by 
+      Corollary 7.7, we have that $T^*u = \overline{\lambda}u$. To show that
+      $T$ is self-adjoint, we must show that $Tx = T^*x$ for all $x \in V$. So
+      let $y \in V$. By the Spectral Theorem, $V$ has an orthonormal basis
+      $(v_1, \ldots v_n)$ consisting of eigenvectors of $T$. Let $\lambda_i$
+      be the eigenvalue corresponding to $v_i$. We know that
+      $y = a_1v_1 + \cdots + a_nv_n$ for some unique scalars. Thus
+      \begin{align*}
+         Ty &= T(a_1v_1 + \cdots + a_nv_n) \\
+            &= a_1Tv_1 + \cdots + a_nTv_n \\
+            &= a_1\lambda_1v_1 + \cdots + a_n\lambda_nv_n \\
+            &= a_1\overline{\lambda_1}v_1 + \cdots + a_n\overline{\lambda_n}v_n
+            &[\text{Eigenvalues of $T$ are real}] \\
+            &= a_1T^*v_1 + \cdots + a_nT^*v_n \\
+            &= T^*(a_1v_1 + \cdots + a_nv_n) \\
+            &= T^*y,
+      \end{align*}
+      so that $T = T^*$. \qed
 \end{enumerate}
 \end{document}
