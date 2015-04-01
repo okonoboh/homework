@@ -79,9 +79,8 @@
                $x, 1 \in \mathcal{P}_2(\R)$. Then we must have that
                $\cyc{T1, x} = \cyc{T^*1, x} = \cyc{1, Tx}$. But
                \begin{align*}
-                  \cyc{T^*1, x} &= \cyc{T1, x} \\
-                                 &= \cyc{0, x} \\
-                                 &= 0,
+                  \cyc{T1, x} &= \cyc{0, x} \\
+                              &= 0,
                \end{align*}
                and
                \begin{align*}
@@ -91,6 +90,17 @@
                \end{align*}
                so that $\cyc{T1, x} \neq  \cyc{1, Tx}$; i.e., $T$ is not
                self-adjoint.
+         \item Let $N$ be the conjugate transpose of $\mathcal{M}(T)$. It is 
+               clear that $N = \mathcal{M}(T)$. We know that $T$ is self-adjoint
+               if and only if $\mathcal{M}(T) = \mathcal{M}(T^*)$ if and only
+               if $N = \mathcal{M}(T^*)$. Since $T$ is not self-adjoint it
+               follows that $N \neq \mathcal{M}(T^*)$. This makes sense because
+               the equality $N = \mathcal{M}(T^*)$ is guaranteed to be true
+               (by Proposition 6.47) if $(1, x, x^2)$ is an orthonormal basis 
+               for $\mathcal{P}_2(\R)$, but this is not the case since
+               $\cyc{1, x} \neq 0$. So although we have that the matrix of $T$
+               equals its conjugate transpose, it does not equal the matrix of
+               $T^*$, so we have no contradiction.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.4]  Suppose $P \in \mathcal{L}(V)$ is such that $P^2 = P$. Prove that
@@ -113,7 +123,8 @@
             &= \cyc{u_1, u_2} + \cyc{u_1, u_2'} -
                \cyc{u_1, u_2} - \cyc{u_1', u_2} \\
             &= \cyc{u_1, u_2'} - \cyc{u_1', u_2} \\
-            &= 0 - 0 = 0.
+            &= 0 - 0 = 0. \qquad
+               [\text{Since }u_1, u_2 \in U, u_1', u_2' \in U^\perp]
       \end{align*}
       Since $v_2$ was arbitrary, we have that $\cyc{Pv_1 - P^*v_1, v_2} = 0$
       for all $v_2 \in V$. Setting $v_2 = Pv_1 - P^*v_1$ gives us that
@@ -122,8 +133,8 @@
 
       ($\Longleftarrow$) Suppose that $P$ is self-adjoint. We have that
       \begin{align*}
-         \text{null }P &= (\text{range P*})^\perp &[\text{Proposition }6.46] \\
-            &= (\text{range P})^\perp &[P \text{ is self-adjoint}],
+         \text{null }P &= (\text{range }P*)^\perp &[\text{Proposition }6.46] \\
+            &= (\text{range }P)^\perp &[P \text{ is self-adjoint}],
       \end{align*}
       so that every vector in $\text{null }P$ is orthogonal to every vector in
       $\text{range }P$. It follows by Homework 5, Problem 6.17 that $P$ is an
