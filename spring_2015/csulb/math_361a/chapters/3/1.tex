@@ -1,0 +1,222 @@
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Give a geometrical argument to verify that $|\sin x| \le |x|$ for every
+         real number $x$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that if $f$ is bounded on $A$ and $f$ is also bounded on $B$ then
+         $f$ is bounded on $A \cup B$.
+
+      \textbf{Proof.} Assume that $f$ is bounded on $A$ and that $f$ is also
+      bounded on $A$. Then it follows by definition that there exist positive
+      real numbers $M_1$ and $M_2$ such that
+      $$|f(x)| \le M_1 \text{ for all } x \in A \text{ and }
+        |f(y)| \le M_2 \text{ for all } y \in B.$$
+      Now let $M = \max\{M_1, M_2\}$, and consider $z \in A \cup B$. If $z$ is
+      in $A$, then we must have that $|f(z)| \le M_1 \le M$. Otherwise $z$ must 
+      be in $B$, so that $|f(z)| \le M_2 \le M$. In either case, we have that
+      $|f(z)| \le M$. Thus, by definition, $f$ is bounded on $A \cup B$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that if $f$ and $g$ are each bounded above (below) on $A$ then
+         $f + g$ is bounded above (below) on $A$.
+
+      \textbf{Proof.} Assume that $f$ and $g$ are both bounded above on $A$.
+      Then it follows by definition that there exist real numbers $M_1$ and
+      $M_2$ such that
+      $$f(x) \le M_1 \text{ and } g(x) \le M_2 \text{ for all } x \in A.$$
+      Let $y \in A$. Then it follows that
+      \begin{align*}
+         (f + g)(y) &= f(y) + g(y) \\
+                    &\le M_1 + M_2,
+      \end{align*}
+      so that $f + g$ is bounded above by $M_1 + M_2$. The proof is similar if
+      $f$ and $g$ are bounded below. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove: If $f$ is bounded above (below) on $A$ and $k > 0$ then
+         $k \cdot f$ is bounded above (below) on $A$; if $f$ is bounded above
+         (below) on $A$ and $k < 0$ then $k \cdot f$ is bounded below (above) on
+         $A$.
+
+      \textbf{Proof.} Assume that $f$ is bounded above on $A$ and that $k > 0$.
+      Then it follows by definition that there exists a real number $M$ such
+      that $f(x) \le M$, for every $x \in A$. Let $y \in A$, so that
+      $f(y) \le M$. Multiply the inequality $f(y) \le M$ by the positive number
+      $k$ to get $kf(y) \le kM$. The preceding inequality tells us that $kf$ is
+      bounded above by $kM$ on $A$. Now assume that $k < 0$. Then we must have
+      that $-k > 0$, so that $-kf(y) \le -kM$. Hence multiplying the inequality
+      $-kf(y) \le -kM$ by $-1$ will lead us to conclude that $kf(y) \ge kM$.
+      That is $k \cdot f$ is bounded below by $kM$ on $A$. The proof is similar 
+      if $f$ is bounded below. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Show that if $f$ and $g$ are both bounded above on $A$ the product
+         $f \cdot g$ may fail to be bounded above on $A$.
+
+      \textbf{Proof.} Let $f = -x$, $g = -1$, and $A = \R$. The function $f$ is
+      clearly bounded above by 0 and $g$ is bounded above by $-1$. But
+      $f \cdot g = x$ is not bounded on $\R$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that each polynomial function
+         $$p : \R \rightarrow \R, \quad
+           x \mapsto a_0x^n + a_1x^{n-1} + \cdots + a_{n-1}x + a_n$$
+         is bounded on every bounded interval $I$.
+
+      \textbf{Proof.} Let $I$ be a bounded interval and consider the polynomial
+      $$p : \R \rightarrow \R, \quad
+        x \mapsto a_0x^n + a_1x^{n-1} + \cdots + a_{n-1}x + a_n.$$
+      We know from the discussion in the notes that the identity function
+      $f(x) = x$ is bounded on $I$. Thus there exists a postive real number $M$ 
+      such that $|f(x)| \le M$ for all $x \in I$. Let $y \in I$. Then we have
+      that
+      \begin{align*}
+         |p(y)| &= |a_0y^n + a_1y^{n-1} + \cdots + a_{n-1}y + a_n| \\
+                &\le |a_0y^n| + |a_1y^{n-1}| + \cdots + |a_{n-1}y| + |a_n| 
+                &[\text{Lemma 3.1}] \\                
+                &= |a_0||y^n| + |a_1||y^{n-1}| + \cdots + |a_{n-1}||y| + |a_n|\\
+                &= |a_0||y|^n + |a_1||y|^{n-1} + \cdots + |a_{n-1}||y| + |a_n|\\
+                &\le |a_0|M^n + |a_1|M^{n-1} + \cdots + |a_{n-1}|M + |a_n|.
+      \end{align*}
+      Let $M' = |a_0|M^n + |a_1|M^{n-1} + \cdots + |a_{n-1}|M + |a_n| + 1$.
+      Clearly $M' > 0$, and since
+      $$|p(y)| \le |a_0|M^n + |a_1|M^{n-1} + \cdots + |a_{n-1}|M + |a_n| < M',$$
+      it follows by definition that the function $p$ is bounded on $I$. \qed
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that each of the following functions is bounded on the indicated
+         interval:
+         \begin{center} 
+            \begin{tabular}{@{}llll@{}}
+               $(a)\quad f(x) = \displaystyle\frac{\sin x}{1 + x^2}$ & on 
+               $(-\infty, \infty)$ &
+               $(b)\quad f(x) = \displaystyle\frac{\sin 1/x}{x + 2}$ & on 
+               $(0, 2)$ \\ \\
+               $(c)\quad f(x) = \displaystyle\frac{x^4-3x^2+2}{2-\cos x}$ &
+               on $[0, 2\pi]$ &
+               $(d)\quad f(x) = \displaystyle\frac{\sin x}{3x - 2x\sin x}$ 
+               & on $(0, \infty)$ \\ \\
+               $(e)\quad f(x) = \displaystyle\frac{\cos x}{x^2-2x+2}$ & on 
+               $(-\infty, \infty)$ &
+               $(f)\quad f(x) = \displaystyle\frac{5x^2+3x+1}{x^2 - 2}$ & on 
+               $[-1, 1]$ \\ \\
+               $(g)\quad f(x) = \displaystyle\frac{\sin x}{\sqrt{x}}$ & on 
+               $(0, \infty)$ &
+               $(h)\quad f(x) = \displaystyle\frac{1 - \cos x}{x^2}$ & on 
+               $(0, \infty)$ \\ \\
+               $(i)\quad f(x) = \displaystyle\frac{1+x^2}{1 + x^3}$ & on 
+               $[0, \infty)$ &
+               $(j)\quad f(x) = \displaystyle\frac{1-x^2}{1+x^3}$ & on 
+               $(-1, 1)$
+            \end{tabular}
+         \end{center}
+			
+			\textbf{Solutions.}
+			
+			\begin{enumerate}
+				\item Let $y \in \R$. Then $|1 + y^2| \ge 1$, so that
+						$\D\frac{1}{|1 + y^2|} \le 1$. And since $|\sin(y)| \le 1$, it
+						follows that
+						$\D\left|\frac{\sin(y)}{1 + y^2}\right| = |\sin(y)| \cdot
+						\frac{1}{|1 + y^2|} \le 1$, so that $f$ is bounded on $\R$.
+				\item Let $y \in (0, 2)$. Then $2 \le |y + 2| \le 4$, so that
+						$\D.25 \le \frac{1}{|y + 2|} \le .5$ And since
+						$|\sin(1/y)| \le 1$, it	follows that
+						$\D\left|\frac{\sin(1/y)}{y + 2}\right| = |\sin(1/y)| \cdot
+						\frac{1}{|y + 2|} \le .5$, so that $f$ is bounded on $(0,2)$.
+				\item By (6), we know there exists $M_1 > 0$	and $M_2 > 0$ such that
+						$|5x^2 + 3x + 1| \le M_1$ and	$|x^2 - 2| \le M_2$ for all
+						$x \in [-1, 1]$.
+			\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that a nonconstant polynomial cannot be bounded on an unbounded
+         interval.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose that $f$ is bounded on $A$ and $g$ is unbounded on $A$. Prove
+         that $f + g$ fails to be bounded on $A$.
+
+      \textbf{Proof.} Suppose that $f$ is bounded on $A$ and that $g$ is
+      unbounded on $A$. Now suppose to the contrary that $f + g$ is bounded on
+      $A$. Let $h$ be the constant function that is identically equal to $-1$.
+      It is clear that $h$ is bounded on $A$. Thus $h \cdot f = -f$ is bounded
+      on $A$ by Theorem 3.1. Thus $g = (f + g) + (-f)$ is also bounded on $A$ by
+      Theorem 3.1, a contradiction since we $g$ is unbounded on $A$ by 
+      hypothesis. Thus $f + g$ is not bounded on $A$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Find functions $f$ and $g$ neither of which is bounded on $A$ but such
+         that the product $f \cdot g$ is bounded on $A$.
+
+      \textbf{Answer.} Let $A = \R$, $g(x) = x$, and
+      \begin{equation*}
+         f(x) = \left\{
+             \begin{array}{rl}
+                1/x & \text{if } x \neq 0,\\
+                1 & \text{if } x = 0.
+             \end{array} \right.
+      \end{equation*}
+      so that
+      \begin{equation*}
+         (f \cdot g)(x) = \left\{
+             \begin{array}{rl}
+                1 & \text{if } x \neq 0,\\
+                0 & \text{if } x = 0.
+             \end{array} \right.
+      \end{equation*}
+
+      Both $f$ and $g$ are unbounded on $A$, but their product, $f \cdot g = 1$,
+      is bounded on $A$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item If $f$ is bounded on $A$ and $g$ is unbounded on $A$, what can be said
+         regarding the boundedness of $f \cdot g$? Explain.
+			
+		\textbf{Answer.} Suppose that $f$ is bounded on $A$ and $g$ is unbounded
+		on $A$, then nothing can be said about the boundedness of $f \cdot g$. Let
+		$A = \R$, $f(x) = 1$, and $g(x) = x$ for all $x \in \R$, then $f \cdot g$
+		is unbounded on $\R$. However if we let $A = (1, \infty)$, $f(x) = 1/x$,
+		and $g(x) = x$ for all $x \in (1, \infty)$, then $f \cdot g$ is bounded on
+		$(0, \infty)$. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Find $\sup f(x)$ and $\inf f(x)$ for each of the following functions on
+         the indicated domain:
+         \begin{center}
+            \begin{tabular}{@{}llll@{}}
+               $(a)\quad f(x) = 3 + 2x - x^2$ & on $(0, 4)$ &
+               $(b)\quad f(x) = 2 - |x - 1|$ & on 
+               $(-2, 2)$ \\ \\
+               $(c)\quad f(x) = -e^{-|x|}$ & on $(-\infty, \infty)$ &
+               $(d)\quad f(x) = \displaystyle\frac{x}{x - 2}$ 
+               & on $(-\infty, 2) \cup (2, \infty)$ \\ \\
+               $(e)\quad f(x) = e^{-1/x}$ & on $(-\infty, 0) \cup (0, \infty)$ &
+               $(f)\quad f(x) = x\sin\displaystyle\frac{1}{x}$ & on 
+               $(0, \infty)$ \\ \\
+               $(g)\quad f(x) = \displaystyle\frac{1-x^2}{1+x^2}$ & on 
+               $(-\infty, \infty)$ &
+               $(h)\quad f(x) = x\sin\displaystyle\frac{1}{\sqrt{x}}$ & on 
+               $(0, \infty)$
+            \end{tabular}
+         \end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove results 1 to 3 in the paragraph following Example 3.4.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Show that any function $f : \R \rightarrow \R$ can be decomposed into
+         the sum of an even function and an odd function. \textit{Hint}:
+         Consider
+         $$e(x) = \frac{1}{2}(f(x) + f(-x)) \text{ and }
+           o(x) = \frac{1}{2}(f(x) - f(-x)).$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that if $f$ is an even function and $f(x) \neq 0$ for all
+         $x \in \R$ then $1/f$ is an even function. Why isn't a similar
+         statement for odd functions meaningful?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item A rational number $r = p/q$, where $p, q \in \Z$ and $q \neq 0$, is 
+         said to be $\textit{properly reduced}$ if $p$ and $q$ ($q > 0$) have no
+         common integral factor other than $\pm1$. Define the function $f$ as
+         follows:
+         \begin{equation*}
+            f(x) = \left\{
+               \begin{array}{rl}
+                  q & \text{if } x = p/q, \text{ properly reduced} \\
+                  0 & \text{if } x \text{ is irrational}
+               \end{array} \right.
+         \end{equation*}
+         Prove that for every real number $x_0$, $f$ fails to be bounded at 
+         $x_0$.
+
+
+\end{enumerate}
