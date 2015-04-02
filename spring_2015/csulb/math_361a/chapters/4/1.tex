@@ -2,13 +2,129 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.01] Prove that if $f$ is continuous at $x_0$ then $f$ is bounded at
                $x_0$.
+
+      \textbf{Proof.} Suppose that $f : A \rightarrow \R$ is continuous at
+      $x_0$. To show that $f$ is bounded at $x_0$, it suffices to show that
+      $f$ is bounded on $N_{x_0}(\delta) \cap A$ for some $\delta > 0$. Since
+      $f$ is continuous at $x_0$, it follows by definition that there exists
+      $\delta_1 > 0$ such that $|f(x) - f(x_0)| < 1$ whenever
+      $|x - x_0| < \delta_1$. Using the triangle inequality we have that
+      $$||f(x)| - |f(x_0)|| < |f(x) - f(x_0)| < 1,$$
+      so that $|f(x)| - |f(x_0)| < 1$, if $|x - x_0| < \delta_1$. Thus
+      $|f(x)| < 1 + |f(x_0)|$, if $|x - x_0| < \delta_1$. We have thus shown
+      that $f$ is bounded on $N_{x_0}(\delta_1)$ by $1 + |f(x_0)|$, so that
+      $f$ is bounded at $x_0$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.02] Find all points of discontinuity for the following functions,
                classify the discontinuities as removable, jump, or second kind,
                and determine where the function is right- and left-continuous.
+               \begin{enumerate}
+                  \item $f(x) = \begin{cases}
+                           x^2                 & \text{if } x < -1, \\
+                           2x + 3              & \text{if } -1 \le x \le 0,\\
+                           |x - 1|             & \text{if } 0 < x < 2, \\
+                           x^3 - 7             & \text{if } 2 \le x < 3, \\
+                         \D\frac{x - 3}{x - 4} & \text{if } 3 \le x < 4, \\
+                           0                   & \text{if } 4 \le x.
+                        \end{cases}$
+                  \item $f(x) = x + \gi{-x}$.
+                  \item $f(x) = x \gi{x}$.
+                  \item $f(x) = \text{sgn}\gi{|x|}$.
+                  \item $f(x) = \begin{cases}
+                           \gi{x + 1}\D\sin\frac{1}{x}
+                              & \text{if } x \in (-1, 0) \cup (0, 1) \\
+                           0  & \text{otherwise}.
+                        \end{cases}$
+                  \item $f(x) = \begin{cases}
+                           (1 + x)\text{ sgn }x + \text{sgn }|x| - 1
+                              & \text{if } x \text{ is rational} \\
+                           \text{sgn } x  & \text{if }x \text{ is irrational}.
+                        \end{cases}$
+               \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.03] Prove that $f(x)$ is continuous on $\R$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.04] Prove that if $f$ is continuous at $x_0$ and $g$ is discontinuous
                at $x_0$ then $f + g$ must have a discontinuity at $x_0$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.05] Show that $f + g$ can be continuous at $x_0$ even though both $f$
+               and $g$ have discontinuities at $x_0$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.06] Show that $f \cdot g$ can be continuous at $x_0$ even though 
+               both $f$ and $g$ have discontinuities at $x_0$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.07] If $f$ is continuous at $x_0$ and $g$ is discontinuous at $x_0$,
+               what can be said about continuity of the product $f \cdot g$ at
+               $x_0$?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.08] Show that the composition function $g \circ f$ can be continuous
+               at $x_0$ even though $f$ or $g$ or both $f$ and $g$ are
+               discontinuous at $x_0$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.09] Prove that the function
+               \begin{equation*}
+                  f(x) = \begin{cases}
+                     x  & \text{if $x$ is rational}, \\
+                     0  & \text{if $x$ is irrational}
+                  \end{cases}
+               \end{equation*}
+               has a discontinuity of the second king at each nonzero real
+               number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.10] Prove that if $f$ is continuous at $x_0$ and $f$ is nonnegative
+               then $h(x) = \sqrt{f(x)}$ is continuous at $x_0$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.11] Find a function $f$ which has a discontinuity of the second kind
+               at every real number although $f \circ f$ is continuous on $\R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.12] If $f$ is continuous on $(0, 1)$ and $f(x) = 1 - x$ for every
+               rational number $x \in (0, 1)$, find $f(\pi/4)$. Explain your
+               answer.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.13] Prove that if $f$ and $g$ are each continuous on $(a, b)$ and
+               $f(x) = g(x)$ for every rational $x \in (a, b)$ then
+               $f(x) = g(x)$ for every $x \in (a, b)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.14] Prove: $f$ is right-continuous at $x_0$ if and only if
+               $f(x_n) \rightarrow f(x_0)$ for every sequence $\{x_n\}$ in the
+               domain of $f$ with $x_n \rightarrow x_0$ and $x_n \ge x_0$ for
+               $n = 1, 2, 3, ....$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.15] Discuss one-sided continuity for the pie function.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.16] Prove that if $f$ is defined on $\R$ and continuous at $x_0 = 0$
+               and if $f(x_1 + x_2) = f(x_1) + f(x_2)$ for each
+               $x_1, x_2 \in \R$ then $f$ is continuous on $\R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.17] Find all functions $f$ which are continuous on $\R$ and which
+               satisfy the equation $f(x)^2 = x^2$ for each $x \in \R$.
+               \textit{Hint}: There are four possible solutions.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.18] Prove that if $g$ is continuous at $x_0 = 0$, $g(0) = 0$ and for
+               some $\delta > 0$ $|f(x)| \le |g(x)|$ for each
+               $x \in N_\delta(0)$ then $f$ is continuous at $x_0 = 0$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%19%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.19] Prove that if $f$ is continuous on $[a, b]$ then there exists a
+               function $g$ continuous on $\R$ such that $g(x) = f(x)$ for each
+               $x \in [a, b]$. The function $g$ is called a
+               \textit{continuous extension} of $f$ to $\R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%20%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.20] The function $f(x) = \tan x$ defined on $(-\pi/2, \pi/2)$ clearly
+               has no continuous extension to $\R$. Find a bounded continuous
+               function on $(a, b)$ which has no continuous extension to $\R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.21] Assume that $f$ is continuous on $(a, b)$. Prove that $f$ has a
+               continuous extension to $\R$ if and only if both limits
+               $\lim_{x\rightarrow a^+}f(x)$ and $\lim_{x\rightarrow b^-}f(x)$
+               exist.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.22] Prove that if $f$ is continuous on $(a, b)$ and both
+               $\lim_{x\rightarrow a^+}f(x)$ and $\lim_{x\rightarrow b^-}f(x)$
+               exist then $f$ is bounded on $(a, b)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%23%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.23] Suppose $f$ is one-to-one on $(a, b)$ and satisfies the following
+               property: whenever $f(x_1) \neq f(x_2)$ for $x_1 < x_2$, $x_1$,
+               $x_2 \in (a, b)$ and $k$ is any number between $f(x_1)$ and
+               $f(x_2)$, there exists a $c \in (x_1, x_2)$ with $f(c) = k$.
+               Prove that $f$ is continuous on $(a, b)$.
 \end{enumerate}
