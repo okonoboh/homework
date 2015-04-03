@@ -1,18 +1,43 @@
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[Exam] \textbf{12\%}: Part of 3.3 (p.86)
+               $$\lim_{x\rightarrow\infty}f(x) = \infty,
+                 \lim_{x\rightarrow-\infty}f(x) = \infty,
+                 \lim_{x\rightarrow\infty}f(x) = -\infty,
+                 \lim_{x\rightarrow-\infty}f(x) = -\infty.$$
+                 
+               \textbf{28\%}: 4.1 Continuous function at a point (both versions:
+               $\lim_{x\rightarrow a}f(x) = f(a)$, $\varepsilon-\delta$ version)
+               
+               Find and classify discontinuities: Removable discontinuity,
+               jump discontinuity, discontinuity of $2^{\text{nd}}$ kind.
+               
+               Theorem 4.1, 4.2, 4.3, right continuous at $x = a$, left
+               continuous at $x = a$. Continuity on an interval: $[a, b]$,
+               $(a, b)$.
+               
+               
+               \textbf{28\%} 4.2 (p 102-106) Th 4.4, 4.5
+               (Extreme Value Theorem), 4.6 (Intermediate Value Theorem),
+               Theorem 4,7 Fixed point.
+               
+               \textbf{32\%} 4.3 Uniform continuous on an interval. Be able to
+               use definition to prove uniform continuity on  $I$ or to prove
+               not uniform continuity on $I$. Theorem 4.12, 4.13, 4.14, 4.15
+               and its corollary, 4.16.
    \item[4.01] Prove that if $f$ is continuous at $x_0$ then $f$ is bounded at
                $x_0$.
 
       \textbf{Proof.} Suppose that $f : A \rightarrow \R$ is continuous at
       $x_0$. To show that $f$ is bounded at $x_0$, it suffices to show that
-      $f$ is bounded on $N_{x_0}(\delta) \cap A$ for some $\delta > 0$. Since
+      $f$ is bounded on $N_{\delta}(x_0) \cap A$ for some $\delta > 0$. Since
       $f$ is continuous at $x_0$, it follows by definition that there exists
       $\delta_1 > 0$ such that $|f(x) - f(x_0)| < 1$ whenever
       $|x - x_0| < \delta_1$. Using the triangle inequality we have that
       $$||f(x)| - |f(x_0)|| < |f(x) - f(x_0)| < 1,$$
       so that $|f(x)| - |f(x_0)| < 1$, if $|x - x_0| < \delta_1$. Thus
       $|f(x)| < 1 + |f(x_0)|$, if $|x - x_0| < \delta_1$. We have thus shown
-      that $f$ is bounded on $N_{x_0}(\delta_1)$ by $1 + |f(x_0)|$, so that
+      that $f$ is bounded on $N_{\delta_1}(x_0)$ by $1 + |f(x_0)|$, so that
       $f$ is bounded at $x_0$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.02] Find all points of discontinuity for the following functions,
@@ -41,6 +66,26 @@
                            \text{sgn } x  & \text{if }x \text{ is irrational}.
                         \end{cases}$
                \end{enumerate}
+               
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item Since
+               $$3 = \lim_{x\rightarrow 0^-} f(x) \neq
+                     \lim_{x\rightarrow 0^+} f(x) = 1
+                 \text{ and }
+                 27 = \lim_{x\rightarrow 3^-} f(x) \neq
+                      \lim_{x\rightarrow 3^+} f(x) = 0$$
+               it follows that $f$ has jump discontinuities at 0 and 3. The
+               function $f$ has a discontinuity of the second kind at $x = 4$
+               because $\lim_{x\rightarrow 4^-} f(x) = -\infty$; observe that
+               $f$ is right-continuous at every point except for 0; also, $f$ is
+               left-continuous at every point except for 3 and 4.
+         \item Let $z$ be an integer. Then it follows that
+               $f(z) = z + \gi{-z} = z + (-z) = 0$, and that
+               $\lim_{x\rightarrow z^+} f(x) = \lim_{x\rightarrow z^+} x +
+               \lim_{x\rightarrow z^+} \gi{-x} = z + (-z-1) = -1$.
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.03] Prove that $f(x) = \cos {x}$ is continuous on $\R$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -68,7 +113,7 @@
                      0  & \text{if $x$ is irrational}
                   \end{cases}
                \end{equation*}
-               has a discontinuity of the second king at each nonzero real
+               has a discontinuity of the second kind at each nonzero real
                number.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.10] Prove that if $f$ is continuous at $x_0$ and $f$ is nonnegative
