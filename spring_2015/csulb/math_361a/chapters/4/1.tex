@@ -244,11 +244,24 @@
    \item[4.13] Prove that if $f$ and $g$ are each continuous on $(a, b)$ and
                $f(x) = g(x)$ for every rational $x \in (a, b)$ then
                $f(x) = g(x)$ for every $x \in (a, b)$.
+
+      \textbf{Proof.} Assume the hypothesis holds. It suffices to show that
+      $f(x) = g(x)$ for all $x \in (a, b) \cap (\R - \Q)$. So let $c$ be an
+      irrational number in $(a, b)$. Since $f$ and $g$ are continuous at $c$, we 
+      must have that $\lim_{x\rightarrow c}f(x) = f(c)$ and
+      $\lim_{x\rightarrow c}g(x) = g(c)$. Let $\{t_n\}$ be a sequence of 
+      rationals in $(a, b)$ that converges to $c$. By Theorem 3.6, it follows 
+      that $\{f(t_n)\}$ must converge to $f(c)$ and $\{g(t_n)\}$ must converge 
+      to $g(c)$. But $f(t_n) = g(t_n)$ for each $n$, so that by the uniqueness 
+      of the limit of a sequence, we must have that $f(c) = g(c)$, which is what 
+      we wanted to show. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.14] Prove: $f$ is right-continuous at $x_0$ if and only if
                $f(x_n) \rightarrow f(x_0)$ for every sequence $\{x_n\}$ in the
                domain of $f$ with $x_n \rightarrow x_0$ and $x_n \ge x_0$ for
                $n = 1, 2, 3, ....$
+
+      \textbf{Proof.} Use Exercise 3.36. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.15] Discuss one-sided continuity for the pie function.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
