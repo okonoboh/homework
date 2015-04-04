@@ -77,54 +77,169 @@
                  27 = \lim_{x\rightarrow 3^-} f(x) \neq
                       \lim_{x\rightarrow 3^+} f(x) = 0$$
                it follows that $f$ has jump discontinuities at 0 and 3. The
-               function $f$ has a discontinuity of the second kind at $x = 4$
-               because $\lim_{x\rightarrow 4^-} f(x) = -\infty$; observe that
-               $f$ is right-continuous at every point except for 0; also, $f$ is
-               left-continuous at every point except for 3 and 4.
+               function $f$ has a discontinuity of the second kind at $4$
+               because $\lim_{x\rightarrow 4^-} f(x) = -\infty$; $f$ is not
+               right-continuous at 0 because
+               $1 = \lim_{x\rightarrow 0^+} f(x) \neq f(0) = 3$, but it is
+               right-continuous at every other point; also, $f$ is not
+               left-continuous at 3 and 4 because
+               $27 = \lim_{x\rightarrow 3^-} f(x) \neq f(3) = 0$ and
+               $\lim_{x\rightarrow 4^-} f(x) = -\infty$, but it is
+               left-continuous at every other point.
          \item Let $z$ be an integer. Then it follows that
-               $f(z) = z + \gi{-z} = z + (-z) = 0$, and that
-               $\lim_{x\rightarrow z^+} f(x) = \lim_{x\rightarrow z^+} x +
-               \lim_{x\rightarrow z^+} \gi{-x} = z + (-z-1) = -1$.
+               \begin{align*}
+                  f(z) &= z + \gi{-z} \\
+                       &= z + (-z) = 0, \\ \\
+                  \lim_{x\rightarrow z^+} f(x) &= \lim_{x\rightarrow z^+} x +
+                  \lim_{x\rightarrow z^+} \gi{-x} \\
+                  &= z + (-z-1) = -1, \text{ and } \\ \\
+                  \lim_{x\rightarrow z^-} f(x) &= \lim_{x\rightarrow z^-} x +
+                  \lim_{x\rightarrow z^-} \gi{-x} \\
+                  &= z + (-z) = 0,
+               \end{align*}
+               so that $f$ has jump discontinuities at all integers; $f$ is
+               left-continuous at all points, and it is right-continuous at all
+               points except the integers.
+         \item It is clear that $f$ is continuous at all non-integer points. So
+               let $z$ be an integer. Observe that $f(z) = z^2$,
+               $\lim_{x\rightarrow z^-} f(x) = z(z - 1)$, and
+               $\lim_{x\rightarrow z^+} f(x) = z^2$, so that $f$ is continuous
+               at 0 and has jump discontinuities at all other integers; also $f$
+               is left-continuous at all points except nonzero integers, and it
+               is right continuous at all points.
+         \item We have that
+               \begin{equation*}
+                  \text{sgn}\gi{|x|} = \begin{cases}
+                      1 & \text{if } x \le -1 \text{ or } x \ge 1 \\
+                      0 & \text{if } -1 < x < 1,
+                  \end{cases}
+               \end{equation*}
+               so that $f$ has jump discontinuites at $-1$ and 1, is
+               left-continuous at all points except 1, and is right-continuous
+               at all points except $-1$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.03] Prove that $f(x) = \cos {x}$ is continuous on $\R$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.04] Prove that if $f$ is continuous at $x_0$ and $g$ is discontinuous
                at $x_0$ then $f + g$ must have a discontinuity at $x_0$.
+
+      \textbf{Proof.} Assume that $f$ is continuous at $x_0$ and $g$ is 
+      discontinuous at $x_0$. Now suppose to the contrary that $f + g$ is
+      continuous at $x_0$. By Theorem 4.2, it follows that
+      $(f +\nobreak g) +\nobreak (-f) = g$ is also continuous at $x_0$, a 
+      contradiction. Thus $f + g$ has a
+      discontinuity at $x_0$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.05] Show that $f + g$ can be continuous at $x_0$ even though both $f$
                and $g$ have discontinuities at $x_0$.
+
+      \textbf{Solution.} For every nonzero $x$, let $f(x) = 1/x$; then define
+      $f(0) = 0$ and $g(x) = -f(x)$ for all real $x$. It is clear that both 
+      functions are not continuous at 0, but $f + g = 0$ is continuous at 0.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.06] Show that $f \cdot g$ can be continuous at $x_0$ even though 
                both $f$ and $g$ have discontinuities at $x_0$.
+
+      \textbf{Solution.} Define
+      \begin{align*}
+         f(x) &= \left\{\begin{array}{cl}
+            0 & \text{if } x \le 1 \\
+            \D\frac{1}{x - 1} & \text{if } x > 1,
+         \end{array} \right. \\
+         g(x) &= \left\{\begin{array}{cl}
+            \D\frac{1}{x - 1} & \text{if } x < 1 \\            
+            0 & \text{if } x \ge 1.
+         \end{array} \right.
+      \end{align*}
+
+      The functions $f$ and $g$ have discontinuities at 1 because the former
+      is not right-continuous at 1 and the latter is not left-continuous at 1;
+      however $f \cdot g = 0$ is continuous at 1.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.07] If $f$ is continuous at $x_0$ and $g$ is discontinuous at $x_0$,
                what can be said about continuity of the product $f \cdot g$ at
                $x_0$?
+
+      \textbf{Answer.} Nothing definite can be said about the continuity of the
+      product at $x_0$ because if $f(x) = 1$ and $g(x) = 1/x$, then
+      $f \cdot g = g$ is not continuous at 0, and if $f(x) = 0$ and
+      $g(x) = 1/x$ with $g(0) = 0$ then $f \cdot g = 0$ is continuous at 0. Note
+      that in either case $f$ was continuous at 0 and $g$ was not.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.08] Show that the composition function $g \circ f$ can be continuous
                at $x_0$ even though $f$ or $g$ or both $f$ and $g$ are
                discontinuous at $x_0$.
+
+      \textbf{Solution.} Let $f(x) = 1/x$, with $f(0) = 0$, and let $g = f$.
+      Then it follows that $(f \circ g)(x) = x$ so that $f \circ g$ is
+      continuous at 0, but $f$ (and thus $g$) is not continuous at 0.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.09] Prove that the function
                \begin{equation*}
                   f(x) = \begin{cases}
                      x  & \text{if $x$ is rational}, \\
-                     0  & \text{if $x$ is irrational}
+                     0  & \text{if $x$ is irrational}.
                   \end{cases}
                \end{equation*}
                has a discontinuity of the second kind at each nonzero real
                number.
+
+      \textbf{Proof.} Let $a$ be a nonzero real number. It suffices to show that
+      $\lim_{x\rightarrow a^+} f(x)$ does not exist. By Theorems 1.9 and 1.10,
+      we know that every interval in $\R$ contains a rational number and an
+      irrational number. So let $b_n$ be a sequence of rational numbers and
+      $c_n$ a sequence of irrational numbers such that
+      $$b_n \in (a, a + 1/n) \cap \Q, \qquad
+        c_n \in (a, a + 1/n) \cap (\R - \Q).$$
+      It is clear that
+      $\lim_{n\rightarrow\infty}b_n = \lim_{n\rightarrow\infty}c_n = a$, but
+      $$\lim_{n\rightarrow\infty}f(b_n) = \lim_{n\rightarrow\infty}b_n = a
+        \neq 0 = \lim_{n\rightarrow\infty}0 = \lim_{n\rightarrow\infty}c_n,$$
+      so that by Exercise 3.36, $\lim_{x\rightarrow a^+} f(x)$ does not exist.
+      Thus $f$ has a discontinuity of the second kind at each nonzero real
+      number. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.10] Prove that if $f$ is continuous at $x_0$ and $f$ is nonnegative
                then $h(x) = \sqrt{f(x)}$ is continuous at $x_0$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.11] Find a function $f$ which has a discontinuity of the second kind
                at every real number although $f \circ f$ is continuous on $\R$.
+
+      \textbf{Solution.} We know from Example 4.4 that
+      \begin{equation*}
+         f(x) = \begin{cases}
+            1    & \text{if $x$ is rational}, \\
+            0    & \text{if $x$ is irrational},
+         \end{cases}
+      \end{equation*}
+      has a discontinuity of the second kind at every real number. Now
+      \begin{equation*}
+         (f \circ f)(x) = f(f(x)) = \begin{cases}
+            f(1) = 1    & \text{if $x$ is rational}, \\
+            f(0) = 1    & \text{if $x$ is irrational},
+         \end{cases}
+      \end{equation*}
+      so that $f \circ f$ is identically equal to 1. Thus $f \circ f$ is 
+      continuous on $\R$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.12] If $f$ is continuous on $(0, 1)$ and $f(x) = 1 - x$ for every
                rational number $x \in (0, 1)$, find $f(\pi/4)$. Explain your
                answer.
+
+      \textbf{Solution.} Since $f$ is continuous on (0, 1) and
+      $\pi/4 \in (0, 1)$, it follows that
+      $$\lim_{x \rightarrow \pi/4} = f(\pi/4).$$
+      Consider the sequence of rationals $a_n$ where
+      $\D a_n \in \left(\frac{\pi}{4}, \frac{\pi}{4} + \frac{1}{10n}\right)$.
+      Since each $a_n \in (0, 1)$ and since $a_n$ converges to $\pi/4$, it 
+      follows by Theorem 3.6 that $f(a_n)$ must converge to $f(\pi/4)$. Thus
+      \begin{align*}
+         f(\pi/4) &= \lim_{n\rightarrow\infty}f(a_n) \\
+            &= \lim_{n\rightarrow\infty}(1 - a_n) \\
+            &= \lim_{n\rightarrow\infty}1 - \lim_{n\rightarrow\infty}a_n \\
+            &= 1 - \pi/4.
+      \end{align*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.13] Prove that if $f$ and $g$ are each continuous on $(a, b)$ and
                $f(x) = g(x)$ for every rational $x \in (a, b)$ then
