@@ -109,6 +109,62 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item If $Y$ has an exponential distribution with $P(Y < 3) = 0.4512$, find
 
-         $(a)\; E(Y) \qquad (b)\; P(Y \ge 2)$.
+         $(a)\; E[Y] \qquad (b)\; P(Y \ge 2)$.
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item We have that
+               \begin{align*}
+                  0.4512 &= P(Y < 3) \\
+                         &= P(Y \le 3) \\
+                         &= F(3) \\
+                         &= \int_{-\infty}^3\frac{1}{\beta}
+                            e^{-\frac{y}{\beta}} dy \\
+                         &= \int_0^3\frac{1}{\beta}
+                            e^{-\frac{y}{\beta}} dy \\
+                         &= -e^{-\frac{3}{\beta}} + 1,
+               \end{align*}
+               so that $e^{-\frac{3}{\beta}} = 0.5488$; i.e., $\beta \approx 5$.
+               Thus $E[Y] \approx 5$.
+         \item \begin{align*}
+                  P(Y \ge 2) &= 1 - P(Y < 2) \\
+                     &= 1 - \int_0^2\frac{1}{\beta}e^{-\frac{y}{\beta}} dy \\
+                     &= e^{-\frac{2}{\beta}} \\
+                     &\approx 0.6703.
+               \end{align*}
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item The length of time $Y$ necessary to complete a key operation in the
+         construction of houses has an exponential distribution with mean 10
+         hrs. The formula $C = 100 + 40Y + 3Y^2$ gives the cost $C$ of
+         completing the operation. Find the mean and variance of $C$.
+      
+      \textbf{Solution.} First we want to find $E[Y^2]$. So
+      \begin{align*}
+         E[Y^2] &= \frac{1}{10}\lim_{t\rightarrow\infty}\int_0^t y^2
+                   e^{-\frac{y}{10}}\;dy \\
+            &= \lim_{t\rightarrow\infty}\left[-y^2e^{-\frac{y}{10}}\Big|_0^t +
+               2\int_0^t y e^{-\frac{y}{10}}\;dy\right]
+               &[\text{Integration by parts}] \\
+            &= 2\lim_{t\rightarrow\infty}\left[\int_0^t y e^{-\frac{y}{10}}\;dy
+               \right] \\
+            &= 2\lim_{t\rightarrow\infty}\left[-10ye^{-\frac{y}{10}}\Big|_0^t +
+               10\int_0^t e^{-\frac{y}{10}}\;dy
+               \right] &[\text{Integration by parts}] \\
+            &= 200\lim_{t\rightarrow\infty}\left[\frac{1}{10}\int_0^t
+               e^{-\frac{y}{10}}\;dy \right] \\
+            &= 200 \cdot E[Y] = 2000.
+      \end{align*}         
+
+      Now the mean of $C$ is given by $E[C]$ so that
+      \begin{align*}
+         E[C] &= E[100 + 40Y + 3Y^2] \\
+            &= E[100] + 40E[Y] + 3E[Y^2] \\
+            &= 100 + 40 \cdot 10 + 3 \cdot 2000 \\
+            &= 6500,
+      \end{align*}
+      and the variance of $C$, $V[Y]$, is
+      $E[Y^2] - E[Y]^2 = 2000 - 100 = 1900$.
 \end{enumerate}
 \end{document}
