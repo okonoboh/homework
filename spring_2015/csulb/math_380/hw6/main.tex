@@ -175,5 +175,29 @@
             \item $P(Y > 34.1696)$.
             \item A value $b$ such that $P(Y < b) = 0.10$.
          \end{enumerate}
+
+      \textbf{Solution.} By inspection we can see that $f$ is the gamma 
+      distribution with $\alpha = 10$, $\beta = 2$.
+      \begin{enumerate}
+         \item $\D k = \frac{1}{2^{10} \cdot \Gamma(10)} =
+               \frac{1}{2^{10} \cdot 9!}$.
+         \item $E[Y] = \alpha\beta = 20$ and $V(Y) = \alpha\beta^2 = 40$.
+         \item \begin{align*}
+                  P(Y > 34.1696) &= \frac{1}{2^{10} \cdot 9!}
+                     \int_{34.1696}^\infty y^9e^{-y/2} dy \\
+                     &= \frac{1}{2^{10} \cdot 9!}
+                     \int_{17.0848}^\infty 2^{10}z^9e^{-z} dz
+                     &\left[z = \frac{y}{2} \text{ substitution}\right]  \\
+                     &= \frac{1}{9!}
+                     \int_{17.0848}^\infty z^9e^{-z} dz \\
+                     &= \sum_{x=0}^9\frac{17.0848^xe^{-17.0848}}{x!} \\
+                     &\approx 0.025.
+               \end{align*}
+         \item Suppose there exists $b$ with $P(Y < b) = 0.10$, then we must
+               have that
+               $$0.90 = P(Y \ge b) = P(Z \ge b/2),$$
+               and from Appendix 3, Table 3, we get $b/2 \approx 14$, so that
+               $b \approx 28$.
+      \end{enumerate}
 \end{enumerate}
 \end{document}
