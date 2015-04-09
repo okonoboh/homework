@@ -1,0 +1,117 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 444, Spring 2015\\Section 1 (5562)\\
+  HW \#9, DUE: 2015, APRIL 13
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the veracity or falsehood of each of the following statements.
+         For bonus, argue for those that you believe are true while providing a
+         counterexample for those that you believe are false.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Every non-constant complex polynomial has a complex root.
+            \item Conjugation of complex numbers is a field automorphism of the
+                  complex numbers.
+            \item Let $x, y \in R$, a finite ring. If $x * y = 1$, then
+                  $y * x =  1$ also.
+            \item There are exactly four quadratics in $\Z_2[x]$.
+            \item If $p(x)$ is a real polynomial, then it either has a real root
+                  or there is a quadratic polynomial with real coefficients that
+                  divides it.
+         \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item True.
+         
+               This follows from the Fundamental Theorem of Algebra.
+         \item True.
+         
+               \textbf{Proof.} We want to show that
+               $$f : \C \rightarrow \C, \; a + bi \mapsto a - bi$$
+               is an isomorphism. So we have that
+               \begin{align*}
+                  f((a + bi)(c + di)) &= f(ac - bd + (ad + bc)i) \\
+                                         &= ac - bd - (ad + bc)i \\
+                                         &= ac - adi - bci - bd \\
+                                         &= a(c - di) - bi(c - di) \\
+                                         &= (a - bi)(c - di) \\
+                                         &= f(a + bi)f(c + di), \text{ and }\\\\
+                  f((a + bi) + (c + di)) &= f((a + c) + (b + d)i) \\
+                     &= (a + c) - (b + d)i \\
+                     &= a - bi + c - di \\
+                     &= f(a + bi) + f(c + di).
+               \end{align*}
+               Thus conjugation of complex numbers is a field automorphism.
+         \item True.
+         
+               \textbf{Proof.} Let $R$ be a finite ring, and consider
+               $x, y \in R$ such that $x * y = 1$. The map $f : R\rightarrow R$,
+               $r \mapsto r * x$ is bijective because for $r_1, r_2 \in R$ with
+               $f(r_1) = f(r_2)$, we have that $r_1 * x = r_2 * x$. We then
+               cancel $x$ on both sides by multiplying each side on the right
+               by $y$ to get $r_1 = r_2$; thus $f$ is injective, and since $R$
+               is finite, we can conclude that $f$ is also bijective. Thus
+               there exists $r_3 \in R$ such that $r_3 * x = 1$. Mutltiply the
+               preceding equality on the right by $y$ to get $r_3 = y$. \qed
+         \item False.
+         
+               There are exactly 8 quadratics in $\Z_2[x]$, and they are
+               $$0, 1, x, x + 1, x^2, x^2 + 1, x^2 + x, x^2 + x + 1.$$
+               
+         \item True.
+         
+               \textbf{Proof.} Consider the polynomial
+               $$px = a_1$$
+      \end{enumerate}
+      
+      
+\end{enumerate}
+\end{document}

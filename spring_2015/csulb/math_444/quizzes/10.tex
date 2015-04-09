@@ -1,0 +1,122 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 444, Spring 2015\\Section 1 (5562)\\
+  Quiz \#10
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+Let $R = \Z_6$, the integers mod 6. Answer the following:
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item $R$ is a commutative ring. Tell me why.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+   \item Is $R$ an integral domain? Why or why not?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Find the group of units of $R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Count the number of fixed point of the matrix 
+         $\left(\begin{tabular}{@{}cc@{}}
+            1 & 3 \\
+            0 & 1
+         \end{tabular}\right)$ (with entries in $R$) when it acts (by
+         multiplication) on the vectors $\left(\begin{tabular}{@{}c@{}}
+            $x$ \\
+            $y$
+         \end{tabular}\right)$ with entries in $\R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Is $R$ a field? Why or why not?
+   \item[\textbf{Bonus.}]  Count the group of units of $\mathcal{M}_2(R)$, which
+                           is the ring of $2 \times 2$ matrices with entries in
+                           $R$.
+\end{enumerate}
+
+\textbf{Solution.}
+
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+   \item Yes, $R$ is a commutative ring because
+         \begin{itemize}
+            \item $(R, +)$ is an abelian group, and
+            \item $R$ is associative and closed under multiplication, has the
+                  element 1 as its multiplicative identity, and multiplication
+                  distributes over addition.
+         \end{itemize}
+   \item $R$ is not an integral domain because for $2, 3 \in R$ with $2 \neq 0$
+         and $3 \neq 0$, we have $2 \cdot 3 = 0$; i.e., $R$ has zero divisors so
+         that it cannot be an integral domain.
+   \item The group of units of $R$ are the elements of $R$ with a multiplicative
+         identity; thus the group of units of $R$ is $\{1, 5\}$.
+   \item Suppose that the matrix $\left(\begin{tabular}{@{}cc@{}}
+            1 & 3 \\
+            0 & 1
+         \end{tabular}\right)$ (with entries in $R$) fixes some vector
+         $\left(\begin{tabular}{@{}c@{}}
+            $x$ \\
+            $y$
+         \end{tabular}\right)\left(\begin{tabular}{@{}c@{}}
+            $x$ \\
+            $y$
+         \end{tabular}\right) \in R^2$. Then we must have that
+         $$\left(\begin{tabular}{@{}c@{}}
+            $x$ \\
+            $y$
+         \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
+            1 & 3 \\
+            0 & 1
+         \end{tabular}\right)\left(\begin{tabular}{@{}c@{}}
+            $x$ \\
+            $y$
+         \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+            $x + 3y$ \\
+            $y$
+         \end{tabular}\right),$$
+         so that $x = x + 3y$; that is, $3y = 0$. The solutions are $y$ = 0, 2,
+         or 4. So we have 6 choices for $x$ and 3 choices for $y$, and thus
+         18 choices for the fixed vectors.
+   \item No, $R$ is not a field because 2 has no multiplicative inverse in $R$.
+         Or we can conclude from \circled{2} that $R$ is not a field because it
+         is not an integral domain.
+         
+\end{enumerate}
+\end{document}
