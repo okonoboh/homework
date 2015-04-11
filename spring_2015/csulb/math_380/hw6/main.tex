@@ -91,21 +91,23 @@
 
       \textbf{Solution.} Let $y$ be the cut-off score. Then we have that
       $$0.0015 = P(Y \ge y) = P\left(Z \ge \frac{y - 70}{5}\right),$$
-      so that $(y-70)/5 \approx 2.97$; i.e., $y \approx 84.85$.
+      so that $(y-70)/5 \approx 2.97$; i.e., $y \approx 85$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Using the fact that
          $\D\int_0^\infty e^{-y^2/2} dy = \sqrt{\frac{\pi}{2}},$ show that
          $\D\Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}$ by making the 
          transformation $y = \frac{1}{2} x^2$.
 
-      \textbf{Proof.} Using the substitution $y = \frac{1}{2} x^2$ we have that
+      \textbf{Proof.} Using the transformation $y = \frac{1}{2} x^2$ we have
+      that
       \begin{align*}
          \Gamma\left(\frac{1}{2}\right) &=
             \int_0^\infty y^{-\frac{1}{2}}e^{-y} dy \\
          &= \int_0^\infty \frac{\sqrt{2}}{x} e^{-\frac{1}{2}x^2} x \; dx \\
          &= \sqrt{2}\int_0^\infty  e^{-\frac{1}{2}x^2} \; dx \\
-         &= \sqrt{2} \sqrt{\frac{\pi}{2}} = \sqrt{\pi}.
+         &= \sqrt{2} \sqrt{\frac{\pi}{2}} = \sqrt{\pi},
       \end{align*}
+      as desired. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item If $Y$ has an exponential distribution with $P(Y < 3) = 0.4512$, find
 
@@ -319,6 +321,53 @@
    \item Suppose $Y$ has the density function $f(y) = k(y - 2)^4(5 - y)^6$,
          $2 \le y \le 5$. Find $(a)\; k \qquad (b)\; E[Y] \text{ and } V(Y)$.
 
-      
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item By definition we must have that
+               $$k\int_2^5(y - 2)^4(5 - y)^6\;dy = 1.$$
+               So make the substitution $x = 5 - y$ to get
+               \begin{align*}
+                  1 &= k\int_2^5(y - 2)^4(5 - y)^6\;dy \\
+                    &= -k\int_3^0(3 - x)^4x^6\;dx \\
+                    &= k\int_0^3(3 - x)^4x^6\;dx \\
+                    &= k\int_0^3(x^4 - 12x^3 + 54x^2 - 108x + 81)x^6\;dx \\
+                    &= k\int_0^3(x^{10} - 12x^9 + 54x^8 - 108x^7 + 81x^6)\;dx \\
+                    &= k\left(\frac{1}{11}x^{11} - \frac{6}{5}x^{10} + 6x^9 - 
+                       \frac{27}{2}x^8 + \frac{81}{7}x^7\right)\Big|_0^3 \\
+                    &= \frac{59049}{770}k,
+               \end{align*}
+               so that $\D k = \frac{770}{59049}$.
+         \item Using the same substitution $x = 5 - y$, it follows that
+               \begin{align*}
+                  E[Y] &= k\int_2^5y(y - 2)^4(5 - y)^6\;dy \\
+                    &= k\int_0^3(5 - x)
+                       (x^{10} - 12x^9 + 54x^8 - 108x^7 + 81x^6)\;dx \\
+                    &= k\int_0^3(-x^{11} + 17x^{10} - 114x^9 + 378x^8 -
+                       621x^7 + 405x^6)\;dx \\
+                    &= k\left(-\frac{1}{12}x^{12} + \frac{17}{11}x^{11} -
+                       \frac{57}{5}x^{10} + 42x^9 - \frac{621}{8}x^8 +
+                       \frac{405}{7}x^7\right)\Big|_0^3 \\
+                    &= \frac{770}{59049}\frac{767637}{3080} = \frac{13}{4},
+               \end{align*}
+               and
+               \begin{align*}
+                  E[Y^2] &= k\int_2^5y^2(y - 2)^4(5 - y)^6\;dy \\
+                    &= k\int_0^3(5 - x)^2
+                       (x^{10} - 12x^9 + 54x^8 - 108x^7 + 81x^6)\;dx \\
+                    &= k\int_0^3(x^2 - 10x + 25)
+                       (x^{10} - 12x^9 + 54x^8 - 108x^7 + 81x^6)\;dx \\
+                    &= k\int_0^3(x^{12} - 22x^{11} + 199x^{10} - 948x^9 +
+                       2511^8 - 3510x^7 + 2025x^6)\;dx \\
+                    &= k\left(\frac{1}{13}x^{13}-\frac{11}{6}x^{12} +
+                       \frac{199}{11}x^{11} - \frac{474}{5}x^{10} + 279x^9 - 
+                       \frac{1755}{4}x^8 + \frac{2025}{7}x^7\right)\Big|_0^3 \\
+                    &= \frac{770}{59049}\frac{49424013}{60060} = \frac{279}{26}.
+               \end{align*}
+
+               We can then conclude that
+               $$V(Y) = E[Y^2] - E[Y]^2 = \frac{279^2}{26^2} - \frac{13^2}{4^2}
+                 = \frac{282803}{2704} \approx 104.59.$$
+      \end{enumerate}
 \end{enumerate}
 \end{document}
