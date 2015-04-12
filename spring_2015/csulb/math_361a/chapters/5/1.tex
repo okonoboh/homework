@@ -1,0 +1,60 @@
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[5.01] If $f(x) = |x^3|$, find $f'(x)$.
+
+      \textbf{Solution.} It is clear that $f'(x) = 3x^2$ if $x > 0$ and
+      $f'(x) = -3x^2$ if $x < 0$. Now we have that
+      $$f'(0) = \lim_{h \to 0}\frac{f(0 + h) - f(0)}{h} =
+        \lim_{h \to 0}\frac{|h^3|}{h}.
+      $$
+      And since
+      $$\lim_{h \to 0^+}\frac{|h^3|}{h} = \lim_{h \to 0^+}\frac{h^3}{h} = 0 =
+        \lim_{h \to 0^-}\frac{-h^3}{h} = \lim_{h \to 0^-}\frac{|h^3|}{h},$$
+      it follows that $f'(0) = 0$. Thus $f'(x) = |3x^2|$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[5.02] Let $f(x) = x|x|$; show that
+               \begin{equation*}
+                  f''(x) = \left\{\begin{array}{rl}
+                     2 & \text{if } x > 0 \\
+                     -2 & \text{if } x < 0
+                  \end{array} \right. 
+               \end{equation*}
+               and that 0 is not in the domain of $f''(x)$.
+               
+      \textbf{Proof.} From example 5.1, we know that  $f'(x) = 2|x|$. It is
+      clear what $f''(x)$ is when $x$ is nonzero, so it suffices to show that
+      $f''(0)$ is undefined. To that end, we have that
+      $$f''(0) = \lim_{h \to 0}\frac{f'(0 + h) - f'(0)}{h} = 
+        \lim_{h \to 0}\frac{2|h|}{h},$$
+      which does not exist since the one-sided limits are not equal. Thus 0 is
+      not in the domain of $f''$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[5.03] Find $f'(x)$ if
+               \begin{equation*}
+                  f(x) = \left\{\begin{array}{rl}
+                     x^2 & \text{if } x \ge 2 \\
+                     4x - 4 & \text{if } x < 2
+                  \end{array} \right. 
+               \end{equation*}
+               
+      \textbf{Solution.} It is clear that $f'(x) = 2x$ if $x > 2$ and that
+      $f'(x) = 4$ if $x < 2$, so we only need to investigate if $f'(2)$ exists.
+      To that end, we have that
+      \begin{align*}
+         f'(2) &= \lim_{h \to 0} \frac{f(2 + h) - f(2)}{h} \\
+               &= \lim_{h \to 0} \frac{f(2 + h) - 4}{h}.
+      \end{align*}
+      Since
+      $$\lim_{h \to 0^-} \frac{f(2 + h) - 4}{h} = \lim_{h \to 0^-} \frac{4(2+h)
+         - 4 - 4}{h} = 4,$$
+      and
+      $$\lim_{h \to 0^+} \frac{f(2 + h) - 4}{h} = \lim_{h \to 0^+} \frac{(2+h)^2
+         - 4}{h} = \lim_{h \to 0^+} \frac{h^2 + 4h}{h} = 4,$$
+      it follows that $f'(2) = 4$. Thus
+      \begin{equation*}
+         f'(x) = \left\{\begin{array}{rl}
+            2x & \text{if } x \ge 2 \\
+            4 & \text{if } x < 2
+         \end{array} \right. 
+      \end{equation*}
+\end{enumerate}
