@@ -42,6 +42,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\I}{\mathbb{I}}
 \newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\D}{\displaystyle}
@@ -74,22 +75,22 @@
                This follows from the Fundamental Theorem of Algebra.
          \item True.
          
-               \textbf{Proof.} We want to show that
-               $$f : \C \rightarrow \C, \; a + bi \mapsto a - bi$$
-               is an isomorphism. So we have that
-               \begin{align*}
-                  f((a + bi)(c + di)) &= f(ac - bd + (ad + bc)i) \\
-                                         &= ac - bd - (ad + bc)i \\
-                                         &= ac - adi - bci - bd \\
-                                         &= a(c - di) - bi(c - di) \\
-                                         &= (a - bi)(c - di) \\
-                                         &= f(a + bi)f(c + di), \text{ and }\\\\
-                  f((a + bi) + (c + di)) &= f((a + c) + (b + d)i) \\
-                     &= (a + c) - (b + d)i \\
-                     &= a - bi + c - di \\
-                     &= f(a + bi) + f(c + di).
-               \end{align*}
-               Thus conjugation of complex numbers is a field automorphism.
+               \textbf{Proof.} Let $\overline{a}$ denote the conjugate of the 
+               complex number $a$. We now want to show that
+               $$f : \C \rightarrow \C, \; c \mapsto \overline{c}$$
+               is an isomorphism. Let $a_1$ and $a_2$ be complex numbers. Since
+               $\overline{a_1a_2} = \overline{a_1} \cdot \overline{a_2}$, and
+               $\overline{a_1 + a_2} = \overline{a_1} + \overline{a_2}$, it
+               follows that
+               $$f(a_1a_2) = f(a_1)f(a_2) \text{ and }
+                 f(a_1 + a_2) = f(a_1) + f(a_2),$$
+               so that $f$ is an homomorpshim. It now remains to show that
+               $f$ is a bijection. The map $f$ must be surjective because
+               $f(\overline{a_1}) = a_1$. Also if $f(a_1) = f(a_2)$, then the
+               real parts of $a_1$ and $a_2$ must be equal. Similarly,
+               their imaginary parts must be equal, so that $a_1 = a_2$. That is
+               $f$ is injective and we can conclude that it is a bijection. Thus
+               $f$ is a field automorphism. \qed
          \item True.
          
                \textbf{Proof.} Let $R$ be a finite ring, and consider
@@ -106,13 +107,119 @@
                There are exactly 8 quadratics in $\Z_2[x]$, and they are
                $$0, 1, x, x + 1, x^2, x^2 + 1, x^2 + x, x^2 + x + 1.$$
                
-         \item True.
+         \item If $p(x)$ is 0, then it is trivially true. However, if $p(x)$ is
+               a constant non-zero polynomial then it is not true. We shall now
+               show that the statement is true if $p(x)$ is a non-constant real
+               polynomial.
          
                \textbf{Proof.} Consider the polynomial
-               $$px = a_1$$
-         \item alicehuynh90 g com
+               $$p(x) = a_nx^n + a_{n - 1}x^{n-1} + \cdots + a_0,$$
+               where each $a_i \in \R$, $a_n \neq 0$, and $n \ge 1$. By
+               the Fundamental Theorem of Algebra, $p(x)$ has a root $\lambda$.
+               If $\lambda$ is real, then we are done. So assume that $\lambda$
+               is a non-real complex number. Observe that the conjugate of
+               $\lambda$, $\overline{\lambda}$, is also a root of $p(x)$ since
+               \begin{align*}
+                  p(\overline{\lambda}) &= a_n\overline{\lambda}^n +
+                     a_{n - 1}\overline{\lambda}^{n-1} + \cdots + a_0 \\
+                     &= a_n\overline{\lambda^n} +
+                     a_{n - 1}\overline{\lambda^{n-1}} + \cdots + a_0 \\
+                     &= \overline{a_n}\overline{\lambda^n} +
+                     \overline{a_{n - 1}}\overline{\lambda^{n-1}} + \cdots +
+                     \overline{a_0} &[\overline{a} = a \;\forall a \in \R] \\
+                     &= \overline{a_n\lambda^n} +
+                     \overline{a_{n - 1}\lambda^{n-1}} + \cdots +
+                     \overline{a_0} \\
+                     &= \overline{a_n\lambda^n + a_{n - 1}\lambda^{n-1} +
+                     \cdots + a_0} \\
+                     &= \overline{0} = 0. &[p(\lambda) = 0]
+               \end{align*}
+               Since $\lambda$ is not real, we must have that
+               $\lambda \neq \overline{\lambda}$. Thus the quadratic polynomial
+               $(x - \lambda)(x - \overline{\lambda})$ divides $p(x)$. To
+               complete the proof, we must show that this quadratic polynomial
+               has real coefficients. Now we
+               have that
+               $$
+                  (x - \lambda)(x - \overline{\lambda}) = x^2 -(\lambda + 
+                     \overline{\lambda})x + \lambda\overline{\lambda}
+                     = x^2 - 2\cdot\text{Re}(\lambda)x + |\lambda|^2,
+               $$
+               where Re($c$) and $|c|$ denote the real part and magnitude of a
+               complex number $c$. Thus the quadratic polynomial
+               $(x - \lambda)(x - \overline{\lambda})$ has real coefficients.
+               \qed
       \end{enumerate}
-      
-      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{On Complex \& Real}.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Find a ring isomorphism (it has to be both additive and
+                  multiplicative) between $\C$ and the subring
+                  $\mathcal{C} = \left\{\left(\begin{tabular}{@{}rl@{}}
+                     $a$ & $b$ \\
+                     $-b$ & $a$
+                  \end{tabular}\right) : a, b \in \R\right\} \subseteq
+                  \mathcal{M}_2(\R)$.
+            \item In the notes we gave two descriptions of the quaternions:
+                  $$\mathcal{Q} = \left\{\left(\begin{tabular}{@{}rrrr@{}}
+                     $a$ & $b$ & $c$ & $d$ \\
+                     $-b$ & $a$ & $-d$ & $c$ \\
+                     $-c$ & $d$ & $a$ & $-b$ \\
+                     $-d$ & $-c$ & $b$ & $a$
+                  \end{tabular}\right) : a, b, c, d \in \R\right\} \text{ and }
+                  \mathcal{H} = \left\{\left(\begin{tabular}{@{}rl@{}}
+                     $\alpha$ & $\beta$ \\
+                     $-\overline{\beta}$ & $\overline{\alpha}$
+                  \end{tabular}\right) : \alpha, \beta \in \C\right\}.$$
+                  Find an isomorphism between these two rings (it has to be both
+                  additive and multiplicative).
+         \end{enumerate}
+         
+      \textbf{Solution.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $F$ be a field and consider the set $R$ of all matrices of the form
+         $\left(\begin{tabular}{@{}rc@{}}
+          $a$ & $b$ \\
+          $-b$ & $a - b$
+          \end{tabular}\right)$ where $a, b \in F$. Do the following:
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Show $R$ is closed under addition, subtraction and
+                  multiplication so it is a subring of $\mathcal{M}_2(F)$, the
+                  $2 \times 2$ matrices with entries in $F$.
+            \item Find a positive integer $n$ so that if we let the field
+                  $F = \Z_n$, then $R$ will be an integral domain.
+            \item Find a positive integer $n$ so that if we let the field
+                  $F = \Z_n$, then $R$ will \textbf{NOT} be an integral domain.
+            \item Find a positive integer $n$ so that if we let the field
+                  $F = \Z_n$, then $R$ will be a field.
+            \item In any one of the situations \circled{2}, \circled{3}, or
+                  \circled{4}, find a unit of order bigger than 2. Just do one.
+            \item Suppose now that instead of $F$, we take $a, b \in \Z$, the
+                  integers. Prove it is an integral domain.
+            \item[\textbf{Bonus.}] 
+                  Find $G(R)$, the group of units, in the case when the entries
+                  are integers (last situation), and find all elements of finite
+                  order in that group.
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the set $R$ of matrices of the form
+         $\D\frac{1}{2}\left(\begin{tabular}{@{}rl@{}}
+            $a$ & $b$ \\
+            $5b$ & $a$
+         \end{tabular}\right), a, b \in \Z, a \equiv b$ mod 2.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Show $I_2 \in R$.
+            \item Show $R$ is closed under addition, negation and multiplication
+                  so it is a subring of $\mathcal{M}_2(\Q)$.
+            \item Compute the characteristic polynomial of any such matrix, and
+                  observe it is monic with integer coefficients.
+            \item Show there are infinitely many units in $R$.
+            \item[\textbf{Bonus.}] 
+                  Find $\I(R)$, the group of units of $R$.
+         \end{enumerate}
+
 \end{enumerate}
 \end{document}
