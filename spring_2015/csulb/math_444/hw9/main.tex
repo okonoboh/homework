@@ -78,7 +78,8 @@
                \textbf{Proof.} Let $\overline{a}$ denote the conjugate of the 
                complex number $a$. We now want to show that
                $$f : \C \rightarrow \C, \; c \mapsto \overline{c}$$
-               is an isomorphism. Let $a_1$ and $a_2$ be complex numbers. Since
+               is a ring isomorphism. Let $a_1$ and $a_2$ be complex numbers. 
+               Since
                $\overline{a_1a_2} = \overline{a_1} \cdot \overline{a_2}$, and
                $\overline{a_1 + a_2} = \overline{a_1} + \overline{a_2}$, it
                follows that
@@ -177,12 +178,93 @@
          \end{enumerate}
          
       \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item We claim that the map
+               $$f : \mathcal{C} \rightarrow \C, \left(\begin{tabular}{@{}rl@{}}
+                  $a$ & $b$ \\
+                  $-b$ & $a$
+               \end{tabular}\right) \mapsto a + bi$$
+               is a ring isomorphism.
+
+               \textbf{Proof.} Let $\left(\begin{tabular}{@{}rl@{}}
+                  $a$ & $b$ \\
+                  $-b$ & $a$
+               \end{tabular}\right), \left(\begin{tabular}{@{}rl@{}}
+                  $c$ & $d$ \\
+                  $-d$ & $c$
+               \end{tabular}\right) \in \mathcal{C}$, so that
+               \begin{align*}
+                  f\left(\left(\begin{tabular}{@{}rl@{}}
+                     $a$ & $b$ \\
+                     $-b$ & $a$
+                  \end{tabular}\right)\left(\begin{tabular}{@{}rl@{}}
+                     $c$ & $d$ \\
+                     $-d$ & $c$
+                  \end{tabular}\right)\right) &=
+                  f\left(\left(\begin{tabular}{@{}rl@{}}
+                     $ac - bd$ & $ad + bc$ \\
+                     $-(ac + bd)$ & $ac - bd$
+                  \end{tabular}\right)\right) \\
+                  &= (ac - bd) + (ad + bc)i \\
+                  &= (a + bi)(c + di) \\
+                  &= f\left(\left(\begin{tabular}{@{}rl@{}}
+                        $a$ & $b$ \\
+                        $-b$ & $a$
+                  \end{tabular}\right)\right)
+                  f\left(\left(\begin{tabular}{@{}rl@{}}
+                        $c$ & $d$ \\
+                        $-d$ & $c$
+                  \end{tabular}\right)\right)
+               \end{align*}
+               and
+               \begin{align*}
+                  f\left(\left(\begin{tabular}{@{}rl@{}}
+                     $a$ & $b$ \\
+                     $-b$ & $a$
+                  \end{tabular}\right) + \left(\begin{tabular}{@{}rl@{}}
+                     $c$ & $d$ \\
+                     $-d$ & $c$
+                  \end{tabular}\right)\right) &=
+                  f\left(\left(\begin{tabular}{@{}rl@{}}
+                     $a+c$ & $b+d$ \\
+                     $-(b+d)$ & $a+c$
+                  \end{tabular}\right)\right) \\
+                  &= (a + c) + (b + d)i \\
+                  &= (a + bi) + (c + di) \\
+                  &= f\left(\left(\begin{tabular}{@{}rl@{}}
+                        $a$ & $b$ \\
+                        $-b$ & $a$
+                  \end{tabular}\right)\right) + 
+                  f\left(\left(\begin{tabular}{@{}rl@{}}
+                        $c$ & $d$ \\
+                        $-d$ & $c$
+                  \end{tabular}\right)\right).
+               \end{align*}
+               Hence $f$ is a ring homomorphism. It is clear that $f$ is
+               surjective since if ${a_1 + b_1i \in \C}$, then we must have that
+               $f\left(\left(\begin{tabular}{@{}rl@{}}
+                  $a_1$ & $b_1$ \\
+                  $-b_1$ & $a_1$
+               \end{tabular}\right)\right) = a_1 + b_1i$. Now suppose that
+               $$f\left(\left(\begin{tabular}{@{}rl@{}}
+                        $a$ & $b$ \\
+                        $-b$ & $a$
+                  \end{tabular}\right)\right) =
+                  f\left(\left(\begin{tabular}{@{}rl@{}}
+                        $c$ & $d$ \\
+                        $-d$ & $c$
+                  \end{tabular}\right)\right).$$ Then we must have that
+                  $a + bi = c + di$ so that $a =  b$ and $c = d$. That is, $f$
+                  is injective. We can now conclude that $f$ is a ring 
+                  isomorphism. \qed
+      \end{enumerate}      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $F$ be a field and consider the set $R$ of all matrices of the form
          $\left(\begin{tabular}{@{}rc@{}}
-          $a$ & $b$ \\
-          $-b$ & $a - b$
-          \end{tabular}\right)$ where $a, b \in F$. Do the following:
+            $a$ & $b$ \\
+            $-b$ & $a - b$
+         \end{tabular}\right)$ where $a, b \in F$. Do the following:
 
          \begin{enumerate}[label=\protect\circled{\arabic*}]
             \item Show $R$ is closed under addition, subtraction and
@@ -203,6 +285,87 @@
                   are integers (last situation), and find all elements of finite
                   order in that group.
          \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item \textbf{Proof.} Let $A = \left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $b$ \\
+                  $-b$ & $a-b$
+               \end{tabular}\right), B = \left(\begin{tabular}{@{}rc@{}}
+                  $c$ & $d$ \\
+                  $-d$ & $c-d$
+               \end{tabular}\right) \in R$. Then we have that
+               \begin{align*}
+                  A + B &= \left(\begin{tabular}{@{}rc@{}}
+                     $a+c$ & $b+d$ \\
+                     $-(b+d)$ & $(a+c)-(b+d)$
+                  \end{tabular}\right) \\
+                  AB &= \left(\begin{tabular}{@{}rc@{}}
+                     $ac-bd$ & $ad+bc-bd$ \\
+                     $-(ad+bc-bd)$ & $ac-ad-bc$
+                  \end{tabular}\right), \text{ and } \\
+                  -A &= \left(\begin{tabular}{@{}rc@{}}
+                     $-a$ & $-b$ \\
+                     $b$ & $b-a$
+                  \end{tabular}\right),
+               \end{align*}
+               so that $R$ is closed under addition, multiplication, and
+               negation. The set $R$ clearly contains the identity (by letting
+               $a = 1$ and $b = 0$). Thus $R$ is a subring of
+               $\mathcal{M}_2(F)$. Note that $R$ is also closed under 
+               subtraction since it is closed under addition and negation. \qed
+         \item Claim that $R$ is an integral domain if $F = \Z_2$.
+
+               \textbf{Proof.} Suppose that
+               $AB = 0$ where
+               $$A = \left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $b$ \\
+                  $-b$ & $a-b$
+               \end{tabular}\right) \text{ and }
+               B = \left(\begin{tabular}{@{}rc@{}}
+                  $c$ & $d$ \\
+                  $-d$ & $c-d$
+               \end{tabular}\right) \in R.$$
+               Then we must have that $\det(A)\det(B) = 0$. Since $F$ is an
+               integral domain, we can assume without loss that $\det(A) = 0$.
+               That is, $a^2 + b^2 - ab = 0$. Since $F = \Z_2$, we observe that
+               of the four choices for $a$ and $b$, $\det(A) = 0$ if and only if
+               $a = b = 0$ if and only if $A = 0$. Thus $R$ is an integral
+               domain if $F = \Z_2$. \qed
+         \item Now let $F = \Z_3$. Notice that although
+               $$\left(\begin{tabular}{@{}rr@{}}
+                  1 & 2 \\
+                  $-2$ & $-1$
+               \end{tabular}\right) \neq 0, \text{ we have that }
+               \left(\begin{tabular}{@{}rr@{}}
+                  1 & 2 \\
+                  $-2$ & $-1$
+               \end{tabular}\right)^2 = 0,$$
+               so that $R$ is not an integral domain if $F = \Z_3$.
+         \item Let $F = \Z_2$. Then the elements of $R$ are
+               $$A = 0, B = 1, C = \left(\begin{tabular}{@{}rc@{}}
+                  1 & 1 \\
+                  1 & 0
+               \end{tabular}\right), \text{ and }
+               D = \left(\begin{tabular}{@{}rc@{}}                  
+                  0 & 1 \\
+                  1 & 1
+               \end{tabular}\right).$$
+               By inspection we can see that $R$ is commutative under 
+               multiplication. Also we have that $B^{-1} = B$, $C^{-1} = D$, so
+               that $R$ is a field if $F = \Z_2$.
+         \item From \circled{4}, we have that $|C| = 3$.
+         \item We shall follow the same line of thought as we did in
+               \circled{2}. So to show that $R$ is an integral domain, it 
+               suffices to show that the equation $a^2 + b^2 - ab = 0$ has only 
+               the trivial solution in $\Z$. Since
+               $$a^2 + b^2 - ab = \left(a - \frac{b}{2}\right)^2 +
+                 \frac{3b^2}{4},$$
+               it is clear that $a^2 + b^2 - ab$ is positive if $a$ or $b$ is 
+               nonzero; hence we must have that $a = b = 0$, so that $R$ is an
+               integral domain.
+      \end{enumerate}      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the set $R$ of matrices of the form
          $\D\frac{1}{2}\left(\begin{tabular}{@{}rl@{}}
@@ -220,6 +383,21 @@
             \item[\textbf{Bonus.}] 
                   Find $\I(R)$, the group of units of $R$.
          \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item Setting $a = 2$ and $b = 0$ will show us that $R$ has the 
+               identity.
+         \item Let $A = \D\frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $b$ \\
+                  $5b$ & $a$
+               \end{tabular}\right) \text{ and }
+               B = \D\frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
+                  $c$ & $d$ \\
+                  $-d$ & $c-d$
+               \end{tabular}\right) \in R$
+      \end{enumerate}
 
 \end{enumerate}
 \end{document}
