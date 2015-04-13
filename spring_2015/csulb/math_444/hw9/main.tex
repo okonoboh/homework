@@ -395,8 +395,28 @@
                \end{tabular}\right) \text{ and }
                B = \D\frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
                   $c$ & $d$ \\
-                  $-d$ & $c-d$
-               \end{tabular}\right) \in R$
+                  $5d$ & $c$
+               \end{tabular}\right) \in R$. Then it follows that
+               \begin{align*}
+                  A + B &= \frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
+                  $a+c$ & $b+d$ \\
+                  $5(b+d)$ & $a+c$
+               \end{tabular}\right) \\
+                  AB &= \frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
+                  $\D\frac{ac+5bd}{2}$ & $\D\frac{ad+bc}{2}$ \\ \\
+                  $5\D\frac{ad+bc}{2}$ & $\D\frac{ac+5bd}{2}$
+               \end{tabular}\right), \text{ and } \\
+                  -A &= \frac{1}{2}\left(\begin{tabular}{@{}lc@{}}
+                  $-a$ & $-b$ \\
+                  $-5b$ & $-a$
+               \end{tabular}\right).
+               \end{align*}
+               By membership in $R$, we must have that $a \equiv b$ mod 2 and
+               $c \equiv d$ mod 2. Thus $a + c \equiv b + d$ mod 2. Also $ac$
+               and $bd$ must have the same parity, and so must $ad$ and $bc$.
+               This says that $ac+5bd$ and $ad+bc$ are both even. Thus we must
+               have that
+               $$\frac{ac+5bd}{2} \equiv \frac{ad+bc}{2} \text{ mod }2.$$
       \end{enumerate}
 
 \end{enumerate}
