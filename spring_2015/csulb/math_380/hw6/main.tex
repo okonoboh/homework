@@ -154,17 +154,17 @@
             &= 2\lim_{t\rightarrow\infty}\left[-10ye^{-\frac{y}{10}}\Big|_0^t +
                10\int_0^t e^{-\frac{y}{10}}\;dy
                \right] &[\text{Integration by parts}] \\
-            &= 200\lim_{t\rightarrow\infty}\left[\frac{1}{10}\int_0^t
+            &= 20\lim_{t\rightarrow\infty}\left[\frac{1}{10}\int_0^t
                e^{-\frac{y}{10}}\;dy \right] \\
-            &= 200 \cdot E[Y] = 2000.
+            &= 20 \cdot E[Y] = 200.
       \end{align*}         
 
       Now the mean of $C$ is given by $E[C]$ so that
       \begin{align*}
          E[C] &= E[100 + 40Y + 3Y^2] \\
             &= E[100] + 40E[Y] + 3E[Y^2] \\
-            &= 100 + 40 \cdot 10 + 3 \cdot 2000 \\
-            &= 6500,
+            &= 100 + 40 \cdot 10 + 3 \cdot 200 \\
+            &= 1100,
       \end{align*}
       and the variance of $C$, $V[Y]$, is
       $E[Y^2] - E[Y]^2 = 2000 - 100 = 1900$.
@@ -366,8 +366,8 @@
                \end{align*}
 
                We can then conclude that
-               $$V(Y) = E[Y^2] - E[Y]^2 = \frac{279^2}{26^2} - \frac{13^2}{4^2}
-                 = \frac{282803}{2704} \approx 104.59.$$
+               $$V(Y) = E[Y^2] - E[Y]^2 = \frac{279}{26} - \frac{13^2}{4^2}
+                 = \frac{35}{208}.$$
       \end{enumerate}
 \end{enumerate}
 \end{document}

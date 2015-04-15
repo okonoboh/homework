@@ -24,7 +24,7 @@
   \scshape
   \begin{tabular}[t]{@{}r@{}}
   MATH 444, Spring 2015\\Section 1 (5562)\\
-  HW \#9, DUE: 2015, APRIL 13
+  HW \#9, DUE: 2015, APRIL 15
   \end{tabular}}
 \fancyhead[L]{%
   \scshape
@@ -85,7 +85,7 @@
                follows that
                $$f(a_1a_2) = f(a_1)f(a_2) \text{ and }
                  f(a_1 + a_2) = f(a_1) + f(a_2),$$
-               so that $f$ is an homomorpshim. It now remains to show that
+               so that $f$ is a ring homomorpshim. It now remains to show that
                $f$ is a bijection. The map $f$ must be surjective because
                $f(\overline{a_1}) = a_1$. Also if $f(a_1) = f(a_2)$, then the
                real parts of $a_1$ and $a_2$ must be equal. Similarly,
@@ -103,10 +103,12 @@
                is finite, we can conclude that $f$ is also bijective. Thus
                there exists $r_3 \in R$ such that $r_3 * x = 1$. Mutltiply the
                preceding equality on the right by $y$ to get $r_3 = y$. \qed
-         \item False.
+         \item True.
          
-               There are exactly 8 quadratics in $\Z_2[x]$, and they are
+               There are exactly 8 polynomials in $\Z_2[x]$, and they are
                $$0, 1, x, x + 1, x^2, x^2 + 1, x^2 + x, x^2 + x + 1.$$
+               
+               It is clear that only four of then are quadratics.
                
          \item If $p(x)$ is 0, then it is trivially true. However, if $p(x)$ is
                a constant non-zero polynomial then it is not true. We shall now
@@ -258,6 +260,71 @@
                   $a + bi = c + di$ so that $a =  b$ and $c = d$. That is, $f$
                   is injective. We can now conclude that $f$ is a ring 
                   isomorphism. \qed
+         \item The map
+               $$g : \mathcal{Q} \rightarrow \mathcal{H}, \left(\begin{tabular}{@{}rrrr@{}}
+                     $a$ & $b$ & $c$ & $d$ \\
+                     $-b$ & $a$ & $-d$ & $c$ \\
+                     $-c$ & $d$ & $a$ & $-b$ \\
+                     $-d$ & $-c$ & $b$ & $a$
+                  \end{tabular}\right) \mapsto \left(\begin{tabular}{@{}rl@{}}
+                     $a+bi$ & $c+di$ \\
+                     $-c+di$ & $a-bi$
+                  \end{tabular}\right)$$
+               is clearly bijective. For $$A = \left(\begin{tabular}{@{}rrrr@{}}
+                  $a$ & $b$ & $c$ & $d$ \\
+                  $-b$ & $a$ & $-d$ & $c$ \\
+                  $-c$ & $d$ & $a$ & $-b$ \\
+                  $-d$ & $-c$ & $b$ & $a$
+               \end{tabular}\right) \text{ and }
+               B = \left(\begin{tabular}{@{}cccc@{}}
+                  $k$ & $l$ & $m$ & $n$ \\
+                  $-l$ & $k$ & $-n$ & $m$ \\
+                  $-m$ & $n$ & $k$ & $-l$ \\
+                  $-n$ & $-m$ & $l$ & $k$
+               \end{tabular}\right) \in \mathcal{Q},$$ we have that
+               \begin{align*}
+                  g(A + B) &= \left(\begin{tabular}{@{}cccc@{}}
+                  $a+k$ & $b+l$ & $c+m$ & $d+n$ \\
+                  $-(b+l)$ & $a+k$ & $-(d+n)$ & $c+m$ \\
+                  $-(c+m)$ & $d+n$ & $a+k$ & $-(b+l)$ \\
+                  $-(d+n)$ & $-(c+m)$ & $b+l$ & $a+k$
+               \end{tabular}\right) \\
+                  &= \left(\begin{tabular}{@{}rl@{}}
+                     $(a+k) + (b+l)i$ & $(c+m)+(d+n)i$ \\
+                     $-(c+m)+(d+n)i$ & $(a+k)-(b+l)i$
+                  \end{tabular}\right) \\
+                  &= \left(\begin{tabular}{@{}rl@{}}
+                     $a+bi$ & $c+di$ \\
+                     $-c+di$ & $a-bi$
+                  \end{tabular}\right) + \left(\begin{tabular}{@{}rl@{}}
+                     $k+li$ & $m+ni$ \\
+                     $-m+ni$ & $k-li$
+                  \end{tabular}\right) \\
+                  &= g(A) + g(B), \text{ and } \\
+                  g(AB) &= g\left(\left(\begin{tabular}{@{}cccc@{}}
+                  $y_1$ & $y_2$ & $y_3$ & $y_4$ \\
+                  $-y_2$ & $y_1$ & $-y_4$ & $y_3$ \\
+                  $-y_3$ & $y_4$ & $y_1$ & $-y_2$ \\
+                  $-y_4$ & $-y_3$ & $y_2$ & $y_1$
+               \end{tabular}\right)\right) \\
+                  &= \left(\begin{tabular}{@{}rl@{}}
+                     $y_1 + y_2i$ & $y_3+y_4i$ \\
+                     $-y_3+y_4i$ & $y_1-y_2i$
+                  \end{tabular}\right) \\
+                  &= \left(\begin{tabular}{@{}rl@{}}
+                     $a+bi$ & $c+di$ \\
+                     $-c+di$ & $a-bi$
+                  \end{tabular}\right)\left(\begin{tabular}{@{}rl@{}}
+                     $k+li$ & $m+ni$ \\
+                     $-m+ni$ & $k-li$
+                  \end{tabular}\right) \\
+                  &= g(A)g(B), \text{ where } \\
+                  y_1 &= ak - bl - mc - nd \\
+                  y_2 &= al + bk - md + nc \\
+                  y_3 &= kc + dl + am - bn \\
+                  y_4 &= dk - lc + bm + an,
+               \end{align*}
+               so that $g$ is a ring isomorphism.
       \end{enumerate}      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $F$ be a field and consider the set $R$ of all matrices of the form
@@ -317,8 +384,8 @@
                subtraction since it is closed under addition and negation. \qed
          \item Claim that $R$ is an integral domain if $F = \Z_2$.
 
-               \textbf{Proof.} Suppose that
-               $AB = 0$ where
+               \textbf{Proof.} By \circled{4} below, $R$ is commutative. Suppose
+               that $AB = 0$ where
                $$A = \left(\begin{tabular}{@{}rc@{}}
                   $a$ & $b$ \\
                   $-b$ & $a-b$
@@ -365,6 +432,41 @@
                it is clear that $a^2 + b^2 - ab$ is positive if $a$ or $b$ is 
                nonzero; hence we must have that $a = b = 0$, so that $R$ is an
                integral domain.
+         \item[\textbf{Bonus.}] We notice that an element
+               $\left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $b$ \\
+                  $-b$ & $a - b$
+               \end{tabular}\right)$ is a unit in $R$ if and only if its
+               determinant is a unit in $\Z$. The determinant of this matrix is
+               $a^2 + b^2 - ab$. As per our discussion in \circled{6}, we know
+               that it cannot be negative, so we want integers $a$ and $b$ such
+               that $a^2 + b^2 - ab = 1$. By completing the square we get that
+               $$a^2 + b^2 - ab = 1 \text{ iff } a = \frac{b}{2} \pm
+                 \sqrt{\frac{4 - 3b^2}{4}}.$$
+               For the discrimant to be positive, we must have that $b = 0$ or
+               $|b| = 1$. It follows that $(a, b)$ is an integral solution of
+               $a^2 + b^2 - ab = 1$ iff
+               $$(a, b) \in \{(-1, 0), (1, 0), (0, 1), (1, 1),
+                 (0, -1), (-1, -1)\}.$$
+               Thus the group of units is
+               $$\left\{I, -I, \left(\begin{tabular}{@{}rr@{}}
+                  0 & 1 \\
+                  $-1$ & $-1$
+               \end{tabular}\right), \left(\begin{tabular}{@{}rr@{}}
+                  1 & 1 \\
+                  $-1$ & 0
+               \end{tabular}\right), \left(\begin{tabular}{@{}rr@{}}
+                  0 & $-1$ \\
+                  1 & 1
+               \end{tabular}\right), \left(\begin{tabular}{@{}rr@{}}
+                  $-1$ & $-1$ \\
+                  1 & 0
+               \end{tabular}\right)\right\}.$$
+               This group is cyclic because $\left(\begin{tabular}{@{}rr@{}}
+                  1 & 1 \\
+                  $-1$ & 0
+               \end{tabular}\right)$ generates it. Thus all the elements in this
+               group is of finite order.
       \end{enumerate}      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the set $R$ of matrices of the form
@@ -380,7 +482,7 @@
             \item Compute the characteristic polynomial of any such matrix, and
                   observe it is monic with integer coefficients.
             \item Show there are infinitely many units in $R$.
-            \item[\textbf{Bonus.}] 
+            \item[\textbf{Bonus.}]
                   Find $\I(R)$, the group of units of $R$.
          \end{enumerate}
 
@@ -404,19 +506,80 @@
                \end{tabular}\right) \\
                   AB &= \frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
                   $\D\frac{ac+5bd}{2}$ & $\D\frac{ad+bc}{2}$ \\ \\
-                  $5\D\frac{ad+bc}{2}$ & $\D\frac{ac+5bd}{2}$
+                  $5\left(\D\frac{ad+bc}{2}\right)$ & $\D\frac{ac+5bd}{2}$
                \end{tabular}\right), \text{ and } \\
-                  -A &= \frac{1}{2}\left(\begin{tabular}{@{}lc@{}}
+                  -A &= \frac{1}{2}\left(\begin{tabular}{@{}cc@{}}
                   $-a$ & $-b$ \\
-                  $-5b$ & $-a$
+                  $5(-b)$ & $-a$
                \end{tabular}\right).
                \end{align*}
                By membership in $R$, we must have that $a \equiv b$ mod 2 and
-               $c \equiv d$ mod 2. Thus $a + c \equiv b + d$ mod 2. Also $ac$
-               and $bd$ must have the same parity, and so must $ad$ and $bc$.
-               This says that $ac+5bd$ and $ad+bc$ are both even. Thus we must
-               have that
-               $$\frac{ac+5bd}{2} \equiv \frac{ad+bc}{2} \text{ mod }2.$$
+               $c \equiv d$ mod 2. Thus $a + c \equiv b + d$ mod 2 and
+               $-a \equiv -b$ mod 2, so that $R$ is closed under addition and
+               negation. To show that $R$ is closed under multiplication, we
+               must now show that 
+               \begin{equation} \label{9_1}
+                  \frac{ac+5bd}{2} \equiv \frac{ad+bc}{2} \text{ mod }2.
+               \end{equation}
+               
+               Notice that since $a \equiv b$ mod 2 and $c \equiv d$ mod 2, it
+               follows that $a - b$ and $c - d$ are both even, so that 4 divides
+               $(a - b)(c - d)$. Now
+               \begin{align*}
+                  ac + 5bd - (ac + bd) &\equiv (a - b)(c - d) \\
+                                       &= ac + bd - (ad + bc) \\
+                                       &\equiv 0 \text{ mod }4.
+               \end{align*}
+               
+               That is, $ac + 5bd - (ac + bd)$ is divisible by 4, so that
+               $\D\frac{ac + 5bd - (ac + bd)}{2}$ is divisible by 2. In other
+               words (\ref{9_1}) holds; hence  $R$ is a subring of $M_2(\Q)$.
+         \item Let $A = \D\frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $b$ \\
+                  $5b$ & $a$
+               \end{tabular}\right) \in R$. It follows that the characteristic
+               polynomial of $A$ is
+               $$x^2 - \left(\frac{a}{2} + \frac{a}{2}\right)x +
+                 \frac{a^2-5b^2}{4} = x^2 - ax + \frac{a^2-5b^2}{4}.$$
+               Let $[y]_n$ denote $y$ reduced modulo $n$. To complete the proof,
+               we must now show that $\D\frac{a^2-5b^2}{4} \in \Z$; that is, we
+               want to show that $[a^2 - 5b^2]_4 = 0$. Note that $a$ and $b$
+               have the same parity since $[a]_2 = [b]_2$. Thus for odd $a$ and
+               $b$, we have that
+               $$1 = [a^2]_4 = [b^2]_4 = [1]_4[b^2]_4=[5]_4[b^2]_4 = [5b^2]_4;$$
+               for even $a$ and $b$, we have that $[a^2]_4 = [5b^2]_4 = 0$.
+               Thus, in either case, it follows that $[a^2 - 5b^2]_4 = 0$, so
+               that 4 divides $a^2 - 5b^2$. That is,
+               $\D\frac{a^2-5b^2}{4} \in \Z$. So the characteristic polynomial
+               of the matrices in $R$ are monic with integer coefficients.
+         \item Let $A = \D\frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
+                  1 & 1 \\
+                  5 & 1
+               \end{tabular}\right) \in R$. Observe that $A$ is a unit in $R$
+               because
+               $A^{-1} = \D\frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
+                  $-1$ & 1 \\
+                  5 & $-1$
+               \end{tabular}\right)$, an element in $R$; since $|A| = \infty$,
+               it follows that the set of all integral powers of $A$ is a set of
+               infinitely many units.
+         \item[\textbf{Bonus.}]
+               Let $A = \D\frac{1}{2}\left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $b$ \\
+                  $5b$ & $a$
+               \end{tabular}\right)$ be a unit in $R$. Then we must have that
+               $$A^{-1} = \D\frac{2}{a^2 - 5b^2}\left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $-b$ \\
+                  $-5b$ & $a$
+               \end{tabular}\right).$$
+               We now observe that problem is reduced to solving the
+               diophantine equations $a^2 - \nobreak5b^2 = \pm4$. These are
+               are called Pell Equations. \\
+               
+               \textbf{NB:} I am still researching this problem. I have skimmed
+                through a paper by H.W. Lenstra Jr : \textit{Solving the Pell
+                Equation.} I think this will be a good problem for the class
+                project.
       \end{enumerate}
 
 \end{enumerate}
