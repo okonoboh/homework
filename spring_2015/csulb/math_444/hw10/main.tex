@@ -353,6 +353,60 @@
          \item Since each polynomial has $n + 1$ unique coefficients and since
                there are 2 choices for each coefficients, it follows that there
                are $2^{n+1}$ polynomials of degree $n$.
+         \item It is clear that $E$ is onto since $E(0) = 0$ and $E(1) = 1$.
+               However $E$ is not injective because $E(x) = E(1) = 1$ but
+               $x \neq 1$. Now we claim that $E$ is a homomorphism of rings.
+
+               \textbf{Proof.} Consider two elements $q(x), r(x) \in \Z_2[x]$
+               where
+               $$q(x) = q_0 + q_1x + \cdots + q_nx^n \text{ and }
+                 r(x) = r_0 + r_1x + \cdots + r_nx^n.$$
+               We have that
+               \begin{align*}
+                  E(q(x) + r(x)) &= E((q_0+r_0) + (q_1+r_1)x + \cdots +
+                     (q_n+r_n)x^n) \\
+                     &= (q_0+r_0) + (q_1+r_1) + \cdots + (q_n+r_n) \\
+                     &= (q_0 + q_1 + \cdots + q_n)+(r_0 + r_1 + \cdots + r_n) \\
+                     &= E(q(x)) + E(r(x)) \text{ and } \\
+                  E(q(x)r(x)) &= E\left(q_0r_0 + (q_0r_1+q_1r_0)x + \cdots + 
+                     \left(\sum_{i=0}^nq_ir_{n-i}\right)x^n\right) \\
+                     &= q_0r_0 + (q_0r_1+q_1r_0) + \cdots + 
+                     \left(\sum_{i=0}^nq_ir_{n-i}\right) \\
+                     &= q(1)r(1) = E(q(x))E(r(x)),
+               \end{align*}
+               so that $E$ is a surjective ring homomorphism. \qed
+         \item Claim that $S$ is an injective homomorphism of rings.
+
+               \textbf{Proof.} Consider two elements $q(x), r(x) \in \Z_2[x]$
+               where
+               $$q(x) = q_0 + q_1x + \cdots + q_nx^n \text{ and }
+                 r(x) = r_0 + r_1x + \cdots + r_nx^n.$$
+               Thus
+               \begin{align*}
+                  S(q(x) + r(x)) &= (q(x) + r(x))^2  \\
+                     &= q(x)^2 + r(x)^2 + 2q(x)r(x) \\
+                     &= q(x)^2 + r(x)^2 \\
+                     &= S(q(x)) + S(r(x)) \text{ and } \\
+                  S(q(x)r(x)) &= (q(x)r(x))^2 \\
+                     &= q(x)^2r(x)^2 \\
+                     &= S(q(x))S(r(x)),
+               \end{align*}
+               so that $S$ is a ring homomorphism. Now suppose that
+               $S(q(x)) = S(r(x))$; then we have that $q(x)^2 = r(x)^2$, so
+               that $(q(x) - r(x))(q(x) + r(x)) = 0$. Since we are in $\Z_2[x]$,
+               notice that the additive of every polynomial is itself. Thus we
+               must have that $(q(x) - r(x))(q(x) - r(x)) = (q(x) - r(x))(q(x)
+               + r(x)) = 0$. And since $\Z_2[x]$ is an integral domain, it 
+               follows that $q(x) - r(x) = 0$; i.e., $q(x) = r(x)$ so that $S$ 
+               is injective. Clearly $S$ is not surjective since the polynomial 
+               $x + 1$ has no preimage under $S$. \qed
+         \item The only irreducible quadratic in $\Z_2[x]$ is $x^2 + x + 1$.
+         \item We know from the Bonus part of Problem 3 that there are two
+               irreducible cubics in $\Z_2[x]$ and they are:
+               $$x^3 + x + 1 \text{ and } x^3 + x^2 + 1.$$
+         \item There are three irreducible quartics in $\Z_2[x]$ and they are:
+               $$x^4 + x + 1, x^4 + x^3 + 1, \text{ and }
+                 x^4 + x^3 + x^2 + x + 1.$$
       \end{enumerate}
 \end{enumerate}
 \end{document}
