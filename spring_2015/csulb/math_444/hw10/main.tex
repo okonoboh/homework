@@ -66,18 +66,53 @@
                   veracity or falsehood of each of the following statements. For
                   those that are true give an argument, for those that are
                   false, give a counterexample. Let $p(x) \in \Z[x]$ be monic.
-            \item If $p(x)$ has a root in $\Z$, then $\overline{p(x)}$ has a
+            \item If $p(x)$ has a root in $\Z$, then $\overline{p}(x)$ has a
                   root in $\Z_k$.
-            \item If $\overline{p(x)}$ has a root in $\Z_k$, then $p(x)$ has a
+            \item If $\overline{p}(x)$ has a root in $\Z_k$, then $p(x)$ has a
                   root in $\Z$.
-            \item If $p(x)$ is irreducible, then so is $\overline{p(x)}$.
-            \item If $\overline{p(x)}$ is irreducible, then so is $p(x)$.
+            \item If $p(x)$ is irreducible, then so is $\overline{p}(x)$.
+            \item If $\overline{p}(x)$ is irreducible, then so is $p(x)$.
          \end{enumerate}
          
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a
+         \item False.
+
+               \textbf{Proof.} Assume to the contrary that $R$ is an integral 
+               domain with 6 elements. Since $R$ is finite it follows that it is 
+               a field, a contradiction since 6 cannot be written as a positive 
+               power of any prime; thus $R$ is not an integral domain. \qed \\
+
+               For the remaining problems, let
+               $$p(x) = a_0 + a_1x + \cdots + a_nx^n \in \Z[x].$$
+         \item True.
+
+               \textbf{Proof.} Suppose that $c \in \Z$ is a root of $p(c)$. It
+               follows immediately that $\overline{c}$ is also a root of
+               $\overline{p}(x)$ because
+               \begin{align*}
+                  \overline{p}(\overline{c}) &= \overline{a_0} +
+                     \overline{a_1}\cdot\overline{c} + \cdots +
+                     \overline{a_n}\cdot\overline{c}^n \\
+                     &= \overline{a_0 + a_1c + \cdots + a_nc^n} \\
+                     &= \overline{p(c)} = \overline{0}.
+               \end{align*} \qed
+         \item False.
+
+               \textbf{Counterexample.} Let $p(x) = x^2 + 1$. Then
+               $\overline{p}(x)$ has a root, $\overline{1}$,  in $\Z_2$ but
+               $p(x)$ has no root in $\Z$.
+         \item False.
+
+               \textbf{Counterexample.} Let $p(x) = x^2 + 1$. Then
+               $p(x)$ is irreducible in $\Z[x]$ but
+               $\overline{p}(x) = (x+1)^2$ is not irreducible in $\Z_2[x]$.
+         \item False.
+
+               \textbf{Proof.} Let $p(x) = 49x^2 + 14x + 1$. Then
+               $\overline{p}(x) = \overline{1}$ is irreducible in $\Z_7[x]$ but
+               $p(x) = (7x+1)^2$ is not irreducible in $\Z[x]$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the integral domain $R = \Z[\sqrt{3}]$. Let
@@ -105,7 +140,7 @@
                      7789 & 4488 \\
                      13464 & 7789
                   \end{tabular}\right) \equiv \left(\begin{tabular}{@{}cc@{}}
-                     52 & 24 \\
+                     57 & 24 \\
                      72 & 57
                   \end{tabular}\right) \text{ mod } A$? Give reasons for your
                   answer.
@@ -114,7 +149,86 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a
+         \item The matrix $B = \left(\begin{tabular}{@{}cc@{}}
+                  2 & 1 \\
+                  3 & 2
+               \end{tabular}\right)$ is a unit in $\Z[\sqrt{3}]$ because
+               $B^{-1} = \left(\begin{tabular}{@{}rr@{}}
+                  2 & $-1$ \\
+                  $-3$ & 2
+               \end{tabular}\right) \in \Z[\sqrt{3}]$. Let $n$ be a positive 
+               integer. Observe that the integer in the first row and first 
+               column of $B^n$ will never be less than 2 because all the entries 
+               in $B$ are positive integers. Thus $B^n \neq I$, so that
+               $|B| = \infty$.
+         \item We have
+               $$
+                  \frac{A}{\left(\begin{tabular}{@{}cc@{}}
+                     20 & 6 \\
+                     18 & 20
+                  \end{tabular}\right)} =
+                  \frac{1}{146}\left(\begin{tabular}{@{}cc@{}}
+                     23 & 15 \\
+                     45 & 23
+                  \end{tabular}\right) \text{ and }
+                  \frac{\left(\begin{tabular}{@{}cc@{}}
+                     20 & 6 \\
+                     18 & 20
+                  \end{tabular}\right)}{A} = \left(\begin{tabular}{@{}rr@{}}
+                     $-23$ & 15 \\
+                     45 & $-23$
+                  \end{tabular}\right).
+               $$
+         \item $A$ and $\left(\begin{tabular}{@{}cc@{}}
+                  19 & 11 \\
+                  33 & 19
+               \end{tabular}\right)$ are associates if and only if there exists 
+               a unit $X = \left(\begin{tabular}{@{}cc@{}}
+                  $a$ & $b$ \\
+                  $3b$ & $a$
+               \end{tabular}\right)\in\nobreak \Z[\sqrt{3}]$ such that
+               $$
+                  AX = \left(\begin{tabular}{@{}cc@{}}
+                     19 & 11 \\
+                     33 & 19
+                  \end{tabular}\right).
+               $$
+               Multiplying $A$ and $X$ and equating corresponding entries will
+               yield the equations $3a + 5b = 11$ and $5a + 9b = 19$, and whose
+               solution is $a = 2$ and $b = 1$. Since
+               $\det(X) = a^2 - 3b^2 = 1$, it follows that $X$ is a unit. Thus
+               $A$ and $\left(\begin{tabular}{@{}cc@{}}
+                  19 & 11 \\
+                  33 & 19
+               \end{tabular}\right)$ are associates.
+         \item A quick computation will show us that
+               $$
+                  \left(\begin{tabular}{@{}cc@{}}
+                     7789 & 4488 \\
+                     13464 & 7789
+                  \end{tabular}\right) \equiv \left(\begin{tabular}{@{}cc@{}}
+                     57 & 24 \\
+                     72 & 57
+                  \end{tabular}\right) \text{ mod } A
+               $$
+               because               
+               $$
+                  \left(\begin{tabular}{@{}cc@{}}
+                     7789 & 4488 \\
+                     13464 & 7789
+                  \end{tabular}\right) - \left(\begin{tabular}{@{}cc@{}}
+                     57 & 24 \\
+                     72 & 57
+                  \end{tabular}\right) = 
+                  \left(\begin{tabular}{@{}cc@{}}
+                     7732 & 4464 \\
+                     13392 & 7732
+                  \end{tabular}\right) = A
+                  \left(\begin{tabular}{@{}cc@{}}
+                     758 & 438 \\
+                     1314 & 758
+                  \end{tabular}\right).
+               $$               
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the following element $\left(\begin{tabular}{@{}ccc@{}}
@@ -149,7 +263,7 @@
          \begin{enumerate}[label=\protect\circled{\arabic*}]
             \item How many polynomials of degree $n$ are there? \textbf{Hint.}
                   Consider $n = 1, 2, 3, \ldots$.
-            \item Consdier the function $E : \Z_2[x] \to \Z_2$ that sends any
+            \item Consider the function $E : \Z_2[x] \to \Z_2$ that sends any
                   polynomial $p(x)$ to $p(1)$. Decide if it is a (ring)
                   homomorphism or not. Decide if it is one-to-one and onto.
                   Argue your case.
