@@ -1,0 +1,131 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 444, Spring 2015\\Section 1 (5562)\\
+  HW \#11, DUE: 2015, APRIL 27
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the veracity or falsehood of each of the following statements.
+         For bonus, argue for those that you believe are true while providing a
+         counterexample for those that you believe are false.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item $\Z(\sqrt{2})$ is a UFD.
+            \item If $\alpha : R \to S$ is a ring homomorphism, then it is
+                  one-to-one if the only $r \in R$ satisfying $\alpha(r) = 0$
+                  is $r = 0$.
+            \item Every integral domain is a field.
+            \item If every element of a ring is an idempotent, then the ring is
+                  commutative.
+            \item The group of units of $\mathcal{M}_2(\Z_3)$ has 56 elements.
+         \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item a
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let
+         $A = \left(\begin{tabular}{@{}cc@{}}
+            $a$ & $b$ \\
+            $2b$ & $a$
+         \end{tabular}\right)$ be an element of $\Z(\sqrt{2})$. Suppose that
+         $\det A$ is even. Show there is an element of $\Z(\sqrt{2})$ whose
+         determinant is $\frac{1}{2}\det A$. \textbf{Hint.} Find an element of
+         determinant 2 and show that you can divide $A$ by it.
+         
+      \textbf{Solution.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{On Factoring.}
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Give all irreducible cubics over $\Z_2$.
+            \item Factor $p(x) = x^6 + x^5 + x^4 + x^3 + x^2 + x + 1$ completely
+                  in $\Z_2[x]$.
+            \item How many monic quadratics are there in $\Z_3[x]$?
+            \item Find all irreducible monic quadratics over $\Z_3$.
+            \item Factor $q(x) = x^6 + x^3 - x^2 - x$ completely in $\Z_3[x]$.
+            \item Consider the mod function from $\Z$ to $\Z_3$, and its natural
+                  extension to a homomorphism from $\Z[x]$ to $\Z_3[x]$ that
+                  mods out the coefficients, for example $5x$ goes to $2x$. Find
+                  the image under this homomorphism of the polynomial
+                  $$h(x) = x^6 + 9x^5 + 21x^4 + 37x^3 + 53x^2 + 29x + 15.$$
+            \item Do the same as in \circled{6} except now one mods out 2.
+            \item Use parts \circled{2} and \circled{5} to discuss the possible
+                  factorization of $h(x)$. For example, does it have any integer
+                  roots? Or is it irreducible etc. Discuss as much as you can.
+         \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item a
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{On Factorization.}
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Find the complete factorization of $x^5 - 1$ in $\Q[x]$.
+            \item Find real numbers $a$ and $b$ such that
+                  $$(x^2+ax+1)(x^2+bx+1)=x^4+x^3+x^2+x+1.$$
+            \item Find the complete factorization of $x^5 - 1$ in $\R[x]$.
+            \item Find the complete factorization of $x^5 - 1$ in $\C[x]$.
+            \item Find the complete factorization of $x^5 - 1$ in $\Z_{11}[x]$.
+            \item Find the complete factorization of $x^5 - 1$ in $\Z_{31}[x]$.
+            \item Find the complete factorization of $x^{10} - 1$ in $\Q[x]$.
+         \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item a
+      \end{enumerate}
+\end{enumerate}
+\end{document}
