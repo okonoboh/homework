@@ -250,10 +250,81 @@
                   these powers.
          \end{enumerate}
          
-      \textbf{Solution.}
+      \textbf{Solution.} Let $A = \left(\begin{tabular}{@{}ccc@{}}
+         0 & 1 & 0 \\
+         0 & 0 & 1 \\
+         1 & 1 & 0
+      \end{tabular}\right)$
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a
+         \item The powers of $A$ are:
+               $$A^1 = \left(\begin{tabular}{@{}ccc@{}}
+                  0 & 1 & 0 \\
+                  0 & 0 & 1 \\
+                  1 & 1 & 0
+               \end{tabular}\right), A^2 = \left(\begin{tabular}{@{}ccc@{}}
+                  0 & 0 & 1 \\
+                  1 & 1 & 0 \\
+                  0 & 1 & 1
+               \end{tabular}\right), A^3 = \left(\begin{tabular}{@{}ccc@{}}
+                  1 & 1 & 0 \\
+                  0 & 1 & 1 \\
+                  1 & 1 & 1
+               \end{tabular}\right), A^4 = \left(\begin{tabular}{@{}ccc@{}}
+                  0 & 1 & 1 \\
+                  1 & 1 & 1 \\
+                  1 & 0 & 1
+               \end{tabular}\right)$$
+               $$A^5 = \left(\begin{tabular}{@{}ccc@{}}
+                  1 & 1 & 1 \\
+                  1 & 0 & 1 \\
+                  1 & 0 & 0
+               \end{tabular}\right), A^6 = \left(\begin{tabular}{@{}ccc@{}}
+                  1 & 0 & 1 \\
+                  1 & 0 & 0 \\
+                  0 & 1 & 0
+               \end{tabular}\right), A^7 = \left(\begin{tabular}{@{}ccc@{}}
+                  1 & 0 & 0 \\
+                  0 & 1 & 0 \\
+                  0 & 0 & 1
+               \end{tabular}\right).$$
+         \item We notice that the set of powers is closed under addition of
+               two \textit{distinct} matrices. However, since each matrix added 
+               to itself yields the zero matrix, we need to add only the zero
+               matrix so that this set of powers is closed under addition.
+         \item If we let char$(X)$ denote the charactersitic polynomial of a
+               matrix $X$, then it follows that char$(A^7) = x^3 + x^2 + x + 1$,
+               $$\text{char}(A) = \text{char}(A^2) =
+                 \text{char}(A^4) = x^3 + x + 1, \text{and}$$
+               $$\text{char}(A^3) = \text{char}(A^5) =
+                 \text{char}(A^6) = x^3 + x^2 + 1.$$
+         \item The lowest degree polynomial that $A^7$ satisfies is $x + 1$,
+               while the lowest degree polynomial that the remaining powers
+               satisfy is their respective characteristic polynomials. Thus
+               the lowest degree polynomial that all the powers of $A$ satisfy
+               is
+               $$(x+1)(x^3+x+1)(x^3+x^2+1) = x^7 + 1.$$
+         \item Yes. It is clear that the set of powers of $A$ (including the 0
+               matrix) is a commutative ring; since each element in the set of   
+               powers of $A$ is a unit, it follows that the set of powers union
+               the 0 matrix is a field.
+         \item[\textbf{Bonus.}] The only cubics with nontrivial factorizations
+               in $\Z_2[x]$ are:
+               \begin{equation*}
+                  \begin{array}{lcl}
+                     x^3 & = & (x)(x)(x) \\
+                     x^3 + 1 & = & (x+1)(x^2+x+1) \\
+                     x^3 + x & = & x(x+1)^2 \\
+                     x^3 + x^2 & = & x^2(x+1) \\
+                     x^3 + x^2 + x & = & x(x^2+x+1) \\
+                     x^3 + x^2 + x + 1 & = & (x + 1)^3,
+                  \end{array}
+               \end{equation*}
+               so that $x^3 + x + 1$ and $x^3 + x^2 + 1$ are irreducible in
+               $\Z_2[x]$. But these irreducibles are the characteristic
+               polynomials of $A$ and $A^3$, so it follows by the
+               Cayley-Hamilton theorem that $A$ is a root of $x^3 + x + 1$ and
+               $A^3$ is a root of $x^3 + x^2 + 1$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item On $\Z_2[x]$. Consider the ring of polynomials $\Z_2[x]$ with
@@ -279,7 +350,9 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a
+         \item Since each polynomial has $n + 1$ unique coefficients and since
+               there are 2 choices for each coefficients, it follows that there
+               are $2^{n+1}$ polynomials of degree $n$.
       \end{enumerate}
 \end{enumerate}
 \end{document}
