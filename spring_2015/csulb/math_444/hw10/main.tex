@@ -80,9 +80,18 @@
          \item False.
 
                \textbf{Proof.} Assume to the contrary that $R$ is an integral 
-               domain with 6 elements. Since $R$ is finite it follows that it is 
-               a field, a contradiction since 6 cannot be written as a positive 
-               power of any prime; thus $R$ is not an integral domain. \qed \\
+               domain with 6 elements. By Cauchy Theorem we must have an element
+               of additive order 2 and an element of additive order 3. Since
+               $\gcd(2,3) = 1$, it follows that there exists an element $y$ of
+               additive order 6. Let $n$ be the additive order of 1. Now we have
+               that $6 \mid n$ because               
+               $$0 = \underbrace{1 + \cdots + 1}_{n \text{ times}} = 
+                 y(\underbrace{1 + \cdots + 1}_{n \text{ times}}) = 
+                 \underbrace{y + \cdots + y}_{n \text{ times}},$$
+               so that $n = 6$. Now $1 + 1 + 1$ and $1 + 1$ are nonzero, but
+               $$0 = 1 + 1 + 1 + 1 + 1 + 1 = (1 + 1 + 1)(1 + 1),$$ a
+               contradiction since we assumed that $R$ was an integral domain;
+               thus no integral domain of 6 elements exists. \qed \\
 
                For the remaining problems, let
                $$p(x) = a_0 + a_1x + \cdots + a_nx^n \in \Z[x].$$
@@ -350,9 +359,9 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item Since each polynomial has $n + 1$ unique coefficients and since
-               there are 2 choices for each coefficients, it follows that there
-               are $2^{n+1}$ polynomials of degree $n$.
+         \item The coefficient of the $x^n$ term must be 1. We now have two
+               choices for each of the remaining $n$ coefficients. Thus there
+               are $2^n$ polynomials of degree $n$.
          \item It is clear that $E$ is onto since $E(0) = 0$ and $E(1) = 1$.
                However $E$ is not injective because $E(x) = E(1) = 1$ but
                $x \neq 1$. Now we claim that $E$ is a homomorphism of rings.
