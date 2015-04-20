@@ -92,19 +92,19 @@
                $$0 = 1 + 1 + 1 + 1 + 1 + 1 = (1 + 1 + 1)(1 + 1),$$ a
                contradiction since we assumed that $R$ was an integral domain;
                thus no integral domain of 6 elements exists. \qed \\
-
-               For the remaining problems, let
-               $$p(x) = a_0 + a_1x + \cdots + a_nx^n \in \Z[x].$$
+               
          \item True.
 
-               \textbf{Proof.} Suppose that $c \in \Z$ is a root of $p(c)$. It
+               \textbf{Proof.} Let
+               $$p(x) = a_0 + a_1x + \cdots + x^n \in \Z[x].$$
+               Suppose that $c \in \Z$ is a root of $p(x)$. It
                follows immediately that $\overline{c}$ is also a root of
                $\overline{p}(x)$ because
                \begin{align*}
                   \overline{p}(\overline{c}) &= \overline{a_0} +
                      \overline{a_1}\cdot\overline{c} + \cdots +
-                     \overline{a_n}\cdot\overline{c}^n \\
-                     &= \overline{a_0 + a_1c + \cdots + a_nc^n} \\
+                     \overline{c}^n \\
+                     &= \overline{a_0 + a_1c + \cdots + c^n} \\
                      &= \overline{p(c)} = \overline{0}.
                \end{align*} \qed
          \item False.
@@ -117,11 +117,21 @@
                \textbf{Counterexample.} Let $p(x) = x^2 + 1$. Then
                $p(x)$ is irreducible in $\Z[x]$ but
                $\overline{p}(x) = (x+1)^2$ is not irreducible in $\Z_2[x]$.
-         \item False.
+         \item True.
 
-               \textbf{Proof.} Let $p(x) = 49x^2 + 14x + 1$. Then
-               $\overline{p}(x) = \overline{1}$ is irreducible in $\Z_7[x]$ but
-               $p(x) = (7x+1)^2$ is not irreducible in $\Z[x]$.
+               \textbf{Proof.} We shall prove the contrapositive:
+               $$p(x) \text{ is not irreducible } \Rightarrow \overline{p}(x)
+                 \text{ is not irreducible. }$$
+                 
+               Suppose $p(x)$ is not irreducible. It follows that there exists
+               a nontrivial factorization $p(x) = g(x)h(x)$ where $g(x)$ and
+               $h(x)$ are non-constant monic polynomials. Since $g(x)$ is a
+               monic polynomial, it follows that the degree of $g(x)$ equals
+               the degree of $\overline{g}(x)$; similarly the degree of $h(x)$
+               equals the degree of $\overline{h}(x)$. Thus
+               $\overline{g}(x)$ and $\overline{h}(x)$ are not units, so that
+               $\overline{p}(x) = \overline{g}(x)\overline{h}(x)$ is not
+               irreducible. \qed
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the integral domain $R = \Z[\sqrt{3}]$. Let
