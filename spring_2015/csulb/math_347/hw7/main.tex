@@ -76,12 +76,49 @@
                $$\cyc{Tv, v} > 0$$
                for every $v \in V\;\backslash\;\{0\}$.
 
-      \textbf{Proof.}
-      
+      \textbf{Proof.} Suppose first that $T$ is invertible. Then it follows that
+      $T$ is injective, so that $\text{null }T = \{0\}$. Let $v \in V$. Now 
+      suppose that $\cyc{Tv, v} = 0$. By the Spectral Theorem, there exists an 
+      orthonormal basis $(e_1, \ldots, e_n)$  of $V$ consisting of eigenvectors
+      of $T$. Let $\lambda_1, \ldots, \lambda_n$ denote the corresponding real
+      ($T$ is self-adjoint) and nonnegative (Theorem 7.27 (b)) eigenvalues. 
+      Since the eigenvectors are independent, they must be nonzero. Thus
+      $e_i \notin \text{null }T$, so that $0 \neq T(e_i) = \lambda_ie_i$. That
+      is, all the eigenvalues are positive. Now we have
+      $v = a_1e_1 + \cdots + a_ne_n$, so that
+      \begin{align*}
+         0 &= \cyc{Tv, v} \\
+           &= \cyc{T(a_1e_1 + \cdots + a_ne_n), a_1e_1 + \cdots + a_ne_n} \\
+           &= \cyc{T(a_1e_1) + \cdots + T(a_ne_n), a_1e_1 + \cdots + a_ne_n} \\
+           &= \cyc{a_1\lambda_1e_1 + \cdots + a_n\lambda_ne_n,
+                   a_1e_1 + \cdots + a_ne_n} \\
+           &= a_1\overline{a_1}\lambda_1\cyc{e_1, e_1} + \cdots +
+              a_n\overline{a_n}\lambda_n\cyc{e_n, e_n} \\
+           &= |a_1|^2\lambda_1 + \cdots + |a_n|^2\lambda_n.
+      \end{align*}
+
+      Since the eigenvalues are all positive, it must be the case
+      $a_1 = \cdots = a_n = 0$, so that $v = 0$. So it follows that if $v \in V$
+      is nonzero, we must have that $\cyc{Tv, v} > 0$. \\
+
+      Conversely suppose that $\cyc{Tv, v} > 0$ for all nonzero $v \in V$. Let
+      $x \in \text{null }T$. Then it follows that $x$ is not nonzero because
+      $$0 = \cyc{0, x} = \cyc{Tx, x}.$$
+      Thus $x = 0$; that is $\text{null }T = \{0\}$. Thus $T$ is injective
+      (and surjective) and thus invertible. \qed      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.22] Prove that if $S \in \mathcal{L}(\R^3)$ is an isometry, then
                there exists a nonzero vector $x \in \R^3$ such that $S^2x = x$.
 
-      \textbf{Proof.} 
+      \textbf{Proof.} Assume that $S \in \mathcal{L}(\R^3)$ is an isometry.
+      Since dim $\R^3$ is odd, it follows by Theorem 7.38 that $S$ has an
+      eigenvalue of 1 or $-1$. Suppose first that $S$ has an eigenvalue of 1.
+      Then there exists a nonzero vector $x$ such that $Sx = x$. Thus we have
+      that
+      $$S^2x = S(Sx) = Sx = x.$$
+      Now suppose that $S$ has an eigenvalue of $-1$. Then there exists a
+      nonzero vector $c$ such that $Sc = -c$. Let $y = -c$. Then we have that
+      $$S^2y = S(Sy) = S(S(-c)) = S(-S(c)) = S(c) = -c = y,$$
+      as desired. \qed
 \end{enumerate}
 \end{document}
