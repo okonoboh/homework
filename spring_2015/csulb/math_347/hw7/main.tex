@@ -48,13 +48,44 @@
                then $T$ has an eigenvalue $\lambda'$ such that
                $|\lambda - \lambda'| < \epsilon$.
                
-      \textbf{Proof.}
+      \textbf{Proof.} By the Spectral Theorem, there exists an orthornormal
+      basis $(e_1, \ldots, e_n)$ of $V$ consisting of eigenvectors of $T$ with
+      corresponding eigenvalues $\lambda_1, \ldots, \lambda_n$. Given $v \in V$,
+      with $||v|| = 1$, we thus have $v = a_1e_1 + \cdots + a_ne_n$ for some
+      unique scalars. Since $||v|| = 1$, it follows that at least one of the
+      $a_i$s is nonzero. Thus
+      \begin{align*}
+         ||Tv - \lambda v||^2 &=  ||T(a_1e_1 + \cdots + a_ne_n)-a_1\lambda e_1 - \cdots -
+                                    a_n\lambda e_n||^2 \\
+            &= ||a_1\lambda_1e_1 + \cdots + a_n\lambda_ne_n-a_1\lambda e_1 - \cdots -
+                 a_n\lambda e_n||^2 \\
+            &= ||a_1(\lambda_1 - \lambda)e_1 + \cdots + a_n(\lambda_n - \lambda)e_n||^2 \\
+            &= |a_1(\lambda_1 - \lambda)|^2 + \cdots + |a_n(\lambda_n - \lambda)|^2 \\
+            &= |a_1|^2|\lambda_1 - \lambda|^2 + \cdots + |a_n|^2|\lambda_n - \lambda)|^2 \\
+            &= |a_1|^2|\lambda - \lambda_1|^2 + \cdots + |a_n|^2|\lambda - \lambda_n|^2.
+      \end{align*}
+      
+      Suppose to the contrary that $|\lambda - \lambda_i| \ge \epsilon$ for all
+      $i = 1 \ldots n$. Then we must have that
+      \begin{align*}
+         ||Tv - \lambda v||^2 &= |a_1|^2|\lambda - \lambda_1|^2 + \cdots + |a_n|^2|\lambda - \lambda_n|^2 \\
+        & \ge |a_1|^2\epsilon^2 + \cdots + |a_n|^2\epsilon^2 \\
+        &= (|a_1|^2 + \cdots + |a_n|^2)\epsilon^2 \\
+        &= ||v||\epsilon^2 = \epsilon^2,
+      \end{align*}
+      so that $||Tv - \lambda v|| \ge \epsilon$, a contradiction. Thus, at least
+      one of the eigenvalues of $T$, say $\lambda_j$, must be such that
+      $|\lambda - \lambda_j| < \epsilon$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.16] Give an example of an operator $T$ on an inner product space such
                that $T$ has an invariant subspace whose orthogonal complement is
                not invariant under $T$.
 
-      \textbf{Answer.}
+      \textbf{Answer.} Consider $T \in \mathcal{L}(F^3)$, where
+      $T((a, b, c)) = (b, c, 0)$. Let $$U = \{(x, y, 0) : x, y \in \F\}.$$ Clearly
+      $U$ is a subspace of $V$ and it is also invariant under $T$. Now we have
+      $U^{\perp} = \{(0, 0, z) : z \in \F\}$. But $U^{\perp}$ is not invariant under
+      $T$ since $(0, 0, 10) \in U^{\perp}$ but $T((0, 0, 10) = (0, 10, 0) \notin U^{\perp}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob7.17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[7.17] Prove that the sum of any two positive operators on $V$ is
                positive.
