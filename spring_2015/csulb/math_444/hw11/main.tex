@@ -70,6 +70,24 @@
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
          \item a
+         \item True.
+
+               \textbf{Proof.} Let $\alpha : R \rightarrow S$ be a ring
+               homomorphism with a trivial kernel. Suppose
+               $\alpha(a) = \alpha(b)$. Then it follows that
+               $\alpha(a - b) = \alpha(a) - \alpha(b) = 0$. Since the kernel is
+               trivial, we must have that $a - b = 0$; that is, $a = b$. Thus
+               $\alpha$ is injective. \qed
+         \item False.
+
+               \textbf{Counterexample.} $\Z$ is an integral domain, but it is
+               not a field.
+         \item a
+         \item False. A matrix is in $\mathcal{M}_2(\Z_3)$ if and only if its
+               row vectors are linearly independent. But the number of matrices
+                in $\mathcal{M}_2(\Z_3)$ with linearly independent rows is
+               $$(3^2 - 1)(3^2-3) = 48,$$
+               so that $|\mathcal{M}_2(\Z_3)| = 48$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let
@@ -81,7 +99,21 @@
          determinant is $\frac{1}{2}\det A$. \textbf{Hint.} Find an element of
          determinant 2 and show that you can divide $A$ by it.
          
-      \textbf{Solution.}
+      \textbf{Proof.} Since $\det A$ is even, we have that
+      $\det A = 2k = a^2 - 2b^2$ for some integer $k$. Now we have that
+      $a^2 = 2b^2 + 2k = 2(b^2 + k)$, so that $a^2$---and thus $a$---is even.
+      Let $B = \left(\begin{tabular}{@{}cc@{}}
+         2 & 1 \\
+         2 & 2
+      \end{tabular}\right)$. Solving the equation $A = BX$ where
+      $X = \left(\begin{tabular}{@{}cc@{}}
+         $x$ & $y$ \\
+         $2y$ & $x$
+      \end{tabular}\right)$ will result in $x = a - b$ and
+      $y = b - a/2$. Since $a$ is even, it follows that $a/2$ is an integer, so
+      that $y$ is an integer. Thus $X \in \Z(\sqrt{2})$. Hence
+      $$2k = \det A = \det(BX) = \det(B)\det(X) = 2\det(X),$$
+      so that $\det X = k = \frac{1}{2}\det A$, as desired. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item \textbf{On Factoring.}
 
@@ -106,7 +138,17 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a
+         \item The irreducible cubics over $\Z_2$ are:
+               $$x^3 + x + 1 \text{ and } x^3 + x^2 + 1.$$
+         \item $p(x) = (x^3 + x + 1)(x^3 + x^2 + 1)$.
+         \item There are 9 monic quadratics in $\Z_3[x]$.
+         \item The irreducible monic quadratics over $\Z_3[x]$ are:
+               $$x^2+1, x^2+x+2, \text{ and }x^2+2x+2.$$
+         \item $q(x) = x(x+1)(x+2)^2(x^2+x+2)$.
+         \item The image of $h(x)$ under this homomorphism is:
+               $$x^6+x^3+2x^2+2x.$$
+         \item The image of $h(x)$ under this homomorphism is:
+               $$x^6+x^5+x^4+x^3+x^2+x+1.$$
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item \textbf{On Factorization.}
@@ -125,7 +167,25 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a
+         \item In $\Q[x]$, we have $x^5 - 1 = (x-1)(x^4+x^3+x^2+x+1)$.
+         \item Solving the equation
+               $$(x^2+ax+1)(x^2+bx+1)=x^4+x^3+x^2+x+1,$$
+               for real numbers $a$ and $b$, we shall get
+               $$a = \frac{1+\sqrt{5}}{2} \text{ and }b =\frac{1-\sqrt{5}}{2}.$$
+         \item In $\R[x]$, we have
+               $x^5 - 1 = (x-1)\left(x^2+\D\frac{1+\sqrt{5}}{2}x+1\right)
+                \left(x^2+\D\frac{1-\sqrt{5}}{2}x+1\right)$.
+         \item In $\C[x]$, we have
+               $$x^5 - 1 = (x-1)(x - (A+Bi))(x - (A-Bi))(x-(C+Di))(x-(C-Di)),$$
+               where $A = \D\frac{-1-\sqrt{5}}{4}$, $B = \D\frac{1}{2}
+               \sqrt{\frac{5-\sqrt{5}}{2}}$, $C = \D\frac{\sqrt{5}-1}{4}$, and
+               $D = \D\frac{1}{2}\sqrt{\frac{5+\sqrt{5}}{2}}$.
+         \item In $\Z_{11}[x]$, we have
+               $$x^5-1 = (x+2)(x+6)(x+7)(x+8)(x+10).$$
+         \item In $\Z_{31}[x]$, we have
+               $$x^5-1 = (x+15)(x+23)(x+27)(x+29)(x+30).$$
+         \item In $\Q[x]$, we have $x^{10} - 1 = (x-1)(x+1)(x^4-x^3+x^2-x+1)
+               (x^4+x^3+x^2+x+1)$.
       \end{enumerate}
 \end{enumerate}
 \end{document}
