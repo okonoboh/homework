@@ -69,20 +69,56 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a
+         \item False.
          \item True.
 
                \textbf{Proof.} Let $\alpha : R \rightarrow S$ be a ring
                homomorphism with a trivial kernel. Suppose
                $\alpha(a) = \alpha(b)$. Then it follows that
-               $\alpha(a - b) = \alpha(a) - \alpha(b) = 0$. Since the kernel is
-               trivial, we must have that $a - b = 0$; that is, $a = b$. Thus
-               $\alpha$ is injective. \qed
+               $\alpha(a - b) = \alpha(a) - \alpha(b) = 0$. Since the kernel of
+               $\alpha$ is trivial, we must have that $a - b = 0$; that is,
+               $a = b$. Thus $\alpha$ is injective. \qed
          \item False.
 
                \textbf{Counterexample.} $\Z$ is an integral domain, but it is
                not a field.
-         \item a
+         \item False.
+
+               \textbf{Counterexample.} Consider the set
+               $$S = \left\{\left(\begin{tabular}{@{}cc@{}}
+                  1 & $b$ \\
+                  0 & 0
+               \end{tabular}\right) : b \in \Z\right\} \cup I_2 \cup
+               \left(\begin{tabular}{@{}cc@{}}
+                  0 & 0 \\
+                  0 & 0
+               \end{tabular}\right).$$
+               Define $A + B = 0$ for all $A, B \in S$. We can easily show that
+               $S$ is closed under the usual multiplication, so that $S$ is a
+               ring. Notice that every element of $S$ is idempotent, but $S$ is
+               not commutative because
+               $$
+                  \left(\begin{tabular}{@{}cc@{}}
+                     1 & 7 \\
+                     0 & 0
+                  \end{tabular}\right)
+                  \left(\begin{tabular}{@{}cc@{}}
+                  1 & 3 \\
+                  0 & 0
+               \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
+                  1 & 3 \\
+                  0 & 0
+               \end{tabular}\right) \neq \left(\begin{tabular}{@{}cc@{}}
+                  1 & 7 \\
+                  0 & 0
+               \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
+                     1 & 3 \\
+                     0 & 0
+                  \end{tabular}\right)
+                  \left(\begin{tabular}{@{}cc@{}}
+                  1 & 7 \\
+                  0 & 0
+               \end{tabular}\right)$$
          \item False. A matrix is in $\mathcal{M}_2(\Z_3)$ if and only if its
                row vectors are linearly independent. But the number of matrices
                 in $\mathcal{M}_2(\Z_3)$ with linearly independent rows is
@@ -149,6 +185,13 @@
                $$x^6+x^3+2x^2+2x.$$
          \item The image of $h(x)$ under this homomorphism is:
                $$x^6+x^5+x^4+x^3+x^2+x+1.$$
+         \item From \circled{2}, we know that $h(x)$ mod 2 doesn't have a root
+               in $\Z_2[x]$; thus $h(x)$ doesn't have a root in $\Z$ by Homework 
+               10 Problem 1.2. That is $h(x)$ has no linear factors, and by
+               extension, no quintic factor. Although we know from \circled{5}
+               that $h(x)$ mod 3 is not irreducible in $\Z_3[x]$, we cannot 
+               conclude that $h(x)$ is not irreducible in $\Z$ (Homework 10 
+               Problem 1.4).
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item \textbf{On Factorization.}
