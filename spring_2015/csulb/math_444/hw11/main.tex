@@ -69,7 +69,7 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item False.
+         \item True.
          \item True.
 
                \textbf{Proof.} Let $\alpha : R \rightarrow S$ be a ring
@@ -82,43 +82,24 @@
 
                \textbf{Counterexample.} $\Z$ is an integral domain, but it is
                not a field.
-         \item False.
+         \item True.
 
-               \textbf{Counterexample.} Consider the set
-               $$S = \left\{\left(\begin{tabular}{@{}cc@{}}
-                  1 & $b$ \\
-                  0 & 0
-               \end{tabular}\right) : b \in \Z\right\} \cup I_2 \cup
-               \left(\begin{tabular}{@{}cc@{}}
-                  0 & 0 \\
-                  0 & 0
-               \end{tabular}\right).$$
-               Define $A + B = 0$ for all $A, B \in S$. We can easily show that
-               $S$ is closed under the usual multiplication, so that $S$ is a
-               ring. Notice that every element of $S$ is idempotent, but $S$ is
-               not commutative because
-               $$
-                  \left(\begin{tabular}{@{}cc@{}}
-                     1 & 7 \\
-                     0 & 0
-                  \end{tabular}\right)
-                  \left(\begin{tabular}{@{}cc@{}}
-                  1 & 3 \\
-                  0 & 0
-               \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
-                  1 & 3 \\
-                  0 & 0
-               \end{tabular}\right) \neq \left(\begin{tabular}{@{}cc@{}}
-                  1 & 7 \\
-                  0 & 0
-               \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
-                     1 & 3 \\
-                     0 & 0
-                  \end{tabular}\right)
-                  \left(\begin{tabular}{@{}cc@{}}
-                  1 & 7 \\
-                  0 & 0
-               \end{tabular}\right)$$
+               \textbf{Proof.} Suppose that every element of a ring $R$ is
+               idempotent. Let $x \in R$. Then we have that
+               \begin{align*}
+                  x + x  &= (x + x)(x + x) \\
+                         &= x^2 + x^2 + x^2 + x^2 \\
+                         &= x + x + x + x,
+               \end{align*}
+               so that $x + x = 0$; thus $x = -x$ for all $x \in R$. Similarly
+               we have that
+               \begin{align*}
+                  x + y  &= (x + y)(x + y) \\
+                         &= x^2 + xy + yx + y^2 \\
+                         &= x + xy + yx + y,
+               \end{align*}
+               so that $xy + yx = 0$. That is $xy + yx = xy - yx = 0$. Hence
+               $xy = yx$, so that $R$ is commutative. \qed
          \item False. A matrix is in $\mathcal{M}_2(\Z_3)$ if and only if its
                row vectors are linearly independent. But the number of matrices
                 in $\mathcal{M}_2(\Z_3)$ with linearly independent rows is
@@ -191,7 +172,10 @@
                extension, no quintic factor. Although we know from \circled{5}
                that $h(x)$ mod 3 is not irreducible in $\Z_3[x]$, we cannot 
                conclude that $h(x)$ is not irreducible in $\Z$ (Homework 10 
-               Problem 1.4).
+               Problem 1.4). Now $p(x)$ does not have a quadratic factor because
+               its image in $\Z_2[x]$ does not have a quadratic factor. Thus if
+               $p(x)$ has a factorization in $\Z$, then it must necessarily be
+               into two cubics.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item \textbf{On Factorization.}
