@@ -1,0 +1,404 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 444, Spring 2015\\Section 1 (5562)\\
+  HW \#12, DUE: 2015, MAY 04
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the veracity or falsehood of each of the following statements.
+         For bonus, argue for those that you believe are true while providing a
+         counterexample for those that you believe are false.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item There is a field with 16 elements.
+            \item In $\Z[\sqrt{7}]$, $\left(\begin{tabular}{@{}cc@{}}
+                     9  & 4 \\
+                     28 & 9
+                  \end{tabular}\right)$ is a prime.
+            \item The polynomial $x^3+ax^2+bx+c \in \Z[x]$ where $a$ is odd, $b$
+                  is even and $c$ is odd, is always irreducible over $\Z$.
+            \item $\Z[\sqrt{-5}]$ is a UFD.
+            \item In $\Z[\sqrt{7}]$, $\left(\begin{tabular}{@{}cc@{}}
+                     8  & 3 \\
+                     21 & 8
+                  \end{tabular}\right)$ is a unit.
+         \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item True.
+
+               \textbf{Example.} Let $F = \Z_2[x]/(x^4+x+1)$. That is, $F$
+               consists of the polynomials in $\Z_2[x]$ mod $x^4+x+1$. Thus $F$
+               is the set of all polynomials of degree less than 4 with
+               coefficients in $\Z_2[x]$, so that $|F| = 16$. Addition and
+               multiplication in $F$ are carried out mod $(x^4+x+1)$. It is
+               clear that $F$ is a commutative ring. Since
+               \begin{align*}
+                  1 \cdot 1 &= 1 \\
+                  x(x^3 + 1) &= 1 \\
+                  (x+1)(x^3+x^2+x) &= 1 \\
+                  x^2(x^3+x^2+1) &= 1 \\
+                  (x^2+1)(x^3+x+1) &= 1 \\
+                  (x^2+x)(x^2+x+1) &= 1 \\
+                  x^3(x^3+x^2+x+1) &= 1 \\
+                  (x^3+x^2)(x^3+x) &= 1,
+               \end{align*}
+               it follows that every nonzero element of $F$ has a multiplicative
+               inverse, so that $F$ is a field.
+         \item True.
+
+               \textbf{Proof.} Let $A = \left(\begin{tabular}{@{}cc@{}}
+                  9  & 4 \\
+                  28 & 9
+               \end{tabular}\right)$. Suppose $A = BC$. Then it follows that
+               $$-31 = \det(A) = \det(B)\det(C),$$
+               so that one of $B$ and $C$ has determinant $\pm1$. Assume without
+               loss of generality that $\det(C) = \pm1$. It follows that $C$ is
+               invertible; thus $AC^{-1} = B$. That is $A \mid B$, so we can
+               conclude that $A$ is prime. \qed
+         \item True.
+
+               \textbf{Proof.} Let $p(x) = x^3+ax^2+bx+c \in \Z[x]$, where $b$
+               is even and $a$ and $c$ are odd. Suppose to the contrary that
+               $p(x)$ is not irreducible. Then it follows that $p(x)$ must have
+               a root, say $x_0 \in \Z$. So
+               $0 = p(x_0) = {x_0}^3 + a{x_0}^2 + bx_0 + c$. That is,
+               $x_0(-{x_0}^2 - ax_0 - b) = c$. This says that $x_0$ is a divisor
+               of $c$. Then since $c$ is odd, it must be the case that $x_0$ is
+               also odd. But then we must have that ${x_0}^3$ is odd, $a{x_0}^2$
+               is odd, and $bx_0$ is even, so that
+               ${x_0}^3 + a{x_0}^2 + bx_0 + c$ is odd, a contradiction since
+               ${x_0}^3 + a{x_0}^2 + bx_0 + c = 0$ is even. Thus $p(x)$ is
+               irreducible. \qed
+         \item True.
+
+               \textbf{Proof.} First we want to show that the elements
+               $$A = \left(\begin{tabular}{@{}cc@{}}
+                  2 & 0 \\
+                  0 & 2
+               \end{tabular}\right), B = \left(\begin{tabular}{@{}cc@{}}
+                  3 & 0 \\
+                  0 & 3
+               \end{tabular}\right), C = \left(\begin{tabular}{@{}rc@{}}
+                  1 & 1 \\
+                  $-5$ & 1
+               \end{tabular}\right), \text{ and }
+               D = \left(\begin{tabular}{@{}cr@{}}
+                  1 & $-1$ \\
+                  5 & 1
+               \end{tabular}\right)$$
+               are irreducible in $\Z[\sqrt{-5}]$. We shall only show that $A$
+               and $C$ are irreducible since the arguments for $B$ and $D$ are
+               similar. Suppose $A = A_1A_2$. Then it follows that
+               $$4 = \det(A) = \det(A_1)\det(A_2).$$
+               Observe that since we are in $\Z[\sqrt{-5}]$, it is impossible
+               for the determinant of any matrix to be 2. Moreover, since the
+               determinant of every matrix is nonnegative, we must have that
+               either $A_1$ or $A_2$ has determinant of 1, so that one of
+               $A_1$ and $A_2$ is a unit. Thus $A$ is irreducible. Now suppose
+               $C = C_1C_2$. Then it follows that
+               $$6 = \det(C) = \det(C_1)\det(C_2).$$
+               No matrix has determinat 2 or 3 in $\Z[\sqrt{-5}]$. Thus one of
+               $C_1$ or $C_2$ must be a unit, and it follows that $C$ is
+               irreducible. Since the units in $\Z[\sqrt{-5}]$ are $\pm1$, it
+               follows that none of the irreducibles above are associates. It
+               follows immediately that $\Z[\sqrt{-5}]$ is not a UFD because we
+               have the following two distinct factorizations into irreducibles:
+               $$\left(\begin{tabular}{@{}cc@{}}
+                  6 & 0 \\
+                  0 & 6
+               \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
+                  2 & 0 \\
+                  0 & 2
+               \end{tabular}\right)\left(\begin{tabular}{@{}cc@{}}
+                  3 & 0 \\
+                  0 & 3
+               \end{tabular}\right) = \left(\begin{tabular}{@{}rc@{}}
+                  1 & 1 \\
+                  $-5$ & 1
+               \end{tabular}\right)\left(\begin{tabular}{@{}cr@{}}
+                  1 & $-1$ \\
+                  5 & 1
+               \end{tabular}\right).$$ \qed
+         \item True. Since the determinant of the matrix in question is 1, it is
+               a unit.              
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item In a previous homework we encountered the integral domain $R$ of
+         $2 \times 2$ matrices of the form
+         $A = \left(\begin{tabular}{@{}rc@{}}
+            $a$ & $b$ \\
+            $-b$ & $a-b$
+         \end{tabular}\right)$ where $a, b \in \Z$. Do the following:
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Prove that no element of $R$ can have a negative determinant.
+            \item Find a nontrivial unit.
+            \item Find all units. Give an argument for your answer.
+            \item Find an element whose determinant is a prime.
+            \item Decide whether $\left(\begin{tabular}{@{}cc@{}}
+                     3  & 0 \\
+                     0  & 3
+                  \end{tabular}\right)$ is irreducible or not. If not factor it
+                  into irreducibles.
+            \item Do the same for $\left(\begin{tabular}{@{}cc@{}}
+                     5  & 0 \\
+                     0  & 5
+                  \end{tabular}\right)$.
+            \item Do the same for $\left(\begin{tabular}{@{}rr@{}}
+                     34  & 41 \\
+                     $-41$  & $-7$
+                  \end{tabular}\right)$.
+            \item Show that the element $A = \left(\begin{tabular}{@{}cc@{}}
+                     2 & 0 \\
+                     0 & 2
+                  \end{tabular}\right)$ is a prime by showing that if
+                  $MN \equiv 0$ mod $A$, then either $M \equiv 0$ mod $A$ or
+                  $N \equiv 0$ mod $A$.
+         \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item \textbf{Proof.} Let $A = \left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $b$ \\
+                  $-b$ & $a-b$
+               \end{tabular}\right) \in R$. Since
+               $$\det(A) = a(a-b) + b^2 = \left(a - \frac{b}{2}\right)^2 +
+                 \frac{3}{4}b^2 \ge 0,$$
+               it follows that no element of $R$ can have a negative
+               determinant. \qed
+         \item A nontrivial unit in $R$ is $\left(\begin{tabular}{@{}rc@{}}
+                  1 & 1 \\
+                  $-1$ & $1-1$
+               \end{tabular}\right) = \left(\begin{tabular}{@{}rc@{}}
+                  1 & 1 \\
+                  $-1$ & 0
+               \end{tabular}\right)$.
+         \item Let
+               $A = \left(\begin{tabular}{@{}rc@{}}
+                  $a$ & $b$ \\
+                  $-b$ & $a - b$
+               \end{tabular}\right) \in R$ be a unit. It follows by \circled{1}
+               that
+               $$1 = \det(A) = a^2 + b^2 - ab;$$
+               thus we want integers $a$ and $b$ such that $a^2 + b^2 - ab = 1$.
+               By completing the square we get that
+               $$a^2 + b^2 - ab = 1 \text{ iff } a = \frac{b}{2} \pm
+                 \sqrt{\frac{4 - 3b^2}{4}}.$$
+               For the discrimant to be positive, we must have that $b = 0$ or
+               $|b| = 1$. It follows that $(a, b)$ is an integral solution of
+               $a^2 + b^2 - ab = 1$ iff
+               $$(a, b) \in \{(-1, 0), (1, 0), (0, 1), (1, 1),
+                 (0, -1), (-1, -1)\}.$$
+               Thus the group of units is
+               $$\left\{I, -I, \left(\begin{tabular}{@{}rr@{}}
+                  0 & 1 \\
+                  $-1$ & $-1$
+               \end{tabular}\right), \left(\begin{tabular}{@{}rr@{}}
+                  1 & 1 \\
+                  $-1$ & 0
+               \end{tabular}\right), \left(\begin{tabular}{@{}rr@{}}
+                  0 & $-1$ \\
+                  1 & 1
+               \end{tabular}\right), \left(\begin{tabular}{@{}rr@{}}
+                  $-1$ & $-1$ \\
+                  1 & 0
+               \end{tabular}\right)\right\}.$$
+         \item The element is $\left(\begin{tabular}{@{}rc@{}}
+                  2 & 1 \\
+                  $-1$ & 1
+               \end{tabular}\right)$ has determinant 3.
+         \item The matrix $\left(\begin{tabular}{@{}cc@{}}
+                  3 & 0 \\
+                  0 & 3
+               \end{tabular}\right)$ is not irreducible since we have the
+               following factorization into irredcibles:
+               $$\left(\begin{tabular}{@{}cc@{}}
+                     3 & 0 \\
+                     0 & 3
+                  \end{tabular}\right) = \left(\begin{tabular}{@{}rr@{}}
+                     $-1$  & $-2$ \\
+                     2 & 1
+                  \end{tabular}\right)\left(\begin{tabular}{@{}rr@{}}
+                     1 & 2 \\
+                     $-2$ & $-1$
+                  \end{tabular}\right).$$
+               The factors in the factorization above are irreducible since
+               their determinants are prime.
+         \item Let $B = \left(\begin{tabular}{@{}cc@{}}
+                  5 & 0 \\
+                  0 & 5
+               \end{tabular}\right)$. Claim that $B$ is irreducible.
+
+               \textbf{Proof.} Suppose $B = XY$. Then it follows that
+               $$25 = \det(B) = \det(X)\det(Y).$$
+               Now suppose that $\det(X) = 5$. Then if we have that
+               $X = \left(\begin{tabular}{@{}rc@{}}
+                  $x$ & $y$ \\
+                  $-y$ & $x - y$
+               \end{tabular}\right)$, it follows that $x^2 - xy + y^2 = 5$.
+               That is
+               $$x = \frac{y}{2} \pm \sqrt{\frac{20 - 3y^2}{4}}.$$
+               By observing the discrimant, we see that $y$ can only take on
+               values 0, 1, and 2. But $x$ is not an integer for any of these
+               values. Thus no matrix in $R$ exists with determinant 5. It
+               follows that one of $X$ and $Y$ must have determinant 1, so
+               that this matrix is a unit; thus $B$ is irreducible in $R$. \qed
+         \item The matrix $\left(\begin{tabular}{@{}rr@{}}
+                  34 & 41 \\
+                  $-41$ & $-7$
+               \end{tabular}\right)$ is not irreducible since we have the
+               following factorization into irredcibles:
+               $$\left(\begin{tabular}{@{}rr@{}}
+                     34 & 41 \\
+                     $-41$ & $-7$
+                  \end{tabular}\right) = \left(\begin{tabular}{@{}rr@{}}
+                     2 & 1 \\
+                     $-1$ & 1
+                  \end{tabular}\right)\left(\begin{tabular}{@{}rr@{}}
+                     4 & 1 \\
+                     $-1$ & 3
+                  \end{tabular}\right)\left(\begin{tabular}{@{}rr@{}}
+                     7 & 3 \\
+                     $-3$ & 4
+                  \end{tabular}\right).$$
+               The factors in the factorization above are irreducible since
+               their determinants are prime.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{On Nilpotent Elements.}
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Let $R$ be a ring. An element $m \in R$ is called nilpotent if
+                  $m^k = 0$ for some positive integer $k$. Let
+                  $r = 1 + m + m^2 + \cdots + m^{k-1}$. Show $r$ is invertible
+                  by finding its inverse.
+            \item Exemplify \circled{1} by using the matrix
+                  $\left(\begin{tabular}{@{}ccc@{}}
+                     0 & 1 & 0 \\
+                     0 & 0 & 1 \\
+                     0 & 0 & 0
+                  \end{tabular}\right)$.
+         \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item a
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[\textbf{BONUS.}] Consider the integral domain $R = \Z[\sqrt{3}]$. Let
+                          $A = \left(\begin{tabular}{@{}cc@{}}
+                             5 & 3 \\
+                             9 & 5
+                          \end{tabular}\right)$. Decide if
+                          \circled{1}-\circled{4} are irreducible or not. Argue
+                          your case.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item $A$.
+            \item $\left(\begin{tabular}{@{}cc@{}}
+                     19 & 11 \\
+                     33 & 19
+                  \end{tabular}\right)$.
+            \item $\left(\begin{tabular}{@{}cc@{}}
+                     34 & 20 \\
+                     60 & 34
+                  \end{tabular}\right)$.
+            \item $\left(\begin{tabular}{@{}cc@{}}
+                     362 & 209 \\
+                     627 & 362
+                  \end{tabular}\right)$.
+            \item Factor $\left(\begin{tabular}{@{}cc@{}}
+                     69 & 0 \\
+                     0 & 69
+                  \end{tabular}\right)$ into irreducibles.
+            \item Show that $A$ is prime by showing that $R_A$ is a field.
+                  \textbf{Hint.} Show that if $M \in R$ has even determinant,
+                  then $A \mid M$, and if $M$ has odd determinant, then
+                  $A \mid (M-I)$.
+            \item Find a nontrivial common divisor of
+                  $\left(\begin{tabular}{@{}cc@{}}
+                     89 & 53 \\
+                     159 & 89
+                  \end{tabular}\right)$ and $\left(\begin{tabular}{@{}cc@{}}
+                     86 & 48 \\
+                     144 & 86
+                  \end{tabular}\right)$, and show why it is a common divisor.
+            \item Find the greatest common divisor of
+                  $\left(\begin{tabular}{@{}cc@{}}
+                     89 & 53 \\
+                     159 & 89
+                  \end{tabular}\right)$ and $\left(\begin{tabular}{@{}cc@{}}
+                     86 & 48 \\
+                     144 & 86
+                  \end{tabular}\right)$, and give reasons.
+            \item Find the lcm of
+                  $\left(\begin{tabular}{@{}cc@{}}
+                     89 & 53 \\
+                     159 & 89
+                  \end{tabular}\right)$ and $\left(\begin{tabular}{@{}cc@{}}
+                     86 & 48 \\
+                     144 & 86
+                  \end{tabular}\right)$.
+            \item[\textbf{More Bonus.}] Argue every element is a product of
+                                        irreducibles in $R$.
+            \item[\textbf{Hard Bonus.}] Argue every irreducible is prime.
+         \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item 
+      \end{enumerate}
+\end{enumerate}
+\end{document}
