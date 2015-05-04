@@ -95,15 +95,7 @@
                inverse, so that $F$ is a field.
          \item True.
 
-               \textbf{Proof.} Let $A = \left(\begin{tabular}{@{}cc@{}}
-                  9  & 4 \\
-                  28 & 9
-               \end{tabular}\right)$. Suppose $A = BC$. Then it follows that
-               $$-31 = \det(A) = \det(B)\det(C),$$
-               so that one of $B$ and $C$ has determinant $\pm1$. Assume without
-               loss of generality that $\det(C) = \pm1$. It follows that $C$ is
-               invertible; thus $AC^{-1} = B$. That is $A \mid B$, so we can
-               conclude that $A$ is prime. \qed
+               \textbf{Proof.} 
          \item True.
 
                \textbf{Proof.} Let $p(x) = x^3+ax^2+bx+c \in \Z[x]$, where $b$
@@ -376,7 +368,13 @@
                      1 & 1 & 1 \\
                      0 & 1 & 1 \\
                      0 & 0 & 1
-                  \end{tabular}\right)$
+               \end{tabular}\right)$, we have that
+               $$r(I - B) = r\left(\begin{tabular}{@{}crr@{}}
+                     1 & $-1$ & 1 \\
+                     0 & 1 & $-1$ \\
+                     0 & 0 & 1
+               \end{tabular}\right) = I,$$
+               so that $r$ is invertible.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[\textbf{BONUS.}] Consider the integral domain $R = \Z[\sqrt{3}]$. Let
