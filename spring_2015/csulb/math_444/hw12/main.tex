@@ -79,7 +79,7 @@
                consists of the polynomials in $\Z_2[x]$ mod $x^4+x+1$. Thus $F$
                is the set of all polynomials of degree less than 4 with
                coefficients in $\Z_2[x]$, so that $|F| = 16$. Addition and
-               multiplication in $F$ are carried out mod $(x^4+x+1)$. It is
+               multiplication in $F$ are carried out mod $x^4+x+1$. It is
                clear that $F$ is a commutative ring. Since
                \begin{align*}
                   1 \cdot 1 &= 1 \\
@@ -218,9 +218,6 @@
                determinant. \qed
          \item A nontrivial unit in $R$ is $\left(\begin{tabular}{@{}rc@{}}
                   1 & 1 \\
-                  $-1$ & $1-1$
-               \end{tabular}\right) = \left(\begin{tabular}{@{}rc@{}}
-                  1 & 1 \\
                   $-1$ & 0
                \end{tabular}\right)$.
          \item Let
@@ -253,7 +250,7 @@
                   $-1$ & $-1$ \\
                   1 & 0
                \end{tabular}\right)\right\}.$$
-         \item The element is $\left(\begin{tabular}{@{}rc@{}}
+         \item The element $\left(\begin{tabular}{@{}rc@{}}
                   2 & 1 \\
                   $-1$ & 1
                \end{tabular}\right)$ has determinant 3.
@@ -313,6 +310,26 @@
                   \end{tabular}\right).$$
                The factors in the factorization above are irreducible since
                their determinants are prime.
+         \item \textbf{Proof.} Suppose $MN \equiv 0$ mod $A$. That is,
+               $AX = MN$ for some matrix $X \in R$. Thus
+               $$4\det(X) = \det(A)\det(X) = \det(AX) = \det(MN) =
+                 \det(M)\det(N).$$
+               We can then conclude that the determinants of $M$ and $N$ cannot
+               be both odd. So suppose without loss that $\det(M) = 2k$ for some
+               integer $k$. Now if $$M = \left(\begin{tabular}{@{}rc@{}}
+                  $x$ & $y$ \\
+                  $-y$ & $x-y$
+               \end{tabular}\right),$$
+               then $x^2 - xy + y^2 = 2k$. If $x$ and $y$ are both odd, then
+               $x^2 - xy + y^2$ will also be odd, a contradiction. If $x$ is
+               odd and $y$ is even (or vice-versa), then $x^2 - xy + y^2$ will
+               again be odd. Thus the only viable option is that $x$ and $y$ are
+               both even. Now write $x = 2k_1$ and $y = 2k_2$ for some integers
+               $k_1$ and $k_2$. Since $X' = \left(\begin{tabular}{@{}rc@{}}
+                  $k_1$ & $k_2$ \\
+                  $-k_2$ & $k_1-k_2$
+               \end{tabular}\right) \in R$ and since $AX' = M$, it follows that
+               $M \equiv 0$ mod $A$, so that $A$ is prime. \qed
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item \textbf{On Nilpotent Elements.}
@@ -333,7 +350,33 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item a
+         \item We have
+               \begin{align*}
+                  rm &= (1 + m + m^2 + \cdots + m^{k-1})m \\
+                     &= m + m^2 + \cdots + m^{k-1} + m^k \\
+                     &= m + m^2 + \cdots + m^{k-1} \\
+                     &= r - 1,
+               \end{align*}
+               so that $r(1 - m) = 1$. Similarly
+               \begin{align*}
+                  mr &= m(1 + m + m^2 + \cdots + m^{k-1}) \\
+                     &= m + m^2 + \cdots + m^{k-1} + m^k \\
+                     &= m + m^2 + \cdots + m^{k-1} \\
+                     &= r - 1,
+               \end{align*}
+               so that $(1 - m)r = 1$. We have thus shown that the
+               multiplicative inverse of $r$ is $1 - m$. Thus $r$ is invertible.
+         \item Let $B = \left(\begin{tabular}{@{}ccc@{}}
+                  0 & 1 & 0 \\
+                  0 & 0 & 1 \\
+                  0 & 0 & 0
+               \end{tabular}\right)$. A quick computation will show us that the
+               smallest positive integer $k$ for which $B^k = 0$ is 3. Thus if
+               $r = I + B + B^2 = \left(\begin{tabular}{@{}ccc@{}}
+                     1 & 1 & 1 \\
+                     0 & 1 & 1 \\
+                     0 & 0 & 1
+                  \end{tabular}\right)$
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[\textbf{BONUS.}] Consider the integral domain $R = \Z[\sqrt{3}]$. Let
