@@ -93,9 +93,8 @@
                \end{align*}
                it follows that every nonzero element of $F$ has a multiplicative
                inverse, so that $F$ is a field.
-         \item True.
-
-               \textbf{Proof.} 
+         \item True. It follows immediately since the determinant is a prime
+               that is also co-prime with  7.
          \item True.
 
                \textbf{Proof.} Let $p(x) = x^3+ax^2+bx+c \in \Z[x]$, where $b$
@@ -110,7 +109,7 @@
                ${x_0}^3 + a{x_0}^2 + bx_0 + c$ is odd, a contradiction since
                ${x_0}^3 + a{x_0}^2 + bx_0 + c = 0$ is even. Thus $p(x)$ is
                irreducible. \qed
-         \item True.
+         \item False.
 
                \textbf{Proof.} First we want to show that the elements
                $$A = \left(\begin{tabular}{@{}cc@{}}
@@ -223,8 +222,8 @@
                By completing the square we get that
                $$a^2 + b^2 - ab = 1 \text{ iff } a = \frac{b}{2} \pm
                  \sqrt{\frac{4 - 3b^2}{4}}.$$
-               For the discrimant to be positive, we must have that $b = 0$ or
-               $|b| = 1$. It follows that $(a, b)$ is an integral solution of
+               For the discrimant to be nonnegative, we must have that $b = 0$
+               or $|b| = 1$. It follows that $(a, b)$ is an integral solution of
                $a^2 + b^2 - ab = 1$ iff
                $$(a, b) \in \{(-1, 0), (1, 0), (0, 1), (1, 1),
                  (0, -1), (-1, -1)\}.$$
@@ -439,7 +438,11 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item 
+         \item Since the determinant of $A$ is 1, it follows that $A$ is a unit
+               so that $A$ is not irreducible.
+          \item This matrix is irreducible since its determinant is a prime.
+          \item TODO
+          \item This matrix is not irreducible since it is a unit.
       \end{enumerate}
 \end{enumerate}
 \end{document}
