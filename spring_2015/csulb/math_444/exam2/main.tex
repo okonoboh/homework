@@ -1,0 +1,179 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 444, Spring 2015\\Section 1 (5562)\\
+  Exam \#2, 
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cyc}[1]{\langle #1\rangle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{Quickie Queries. It is essential you put down reasons for your
+         answers and show your work. 30 points.}
+         
+         Throughout assume $g, h \in G$, an abelian group, and that the order of
+         $g$ is 1000.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item The order of $g^{2120}$.
+            \item The smallest $n$ such that $S_n$ has an element of the same
+                  order as $g$.
+            \item The number of generators of $\cyc{g}$.
+            \item The number of subgroups of $\cyc{g}$.
+            \item The number of subgroups of $\cyc{g}$ of order 100.
+            \item The number of elements of $\cyc{g}$ of order 100.
+            \item Given that $h$ is of order 2400, the largest possible order
+                  of an element in $G$ (as far as you know).
+            \item An element of that largest order (as in \circled{7}).
+         \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item The order of $g^{2120}$ is
+               $$\frac{1000}{\gcd(2120, 1000)} = 25.$$
+         \item Since $1000 = 2^35^3$, it follows that $n = 2^3 + 5^3 = 133$.
+         \item Let $\varphi(n)$ be the number of positive integers relatively
+               prime to a positive integer $n$. Then the number of generators
+               of $\cyc{g}$ is $\varphi(1000) = \varphi(2^35^3) =
+               \varphi(2^3)\varphi(5^3) = 400$.
+         \item The number of subgroups of $\cyc{g}$ is the number of positive
+               divisors of 1000; since $1000 = 2^35^3$, it follows that we have
+               $4 \cdot 4 = 16$ subgroups of $\cyc{g}$.
+         \item There is 1 subgroup of $\cyc{g}$ of order 100.
+         \item There are $\varphi(100) = \varphi(2^25^2) =
+               \varphi(2^2)\varphi(5^2) = 40$ elements of $\cyc{g}$ of order
+               100.
+         \item The largest possible order of an element as far we know is
+               $$\frac{1000 \cdot 2400}{\gcd(1000, 2400)} = 12000.$$
+         \item The order of $h^{25}$ is 96 and the order of $g^{8}$ is 125.
+               Since $\gcd(96, 125) = 1$, it follows that the order of
+               $g^8h^{25}$ is $96 \cdot 125 = 12000$.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{15 points.} Recall that the centralizer of an element
+         $a \in G$ (a group) is given by
+         $$C(a) = \{g \in G : ag = ga\}.$$
+         Do the following:
+         
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Show that $gag^{-1} = hah^{-1}$ if and only if
+                  $h^{-1}g \in C(a)$.
+            \item Assume $G$ is finite. Show that $|C(a)| \times \# = |G|$
+                  where \# is the number of conjugates of $a$.
+         \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item Suppose $h^{-1}g \in C(a)$. Then
+               \begin{align*}
+                  h^{-1}ga &= ah^{-1}g &\Longleftrightarrow \\
+                  ga &= hah^{-1}g &\Longleftrightarrow \\
+                  gag^{-1} &= hah^{-1}.
+               \end{align*}
+               
+               Now suppose $gag^{-1} = hah^{-1}$. Then
+               \begin{align*}
+                  gag^{-1} &= hah^{-1} &\Longleftrightarrow \\
+                  ga &= hah^{-1}g &\Longleftrightarrow \\
+                  h^{-1}ga &= ah^{-1}g &\Longleftrightarrow \\
+                  h^{-1}g &\in C(a).
+               \end{align*}
+         \item \textbf{Proof.} Let $a \in G$. We know that
+               $$|G_a| \cdot |Ga| = |G|,$$
+               where $G_a$ is the stablilizer of $a$ and $Ga$ is the orbit of
+               $a$ (note that $\# = |Ga|$). It suffices to show that
+               $C(a) = G_a$. Now
+               \begin{align*}
+                  x &\in C(a) &\Longleftrightarrow \\
+                  xa &= ax &\Longleftrightarrow \\
+                  xax^{-1} &= a &\Longleftrightarrow \\
+                  x &\in Ga,
+               \end{align*}
+               so that $C(a) = Ga$, and we have that
+               $|C(a)| \cdot |Ga| = |G_a| \cdot \# = |G|.$
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $A$ be an abelian group with identity $e$. \textbf{15 points.}
+         
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Show that $\{a \in A : a^3 = e\}$ is a subgroup.
+            \item Find the elements of this subgroup when $A$ is the
+                  multiplicative group of nozero elements of $\Z_{19}$.
+            \item Give necessary and sufficient conditions on the size of $A$ in
+                  order for this subgroup to have other elements besides $e$,
+                  and give reasons.
+         \end{enumerate}
+
+      \textbf{Solution.} Let $G = \{a \in A : a^3 = e\}$.
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item $G$ is clearly associative under the operation of $A$ since it
+               is a subset of $A$, so in order to show that $G$ is a subgroup,
+               we need to show that it contains the $e$ and that it is closed
+               under the operation of $A$ and taking inverses.
+               
+               \textbf{Identity.} Clearly $e \in G$ since $e^3 =  e$.
+               
+               \textbf{Closure.} Suppose $g, h \in G$. Then since $G$ is
+               abelian, it follows that $(gh)^3 = g^3h^3 = ee = e$, so that
+               $gh \in G$.
+               
+               \textbf{Inverse.} Suppose $g \in G$. Then it follows that
+               $ggg = g^3 = e$. Now
+               $$ggg = e \Rightarrow gg = g^{-1} \Rightarrow g = (g^{-1})^2
+                 \Rightarrow e = (g^{-1})^3 \Rightarrow g^{-1} \in G,$$
+               so that $G$ is closed under taking inverses.
+               
+               Thus we can conclude that $G$ is a subgroup of $A$.
+         \item We want the elements $a$ of $\Z_{19}$ such that $a^3 = 1$. By
+               computation we find that the subgroup of $A$ that satisfies this
+               condition is $\{1, 7, 13\}$.
+         \item If $a^3 = e$, then the order of $a$ divides 3 so that the order
+               of $a$ is 1 or 3. So we want the order of $a$ to be 3. Thus we
+               must require that $3$ divides $|A|$, so that by Cauchy's Theorem,
+               an element of order 3 will be in $G$.
+      \end{enumerate}
+\end{enumerate}
+\end{document}
