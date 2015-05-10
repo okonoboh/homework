@@ -440,9 +440,71 @@
       \begin{enumerate}[label=\protect\circled{\arabic*}]
          \item Since the determinant of $A$ is 1, it follows that $A$ is a unit
                so that $A$ is not irreducible.
-          \item This matrix is irreducible since its determinant is a prime.
-          \item TODO
-          \item This matrix is not irreducible since it is a unit.
+         \item This matrix is irreducible since its determinant is a prime.
+         \item Not irreduible since (use idea in \circled{6} to continually
+               factor $A$ out of the given matrix)
+               $$\left(\begin{tabular}{@{}cc@{}}
+                     34 & 20 \\
+                     60 & 34
+                  \end{tabular}\right) = A^2\left(\begin{tabular}{@{}rr@{}}
+                  $-8$ & 5 \\
+                  15 & $-8$
+               \end{tabular}\right).$$
+         \item This matrix is not irreducible since it is a unit.
+         \item 
+               $$\left(\begin{tabular}{@{}cc@{}}
+                     69 & 0 \\
+                     0 & 69
+                  \end{tabular}\right) = \left(\begin{tabular}{@{}rr@{}}
+                  3 & 0 \\
+                  0 & 3
+               \end{tabular}\right)\left(\begin{tabular}{@{}rr@{}}
+                  23 & 0 \\
+                  0 & 23
+               \end{tabular}\right)$$
+         \item \textbf{Proof.} We want to first prove the hint. So
+               suppose $M = \left(\begin{tabular}{@{}cc@{}}
+                  $m$ & $n$ \\
+                  $3n$ & $m$
+               \end{tabular}\right)$ has even determinant. Observe that if $m$
+               and $n$ have different parities, then the determinant of $M$ must
+               be odd. Thus $m$ and $n$ must either be both odd or both even.
+               Now we want to find a matrix $B = \left(\begin{tabular}{@{}cc@{}}
+                  $a$ & $b$ \\
+                  $3b$ & $a$
+               \end{tabular}\right) \in R$ such that $BA = X$. Solving the
+               equation $BA = X$ for $a$ and $b$ will give us the following:
+               \begin{align*}
+                  a &= -\frac{1}{2}(5m - 9n) \\
+                  b &= \frac{1}{2}(3m - 5n).
+               \end{align*}
+               But since $m$ and $n$ have the same parities, it follows that
+               $5m - 9n$ and $3m - 5n$ are even so that $a$ and $b$ are
+               integers. Thus $B \in R$ and $A \mid M$. Now suppose that $M$ has
+               an odd determinant. Thus $m$ and $n$ have different parities. So
+               suppose first that $m$ is even and $n$ is odd. Thus it follows
+               that $m - 1$ is odd, so that $M - I$ has an even determinant and
+               so is divisible by $A$. Similarly if $m$ is odd and $n$ is even,
+               then $m - 1$ must be even so that $M - I$ has an even determinant
+               and thus is also divisible by $A$. Thus we have proven the hint.
+               Now consider $R/(A)$ (the set of elements in
+               $\Z[\sqrt{3}]$ mod $A$). Let $C \in R$. If $\det(C)$ is even,
+               then $C = AX'$ for some $X' \in R$. This means that
+               $C \equiv 0$ mod $A$. Now if $\det(C)$ is odd, then
+               $C - I = AX''$ for some $X'' \in R$. Thus $C \equiv I$ mod $A$.
+               Hence $R/(A) = \{\textbf{0}, I\}$, which is clearly a field,
+               where $\textbf{0}$ is the additive inverse and $I$ is the
+               multiplicative inverse. Now we are ready to show that $A$ is
+               prime. Suppose for some $S, T \in R$, $A$ divides $ST$, so that
+               $AY = ST$ for some $Y \in R$. Viewing this equation $AY = ST$ in
+               $R/(A)$, we must have that $ST = AY = \textbf{0}Y = \textbf{0}$.
+               Since $R/(A)$ is a field, it must be an integral domain. Hence
+               $ST = \textbf{0}$ implies that $S = \textbf{0}$ or
+               $T = \textbf{0}$. That is $A$ divides $S$ or $A$ divides $T$, so
+               that $A$ is prime. \qed
+         \item Since the determinants of both matrices in question are even,
+               then we know from \circled{6} that they are both divisible by
+               $A$. Thus $A$ is a common divisor of both matrices.         
       \end{enumerate}
 \end{enumerate}
 \end{document}

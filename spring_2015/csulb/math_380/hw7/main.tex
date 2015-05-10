@@ -133,10 +133,40 @@
                so that
                \begin{equation*}
                   f_U(u) = \frac{dF_U(u)}{du} = \begin{cases}
-                     \D\frac{1}{6\sqrt{u}}\left(e^{\sqrt{u}/3}+e^{-\sqrt{u}/3}\right) & \text{if } u > 0 \\
+                     \D\frac{1}{6\sqrt{u}}\left(e^{\sqrt{u}/3}+
+                     e^{-\sqrt{u}/3}\right) & \text{if } u > 0 \\
                      0 & \text{if } \text{otherwise}
                   \end{cases}
                \end{equation*}
+         \item The distribution of $Y$ is given by
+               \begin{equation*}
+                  F_Y(y) = \begin{cases}
+                     0 & \text{if } y < 0 \\
+                     1 - e^{-y/3} & \text{if } y \ge 0.
+                  \end{cases}
+               \end{equation*}
+
+               Let $U$ be a uniformly distributed random variable on (1, 2).
+               Then the distribution of $U$ is given by
+               \begin{equation*}
+                  F_U(u) = \begin{cases}
+                     0 & \text{if } u < 1, \\
+                     u - 1 & \text{if } 1 \le u \le 2, \\
+                     1 & \text{if } u > 2.
+                  \end{cases}
+               \end{equation*}
+
+               Let $1 \le u < 2$. We want to find $H(u)$ such that
+               $P(Y \le H(u)) = u - 1$. Thus we have that
+               $$u - 1 = P(Y \le H(u)) = 1 - e^{-H(u)/3}$$
+               so that $H(u) = -3\ln(2 - u)$. Now
+               \begin{align*}
+                  u - 1 &= P(Y \le H(u)) \\
+                        &= P(Y \le -3\ln(2 - u)) \\
+                        &= P\left(-\frac{1}{3}Y \ge \ln(2 - u)\right) \\
+                        &= P\left(2 - e^{-1/3Y} \le u\right) \\
+               \end{align*}
+               if $1 \le u < 2$. So let $G(Y) = 2 - e^{-1/3Y}$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Suppose $Y$ has a probability density function
@@ -147,7 +177,9 @@
             \end{cases}
          \end{equation*}
          Use the method of transformation to find the probability density
-         functions of a) $U_1 = 3Y - 1$ and \qquad b) $U_2 = Y^3$.
+         functions of 
+
+         a) $U_1 = 3Y - 1$ and \qquad b) $U_2 = Y^3$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $Y_1$ and $Y_2$ have joint probability density function         
          \begin{equation*}

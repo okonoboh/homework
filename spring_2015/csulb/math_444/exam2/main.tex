@@ -175,5 +175,560 @@
                must require that $3$ divides $|A|$, so that by Cauchy's Theorem,
                an element of order 3 will be in $G$.
       \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{On a Group.} Consider
+         $G_3 = \left\{\left(\begin{tabular}{@{}cc@{}}
+            1 & $m$ \\
+            0 & $s$
+         \end{tabular}\right) : m \in \Z_8, s \in \{1, 3\}\right\}$. Do
+         \circled{1} through \circled{6}. \textbf{20 points.}        
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Show $G_3$ is a subgroup of $GL(2, \Z_8)$ and find its order.
+            \item Find the order of $h = \left(\begin{tabular}{@{}rr@{}}
+                  1 & 1 \\
+                  0 & 1
+               \end{tabular}\right)$, and its centralizer, $C(h)$.
+            \item Find all the conjugates of $h$.
+            \item Show that regardless of what $m$ is, the centralizer of
+                  $g_m = \left(\begin{tabular}{@{}cc@{}}
+                     1 & $m$ \\
+                     0 & 3
+               \end{tabular}\right)$, $C(g_m)$, has four elements.
+            \item Find the center of $G_3$, $Z(G)$. \textbf{Hint.} You basically
+                  already have.
+            \item Decide how many elements of each order there are in $G_3$.
+         \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item We have that $|G_3| = 8 \cdot 2 = 16$. To show that $G_3$ is a
+               subgroup of $GL(2, \Z_8)$, we need only show that $G_3$ has an
+               identity and that it is closed under multiplication since it is
+               finite. Notice that $G_3$ is associative under multiplication
+               since $\Z_8$ is associative under multiplication. 
+
+               \textbf{Identity.} If we let $m = 0$ and $s = 1$, we shall see
+               that $G_3$ contains the identity.
+               
+               \textbf{Closure.} Let $\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+               \end{tabular}\right), \left(\begin{tabular}{@{}cc@{}}
+                  1 & $n$ \\
+                  0 & $t$
+               \end{tabular}\right) \in G_3$. Then we have that
+               $$\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+               \end{tabular}\right)\left(\begin{tabular}{@{}cc@{}}
+                  1 & $n$ \\
+                  0 & $t$
+               \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
+                  1 & $n + mt$ \\
+                  0 & $st$
+               \end{tabular}\right) \in G_3$$
+               because $\{1, 3\}$ and $\Z_8$ are both closed under
+               multiplication. Thus $G_3$ is closed under multiplication. Hence
+               $G_3$ is a subgroup of $GL(2, \Z_8)$.
+         \item \textbf{Order of } $h$. Since
+               $h^n = \left(\begin{tabular}{@{}rr@{}}
+                  1 & $n$ \\
+                  0 & 1
+               \end{tabular}\right)$, it follows that the order of $h$ is 8.
+
+               \textbf{Centralizer of } $h$. Let
+               $\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+               \end{tabular}\right) \in C(h)$. Then it follows that
+               $$\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+               \end{tabular}\right)h = \left(\begin{tabular}{@{}cc@{}}
+                  1 & $1+m$ \\
+                  0 & $s$
+               \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
+                  1 & $s+m$ \\
+                  0 & $s$
+               \end{tabular}\right) = h\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+               \end{tabular}\right),$$
+               so that $1 + m = s + m$. That is, $s = 1$. Thus
+               $$C(h) = \left\{\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & 1
+               \end{tabular}\right) : m \in \Z_8\right\}.$$
+         \item The set of conjugates of $h$ is $\{ghg^{-1} : g \in G_3\}$. So
+               So let $g = \left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+               \end{tabular}\right) \in G_3$. Then we have that
+               $ghg^{-1} = \left(\begin{tabular}{@{}cl@{}}
+                  1 & $s^{-1}$ \\
+                  0 & 1
+               \end{tabular}\right),$ so that the conjugates of $h$ are
+               $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 1 \\
+                  0 & 1
+               \end{tabular}\right)$ and $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 3 \\
+                  0 & 1
+               \end{tabular}\right)$.
+         \item \textbf{Proof.} Let $m \in \Z_8$ and
+               $g_m) = \left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & 3
+               \end{tabular}\right)$.We want to show that
+               $|C(g_m)| = 4$. Let $\left(\begin{tabular}{@{}cc@{}}
+                  1 & $n$ \\
+                  0 & $t$
+               \end{tabular}\right) \in C(g_m)$. Then it follows that
+               $$\left(\begin{tabular}{@{}cc@{}}
+                  1 & $n$ \\
+                  0 & $t$
+               \end{tabular}\right)g_m = \left(\begin{tabular}{@{}cc@{}}
+                  1 & $m+3n$ \\
+                  0 & $s$
+               \end{tabular}\right) = \left(\begin{tabular}{@{}cc@{}}
+                  1 & $mt+n$ \\
+                  0 & $s$
+               \end{tabular}\right) = g_m\left(\begin{tabular}{@{}cc@{}}
+                  1 & $n$ \\
+                  0 & $t$
+               \end{tabular}\right),$$
+               so that $m + 3n = mt + n$; that is, $m + 2n = mt$.
+
+               \textbf{Case 1.} $t = 1$. Then we have that $m + 2n = m$ so that
+               $2n = 0$; that is $n \in \{0, 4\}$.
+
+               \textbf{Case 2.} $t = 3$. Then we have that $m + 2n = 3m$ so that
+               $2m = 2n$. Notice that since $m \in \Z_8$, then
+               $2m \in \{0, 2, 4, 6\}$. For each value of $2m$, the equation
+               $2m = 2n$ has exactly two solutions for $n$ and they are
+
+               $$\begin{tabular}{@{}|c|c|@{}} \hline
+                  $2m$ & $n$ \\ \hline
+                  0 & \{0, 4\} \\ \hline
+                  2 & \{1, 5\} \\ \hline
+                  4 & \{2, 6\} \\ \hline
+                  6 & \{3, 7\} \\ \hline
+               \end{tabular}.$$
+
+               Thus for each value of $t$, $n$ has exactly two values, so that
+               there are 4 matrices in $C(g_m)$. \qed
+         \item The center of $G_3$ is the set of elements of $G_3$ that commute
+               with all the elements of $G_3$. Notice that if an element is in
+               the center of $G_3$, then it must be in the centralizer of all
+               elements of $G_3$. By \circled{4}, we know that
+               $$h^8 = \left(\begin{tabular}{@{}cc@{}}
+                  1 & 0 \\
+                  0 & 1
+               \end{tabular}\right) \text{ and }
+               h^4 = \left(\begin{tabular}{@{}cc@{}}
+                  1 & 4 \\
+                  0 & 1
+               \end{tabular}\right)$$
+               are the only elements in
+               $\displaystyle\bigcap_{m \in \Z_8}C(g_m)$ (the
+               intersection of the centralizers of matrices of the form
+               $\left.\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & 3
+               \end{tabular}\right)\right)$. Since the remaining matrices
+               (matrices of the form $\left.\left(\begin{tabular}{@{}cc@{}}
+                  1 & $y$ \\
+                  0 & 1
+               \end{tabular}\right)\right)$ are all powers of $h$, it follows
+               that $h^8$ and $h^4$ also commute with them. Thus the center of 
+               $G_3$ consists of $h^8$ and $h^4$.
+
+         \item $$\begin{tabular}{@{}|c|c|@{}} \hline
+                  Matrix & Order \\ \hline
+                  $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 0 \\
+                  0 & 1
+               \end{tabular}\right)$ & 1 \\ \hline
+                  $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 4 \\
+                  0 & 1
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 0 \\
+                  0 & 3
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 2 \\
+                  0 & 3
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 4 \\
+                  0 & 3
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 6 \\
+                  0 & 3
+               \end{tabular}\right)$ & 2 \\ \hline
+                  $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 2 \\
+                  0 & 1
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 6 \\
+                  0 & 1
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 1 \\
+                  0 & 3
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 3 \\
+                  0 & 3
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 5 \\
+                  0 & 3
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 7 \\
+                  0 & 3
+               \end{tabular}\right)$ & 4 \\ \hline
+                  $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 1 \\
+                  0 & 1
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 3 \\
+                  0 & 1
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 5 \\
+                  0 & 1
+               \end{tabular}\right)$,$\left(\begin{tabular}{@{}cc@{}}
+                  1 & 7 \\
+                  0 & 1
+               \end{tabular}\right)$ & 8 \\ \hline
+               \end{tabular}.$$
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{On the Same Group.} Let $G_3$ be the group from the previous
+         exercise. Let it act on the set $X$ of vectors of size 2:
+         $\left(\begin{tabular}{@{}c@{}}
+            $x$ \\
+            $y$
+         \end{tabular}\right)$ with entries in $\Z_8$. Do the following:
+         \textbf{25 points.}
+      
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Count the number of fixed points of
+                  $\left(\begin{tabular}{@{}cc@{}}
+                     1 & 2 \\
+                     0 & 3
+                  \end{tabular}\right)$.
+            \item Count the number of fixed points of
+                  $\left(\begin{tabular}{@{}cc@{}}
+                     1 & 4 \\
+                     0 & 1
+                  \end{tabular}\right)$.
+            \item  Count the number of fixed points of
+                  $\left(\begin{tabular}{@{}cc@{}}
+                     1 & 1 \\
+                     0 & 1
+                  \end{tabular}\right)$.
+            \item Finish filling the table below with the number of fixed points
+                  below each of the respective matrices:
+
+                  $\begin{tabular}{@{}|c|c|c|c|c|c|c|c|@{}} \hline
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 2 \\
+                        0 & 3
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 4 \\
+                        0 & 1
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 1 \\
+                        0 & 1
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 2 \\
+                        0 & 1
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 3 \\
+                        0 & 1
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 5 \\
+                        0 & 1
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 6 \\
+                        0 & 1
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 7 \\
+                        0 & 1
+                     \end{tabular}\right)$ \\ \hline
+                     16 & 32 & 8 & 16 & 8 & 8 & 16 & 8 \\ \hline
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 1 \\
+                        0 & 3
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 3 \\
+                        0 & 3
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 4 \\
+                        0 & 3
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 5 \\
+                        0 & 3
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 6 \\
+                        0 & 3
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 7 \\
+                        0 & 3
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 0 \\
+                        0 & 3
+                     \end{tabular}\right)$ &
+                     $\left(\begin{tabular}{@{}cc@{}}
+                        1 & 0 \\
+                        0 & 1
+                     \end{tabular}\right)$ \\ \hline
+                     8 & 8 & 16 & 8 & 16 & 8 & 16 & 64 \\ \hline
+                  \end{tabular}$.
+            \item Use Burnside's Lemma to count the number of orbits.
+            \item Find the stabilizer of $\left(\begin{tabular}{@{}c@{}}
+                     1 \\
+                     0 
+                  \end{tabular}\right)$, and use it to find the size of its
+                  orbit.
+            \item Find the stabilizer of $\left(\begin{tabular}{@{}c@{}}
+                     1 \\
+                     4 
+                  \end{tabular}\right)$, and use it to find the size of its
+                  orbit.
+            \item Find the stabilizer of $\left(\begin{tabular}{@{}c@{}}
+                     2 \\
+                     2 
+                  \end{tabular}\right)$, and use it to find the size of its
+                  orbit.
+         \end{enumerate}
+
+      \textbf{Solution.}
+      
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item We want to find all $x$, $y \in \Z_8$ such that
+               $$\left(\begin{tabular}{@{}cc@{}}
+                     1 & 2 \\
+                     0 & 3
+                 \end{tabular}\right)\left(\begin{tabular}{@{}c@{}}
+                     $x$ \\
+                     $y$
+                 \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                     $x$ \\
+                     $y$
+                 \end{tabular}\right).$$
+                  From the above, we shall get
+               $$\left(\begin{tabular}{@{}c@{}}
+                     $x + 2y$ \\
+                     $3y$
+                 \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                     $x$ \\
+                     $y$
+                 \end{tabular}\right),$$
+               so that $x + 2y = x$ and $2y = 0$. These equations both simplify
+               to $2y = 0$; thus $y \in \{0, 4\}$. So we have 8 choices for $x$
+               and 2 choices for $y$ for a total of 16 choices. The number of
+               fixed points of $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 2 \\
+                  0 & 3
+               \end{tabular}\right)$ is 32.
+         \item We want to find all $x$, $y \in \Z_8$ such that
+               $$\left(\begin{tabular}{@{}cc@{}}
+                     1 & 4 \\
+                     0 & 1
+                 \end{tabular}\right)\left(\begin{tabular}{@{}c@{}}
+                     $x$ \\
+                     $y$
+                 \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                     $x$ \\
+                     $y$
+                 \end{tabular}\right).$$
+                  From the above, we shall get
+               $$\left(\begin{tabular}{@{}c@{}}
+                     $x + 4y$ \\
+                     $y$
+                 \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                     $x$ \\
+                     $y$
+                 \end{tabular}\right),$$
+               so that $x + 4y = x$. That is $4y = 0$, so that
+               $y \in \{0, 2, 4, 6\}$. So we have 8 choices for $x$
+               and 4 choices for $y$ for a total of 32 choices. The number of
+               fixed points of $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 4 \\
+                  0 & 1
+               \end{tabular}\right)$ is thus 32.
+         \item Proceed as in \circled{1} and \circled{2} above to get
+               $x + y = x$, so that $y = 0$; so we have 8 choices for $x$
+               and 1 choices for $y$ for a total of 8 choices. The number of
+               fixed points of $\left(\begin{tabular}{@{}cc@{}}
+                  1 & 1 \\
+                  0 & 1
+               \end{tabular}\right)$ is thus 8.
+         \item The table has been filled above.
+         \item According to Burnside's Lemma, the number of orbits is
+               $$\frac{16+32+8+16+8+8+16+8+8+8+16+8+16+8+16+64}{16} = 16.$$
+         \item Let $X_1 = \left(\begin{tabular}{@{}c@{}}
+                  1 \\
+                  0
+                 \end{tabular}\right)$. We want to find all
+               $\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+                 \end{tabular}\right) \in G_3$ such that
+               $$\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+                 \end{tabular}\right)X_1 = X_1.$$
+               From the above equation, we shall get $X_1 = X_1$,
+               so that all of $G_3$ stabilizes $X_1$. That is, 
+               $|\text{Stabilizer}(X_1)| = |G_3|$. Recall that
+               $$|\text{Stabilizer}(X_1)| \cdot |\text{Orbit}(X_1)| = |G_3|.$$
+               Thus $|\text{Orbit}(X_1)| = 1$.
+         \item Similarly let $X_2 = \left(\begin{tabular}{@{}c@{}}
+                  1 \\
+                  4
+                 \end{tabular}\right)$. We want to find all
+               $\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+                 \end{tabular}\right) \in G_3$ such that
+               $$\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+                 \end{tabular}\right)X_2 = X_2.$$
+               From the above equation, we shall get 
+               $$\left(\begin{tabular}{@{}c@{}}
+                  $1+4m$ \\
+                  $4s$
+                 \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                  1 \\
+                  4
+                 \end{tabular}\right),$$
+               so that all $4m = 0$ and $4s = 4$. Thus $m \in \{0, 2, 4, 6\}$ 
+               and $s \in \{1, 3\}$. Thus $|\text{Stabilizer}(X_2)| = 8$. Since
+               $$|\text{Stabilizer}(X_2)| \cdot |\text{Orbit}(X_2)| = |G_3|,$$
+               it follows that $|\text{Orbit}(X_2)| = 2$.
+         \item Similarly let $X_3 = \left(\begin{tabular}{@{}c@{}}
+                  2 \\
+                  2
+                 \end{tabular}\right)$. We want to find all
+               $\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+                 \end{tabular}\right) \in G_3$ such that
+               $$\left(\begin{tabular}{@{}cc@{}}
+                  1 & $m$ \\
+                  0 & $s$
+                 \end{tabular}\right)X_3 = X_3.$$
+               From the above equation, we shall get 
+               $$\left(\begin{tabular}{@{}c@{}}
+                  $2+2m$ \\
+                  $2s$
+                 \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                  2 \\
+                  2
+                 \end{tabular}\right),$$
+               so that all $2m = 0$ and $2s = 2$. Thus $m \in \{0, 4\}$ 
+               and $s = 1$. Thus $|\text{Stabilizer}(X_3)| = \nobreak2$. Since
+               $$|\text{Stabilizer}(X_3)| \cdot |\text{Orbit}(X_3)| = |G_3|,$$
+               it follows that $|\text{Orbit}(X_3)| = 8$.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{True or False.} Consider the veracity or falsehood of each of
+         the following statements, and argue as well as you can for those that
+         you believe are true while providing a counterexample for those that
+         you believe are false. There is partial credit for just the correct 
+         answer. \textbf{20 points}
+      
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Every abelian group of order 525 has an element of order 21.
+            \item The permutation $(123)(2465)(5674)(12578)(456312)$.
+            \item $S = \left\{\left(\begin{tabular}{@{}rc@{}}
+                     $a$ & $b$ \\
+                     $-3b$ & $a$
+                  \end{tabular}\right) : a, b \in \Z\right\}$ is an integral 
+                  domain.
+            \item A subgroup of a cyclic group is cyclic.
+            \item It is possible for an infinite group to have subgroups of
+                  finite index.
+            \item Any group of order 12 has an element of order 6.
+            \item Every group of order 1001 has an element of order 7.
+            \item Every field is an integral domain.
+            \item Let $G$ and $H$ be groups. Let $f : G \rightarrow H$ be a
+                  homomorphism onto $H$. If $G$ is abelian, then so is $H$.
+            \item Let $G$ and $H$ be groups. Let $f : G \rightarrow H$ be a
+                  homomorphism onto $H$. If $H$ is abelian, then so is $G$.
+         \end{enumerate}
+
+      \textbf{Solution.}
+      
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item True.
+
+               \textbf{Proof.} Let $G$ be an abelian group of order 525.
+               Because the primes 3 and 7 both divide $|G|$, it follows by
+               Cauchy's Theorem that $G$ has an element $h$ of order 3 and an
+               element $g$ of order 7. Since 3 and 7 are relatively prime and
+               since $G$ is abelian, it must have an element of order
+               $3 \cdot 7 = 21$. \qed
+         \item False because the sign of the permutation is
+               $$\text{sign}(123) \cdot \text{sign}(2465) \cdot
+                 \text{sign}(5674) \cdot \text{sign}(12578) \cdot
+                 \text{sign}(456312) = 1 \cdot -1 \cdot -1 \cdot 1 \cdot -1 =
+                 -1.$$
+         \item  True.
+
+               \textbf{Proof.} First observe that the determinant of a matrix in 
+               $S$ is 0 if and only it is the zero matrix. Also we know that $S$
+               is a commutative ring. Now let $A_1, A_2 \in S$. Suppose
+               $A_1A_2 = \textbf{0}$. Then we must have that
+               $$0 = \det(\textbf{0}) = \det(A_1A_2) = \det(A_1)\det(A_2),$$
+               so that $\det(A_1) = 0$ or $\det(A_2) = 0$. That is
+               $A_1 = \textbf{0}$ or $A_2 = \textbf{0}$, so that $S$ is an
+               integral domain. \qed
+         \item True. Let $G = \cyc{g}$ be a cyclic group and let $H$ be a 
+               subgroup of $G$. Then $H$ is also cyclic since it is generated by
+               $h^r$ where $r$ is the smallest positive integer such that
+               $h^r \in H$.
+         \item True. Although $\Z$ is infinite, its subgroup, $60\Z$, has index
+               60.
+         \item False because $A_4$ has order 12 but it has no element of order
+               6 (since $A_4$ doesn't even have a subgroup of order 6).
+         \item  True.
+
+               \textbf{Proof.} Let $G$ be a group of order 1001. Since 7 is
+               prime and since 7 divides 1001, it follows at once by Cauchy's 
+               Theorem that $G$ has an element of order 7. \qed
+         \item True.
+
+               \textbf{Proof.} Let $F$ be a field. Suppose for some
+               $a, b \in F$, with $a \neq 0$, we have $ab = 0$. Since $F$ is a   
+               field and since $a$ is nonzero, it follows that $a^{-1}$ exists. 
+               Thus we have that $0 = ab = a^{-1}(ab) =(a^{-1}a)b = b$, so that
+               $F$ is an integral domain. \qed
+         \item True.
+
+               \textbf{Proof.} Let $x, y \in H$. Then since $f$ is onto, there
+               exist $a, b \in G$ such that $f(a) = x$ and $f(b) = y$. Thus
+               $$xy = f(a)f(b) = f(ab) = f(ba) = f(b)f(a) = yx,$$
+               so that $H$ is also abelian. \qed
+         \item False.
+
+               \textbf{Counterexample.} Consider $f : S_6 \rightarrow \{e\}$.
+               This map is onto and $\{e\}$ is trivially abelian. Also $f$ is
+               a homomorphism, but $S_6$ is not abelian.
+      \end{enumerate}
 \end{enumerate}
 \end{document}
