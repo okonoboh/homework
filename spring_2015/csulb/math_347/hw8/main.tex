@@ -1,0 +1,128 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{cancel}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 347, Spring 2015\\Section 1 (1872)\\
+  HW \#8, Due: 2015, May 5
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+%\setcounter{secton}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob8.02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.02] Define $T \in \mathcal{L}(\C^2)$ by
+               $$T(w, z) = (-z, w).$$
+               Find all generalized eigenvectors.
+               
+      \textbf{Solution.} First we find the eigenvalues of $T$. Suppose
+      $T(w, z) = \lambda(w, z)$. Then it follows that
+      $(-z, w) = (\lambda w, \lambda z)$, so that $\lambda w = -z$ and
+      $w = \lambda z$. Solving these equations will gives $\lambda = \pm i$.
+      Thus the eigenvalues of $T$ are $i$ and $-i$. Since $\dim \C^2 = 2$, it
+      follows that the generalized eignevectors corresponding to $i$ is
+      $\text{null }(T - iI)^2$ and the generalized eignevectors corresponding to
+      $-i$ is $\text{null }(T + iI)^2$. Suppose
+      $(a, b) \in \text{null }(T - iI)^2$. Then we have that
+      \begin{align*}
+         0 &= (T - iI)^2(a, b) \\
+           &= (T - iI)[(T - iI)(a, b)] \\
+           &= (T - iI)[T(a, b) - (iI)(a, b)] \\
+           &= (T - iI)[(-b, a) + (-ai, -bi)] \\
+           &= (T - iI)(-b - ai, a - bi) \\
+           &= T(-b - ai, a - bi) - (iI)(-b - ai, a - bi) \\
+           &= (-a + bi, -b - ai) + (-a + bi, -b - ai) \\
+           &= (-2a + 2bi, -2b - 2ai),
+      \end{align*}
+      so that $-2a + 2bi = 0$ and $-2b - 2ai = 0$. That is $a = bi$. Similarly 
+      if $(c, d) \in \text{null }(T + iI)^2$. Then we have that
+      \begin{align*}
+         0 &= (T + iI)^2(c, d) \\
+           &= (T + iI)[(T + iI)(c, d)] \\
+           &= (T + iI)[T(c, d) + (iI)(c, d)] \\
+           &= (T + iI)[(-d, c) + (ci, di)] \\
+           &= (T + iI)(-d + ci, c + di) \\
+           &= T(-d + ci, c + di) + (iI)(-d + ci, c + di) \\
+           &= (-c - di, -d + ci) + (-c - di, -d + ci) \\
+           &= (-2c - 2di, -2d + 2ci),
+      \end{align*}
+      so that $-2c - 2di = 0$ and $-2d + 2ci = 0$. That is $c = -di$. Thus
+      $$\text{null }(T - iI)^2 = \{(xi, x) : x \in \C\} \text{ and }
+        \text{null }(T + iI)^2 = \{(-yi, y) : y \in \C\}.$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob8.03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.03] Suppose $T \in \mathcal{L}(V)$, $m$ is a positive integer, and
+               $v \in V$ is such that $T^{m-1}v \neq 0$ but $T^mv = 0$. Prove
+               that
+               $$(v, Tv, T^2v, \ldots, T^{m-1}v)$$
+               is linearly independent.
+
+      \textbf{Proof.} Consider the equation
+      \begin{equation} \label{l8_3_0}
+         a_0v + a_1Tv + a_2T^2v + \cdots + a_{m-1}T^{m-1}v = 0.
+      \end{equation}
+      
+      Applying $T^{m-1}$ to equation \eqref{18_3_0} above will result in
+      \begin{equation} \label{l8_3_1}
+         a_0T^{m-1}v + a_1T^mv + a_2T^{m+1}v + \cdots + a_{m-1}T^{2m-2}v = 0.
+      \end{equation}
+      Notice since $T^mv = 0$, we must have $T^{m + i}v = 0$ for all $i \ge 0$.
+      Thus equation \eqref{l8_3_1} reduces to $a_0T^{m-1}v = 0$, so that
+      $a_0 = 0$ since $T^{m-1}v \neq 0$. Now equation \eqref{l8_3_0} reduces to
+      
+      \begin{equation} \label{l8_3_2}
+         a_1Tv + a_2T^2v + \cdots + a_{m-1}T^{m-1}v = 0.
+      \end{equation}
+      Now apply $T^{m-2}$ to equation \eqref{l8_3_2} to get $a_1 = 0$. Then
+      apply $T^{m - 3}$ to the simplified equation to get $a_2 = 0$, \ldots,
+      and so on to get $a_{m-1} = 0$. Thus 
+               $$(v, Tv, T^2v, \ldots, T^{m-1}v)$$
+               is linearly independent.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob8.06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.06] Suppose $N \in \mathcal{L}(V)$ is nilpotent. Prove (without
+               using 8.26) that 0 is the only eigenvalue of $N$.
+
+      \textbf{Proof.} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob8.07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.07] Suppose $V$ is an inner-product space. Prove that if
+               $N \in \mathcal{L}(V)$ is self-adjoint and nilpotent, then
+               $N = 0$.
+
+      \textbf{Proof.}   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Prob8.11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.11] Prove that if $T \in \mathcal{L}(V)$, then
+               $$V = \text{null }T^n \oplus \text{range }T^n,$$
+               where $n = \dim V$.
+
+      \textbf{Proof.} 
+\end{enumerate}
+\end{document}
