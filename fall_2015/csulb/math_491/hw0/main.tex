@@ -1,0 +1,77 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[retainorgcmds]{IEEEtrantools}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 491, Fall 2015\\Section 1 (4847)\\
+  HW \#0, DUE: 2015, August 25
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $f$ be the function defined by $f(x) = x^3 - 49x^2 + 623x - 2015$,
+         and let $g(x) = f(x + 5)$. Compute the sum of the roots of $g$.
+
+      \textbf{Solution.} Using the Rational Root Theorem, we get the following
+      factorization
+      $$f(x) = (x - 5)(x-13)(x-31),$$
+      so that the roots of $f$ are 5, 13, and 31. Now observe that $c$ is a root 
+      of $f$ if and only if $c-5$ is a root of $g$; thus the sum of the roots of 
+      $g$ is $(5 - 5) + (13 - 5) + (31 - 5) = 34$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Lay six long strings in parallel. Two people (each of whom cannot see
+         what the other is doing) work at opposite ends of the bundle of
+         strings. Each randomly pairs off the strings at his or her end and
+         glues together the ends of each pair. Then stretch the strings out.
+         What is the probability that the strings now form a single large loop?
+
+      \textbf{Solution.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compute the product $\D\cos\left(\frac{\pi}{5}\right)\cos\left(
+         \frac{2\pi}{5}\right)\cos\left(\frac{3\pi}{5}\right)\cos\left(
+         \frac{4\pi}{5}\right)$.
+
+      \textbf{Solution.}
+\end{enumerate}
+\end{document}

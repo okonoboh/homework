@@ -1,0 +1,102 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage{color}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\title{Math 444 Review}
+\author{Leslie Rodriguez}
+\date{\today}
+\setlength\parindent{0pt}
+\begin{document}
+
+   \maketitle
+
+   \section*{Chapters 1 and 2.}
+
+   \section*{\textcolor{purple}{Equivalence Relations.}} Let $X$ be a nonempy 
+   set. A \textit{relation} on $X$ is a subset of $X \times X$, where
+   $X \times X$ is the set of ordered pairs $\{(x, y) : x, y \in X\}$. We write 
+   $x \sim y$ if and only if $(x, y)$ is a member of this relation. A relation
+   on $X$ that satisfies the following properties:
+   \begin{itemize}
+      \item \textit{Reflexivity.} For each $x \in X$, we have that $x \sim x$.
+      \item \textit{Symmetry.} If $x \sim y$ for some $x, y \in X$, then it
+            follows that $y \sim x$.
+      \item \textit{Transitivity.} If $x \sim y$ and $y \sim z$ for some
+            $x, y, z \in X$, then it follows that $x \sim z$.
+   \end{itemize}
+   is said to be an \textit{equivalence relation}.
+
+   \section*{Exercise 1.} Prove that if $n$ is a natural number, then
+   \begin{equation}
+      1^2 + 2^2 + \cdots + n^2 = \D\frac{n(n+1)(2n+1)}{6}. \label{1_1}
+   \end{equation}
+
+   \textbf{Proof.} We shall proceed by induction. \\
+
+   \textbf{Base Case.} $n = 1$. Since $1 = \D\frac{1(1 + 1)(2\cdot1+1)}{6}$, it 
+   follows that \eqref{1_1} holds whenever $n$ is 1. \\
+
+   \textbf{Inductive Hypothesis.} Suppose that \eqref{1_1} holds for some
+   positive integer $k$. That is,
+   \begin{equation}
+      1^2 + 2^2 + \cdots + k^2 = \D\frac{k(k+1)(2k+1)}{6}. \label{1_2}
+   \end{equation}
+
+   To complete the proof, we must now show that \eqref{1_1} holds for $k + 1$.
+   Thus
+   \begin{align*}
+      1^2 + 2^2 + \cdots + k^2 + (k+1)^2 &= \frac{k(k+1)(2k+1)}{6} + (k+1)^2
+         &[\text{From }\eqref{1_2}]\\
+         &= \frac{k(k+1)(2k+1) + 6(k+1)^2}{6} \\
+         &= \frac{(k+1)[k(2k+1) + 6(k+1)]}{6} \\
+         &= \frac{(k+1)(2k^2+7k+6)}{6} \\
+         &= \frac{(k+1)(k+2)(2k+3)}{6} \\
+         &= \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6},
+   \end{align*}
+   so that \eqref{1_1} holds for $k + 1$; thus it follows by Mathematical
+   Induction that \eqref{1_1} for all natural numbers. \qed
+
+   \section*{\textcolor{purple}{Functions.}} Let $f : X \rightarrow Y$ be a 
+   function. Then this function is
+   \begin{itemize}
+      \item \textit{injective (or one-to-one)} if $f(x_1) = f(x_2)$, with
+            $x_1, x_2 \in X$, then $x_1 = x_2$.
+      \item \textit{surjective (or onto)} if for every $y \in Y$, there exists
+            an $x \in X$ such that $f(x) = y$.
+      \item \textit{well defined} if $x_1 = x_2$, with $x_1, x_2 \in X$, then
+            $f(x_1) = f(x_2)$.
+   \end{itemize}
+
+   A function $h : S \rightarrow T$ is called an \textit{identity} on $S$ if
+   $h(s) = s$ for all $s \in S$. Now consider the functions
+   $f : X \rightarrow Y$ and $g : Y \rightarrow X$. The function $g$ is an
+   inverse function of $f$ if $f \circ g$ is an identity on $Y$ and if
+   $g \circ f$ is an identity on $X$.
+\end{document}
