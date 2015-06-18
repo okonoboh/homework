@@ -51,14 +51,17 @@
       \item \textit{Transitivity.} If $x \sim y$ and $y \sim z$ for some
             $x, y, z \in X$, then it follows that $x \sim z$.
    \end{itemize}
-   is said to be an \textit{equivalence relation}.
+   is said to be an \textit{equivalence relation}. If we have an equivalence
+   relation, then for $x \in X$, we let $[x]$ denote the set of all elements of
+   $X$ that are related to $x$; that is, $[x] = \{y \in X: y \sim x\}$. The set
+   $[x]$ is also referred to as the \textit{equivalence class} of $x$.
 
    \section*{Exercise 1.} Prove that if $n$ is a natural number, then
    \begin{equation}
       1^2 + 2^2 + \cdots + n^2 = \D\frac{n(n+1)(2n+1)}{6}. \label{1_1}
    \end{equation}
 
-   \textbf{Proof.} We shall proceed by induction. \\
+   \textbf{Proof.} We shall proceed by induction on $n$. \\
 
    \textbf{Base Case.} $n = 1$. Since $1 = \D\frac{1(1 + 1)(2\cdot1+1)}{6}$, it 
    follows that \eqref{1_1} holds whenever $n$ is 1. \\
@@ -81,10 +84,10 @@
          &= \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6},
    \end{align*}
    so that \eqref{1_1} holds for $k + 1$; thus it follows by Mathematical
-   Induction that \eqref{1_1} for all natural numbers. \qed
+   Induction that \eqref{1_1} holds for all natural numbers. \qed
 
    \section*{\textcolor{purple}{Functions.}} Let $f : X \rightarrow Y$ be a 
-   function. Then this function is
+   function. Then $f$ is
    \begin{itemize}
       \item \textit{injective (or one-to-one)} if $f(x_1) = f(x_2)$, with
             $x_1, x_2 \in X$, then $x_1 = x_2$.
@@ -99,4 +102,107 @@
    $f : X \rightarrow Y$ and $g : Y \rightarrow X$. The function $g$ is an
    inverse function of $f$ if $f \circ g$ is an identity on $Y$ and if
    $g \circ f$ is an identity on $X$.
+
+   \section*{\textcolor{purple}{Integers mod $n$.}} Let $n$ be a positive
+   integer. Define a relation on $\Z$ as follows:
+   $$x \sim y \text{ if and only if there exists }
+     k \in \Z \text{ such that } x = y + kn.$$
+
+   Now we shall show that this is an equivalence relation on $\Z$.
+
+   \textbf{Proof.} Let $x$, $y$, and $z$ be integers. We have
+   \begin{itemize}
+      \item \textit{Reflexivity.} Clearly $x \sim x$ since $x = x + 0\cdot n$;
+            so this relation is reflexive.
+      \item \textit{Symmetry.} Suppose that $x \sim y$. Then it follows by
+            definition that $x = y + kn$ for some integer $k$. That is,
+            $y = x + (-k)n$, so that $y \sim x$. Thus this relation is
+            symmetric.
+      \item \textit{Transitivity.} Suppose that $x \sim y$ and $y \sim z$. By
+            definition, we have that $x = y + k_1n$ and $y = z + k_2n$ for some
+            integers $k_1$ and $k_2$. Thus
+            $x = (z + k_2n) + k_1n = z + (k_1 + k_2)n$, so that $x \sim z$. We
+            have thus shown that this relation is transitive.
+   \end{itemize}
+
+   Since the relation is reflexive, symmetric, and transitive, it follows by
+   definition that it is an equivalence relation. \qed \\
+
+   To emphasize the dependence of this relation on $n$, we 
+   usually write $x \equiv y$ (mod $n$) instead of $x \sim y$. Also the 
+   equivalence class of an integer $y$ is denoted $[y]_n$. \\
+
+   \textbf{Example.} $[2]_{11} = \{\ldots, 2, 13, 24, 35, \ldots\}$.
+
+   \section*{Exercise 2.} Proof that addition mod $n$ is well-defined; i.e.,
+   $$[a]_n + [b]_n = [a + b]_n.$$
+
+   \textbf{Proof.} Let $x \in [a]_n$ and $y \in [b]_n$. Then
+   $x \equiv a$ (mod $n$) and $y \equiv b$ (mod $n$). By definition,
+   $n \mid x - a$ and $n \mid y - b$. So, by definition, $x - a = np$ and
+   $y - b = nq$ for some integers $p$ and $q$. Then we have:
+   \begin{align*}
+      (x - a) + (y - b) &= np + nq &\Rightarrow \\
+      (x + y) - (a + b) &= n(p + q) &\Rightarrow,
+   \end{align*}
+   so $n \mid (x + y) - (a + b)$. Therefore, by definition,
+   $x + y \equiv a + b$ (mod $n$), as desired. \qed
+
+   \section*{Chapter 3.}
+
+   \section*{\textcolor{purple}{Groups.}} A group is a set $G$ together with a
+   binary operation $*$ that satisfies the following:
+   \begin{enumerate}
+      \item \textit{Associativity.} For all $x, y, z \in G$, we have that
+            $x * (y * z) = (x * y) * z$.
+      \item \textit{Identity.} There exists an element $e$ in $G$ such that
+            $e * x = x = x * e$ for all $x \in G$.
+      \item \textit{Inverses.} For all $g \in G$, there exists $g^{-1} \in G$
+            such that $g * g^{-1} = e = g^{-1} * g$.
+   \end{enumerate}
+
+   \section*{\textcolor{purple}{Subset and Subgroups.}} Let $(G, *)$ be a
+   group and let $H$ be a subset of $G$. Then $H$ is called a subgroup of $G$
+   if:
+   \begin{enumerate}
+      \item \textit{Closure.} For all $h_1, h_2 \in H$, we have that
+            $h_1 * h_2 \in H$.
+      \item \textit{Identity.} $e \in H$, where $e$ is the identity of $G$.
+      \item \textit{Inverses.} For all $h \in H$, there exists $h^{-1} \in H$
+            such that $h * h^{-1} = e = h^{-1} * h$.
+   \end{enumerate}
+
+   or, equivalently, if
+   \begin{enumerate}
+      \item $H$ is not empty, and
+      \item $H$ is closed under $*$; that is $h_1 * h_2 \in H$ for 
+            all $h_1, h_2 \in H$.
+   \end{enumerate}
+
+   \section*{\textcolor{purple}{Some Notations.}}
+
+   \begin{align*}
+      M_n(\R)&:=\text{the set of all $n \times n$ matrices with real entries} \\
+      GL_n(\R)&:=\text{the set of all $n \times n$ invertible matrices with real entries} \\
+      SL_n(\R)&:=\text{the set of all $n \times n$ matrices with real entries and determinant = 1} \\
+   \end{align*}
+
+   \textit{When are the three sets defined above groups?}
+   $$
+      \begin{tabular}{@{}|c|c|c|c|@{}} \hline         
+             & \multicolumn{2}{c|}{Binary Operation} &  \\ \hline
+         Set & Addition & Multiplication & Is abelian? \\ \hline
+         $M_n(\R)$ & Yes & No & Yes \\ \hline
+         $GL_n(\R)$ & No & Yes & No \\ \hline
+        $SL_n(\R)$ & No & Yes & No \\ \hline
+      \end{tabular}
+   $$
+
+   \section*{\textcolor{purple}{Theorem 3.4.}} Let $G$ be a group. If
+   $a, b \in G$, then $(ab)^{-1} = b^{-1}a^{-1}$. \\
+
+   \textbf{Proof.} We have
+   $(ab)(b^{-1}a^{-1}) = a(bb^{-1})a^{-1} = aea^{-1} = aa^{-1} = e$. By
+   uniqueness, $(ab)^{-1} =\nobreak b^{-1}a^{-1}$. \qed
+   
 \end{document}
