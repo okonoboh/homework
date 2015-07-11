@@ -7,7 +7,6 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
-\usepackage[retainorgcmds]{IEEEtrantools}
 \usepackage{color}
 
 
@@ -45,7 +44,7 @@
    $x \sim y$ if and only if $(x, y)$ is a member of this relation. A relation
    on $X$ that satisfies the following properties:
    \begin{itemize}
-      \item \textit{Reflexivity.} For each $x \in X$, we have that $x \sim x$.
+      \item \textit{Reflexivity.} For all $x \in X$, we have that $x \sim x$.
       \item \textit{Symmetry.} If $x \sim y$ for some $x, y \in X$, then it
             follows that $y \sim x$.
       \item \textit{Transitivity.} If $x \sim y$ and $y \sim z$ for some
@@ -175,8 +174,7 @@
    or, equivalently, if
    \begin{enumerate}
       \item $H$ is not empty, and
-      \item $H$ is closed under $*$; that is $h_1 * h_2 \in H$ for 
-            all $h_1, h_2 \in H$.
+      \item For all $h_1, h_2 \in H$, $h_1 * {h_2}^{-1} \in H$.
    \end{enumerate}
 
    \section*{\textcolor{purple}{Some Notations.}}
