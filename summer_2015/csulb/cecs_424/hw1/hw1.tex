@@ -7,6 +7,14 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
+\usepackage{url}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+  \do\Y\do\Z}
 
 
 \usepackage{tikz}
@@ -94,6 +102,39 @@ the beginning of lecture.
          the error; if \verb|goto| is not to blame, describe other programming
          or cultural practices that could have prevented the error being
          published.
+
+      \textbf{Answer.} The snippet of code below was part of the original faulty
+      code. The modified one can be found at \url{http://opensource.apple.com/source/Security/Security-55471/libsecurity_ssl/lib/sslKeyExchange.c}
+\begin{verbatim}
+1.    hashOut.data = hashes + SSL_MD5_DIGEST_LEN;
+2.    hashOut.length = SSL_SHA1_DIGEST_LEN;
+3.    if ((err = SSLFreeBuffer(&hashCtx)) != 0)
+4.       goto fail;
+5.    if ((err = ReadyHash(&SSLHashSHA1, &hashCtx)) != 0)
+6.       goto fail;
+7.    if ((err = SSLHashSHA1.update(&hashCtx, &clientRandom)) != 0)
+8.       goto fail;
+9.    if ((err = SSLHashSHA1.update(&hashCtx, &serverRandom)) != 0)
+10.      goto fail;
+11.   if ((err = SSLHashSHA1.update(&hashCtx, &signedParams)) != 0)
+12.      goto fail;
+13.      goto fail;
+14.   if ((err = SSLHashSHA1.final(&hashCtx, &hashOut)) != 0)
+15.      goto fail;
+\end{verbatim}
+
+As we can see, line 13 is problematic because if \verb|err == 0| is true in
+line 11 (that is, no error occurred  from calling
+\verb|SSLHashSHA1.update(&hashCtx, &signedParams)|), then line 12 will not
+execute. However, in this case, line 13 will unconditionally execute, thus
+unwittingly trigerring some fail procedure. \\
+
+I believe that the primary cause of this error was less about the use of \verb|goto|
+than the carelessness of the programmer. Personally I tend to use braces around
+all my \verb|if| statements, whether or not they have a single statement of
+code. If the coding convention had included using braces around every \verb|if|
+statements, then perhaps, the error might have been patent from the onset.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item (Exercise 1.1 from \textit{Programming Language Pragmatics}) Using the
          C programming language, give an example of each of the following:
