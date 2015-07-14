@@ -1,6 +1,9 @@
+#include <stdlib.h>
+
 #include "allocator.h"
 
 static void* heap_ptr = NULL;
+static int my_heap_size;
 
 int BLOCK_OVERHEAD_SIZE = sizeof(Block);
 Block* free_head;
@@ -87,6 +90,15 @@ void my_free(void* mem) {
 	free_head->next_block = temp;
 }
 
+void my_free_all_blocks() {
+	if(heap_ptr != NULL) {
+      free_head = (Block*) heap_ptr;
+
+      free_head->block_size = my_heap_size - BLOCK_OVERHEAD_SIZE;
+      free_head->next_block = NULL;
+   }
+}
+
 void my_free_heap() {
 	if(heap_ptr != NULL) {
       free(heap_ptr);
@@ -97,15 +109,12 @@ void my_free_heap() {
 int my_initialize_heap(int size) {
    free_head = NULL;
 
-	size = size <= 0 || size > MAX_HEAP_SIZE ? MAX_HEAP_SIZE : size; 
+	my_heap_size = size <= 0 || size > MAX_HEAP_SIZE ? MAX_HEAP_SIZE : size; 
 
-	heap_ptr = malloc(size);
+	heap_ptr = malloc(my_heap_size);
 
 	if (heap_ptr != NULL) {
-	   free_head = (Block*) heap_ptr;
-
-	   free_head->block_size = size - BLOCK_OVERHEAD_SIZE;
-	   free_head->next_block = NULL;
+      my_free_all_blocks();
       return HEAP_INIT_SUCCESS;
 	}
 
