@@ -158,10 +158,89 @@ the beginning of lecture.
             \item \textit{add\_op} $\rightarrow$ \verb|+| $|$ \verb|-|
             \item \textit{mult\_op} $\rightarrow$ \verb|*| $|$ \verb|/|
          \end{itemize}
+         
+      \textbf{Solution.}
+      
+      \begin{center}
+         \begin{tikzpicture}[scale=3.0]
+            %\draw[step=.5cm,gray,very thin] (-2.0,-2.0) grid (2.0, 2.0);
+            \draw (0.0,2.0) node {\textit{expr}};
+            
+            \draw (0.0,1.9) -- (0.0, 1.7);
+            
+            \draw (0.0,1.6) node {\textit{term}};
+            
+            \draw (0.0,1.5) -- (-0.5, 1.3);            
+            \draw (0.0,1.5) -- (0.0, 1.3);
+            \draw (0.0,1.5) -- (0.5, 1.3);
+            
+            \draw (-0.5,1.2) node {\textit{term}};
+            \draw (0.0,1.2) node {\textit{mult\_op}};
+            \draw (0.5,1.2) node {\textit{factor}};
+            
+            \draw (-0.5,1.1) -- (-0.5, 0.9);
+            \draw (0.0,1.1) -- (0.0, 0.9);
+            \draw (0.5,1.1) -- (0.5, 0.9);
+            
+            \draw (-0.5,0.8) node {\textit{factor}};
+            \draw (0.0,0.8) node {\verb|*|};
+            \draw (0.5,0.8) node {\verb|number|};
+            
+            \draw (-0.5,0.7) -- (-0.5, 0.5);
+            \draw (0.5,0.7) -- (0.5, 0.5);
+            
+            \draw (-0.5,0.5) -- (-1.0, 0.3);
+            \draw (-0.5,0.5) -- (-0.5, 0.3);
+            \draw (-0.5,0.5) -- (0.0, 0.3);
+            \draw (0.5,0.4) node {\verb|5|};
+            
+            \draw (-1.0,0.2) node {\verb|(|};
+            \draw (-0.5,0.2) node {\textit{expr}};
+            \draw (0.0,0.2) node {\verb|)|};
+            
+            \draw (-0.5,0.1) -- (-1.0, -0.1);
+            \draw (-0.5,0.1) -- (-0.5, -0.1);
+            \draw (-0.5,0.1) -- (0.0, -0.1);
+            
+            \draw (-1.0, -0.2) node {\textit{expr}};
+            \draw (-0.5, -0.2) node {\textit{add\_op}};
+            \draw (0.0, -0.2) node {\textit{term}};
+            
+            \draw (-1.0, -0.3) -- (-1.0, -0.5);
+            \draw (-0.5, -0.3) -- (-0.5, -0.5);
+            \draw (0.0, -0.3) -- (0.0, -0.5);
+            
+            \draw (-1.0, -0.6) node {\textit{term}};
+            \draw (-0.5, -0.6) node {\verb|+|};
+            \draw (0.0, -0.6) node {\textit{factor}};
+            
+            \draw (-1.0, -0.7) -- (-1.0, -0.9);
+            \draw (0.0, -0.7) -- (0.0, -0.9);
+            
+            \draw (-1.0, -1.0) node {\textit{factor}};
+            \draw (0.0, -1.0) node {\verb|number|};
+            
+            \draw (-1.0, -1.1) -- (-1.0, -1.3);
+            \draw (0.0, -1.1) -- (0.0, -1.3);
+            
+            \draw (-1.0, -1.4) node {\verb|number|};
+            \draw (0.0, -1.4) node {\verb|4|};
+            
+            \draw (-1.0, -1.5) -- (-1.0, -1.7);
+            \draw (-1.0, -1.8) node {\verb|3|};
+         \end{tikzpicture}
+      \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Explain in your own words why a language that only supports
          \textit{static allocation} of values cannot support recursive
          functions.
+         
+      \textbf{Answer.} For recursive functions to execute correctly, then each
+      invocation of a particular function call must have its own unshared
+      local variables, if any. However, if the language only supports static
+      allocation, each successive function invocation in a recursive call will
+      overwrite the data of the previous function call, and this may lead to
+      logical errors in the program.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item In the following C program, identify one value/object that is allocated
          statically, one that is allocated on the stack, and one that is
@@ -188,7 +267,7 @@ int main() {
             Allocation Type & Object \\ \hline
             Static & \verb|global| \\ \hline
             Stack  & \verb|i| \\ \hline
-            Heap   & \verb|arr| \\ \hline
+            Heap   & \verb|*arr| \\ \hline
          \end{tabular}
       $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
