@@ -1,3 +1,12 @@
+/**
+ * Joseph Okonoboh
+ * Lab 1, SUMMER 2015 CECS 424
+ *
+ * Allocator testing.
+ *
+ * my_tests_driver.c
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -20,5 +29,5 @@ int main() {
 
    my_free_heap();
    
-	return EXIT_SUCCESS;
+   return EXIT_SUCCESS;
 }

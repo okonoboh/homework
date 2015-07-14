@@ -1,3 +1,13 @@
+/**
+ * Joseph Okonoboh
+ * Lab 1, SUMMER 2015 CECS 424
+ *
+ * A simple standard deviation program using dynamically allocated input
+ * from our allocator.
+ *
+ * sd_driver.c
+ */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>

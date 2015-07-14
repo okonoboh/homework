@@ -1,3 +1,12 @@
+/**
+ * Joseph Okonoboh
+ * Lab 1, SUMMER 2015 CECS 424
+ *
+ * Header for simple standard deviation program.
+ *
+ * sd.h
+ */
+
 #ifndef _STANDARD_DEVIATION_H
 #define _STANDARD_DEVIATION_H
 
@@ -35,6 +44,6 @@ int* my_process_input(int n);
 /**
  * Initial welcome message. Should be called upon program start up.                   
  */
-int my_welcome();
+void my_welcome();
 
 #endif

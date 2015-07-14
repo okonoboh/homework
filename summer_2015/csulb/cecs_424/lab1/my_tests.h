@@ -1,3 +1,11 @@
+/**
+ * Joseph Okonoboh
+ * Lab 1, SUMMER 2015 CECS 424
+ * Allocator testing.
+ *
+ * my_tests.h
+ */
+
 #ifndef _MY_TESTS_H
 #define _MY_TESTS_H
 

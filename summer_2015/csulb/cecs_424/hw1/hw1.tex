@@ -83,7 +83,7 @@ the beginning of lecture.
          languages (Java) going so far as to make \verb|goto| a reserved keyword
          that throws a compile-time error for anyone who attempts to use it.
          However, there remain convincing arguments in favor of using
-         \verb|goto| in specificm disciplined ways, and languages without the
+         \verb|goto| in specific disciplined ways, and languages without the
          \verb|goto| statement must make other facilities available as 
          alternatives. \\
 
@@ -91,8 +91,37 @@ the beginning of lecture.
          \verb|goto| statements from structured programming languages. Include
          in your response at least one programming problem whose solution is
          easier using \verb|goto| statements but does not exhibit many of the
-         arguments against \verb|goto|. Do you fell the case against \verb|goto|
+         arguments against \verb|goto|. Do you feel the case against \verb|goto|
          is strong enough to ban its inclusion in modern languages?
+         
+      \textbf{Answer.} 
+      
+      \begin{itemize}
+         \item \textbf{Debug.} The \verb|goto| construct may contribute to
+               difficulty in debugging a program because the program's natural
+               control flow may be interrupted.
+         \item \textbf{State.} A \verb|goto| instruction may cause the program
+               to jump to portions of the code where variables are not in a
+               consistent or expected state.
+      \end{itemize}
+      
+      One situation in which the \verb|goto| statement is more natural than
+      other substitutes is in multiple nested loops. The programmer can easily
+      use the \verb|goto| statement to break out of these loops, as opposed to
+      using more involved awkard constructs. For example, to achieve this in
+      Java, one would have to use a label, which is, incidentally, similar to
+      using a \verb|goto| statement. I believe most programmers do not use
+      \verb|goto| not because they truly understand the ``damage" it can cause,
+      but because they were simply told that it was bad. There is a plethora of
+      badly written programs that do not use \verb|goto|; indeed, the
+      \verb|goto| statement does not turn a good programmer into a bad one; it
+      simply gives the bad one more options to hang himself with. Thus if a
+      programmer uses this statement in a respectful and natural way, he can
+      more easily solve particular problems. Unfortunately, the definitions of
+      ``respectful" and ``meaningful" in this context are up to the discretion
+      of the programmer. Nevertheless, I do not agree that such a powerful
+      programming construct should be taken away from a programmer, because a
+      programmer should be able to shoot himself in the foot if he sees fit.      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Read about the ``goto fail" bug in Apple's iOS/OSX SSL connection
          libraries from 2014. In a one-paragraph response, summarize the error's

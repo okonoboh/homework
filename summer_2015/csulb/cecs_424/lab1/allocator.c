@@ -1,3 +1,11 @@
+/**
+ * Joseph Okonoboh
+ * Lab 1, SUMMER 2015 CECS 424
+ * A simple dynamic memory allocator that uses a free list.
+ *
+ * allocator.c
+ */
+ 
 #include <stdlib.h>
 
 #include "allocator.h"
@@ -57,9 +65,9 @@ void* my_allocate(int size) {
        * at least 1 byte of data.
        */
       if(new_block_size > BLOCK_OVERHEAD_SIZE) { /* split block */
-		   alloc_block->block_size = size;
+			alloc_block->block_size = size;
 
-		   new_block = (Block*) (((unsigned char*) alloc_block) +
+			new_block = (Block*) (((unsigned char*) alloc_block) +
             overhead_plus_block_size);
 		   new_block->block_size = new_block_size;
 			new_block->next_block = alloc_block->next_block;
@@ -107,15 +115,15 @@ void my_free_heap() {
 }
 
 int my_initialize_heap(int size) {
-   free_head = NULL;
+	free_head = NULL;
 
 	my_heap_size = size <= 0 || size > MAX_HEAP_SIZE ? MAX_HEAP_SIZE : size; 
 
 	heap_ptr = malloc(my_heap_size);
 
 	if (heap_ptr != NULL) {
-      my_free_all_blocks();
-      return HEAP_INIT_SUCCESS;
+		my_free_all_blocks();
+		return HEAP_INIT_SUCCESS;
 	}
 
 	return HEAP_INIT_FAILURE;

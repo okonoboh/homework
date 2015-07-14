@@ -1,3 +1,16 @@
+/**
+ * Joseph Okonoboh
+ * Lab 1, SUMMER 2015 CECS 424
+ *
+ * Module for simple standard deviation program.
+ *
+ * sd.c
+ */
+
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -24,6 +37,7 @@ int is_line_valid(const char* string) {
          (string[i] != '-' && !isdigit(string[i]) && !isspace(string[i]))) {
          return 0;
       }
+
       if(isdigit(string[i])) {
          ++num_digits;
       }
@@ -42,7 +56,7 @@ int my_get_num_data() {
       fgets(line, MAX_CHAR_PER_LINE, stdin);
 
       n = is_line_valid(line) ? atoi(line) : 0;
-   } while(n < 1 || n > MAX_NUM_DATA);
+   } while(n < 1 || n > (int) MAX_NUM_DATA);
 
    return n;
 }
@@ -79,7 +93,7 @@ int* my_process_input(int n) {
    return my_data;
 }
 
-int my_welcome() {
+void my_welcome() {
    printf("\n------------------------------------------\n");
    printf("Welcome to the standard deviation program.\n");
    printf("------------------------------------------\n\n");

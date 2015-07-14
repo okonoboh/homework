@@ -1,3 +1,11 @@
+/**
+ * Joseph Okonoboh
+ * Lab 1, SUMMER 2015 CECS 424
+ * A simple dynamic memory allocator that uses a free list.
+ *
+ * allocator.h
+ */
+
 #ifndef _ALLOCATOR_H
 #define _ALLOCATOR_H
 
@@ -63,9 +71,9 @@ void  my_free_heap();
  *                   allocator will default to MAX_HEAP_SIZE bytes.
  *
  * @return      ---  HEAP_INIT_SUCCESS
- *                      if the initialization was a success.
+ *                      if the initialization was successful.
  *                   HEAP_INIT_FAILURE
- *                      if the initialization was not success.
+ *                      if the initialization was not successful.
  */
 int my_initialize_heap(int size);
 
