@@ -1,6 +1,6 @@
 #include "allocator.h"
 
-void* heap_ptr = NULL;
+static void* heap_ptr = NULL;
 
 int BLOCK_OVERHEAD_SIZE = sizeof(Block);
 Block* free_head;
@@ -59,15 +59,13 @@ void* my_allocate(int size) {
 		   new_block = (Block*) (((unsigned char*) alloc_block) +
             overhead_plus_block_size);
 		   new_block->block_size = new_block_size;
-		   new_block->next_block = NULL;
+			new_block->next_block = alloc_block->next_block;
 
          if(alloc_block == free_head) {
             free_head = new_block;
-            free_head->next_block = alloc_block->next_block;
          } else {
             prev_block->next_block = new_block;
-            new_block->next_block = alloc_block->next_block;
-         }
+         }         
       } else { /* do not split block (allocate all its size) */
          if(alloc_block == free_head) {
             free_head = alloc_block->next_block;

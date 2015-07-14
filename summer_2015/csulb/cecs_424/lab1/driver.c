@@ -5,16 +5,18 @@
 
 void test1();
 void test2();
-
+void test3();
 
 int main() {
+		printf("%d.\n", add(3));
+		exit(0);
    if(my_initialize_heap(0) == HEAP_INIT_FAILURE) {
 		fprintf(stderr, "The system couldn't initialize the allocator.\n");
 		exit(1);
    }
 
-   /*test1();*/
-   test2();
+   test1();
+   //test2();
 
    my_free_heap();
    
