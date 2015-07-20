@@ -1,0 +1,445 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{url}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+  \do\Y\do\Z}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 424, Summer 2015\\Section 1 (11171)\\
+  HW \#2, DUE: 2015, July 21
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\noindent Complete these problems on a separate sheet of paper. Due July 21 at
+the end of lab.
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Reading:
+
+         \begin{enumerate}
+            \item Chapter 3.3 (\textit{skim} section 3.3.3 and 3.3.4;
+                  \textit{ignore} section 3.3.5)
+            \item \textit{Skim} Chapter 3.5
+            \item Chapter 13 intro
+            \item Chapter 13.1
+            \item \textit{Skim} Chapter 13.2 (focus on Python section), 13.4
+            \item Google's Python introduction:
+
+                  \verb|http://developers.google.com/edu/python/introduction|
+            \item Chapter 6 intro
+            \item From Chapter 6.1: \textit{skim} 6.1.1; \textit{read} 6.1.2
+                  (\textit{stop} after ``Boxing"); \textit{skim} 6.1.5
+            \item \textit{Skim} Chapter 6.2 (for the answer to Homework 1
+                  question 2)
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item In the C and C++ programming languages, the memory sizes of fundamental
+         data types are not strictly defined; in C++, for example, a character
+         is defined as 1 byte in size, but \verb|short| is only defined as ``not
+         smaller than \verb|char|", \verb|int| is ``not smaller than
+         \verb|short|", etc. Other languages strictly define data type sizes:
+         Java specifies \verb|int| as 4 bytes, \verb|long| as 8 bytes, etc.
+         \textbf{Why} do some languages not strictly define the sizes of
+         fundamental data types? (Focus your answer on C/C++ in particular.) Do
+         you consider this a \textbf{strength} or \textbf{weakness} of these
+         languages?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item A revision to the C++ language in 2011, titled \textbf{C++11}, requires
+         compilers to provide type aliases \verb|int32_t|, \verb|int64_t|, and
+         others, which guarantee the number of bits used for values of those
+         types. For example, \verb|int32_t myVar| defines a variable that stores
+         a 32-bit integer, in contrast to \verb|int otherVar| which defines an
+         integer variable that is ``not smaller than a \verb|short|". With this
+         knowledge in mind, does your answer to question 2 change? Why or why
+         not?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item (Exercise 3.9 from \textit{Programming Language Pragmatics}) Consider
+         the following fragment of code in C:
+         \begin{verbatim}
+{  int a, b, c;
+   ...
+   {  int d, e;
+      ...
+      {  int f;
+         ...
+      }
+      ...
+   }
+   ...
+   {  int g, h, i;
+      ...
+   }
+   ...
+}
+         \end{verbatim}
+         \begin{enumerate}
+            \item Assume that each integer variable occupies 4 bytes. How much
+                  total space is required in memory for the variables in this 
+                  code fragment?
+            \item Because C is statically scoped, we can note that variables
+                  \verb|d, e, f| will never be in scope at the same time as
+                  \verb|g, h, i|. With this in mind, give a displacement address
+                  for each variable in the fragment (in terms of \verb|fp|) so 
+                  that the active memory requirement for the variables in the 
+                  fragment is \textbf{smaller} than your answer to part (a). 
+                  Assume that variable \verb|a| is at \verb|fp - 4|, and that 
+                  variables are pushed onto the stack in the order they are 
+                  declared, so \verb|a| is the bottom element of the stack.
+         \end{enumerate}
+
+   \textbf{Answer.}
+
+   \begin{enumerate}
+      \item Since 9 integer variables were declared and since each integer
+            variable occupies 4 bytes, we would need $4 \cdot 9 = 36$ bytes
+            for the integer variables in this code fragment.
+      \item $$
+               \begin{tabular}{@{}|c|c|@{}} \hline
+                  Variable & Displacement Address \\ \hline
+                  \verb|a| & \verb|fp -  4| \\ \hline
+                  \verb|b| & \verb|fp -  8| \\ \hline
+                  \verb|c| & \verb|fp - 12| \\ \hline
+                  \verb|d| & \verb|fp - 16| \\ \hline
+                  \verb|e| & \verb|fp - 20| \\ \hline
+                  \verb|f| & \verb|fp - 24| \\ \hline
+                  \verb|g| & \verb|fp - 16| \\ \hline
+                  \verb|h| & \verb|fp - 20| \\ \hline
+                  \verb|i| & \verb|fp - 24| \\ \hline
+               \end{tabular}
+            $$
+   \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Give an example (from a language of your choice) of a situation in
+         whihc a variable/value outlives the lifetime of all bindings to it;
+         i.e., explain how it is possible for a value to be alive even though
+         all bindings to it have been lost.
+
+      \textbf{Answer.} Consider the code snippet in C below:
+\begin{verbatim}
+1. #include <stdlib.h>
+2.
+3. int main() {
+4.    double PI = 3.14;
+5.    double* mean = (double*) malloc(sizeof(double));
+6.    mean = &PI;
+7.
+8.    return 0;
+9. }
+\end{verbatim}
+
+If line 5 executes successfully, then \verb|sizeof(double)| bytes will be 
+allocated on the heap and the address of the first byte will be assigned to the
+variable \verb|mean|. But on line 6, the address of the local variable \verb|PI| 
+is assigned to \verb|mean|, so that the only binding to the \verb|double| that 
+was allocated on the heap will be lost. However, the \verb|double| value will 
+remain on the heap. In a more severe case, this can lead to memory leak.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item (Exercise 3.14 from \textit{Programming Language Pragmatics} Consider
+         the following pseudocode:
+         \begin{verbatim}
+01.   x : integer // global value
+02.
+03.   procedure set_x(n : integer)
+04.      x := n
+05.
+06.   procedure print_x()
+07.      write_integer(x) // prints to screen
+08.
+09.   procedure first()
+10.      set_x(1)
+11.      print_x()
+12.
+13.   procedure second()
+14.      x : integer // local
+15.      set_x(2)
+16.      print_x()
+17.
+18.   // main
+19.   set_x(0)
+20.   first()
+21.   print_x()
+22.   second()
+23.   print_x()
+         \end{verbatim}
+
+         \begin{enumerate}
+            \item What does this program print if the language uses static 
+                  scoping? Why?
+            \item What does this program print if the language uses dynamic
+                  scoping? Why?
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}
+         \item {[}Static scoping{]} We note that since the procedures
+               \verb|set_x| and \verb|print_x| have no local variable named 
+               \verb|x|, both procedures will always refer to the global
+               \verb|x|. So following the execution of the code from line 19, we 
+               get the following:
+
+               \verb|set_x(0):| \\
+               \verb|    global x <- 0| \\ \\
+               \verb|first():| \\
+               \verb|   set_x(1):| \\
+               \verb|      global x <- 1| \\
+               \verb|   print_x():| \\
+               \verb|      print 1| \\ \\
+               \verb|print_x():| \\
+               \verb|   print 1| \\ \\
+               \verb|second():| \\
+               \verb|   declare local int x| \\
+               \verb|   set_x(2):| \\
+               \verb|      global x <- 2| \\
+               \verb|      print_x():| \\
+               \verb|         print 2| \\ \\
+               \verb|print_x():| \\
+               \verb|   print 2|
+
+               From the above, we can see that the code will print:
+               \verb|1 1 2 2|
+         \item {[}Dynamic scoping{]} By following the execution of the code from 
+               line 19, we get the following:
+
+               \verb|set_x(0):| \\
+               \verb|    global x <- 0| \\ \\
+               \verb|first():| \\
+               \verb|   set_x(1):| \\
+               \verb|      // Use global x since it is the most recent|
+               \verb|binding for x| \\
+               \verb|      global x <- 1| \\ \\
+               \verb|   print_x():| \\
+               \verb|      // Print global x since it is the most recent|
+               \verb|binding for x| \\
+               \verb|      print 1| \\ \\
+               \verb|print_x():| \\
+               \verb|   // Print global x since it is the most recent|
+               \verb|binding for x| \\
+               \verb|   print 1| \\ \\
+               \verb|second():| \\
+               \verb|   declare local int x| \\
+               \verb|   set_x(2):| \\
+               \verb|      most recent x <- 2| \\
+               \verb|      print_x():| \\
+               \verb|      // Print most recent x| \\
+               \verb|         print 2| \\ \\
+               \verb|   // local int x no longer active| \\ \\
+               \verb|print_x():| \\
+               \verb|   // Print global x since it is the most recent|
+               \verb|binding for x| \\
+               \verb|   print 1|
+
+               From the above, we can see that the code will print:
+               \verb|1 1 2 1|
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Go to \verb|CodingBat.com/python| and complete these coding exercises
+         in Python. Print your code to each.
+         \begin{enumerate}
+            \item In Warmup-1: near\_hundred, not\_string, front\_back
+            \item List-2: count\_evens, big\_diff, sum67
+            \item Logic-2: make\_bricks, lone\_sum
+         \end{enumerate}
+
+      \textbf{Solution.}
+
+   
+
+      \begin{enumerate}
+         \item \begin{itemize}
+                  \item \textit{Given an int n, return True if it is within 10 
+                        of 100 or 200.} \\
+
+                        \verb|def near_hundred(n):| \\
+                        \verb|   return abs(100 - n) <= 10 or |
+                        \verb|abs(200 - n) <= 10| \\
+                  \item \textit{Given a string, return a new string where
+                        ``not " has been added to the front. However, if the 
+                        string already begins with ``not", return the string 
+                        unchanged.} \\
+
+                        \verb|def not_string(str):| \\
+                        \verb|   return str if str[0:3] == "not" else |
+                        \verb|"not " + str|
+                  \item \textit{Given a string, return a new string where the 
+                        first and last chars have been exchanged.} \\
+
+                        \verb|def front_back(str):| \\
+                        \verb|   l = len(str) - 1| \\
+                        \verb|   return str[l] + str[1:l] + str[0] if l > 0 |
+                        \verb|else str| \\
+               \end{itemize}
+         \item \begin{itemize}
+                  \item \textit{Return the number of even ints in the given 
+                        array.} \\         
+   
+                        \verb|def count_evens(nums):| \\
+                        \verb|   i = 0| \\ \\
+                        \verb|   for num in nums:| \\
+                        \verb|      if num % 2 == 0:| \\
+                        \verb|         i += 1| \\ \\
+                        \verb|   return i| \\
+                  \item \textit{Given an array length 1 or more of ints, return 
+                        the difference between the largest and smallest values 
+                        in the array.} \\
+
+                        \verb|def big_diff(nums):| \\
+                        \verb|   return max(nums) - min(nums)| \\
+                  \item \textit{Return the sum of the numbers in the array, 
+                        except ignore sections of numbers starting with a 6 and 
+                        extending to the next 7 (every 6 will be followed by at 
+                        least one 7). Return 0 for no numbers.} \\
+
+                        \verb|def sum67(nums):| \\
+                        \verb|   sum = 0| \\
+                        \verb|   ignore = False| \\ \\
+                        \verb|   for num in nums:| \\
+                        \verb|      if ignore:| \\
+                        \verb|         if num == 7:| \\
+                        \verb|            ignore = False| \\
+                        \verb|      else:| \\
+                        \verb|         if num == 6:| \\
+                        \verb|            ignore = True| \\
+                        \verb|         else:| \\
+                        \verb|            sum += num| \\ \\
+                        \verb|   return sum| \\
+               \end{itemize}
+         \item \begin{itemize}
+                  \item \textit{We want to make a row of bricks that is goal 
+                        inches long. We have a number of small bricks (1 inch 
+                        each) and big bricks (5 inches each). Return True if it 
+                        is possible to make the goal by choosing from the given 
+                        bricks.} \\         
+   
+                        \verb|def make_bricks(small, big, goal):| \\
+                        \verb|   r = goal % 5| \\ \\
+                        \verb|   if small - r < 0:| \\
+                        \verb|      return False| \\ \\
+                        \verb|   s = (small - r) // 5| \\
+                        \verb|   s = r + 5 * s| \\
+                        \verb|   g = (goal - s) / 5| \\
+                        \verb|   return big >= g| \\
+                  \item \textit{Given 3 int values, a b c, return their sum. 
+                        However, if one of the values is the same as another of 
+                        the values, it does not count towards the sum.} \\
+
+                        \verb|def lone_sum(a, b, c):| \\
+                        \verb|   l = [a, b, c]| \\
+                        \verb|   return sum([x for x in l if |
+                        \verb|l.count(x) == 1])|
+               \end{itemize}
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Solve Problem 10 on ProjectEuler.net using the Python programming 
+         language. Print your code and the final numerical solution. Structure 
+         your code in this way:
+         \begin{enumerate}
+            \item A function \verb|is_prime|, which takes a single argument and
+                  returns \verb|True| if the argument is a prime number. (Hint:
+                  suppose $n$ is composite (not prime); what is the largest
+                  integer, in terms of $n$, that could one of $n$'s divisors?)
+            \item A \textbf{generator} function \verb|get_primes|, which takes a
+                  single argument and \textbf{yields} an infinite sequence of
+                  prime numbers starting at the given argument value. For
+                  example, \verb|get_primes(7)| would yield
+                  \verb|7, 11, 13, 17, ...|
+            \item A function \verb|sum_primes|, which iterates over the values
+                  generated by \verb|get_primes|, sums each value if it is
+                  prime, and breaks when the generated prime is greater than 2
+                  million.
+         \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{verbatim}
+from math import sqrt
+
+def is_prime(n):
+   if n == 2:
+      return True
+
+   if n == 1 or n % 2 == 0:
+      return False
+
+   upper = int(sqrt(n))
+   num_divisors = 1
+   i = 2
+
+   while i <= upper and num_divisors == 1:
+      if n % i == 0:
+         num_divisors += 1
+
+      i += 1
+
+   return num_divisors == 1
+
+def get_primes(n):
+   while True:
+      if is_prime(n):
+         yield n
+      
+      n += 1
+
+def sum_primes(n):
+   total = 0
+
+   for prime in get_primes(2):
+      if prime < n:
+         total += prime 
+      else:
+         break
+      
+   return total
+
+#print(sum_primes(2000000)) // 142913828922
+print(is_prime(600851475143))
+      \end{verbatim}
+\end{enumerate}
+\end{document}
