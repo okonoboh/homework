@@ -1,7 +1,6 @@
 /**
  * Joseph Okonoboh
  * Lab 2, SUMMER 2015 CECS 424
- * 
  *
  * animal.c
  */
@@ -24,7 +23,7 @@ void Construct_Dog(Dog* a) {
 
 double Get_Cost_Cat(Animal* a) {
    Cat* c = (Cat*) a;
-   return 100.00 + 5.50 * c->age - 8 * (9 - c->numberOfLives);
+   return 100.00 + 5.50 * c->age - 8 * (MAX_CAT_LIVES - c->numberOfLives);
 }
 
 double Get_Cost_Dog(Animal* a) {
@@ -32,10 +31,10 @@ double Get_Cost_Dog(Animal* a) {
    return 7.50 * (d->weight / 3.0);
 }
 
-void Speak_Cat() {
+void Speak_Cat(Animal* a) {
    printf("Meow");
 }
 
-void Speak_Dog() {
+void Speak_Dog(Animal* a) {
    printf("Woof");
 }

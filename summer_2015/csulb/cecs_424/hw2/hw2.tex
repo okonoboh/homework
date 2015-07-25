@@ -90,6 +90,19 @@ the end of lab.
          fundamental data types? (Focus your answer on C/C++ in particular.) Do
          you consider this a \textbf{strength} or \textbf{weakness} of these
          languages?
+         
+      \textbf{Answer.} The \verb|word| of a processor is typically the maximum
+      number of bits that the processor can transfer in parallel. Thus, for
+      example, the \verb|word| of a 32-bit machine will be 32 bits. The idea was
+      to let the size of an \verb|int| in C/C++ equal the \verb|word| of a
+      machine. Since different machines, for the most part, have varying
+      \verb|words|, it would not have made sense to specify the exact size of an
+      \verb|int|. However, this has unfortunately led to confusion and
+      portability issues because so many programmers assume that an \verb|int|
+      is always 4 bytes. In fact, \verb|sizeof(int) = 16 bits| in many legacy
+      systems, while it is 32 bits in some modern systems and 64-bits in others.
+      Thus this is a severe weakness in the language (or, more accurately, in
+      the ISO standard of the language).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item A revision to the C++ language in 2011, titled \textbf{C++11}, requires
          compilers to provide type aliases \verb|int32_t|, \verb|int64_t|, and
@@ -99,6 +112,13 @@ the end of lab.
          integer variable that is ``not smaller than a \verb|short|". With this
          knowledge in mind, does your answer to question 2 change? Why or why
          not?
+         
+   \textbf{Answer.} The addition of \verb|int| aliases with guaranteed bits to C++ is a
+   step in the right direction, for programmers can now write code knowing that
+   the result will be homogeneous, at least with respect to the operations on
+   these aliases. Nevertheless, programmers may not want to switch to
+   these new aliases because of habit, so the varying behavior of an \verb|int|
+   datatype is still a weakness of the C/C++ languages.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item (Exercise 3.9 from \textit{Programming Language Pragmatics}) Consider
          the following fragment of code in C:
@@ -157,7 +177,7 @@ the end of lab.
    \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Give an example (from a language of your choice) of a situation in
-         whihc a variable/value outlives the lifetime of all bindings to it;
+         which a variable/value outlives the lifetime of all bindings to it;
          i.e., explain how it is possible for a value to be alive even though
          all bindings to it have been lost.
 
@@ -359,13 +379,7 @@ remain on the heap. In a more severe case, this can lead to memory leak.
                         bricks.} \\         
    
                         \verb|def make_bricks(small, big, goal):| \\
-                        \verb|   r = goal % 5| \\ \\
-                        \verb|   if small - r < 0:| \\
-                        \verb|      return False| \\ \\
-                        \verb|   s = (small - r) // 5| \\
-                        \verb|   s = r + 5 * s| \\
-                        \verb|   g = (goal - s) / 5| \\
-                        \verb|   return big >= g| \\
+                        \verb|   return small >= goal % 5 and small + 5 * big >= goal|\\
                   \item \textit{Given 3 int values, a b c, return their sum. 
                         However, if one of the values is the same as another of 
                         the values, it does not count towards the sum.} \\
@@ -401,20 +415,22 @@ remain on the heap. In a more severe case, this can lead to memory leak.
       \begin{verbatim}
 from math import sqrt
 
+# n >= 2
 def is_prime(n):
    if n == 2:
       return True
 
-   if n == 1 or n % 2 == 0:
+   if n % 2 == 0:
       return False
 
    upper = int(sqrt(n))
    num_divisors = 1
    i = 2
 
-   while i <= upper and num_divisors == 1:
+   while i <= upper:
       if n % i == 0:
          num_divisors += 1
+         break
 
       i += 1
 
@@ -438,8 +454,7 @@ def sum_primes(n):
       
    return total
 
-#print(sum_primes(2000000)) // 142913828922
-print(is_prime(600851475143))
+print(sum_primes(2000000)) # 142913828922
       \end{verbatim}
 \end{enumerate}
 \end{document}

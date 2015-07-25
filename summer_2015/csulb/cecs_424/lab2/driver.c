@@ -1,10 +1,16 @@
+/**
+ * Joseph Okonoboh
+ * Lab 2, SUMMER 2015 CECS 424 
+ *
+ * driver.c
+ */
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "animal.h"
-#include "../lab1/allocator.h"
+#include "allocator.h"
 
 #define MAX_CHAR_PER_LINE 1024
 #define DOG 1
@@ -19,7 +25,7 @@ long int get_animal_type();
 long int get_cat_lives();
 double get_dog_weight();
 
-void process_animal(Animal* a);
+void print_animal(Animal* a);
 
 int main() {
    Animal* a;
@@ -50,7 +56,7 @@ int main() {
 
    a->age = get_age();
 
-   process_animal(a);
+   print_animal(a);
 
    my_free(a);
 
@@ -58,7 +64,6 @@ int main() {
 }
 
 int empty_string(char* string) {
-
    while(*string) {
       if(!isspace(*string++)) {
          return 0;
@@ -141,9 +146,9 @@ double get_dog_weight() {
    return weight;
 }
 
-void process_animal(Animal* a) {
+void print_animal(Animal* a) {
    printf("Animal says: \"");
-   a->speak_fp();
+   a->speak_fp(a);
    printf("\"\n");
    printf("This animal costs: $%.2f.\n", a->get_cost_fp(a));
 }
