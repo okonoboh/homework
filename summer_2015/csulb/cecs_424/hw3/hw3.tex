@@ -1,0 +1,328 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{url}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%  save the current one
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j%
+  \do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z\do\A\do\B\do\C\do\D%
+  \do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X%
+  \do\Y\do\Z}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 424, Summer 2015\\Section 1 (11171)\\
+  HW \#3, DUE: 2015, July 28
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\noindent Complete these problems on a separate sheet of paper. Due July 28 at
+the end of lab.
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Reading:
+
+         \begin{enumerate}
+            \item Chapter 6.4, 6.5 (skip ``Iterators"), 6.6 (particularly tail
+                  recursion)
+            \item Chapter 7 introduction
+            \item Chapter 7.1 (skip ``Orthogonality"), 7.2
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Python's \verb|filter| function takes two parameters: a function taking
+         a single parameter and returning \verb|True| or \verb|False|, and a
+         list of values. \verb|filter| returns a new list of all values in the
+         parameter for which the supplied function returns \verb|True|. For
+         example: \\
+
+         \verb|def is_even(n):| \\
+         \verb|   return % 2 == 0| \\
+         \verb|print filter(is_even, range(10))| \\
+
+         will print a list of the even numbers from 0 to 8 inclusive. Using
+         \verb|lambda| expressions and \verb|filter|, show how to transform the
+         following lists into the desired format. The first answer is given:
+         \begin{enumerate}
+            \item Input: a list of integers, \verb|input|. \\
+                  Output: all even integers in the list.
+            \item Input: a list of integers, \verb|input|. \\
+                  Output: all integers from the list that are mutiples of 3 or
+                  multiples of 5, but not multiples of 3 and 5.
+            \item Input: a list of integers, \verb|input|. \\
+                  Output: all integers from the list that are prime. You may
+                  assume the existence of \verb|is_prime| from Homework 2.
+            \item Input: a list of integers, \verb|lists|. (Ex:
+                  \verb|[[1, 2], [3, 4, 5, 6], [7], [8], []]|.) \\
+                  Output: a list of lists of integers, containing \textbf{only}
+                  the lists in the input with at least 2 elements in them.
+                  (Example output from above: \verb|[[1, 2], [3, 4, 5, 6]]|.)
+                  Hint: you may need multiple \verb|lambda| expressions.
+            \item Input: a list of dictionaries, each dictionary containing the
+                  keys \verb|`name'| (a string) and \verb|`salary'| (a
+                  floating-point number). \\
+                  Output: a list of dictionaries, containing \textbf{only} the
+                  dictionaries in the input with a \verb|salary| of at least
+                  \$50,000.
+         \end{enumerate}
+
+      \textbf{Answer.}      
+         
+      \begin{enumerate}
+         \item \verb|filter(lambda n: n % 2 == 0, input)|
+         \item \verb|filter(lambda n : (n % 3 == 0 or n % 5 == 0)1| \\
+               \verb|   and (n % 15 != 0), input)|
+         \item \verb|filter(lambda n: is_prime(n), input)|
+         \item \verb|filter(lambda n: len(n) >= 2, input)|
+         \item \verb|filter(lambda n: n[`salary'] >= 50000, input)|
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Explain in your words the difference between \textit{type coercion} and
+         \textit{type inference}. Give an example of each in a language of your
+         choice.
+
+      \textbf{Answer.} \textit{Type coercion} occurs when the compiler
+      implicitly converts an object of one type to another type. For example, 
+      consider the following statements in Java: \\
+
+      \verb|   1. int x = 90;| \\
+      \verb|   2. double y = x;| \\
+
+      In line 2, the variable $\verb|x|$ will be temporarily promoted(or
+      coerced) to type \verb|double| and the result will be assigned to
+      \verb|y|. On the other hand, \textit{type inference} occurs when a
+      compiler infers the type of an object from the context of the statement.
+      For example, the following code in C++ 11,\\
+
+      \verb|01.   #include <iostream>| \\
+      \verb|02.   #include <typeinfo>| \\
+      \verb|03.| \\
+      \verb|04.   int f() {| \\
+      \verb|05.      return 78;| \\
+      \verb|06.   }| \\
+      \verb|07.| \\
+      \verb|08.   int main() {| \\
+      \verb|09.      auto x = f();| \\
+      \verb|10.      std::cout << typeid(x).name() << std::endl;| \\
+      \verb|11.| \\
+      \verb|12.      return 0;| \\
+      \verb|13.   }| \\
+
+      will print ``int" (using Visual Studio 2013) to the standard output, 
+      indicating that the type of \verb|x|, inferred from line 9, was an
+      \verb|int|.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Use what you have learned so far in this course to classify the Python,
+         C, and Java languages in the following categories:
+
+         \begin{enumerate}
+            \item Compilation: is the language compiled, interpreted, or does it
+                  use a virtual machine?
+            \item Type system: is the type system static or dynamic? What rules
+                  of coercion are available?
+            \item Allocation: what allocation methods are used for variables?
+                  Give examples.
+            \item Scoping: is the language statically or dynamically scoped?
+            \item Functions: are functions first or second class citizens?
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}
+         \item $$
+                  \begin{tabular}{@{}|c|l|@{}} \hline
+                     \multicolumn{2}{|c|}{\textbf{Compilation}} \\ \hline
+                     \textbf{Python} & Interpreted \\ \hline
+                     \textbf{C} & Compiled into machine code \\ \hline
+                     \textbf{Java} & Compiled into JVM (Java Virtual Machine)
+                     byte code \\ \hline         
+                  \end{tabular}
+               $$
+         \item $$
+                  \begin{tabular}{@{}|c|l|@{}} \hline
+                     \multicolumn{2}{|c|}{\textbf{Type System}} \\ \hline
+                     \textbf{Python} & Dynamically typed \\ \hline
+                     \textbf{C} & Statically typed \\ \hline
+                     \textbf{Java} & Statically typed \\ \hline         
+                  \end{tabular}
+               $$
+
+               \textbf{Note.} In Java and C, an integral type may be promoted to
+               another type
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the following Python program:
+
+         \verb|01.   x = 1| \\
+         \verb|02.   def incrementer(base):| \\
+         \verb|03.      def my_incr(inc):| \\
+         \verb|04.         return base * 2 + inc + x| \\
+         \verb|05.      return my_incr| \\
+         \verb|06.| \\
+         \verb|07.   # Later, perhaps in another scope...?| \\
+         \verb|08.   i = incrementer(10)| \\
+         \verb|09.   x = 100| \\
+         \verb|10.   print i(5)| \\
+         \verb|11.   print i(3)|
+
+         \begin{enumerate}
+            \item Explain in your own words why the concept of a
+                  \textit{closure} is needed to make the example work correctly.
+            \item Python uses late binding rules for closures. With that in
+                  mind, what is the output of the program? (Try to answer
+                  without running it, as you will have to do on exams.)
+            \item What would the output of the program be if Python used early
+                  binding for closures?
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}
+         \item After line 8 is executed, the variable \verb|i| will contain a
+               reference to the inner function \verb|my_incr|. Without closure,
+               the memory allocated to the variable \verb|base| may have been
+               deallocated by the time that \verb|i| is called. This may happen
+               since \verb|base| will go out of scope (and thus reclaimed) after 
+               \verb|incrementer| returns. But closure ensures that a
+               referencing environment---that has a reference to
+               \verb|base|---will be created for \verb|i|.
+         \item \verb|125| \\
+               \verb|123|
+         \item \verb|26| \\
+               \verb|24|
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item (Exercise 6.7 from \textit{Programming Language Pragmatics} Is the
+         expression \verb|&(&i)| ever valid in C? Why or why not? Use the terms
+         \textit{lvalue} and \textit{rvalue} in your answer.
+
+      \textbf{Answer.} No, it is never valid. The adress operator only takes an
+      lvalue as an argument; since the operation \verb|&i| returns an rvalue,
+      the expression \verb|&(&i)| will always fail.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textit{Syntactic sugar} refers to programming language constructs that
+         are designed to make programming in the language easier to read or to
+         express, but do not actually add to the computational power of the
+         language. For each of the following ``sugar" constructs from C++, give
+         the ``de-sugared" form they are equivalent to using simpler operators
+         or control structures
+         \begin{enumerate}
+            \item \verb|a->x| (accesing a member of a class through a pointer)
+            \item \verb|b++| (postincrement)
+            \item \verb|c *= 5| (multiplication assignment)
+            \item \verb|for(int d = 0; d < 10; d++) {| \\
+                  \verb|   e();| \\
+                  \verb|}| (C-style \verb|for| loop)
+            \item \verb|f[i]| (array indexing; see pointer array arithmetic)
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}
+         \item \verb|(*a).x|
+         \item \verb|b| \\
+               \verb|b = b + 1|
+         \item \verb|c = c * 5|
+         \item \verb|d = 0| \\
+               \verb|while(d < 10) {| \\
+               \verb|   e();| \\
+               \verb|   d;| \\
+               \verb|   d = d + 1| \\
+               \verb|}|
+         \item \verb|*(f + i)|
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item C++ gives the option to declare integer types as \verb|unsigned|, using
+         the topmost bit in the number's binary representation as another data
+         bit instead of a sign bit. Answer the following questions about
+         \verb|unsigned| values:
+         \begin{enumerate}
+            \item Suppose the signed version of some integer type has a maximum
+                  value of \verb|X|. In terms of \verb|X|, what is the maximum
+                  value of an \textit{unsigned} variable of the same type?
+            \item What does the largest value an unsigned integer can represent
+                  roll over to when you add 1 to it?
+            \item Java's designers specifically chose not to allow unsigned
+                  types. Give at least one argument in favor of not keeping
+                  unsigned types in Java, and at least one for including them.
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}
+         \item \verb|2X + 1|
+         \item 0
+         \item Mixing \verb|unsigned| and \verb|signed| types in a program
+               increases the chance for some subtle and hard-to-detect logical 
+               errors to creep into the program. For example, consider the
+               following code snippet in C: \\
+
+               \verb|01.   #include <stdio.h>| \\
+               \verb|02.| \\
+               \verb|03.   int main() {| \\
+               \verb|04.      int x = -1;| \\
+               \verb|05.      unsigned int y = 2200000000u;| \\
+               \verb|06.| \\
+               \verb|07.      if(x < y) {| \\
+               \verb|08.         printf("Good\n");| \\
+               \verb|09.      } else {| \\
+               \verb|10.         printf("Bad\n");| \\
+               \verb|11.      }| \\
+               \verb|12.   }| \\
+
+               Since \verb|signed| types are lower than \verb|unsigned| types in
+               the integral hierarchy in C, \verb|x| is promoted to
+               \verb|unsigned| in line 7, so that the maximum unsigned 32-bit
+               value is temporarily assigned to the promoted \verb|x|. Thus the
+               program prints the incorrect string. This cannot happen in Java
+               since there are no native unsigned types. Additionally, it leads
+               to a cleaner design, since the programmer does not have to worry
+               about the intricate operations of \verb|(un)signed| types. \\
+
+               However, an \verb|unsigned| type can represent twice the number
+               of positive numbers that the \verb|signed| type can. This may be
+               useful for values for which negative integers make no sense; for
+               example, counting, age e.t.c. 
+      \end{enumerate}
+\end{enumerate}
+\end{document}
