@@ -1,83 +1,117 @@
 import sys
 
+FIRST_PLAYER = '1'
+SECOND_PLAYER = '2'
+EMPTY = ''
+
 BOARDSIZE = 8
    
 PIECE_TO_MOVES = {'b' : 'ishop', 'k' : 'ing', 'n' : 'ight', 'p' : 'awn',
    'r' : 'ook', 'q' : 'ueen'}
 
 # Create an empty 8 by 8 chess board
-board = [['' for i in range(BOARDSIZE)] for j in range(BOARDSIZE)]
+board = [[EMPTY for i in range(BOARDSIZE)] for j in range(BOARDSIZE)]
 
-def init_starting_board(b):
-   # Initialize Player 1's non-Pawns
-   board[0][0] = 'r1' # Rook
-   board[0][1] = 'n1' # Knight
-   board[0][2] = 'b1' # Bishop
-   board[0][3] = 'q1' # Queen
-   board[0][4] = 'k1' # King
-   board[0][5] = 'b1' # Bishop
-   board[0][6] = 'n1' # Knight
-   board[0][7] = 'r1' # Rook
-   
-   # Player 1's Pawns
-   for i in range(BOARDSIZE):
-      board[1][i] = 'p1'
-      
-   # Initialize Player 2's non-Pawns
-   board[6][0] = 'r2' # Rook
-   board[6][1] = 'n2' # Knight
-   board[6][2] = 'b2' # Bishop
-   board[6][3] = 'q2' # Queen
-   board[6][4] = 'k2' # King
-   board[6][5] = 'b2' # Bishop
-   board[6][6] = 'n2' # Knight
-   board[6][7] = 'r2' # Rook
-   
-   # Player 2's Pawns
-   for i in range(BOARDSIZE):
-      board[7][i] = 'p2'
+def init_starting_board(b):   
+   # FIRST PLAYER [White]
+   board[7][0] = 'r' + FIRST_PLAYER # Rook
+   board[7][7] = 'r' + FIRST_PLAYER # Rook
+   board[5][2] = 'n' + FIRST_PLAYER # Knight
+   board[5][5] = 'n' + FIRST_PLAYER # Knight
+   board[7][2] = 'b' + FIRST_PLAYER # Bishop
+   board[7][5] = 'b' + FIRST_PLAYER # Bishop
+   board[5][3] = 'q' + FIRST_PLAYER # Queen
+   board[7][4] = 'k' + FIRST_PLAYER # King
+   board[6][0] = 'p' + FIRST_PLAYER # Pawn
+   board[6][2] = 'p' + FIRST_PLAYER # Pawn
+   board[6][4] = 'p' + FIRST_PLAYER # Pawn
+   board[6][6] = 'p' + FIRST_PLAYER # Pawn
+   board[5][1] = 'p' + FIRST_PLAYER # Pawn
+   board[4][3] = 'p' + FIRST_PLAYER # Pawn
+
+   # SECOND PLAYER [Black]
+   board[0][0] = 'r' + SECOND_PLAYER # Rook
+   board[0][7] = 'r' + SECOND_PLAYER # Rook
+   board[0][1] = 'n' + SECOND_PLAYER # Knight
+   board[2][5] = 'n' + SECOND_PLAYER # Knight
+   board[1][1] = 'b' + SECOND_PLAYER # Bishop
+   board[2][3] = 'b' + SECOND_PLAYER # Bishop
+   board[0][3] = 'q' + SECOND_PLAYER # Queen
+   board[0][4] = 'k' + SECOND_PLAYER # King
+   board[1][3] = 'p' + SECOND_PLAYER # Pawn
+   board[1][5] = 'p' + SECOND_PLAYER # Pawn
+   board[1][7] = 'p' + SECOND_PLAYER # Pawn
+   board[2][2] = 'p' + SECOND_PLAYER # Pawn
+   board[3][0] = 'p' + SECOND_PLAYER # Pawn
+   board[3][4] = 'p' + SECOND_PLAYER # Pawn  
+
+def is_valid_position(position):
+   row, col = position
+   return row >= 0 and row < BOARDSIZE and col >= 0 and col < BOARDSIZE
       
 def moves_bishop(board, player, position):
-   x = 1
-   
-def moves_king(board, player, position):
-   left_column = position[1] - 1;
-   right_column = position[1] + 1;
-   upper_row = position[0] - 1;
-   lower_row = position[0] + 1;
-   
    moves = []
    
-   def helpher(column):
-      if upper_row >= 0:
-         moves.append((upper_row, column))
-         
-      moves.append((position[0], column))   
-         
-      if lower_row < BOARDSIZE:
-         moves.append((lower_row, column))
-      
+   moves_helpher(-1, -1, board, player, position, moves)
+   moves_helpher(-1, 1, board, player, position, moves)
+   moves_helpher(1, -1, board, player, position, moves)
+   moves_helpher(1, 1, board, player, position, moves)
+
+   return [(position, to) for to in moves]
+            
+def moves_helpher(dy, dx, board, player, position, moves):
+   row, col = position
    
-   if left_column >= 0:
-      helpher(left_column)
+   row += dy
+   col += dx
    
-   if right_column < BOARDSIZE:
-      helpher(right_column)
+   while is_valid_position((row, col)):
+      if board[row][col] == EMPTY or board[row][col][1] != player:
+         moves.append((row, col))
          
-   if upper_row >= 0:
-      moves.append((upper_row, position[1]))
+      if board[row][col] != EMPTY:
+         break
+         
+      row += dy
+      col += dx
+   
+def moves_king(board, player, position):
+   moves = [(position[0] + y, position[1] + x) for y in range(-1, 2) for x in
+      range(-1, 2)]
       
-   if lower_row < BOARDSIZE:
-      moves.append((lower_row, position[1]))
-      
-   return [(position, to) for to in moves if board[to[0]][to[1]] == '' or
-      board[to[0]][to[1]][1] != player]
+   return [(position, to) for to in moves if is_valid_position(to) and
+      (board[to[0]][to[1]] == EMPTY or board[to[0]][to[1]][1] != player)]
    
 def moves_night(board, player, position):
-   x = 1
+   row, col = position
+
+   moves = [(row - 1, col - 2), (row - 2, col - 1), (row - 2, col + 1),
+            (row - 1, col + 2), (row + 1, col - 2), (row + 2, col - 1),
+            (row + 2, col + 1), (row + 1, col + 2)]
+      
+   return [(position, to) for to in moves if is_valid_position(to) and
+      (board[to[0]][to[1]] == EMPTY or board[to[0]][to[1]][1] != player)]
    
 def moves_pawn(board, player, position):
-   x = 1
+   row, col = position
+   dy, two_row = 1, 1
+
+   if player == SECOND_PLAYER:
+      dy, two_row = -1, 6
+
+   moves = [(row + dy, col - 1), (row + dy, col + 1)]
+   moves = [(r, c) for r, c in moves if is_valid_position((r, c)) and
+      board[r][c] != EMPTY and board[r][c][1] != player]
+   
+   if is_valid_position((row + dy, col)) and board[row + dy][col] == EMPTY:
+      moves.append((row + dy, col))
+
+      if is_valid_position((row + dy + dy, col)) and row == two_row and \
+         board[row + dy + dy][col] == EMPTY:
+         moves.append((row + dy + dy, col))
+
+   return [(position, to) for to in moves]
+
    
 def moves_rook(board, player, position):
    moves = []
@@ -91,7 +125,8 @@ def moves_rook(board, player, position):
    
    
 def moves_queen(board, player, position):
-   x = 1
+   return moves_bishop(board, player, position) + \
+      moves_rook(board, player, position)
 
 def moves_function(piece):
    return getattr(sys.modules[__name__], 'moves_' +
@@ -102,29 +137,30 @@ def player_pieces(board, player):
       for j in range(BOARDSIZE):
          if board[i][j][1:] == player:
             yield (board[i][j][0], (i, j))
-            
-def moves_helpher(dy, dx, board, player, position, moves):
-   row, column = position
-   
-   row += dy
-   column += dx
-   
-   while row >= 0 and row < BOARDSIZE and column >= 0 and column < BOARDSIZE:
-      if board[row][column] == '' or board[row][column][1] != player:
-         moves.append(row, column)
-         
-      if board[row][column] != '':
-         break
-         
-      row += dy
-      column += dx
+
+def possible_moves(board, player):
+   moves = []
+
+   for piece, position in player_pieces(board, player):
+      moves_procedure = moves_function(piece)
+      moves += moves_procedure(board, player, position)
+
+   return moves
+      
+
+def print_moves(moves):
+   for f, t in moves:
+      print('{0}{1} to {2}{3}'.format(chr(f[1] + 65), BOARDSIZE - f[0],
+         chr(t[1] + 65), BOARDSIZE - t[0]))
+      
    
    
 init_starting_board(board)
-#current_module = sys.modules[__name__]
-#print(moves_function('k'))
 
-#for i in player_pieces(board, '2'):
-#   print(i)
+print("White's moves:")
+moves = possible_moves(board, FIRST_PLAYER)
+print_moves(moves)
 
-print(moves_king(board, '1', (0, 5)))
+print("\nBlack's moves:")
+moves = possible_moves(board, SECOND_PLAYER)
+print_moves(moves)
