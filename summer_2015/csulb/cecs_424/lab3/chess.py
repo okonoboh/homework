@@ -1,3 +1,6 @@
+# Joseph Okonoboh
+# Lab 3, CECS 424, Summer 2015
+
 import sys
 
 FIRST_PLAYER = '1'
@@ -12,7 +15,7 @@ PIECE_TO_MOVES = {'b' : 'ishop', 'k' : 'ing', 'n' : 'ight', 'p' : 'awn',
 # Create an empty 8 by 8 chess board
 board = [[EMPTY for i in range(BOARDSIZE)] for j in range(BOARDSIZE)]
 
-def init_starting_board(b):   
+def init_starting_board(board):   
    # FIRST PLAYER [White]
    board[7][0] = 'r' + FIRST_PLAYER # Rook
    board[7][7] = 'r' + FIRST_PLAYER # Rook

@@ -50,7 +50,7 @@
 
 \begin{document}
 \noindent Complete these problems on a separate sheet of paper. Due July 28 at
-the end of lab.
+the start of lecture.
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Reading:
@@ -161,26 +161,74 @@ the end of lab.
       \textbf{Answer.}
 
       \begin{enumerate}
-         \item $$
-                  \begin{tabular}{@{}|c|l|@{}} \hline
-                     \multicolumn{2}{|c|}{\textbf{Compilation}} \\ \hline
-                     \textbf{Python} & Interpreted \\ \hline
-                     \textbf{C} & Compiled into machine code \\ \hline
-                     \textbf{Java} & Compiled into JVM (Java Virtual Machine)
-                     byte code \\ \hline         
-                  \end{tabular}
-               $$
-         \item $$
-                  \begin{tabular}{@{}|c|l|@{}} \hline
-                     \multicolumn{2}{|c|}{\textbf{Type System}} \\ \hline
-                     \textbf{Python} & Dynamically typed \\ \hline
-                     \textbf{C} & Statically typed \\ \hline
-                     \textbf{Java} & Statically typed \\ \hline         
-                  \end{tabular}
-               $$
-
-               \textbf{Note.} In Java and C, an integral type may be promoted to
-               another type
+         \item \textbf{Compilation.} \\
+         
+               \textbf{Python.} Interpreted. \\
+               
+               \textbf{C.} Compiled into machine code. \\
+               
+               \textbf{Java.} Compiled into JVM (Java Virtual Machine) byte
+               code.
+         \item \textbf{Type System.} \\
+         
+               \textbf{Python.} Dynamically typed. Types are associated with
+               values---not variables---in python, so the issue of coercion does
+               not apply here. \\
+               
+               \textbf{C.} Statically typed. C performs coercions amongst all
+               numerical types, regardless of any possible data loss or logical
+               error. Some coercions are valid, especially when the type being
+               assigned to is a superset of the source type. The following
+               statements are all valid in C: \\
+               
+               \verb|double g = 89.78;| \\
+               \verb|int k = -1;| \\
+               \verb|float j = g;         // implicit coercion to float | \\
+               \verb|int x = j;           // x == 89 is true (data loss) | \\
+               \verb|double m = j;        // implicit coercion to double|
+               \verb| (no data loss)| \\
+               \verb|unsigned int y = k;  // logical error (y = 2147483647)|
+               
+               Note that we can instruct the compiler to issue warnings whenever
+               a coercion is down-casting. Some programmers even go as far as to
+               force their compilers to treat these warnings as errors. \\
+               
+               \textbf{Java.} Statically typed. Like C, Java also supports
+               coercion of numerical types to other numerical types, albeit with
+               limitations. The following are permissible in Java:
+               \begin{itemize}
+                  \item \verb|byte| to \verb|short, int, long, float, or double|
+                  \item \verb|short| to \verb|int, long, float, or double|
+                  \item \verb|char| to \verb|int, long, float, or double|
+                  \item \verb|int| to \verb|long, float, or double|
+                  \item \verb|long| to \verb|float or double|
+                  \item \verb|float| to \verb|double|
+               \end{itemize}
+               
+               Other forms of coercion in Java are autoboxing and unboxing.
+         \item \textbf{Allocation.} \\
+         
+               \textbf{Python.} All allocations are done on the heap. \\
+               
+               \textbf{C.} Variables are either statically, stack, or
+               dynamically allocated. All top level (global) variables are
+               statically allocated and their memory locations do not change for
+               the duration of the program.  Local variables are allocated on
+               the stack while objects created during runtime are stored on the
+               heap. One may also elect to use the keyword \verb|static| to
+               indicate that a variable be statically allocated. \\
+               
+               \textbf{Java.} References (and all instance variables) are placed
+               on the heap while primitive local variables are placed on the
+               stack.
+         \item \textbf{Scoping.} \\
+         
+               All three languages are statically scoped.
+         \item \textbf{Functions.} \\
+         
+               \textbf{Python.} Functions are first class citizens. \\
+               
+               \textbf{C/Java.} Functions are second class citizens.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Consider the following Python program:
@@ -228,7 +276,7 @@ the end of lab.
          expression \verb|&(&i)| ever valid in C? Why or why not? Use the terms
          \textit{lvalue} and \textit{rvalue} in your answer.
 
-      \textbf{Answer.} No, it is never valid. The adress operator only takes an
+      \textbf{Answer.} No, it is never valid. The address operator only takes an
       lvalue as an argument; since the operation \verb|&i| returns an rvalue,
       the expression \verb|&(&i)| will always fail.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,17 +299,17 @@ the end of lab.
       \textbf{Answer.}
 
       \begin{enumerate}
-         \item \verb|(*a).x|
-         \item \verb|b| \\
-               \verb|b = b + 1|
-         \item \verb|c = c * 5|
-         \item \verb|d = 0| \\
+         \item \verb|(*a).x;|
+         \item \verb|b;| \\
+               \verb|b = b + 1;|
+         \item \verb|c = c * 5;|
+         \item \verb|d = 0;| \\
                \verb|while(d < 10) {| \\
                \verb|   e();| \\
                \verb|   d;| \\
-               \verb|   d = d + 1| \\
+               \verb|   d = d + 1;| \\
                \verb|}|
-         \item \verb|*(f + i)|
+         \item \verb|*(f + i);|
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item C++ gives the option to declare integer types as \verb|unsigned|, using
