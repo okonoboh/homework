@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <!-- Fig. 20.10: sorting.xml -->
 <!-- XML document containing book information -->
-<?xml-stylesheet type="text/xsl" href="sorting.xsl"?>
+<?xml-stylesheet type="text/xsl" href="sortpage.xsl"?>
 
 <book isbn="999-99999-9-X">
    <title>Deitel&apos;s XML Primer</title>
@@ -27,3 +27,5 @@
 
    <media type="CD" />
 </book>
+
+<!-- 360 1311 -->
