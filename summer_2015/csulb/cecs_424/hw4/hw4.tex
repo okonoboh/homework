@@ -1,0 +1,256 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 424, Summer 2015\\Section 1 (11171)\\
+  HW \#4, DUE: 2015, August 04
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\noindent Complete these problems on a separate sheet of paper. Due July 28 at
+the start of lecture.
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Reading:
+
+         \begin{enumerate}
+            \item Chapter 7.3 (\textit{skim} 7.3.3, 7.3.4)
+            \item Chapter 7.4 (skip \textit{Dope Vectors})
+            \item \textit{Skim} Chapter 7.5, 7.7 (but \textit{read} 7.7.3,
+                  particularly Reference Counts, Mark-and-Sweep, and
+                  Generational Collection)
+            \item \textit{Skim} Chapter 8.1
+            \item Read Chapter 8.2 (skip 8.2.1, 8.2.2, 8.3.3)
+            \item Read Chapter 8.3, 8.4
+            \item \textit{Skim} Chapter 8.5
+            \item \textit{Skim} Chapter 9.1      
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item (Adapted from Exercise 7.8 from
+         \textit{Programming Language Pragmatics}) Suppose we are compiling a
+         variable of the following type for a machine with 1-byte characters,
+         2-byte shorts, 4-byte integers, and 8-byte doubles, with alignment
+         rules that require the address of every primitive data element to be an
+         even multiple of the element's size. (So a character can start at byte
+         0, 2, 4, \ldots; short can start at 0, 4, 8, \ldots; etc.) Assume that
+         the compiler will not reorder the struct's fields. \\
+
+         \verb|struct A {| \\
+         \verb|   short s;| \\
+         \verb|   int i;| \\
+         \verb|   char c;| \\
+         \verb|   short t;| \\
+         \verb|   char d;| \\
+         \verb|   double r;| \\
+         \verb|};| \\
+
+         \begin{enumerate}
+            \item How many bytes of memory will be consumed by a value of type
+                  \verb|A|?
+            \item How many bytes will be consumed by a value of type
+                  \verb|A[10]|?
+            \item Give a reordering of \verb|A|'s fields so that the memory used
+                  by a value of type \verb|A| is minimized. (The rules above
+                  still apply to the reordering.)
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}
+         \item $$
+                  \begin{tabular}{@{}|c|c|@{}} \hline
+                     \textbf{Field} & \textbf{Starting Address} \\ \hline
+                     \verb|s| & \verb|0| \\ \hline
+                     \verb|i| & \verb|8| \\ \hline
+                     \verb|c| & \verb|12| \\ \hline
+                     \verb|t| & \verb|16| \\ \hline
+                     \verb|d| & \verb|18| \\ \hline
+                     \verb|r| & \verb|32| \\ \hline
+                  \end{tabular}
+               $$
+               So \verb|sizeof(A) = 40| bytes.
+         \item kk
+         \item \verb|struct A {| \\
+               \verb|   double r;| \\
+               \verb|   int i;| \\
+               \verb|   short s;| \\
+               \verb|   short t;| \\
+               \verb|   char c;| \\
+               \verb|   char d;| \\
+               \verb|};| \\
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose the struct from Problem 2 is \textit{packed} by the compiler
+         without regard for alignment issues.
+
+         \begin{enumerate}
+            \item Draw a picture of a value of type \verb|A| when packed. Show
+                  the address of where each field begins, assuming the value
+                  itself starts at address 0.
+            \item Assume a variable \verb|unsigned char* p| points to the
+                  address of the first field of a value of type \verb|A|.
+                  Suppose you want to multiply the value of \verb|p|'s field
+                  \verb|i| by the value of field \verb|s|. Show how to use
+                  multiple statements to unpack field \verb|i| to a temporary
+                  integer, and then multiply that by field \verb|s|. Assume that
+                  two-byte values can be read from any address that is a
+                  multiple of 2, but 4-byte values can only be read from
+                  addresses that are a multiple of 4. (You will need to read a
+                  few bytes of \verb|i| at a time and use clever bit-shift and
+                  bit-mask operators to recombine its value into your
+                  temporary.)
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}
+         \item $$
+                  \begin{tabular}{@{}|c|c|@{}} \hline
+                     \textbf{Field} & \textbf{Starting Address} \\ \hline
+                     \verb|s| & \verb|0| \\ \hline
+                     \verb|i| & \verb|2| \\ \hline
+                     \verb|c| & \verb|6| \\ \hline
+                     \verb|t| & \verb|7| \\ \hline
+                     \verb|d| & \verb|11| \\ \hline
+                     \verb|r| & \verb|12| \\ \hline
+                  \end{tabular}
+               $$
+         \item \verb|int temp;| \\
+               \verb|unsigned char* i = p + 2;| \\
+               \verb|temp = 0x0000FFFF & *((short*) i);| \\
+               \verb|i = p + 4;| \\
+               \texttt{temp |= (0x0000FFFF \& *((short*) i)) << 16;} \\
+               \verb|temp *= *((*short) p);|
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Given the following matrix:
+         \begin{tabular}{@{}|lcr|@{}}
+            1 & 2 & 3 \\
+            4 & 5 & 6 \\
+            7 & 8 & 9
+         \end{tabular}
+
+         Assuming that each entry in the matrix is stored as a 4-byte integer,
+         give the memory layout of this matrix if it is represented as a
+         two-dimensional array in a language that uses
+
+         \begin{enumerate}
+            \item row-major ordering for arrays
+            \item column-major ordering for arrays
+         \end{enumerate}
+
+         Give your answer as a linear contiguous block of memory, indicating the
+         address of each value in the matrix, starting at address 0.
+
+      \textbf{Answer.}
+
+      \begin{enumerate}
+         \item \textbf{Row-major.}
+               $$
+                  \begin{tabular}{@{}|c|c|@{}} \hline
+                     \textbf{Address} & \textbf{Value} \\ \hline
+                     \verb|0|  & \verb|1| \\ \hline
+                     \verb|4|  & \verb|2| \\ \hline
+                     \verb|8|  & \verb|3| \\ \hline
+                     \verb|12| & \verb|4| \\ \hline
+                     \verb|16| & \verb|5| \\ \hline
+                     \verb|20| & \verb|6| \\ \hline
+                     \verb|24| & \verb|7| \\ \hline
+                     \verb|28| & \verb|8| \\ \hline
+                     \verb|32| & \verb|9| \\ \hline
+                  \end{tabular}
+               $$
+         \item \textbf{Column-major.}
+               $$
+                  \begin{tabular}{@{}|c|c|@{}} \hline
+                     \textbf{Address} & \textbf{Value} \\ \hline
+                     \verb|0|  & \verb|1| \\ \hline
+                     \verb|4|  & \verb|4| \\ \hline
+                     \verb|8|  & \verb|7| \\ \hline
+                     \verb|12| & \verb|2| \\ \hline
+                     \verb|16| & \verb|5| \\ \hline
+                     \verb|20| & \verb|8| \\ \hline
+                     \verb|24| & \verb|3| \\ \hline
+                     \verb|28| & \verb|6| \\ \hline
+                     \verb|32| & \verb|9| \\ \hline
+                  \end{tabular}
+               $$
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Give an example in C++ of a dangling reference/pointer to a stack
+         variable. Why is this a concern?
+
+      \textbf{Answer.} Consider the code snippet below:
+      
+      \verb|01.   int* sum(int, int);| \\
+      \verb|02.| \\
+      \verb|03.   int main() {| \\
+      \verb|04.      int* x = sum(3, 5);| \\
+      \verb|05.      /* | \\
+      \verb|06.       * perform some operations involving x| \\
+      \verb|07.       * | \\
+      \verb|08.       */| \\
+      \verb|09.      return 0;| \\
+      \verb|10.   }| \\
+      \verb|11.| \\
+      \verb|12.   int* sum(int x, int y) {| \\
+      \verb|13.      int s = x + y;| \\
+      \verb|14.      return &s;| \\
+      \verb|15.   }| \\
+
+      After line 5 has executed, the value of \verb|x|  will be the address of a
+      local variable in the function \verb|sum|. This local variable was 
+      allocated on the stack, and thus, its memory will be used by other,
+      possibly, invoked functions after line 5. This situation could lead to
+      subtle logical errors.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Does the Java programming language support a true call-by-reference
+         model for parameter passing? Explain.
+
+      \textbf{Answer.} No. This is so because a parameter, in Java, does not
+      have the ability to change the value of variable that was passed as an
+      argument.
+\end{enumerate}
+\end{document}
