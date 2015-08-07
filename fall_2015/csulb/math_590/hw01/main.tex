@@ -1,0 +1,179 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{bm}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 590, Fall 2015\\Section 1 (9529)\\
+  HW \#01, DUE: 2015, August 31
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the veracity or falsehood of each of the following statements.
+         For bonus, argue for those that you believe are true while providing a
+         counterexample for those that you believe are false. $F$ is a field.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item It is possible for $a + a = 0$ for every $a \in F$ and $F$
+                  be infinite.
+            \item $|\{a \in \F : a^5 = 1\}| \le 5$.
+            \item For any set of real numbers, there is a smallest field of real
+                  numbers containing them.
+            \item A field with 8 elements contains a field with 4 elements.
+            \item Any field with 4 elements is isomorphic to
+                  $$
+                     \left\{\left(\begin{tabular}{@{}cc@{}}
+                        1 & 1 \\
+                        1 & 0
+                     \end{tabular}\right), \left(\begin{tabular}{@{}cc@{}}
+                        1 & 1 \\
+                        1 & 0
+                     \end{tabular}\right), \textbf{0}, \boldsymbol{I}\right\}
+                  $$
+                  where these matrices are seen over $\Z_2$.
+         \end{enumerate}
+      
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item True.
+   
+               \textbf{Example.} Let $F$ be the field of fractions of the
+               integral domain $\Z/2\Z[x]$. Clearly $1 \in F$ and $1 + 1 = 0$
+               because 1 is also in $\Z/2\Z$. Thus
+               $$a + a = a \cdot (1 + 1) = a \cdot 0 = 0$$
+               for all $a \in F$. Finally we observe that $F$ is infinite since
+               it contains a polynomial of degree $n$ for each positive integer
+               $n$.
+         \item True.
+
+               \textbf{Proof.} Let $S$ be a nonempty set of real numbers and let
+               $\mathcal{F}$ be the set of subfields of $\R$ that contain $S$.
+               The set $\mathcal{F}$ is not empty because $\R \in \mathcal{F}$. 
+               Now define
+               $$K := \bigcap_{F \in \mathcal{F}}F.$$
+               Notice that $K$ is minimal, in that if some field $K'$ contains
+               $S$, then $K'$ must also contain $K$. Thus it suffices to show
+               that $K$ is a subfield of $\R$. All members of $\mathcal{F}$
+               contain 0 and 1 because they are fields; thus $0, 1 \in K$. Now
+               let $a, b \in K$. Then $a$ and $b$ are members of all the fields
+               in $\mathcal{F}$, so that $a - b$ are also members of these
+               fields. Thus $a - b \in K$. That is $(K, +)$ is a subgroup of
+               $(\R, +)$. Now let $c$ and $d$ be nonzero members of $K$ (there
+               exists at least one, namely the multiplicative identity). We can
+               similarly argue as we did before that $cd^{-1}$ is a member of
+               all the fields in $\mathcal{F}$, so that $cd^{-1} \in K$. That
+               is, $(K^\times, \cdot)$ is a subgroup of $(\R^\times, \cdot)$.
+               Now we conclude that $K$ is a subfield of $\R$. \qed
+         \item True.
+         \item False.
+
+               \textbf{Proof.} Let $H^\times$ denote the nonzero elements of a 
+               field $H$. Suppose $|F| = 8$ and suppose to the contrary that $F$ 
+               contains a subfield $K$ of order 4. By definition of a field,
+               $(F^\times, \cdot)$ is a multiplicative group. Similarly
+               $(K^\times, \cdot)$ is also a multiplicative group. Since every
+               element in $K^\times$ has a multiplicative inverse and since
+               $K \subseteq F$, it follows that $K^\times \subseteq F^\times$,
+               so that $K^\times \le F^\times$. But $|K^\times| = 3 \nmid 7 =
+               |F^\times|$, a violation of Lagrange's Theorem. So we conclude
+               that a field with 8 elements cannot contain a subfield of 4
+               elements. \qed
+         \item True.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $F$ be a field. Let $S = \{s_1 = 1, s_2, \ldots, s_k\}$ be a finite
+         multiplicative subgroup of $F$, which has $k$ elements, $k \ge 2$. Let
+         $\sigma = s_1 + s_2 + \cdots + s_k$ and
+         $\pi = s_1 \times s_2 \times \cdots \times s_k$.
+
+         \begin{enumerate}[start=0, label=\protect\circled{\arabic*}]
+            \item Does $\sigma \in S$? Does $\pi \in S$?
+            \item Compute $s_2\sigma$ and conclude something about $\sigma$.
+            \item Suppose $k$ is odd. Conclude something about $\pi$.
+            \item Suppose $k$ is even. Conclude something about $\pi$.
+            \item Let $F = \C$. Exhibit an example for \circled{2}.
+            \item Let $F = \C$. Exhibit an example for \circled{3} with $k > 2$.
+         \end{enumerate}
+      
+      \textbf{Solution.}
+
+      \begin{enumerate}[start=0, label=\protect\circled{\arabic*}]
+         \item No, $\sigma$ is not in $S$ because $\sigma = 0$ (See \circled{1})
+               and 0 has no multiplicative inverse. Yes, $\pi \in S$ because
+               $S$ is a multiplicative group and thus closed under
+               multiplication.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item On Weighing.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Construct a matrix with 2 rows, and as many different columns
+                  as possible, that satisfies \textbf{all 4} of the following
+                  conditions:
+                  \begin{itemize}
+                     \item No column is all 0's
+                     \item Every entry is either 0, 1 or $-1$.
+                     \item No two columns are negatives of each other.
+                     \item Every row has as many 1's as $-1$'s.
+                  \end{itemize}
+            \item You have a balance by which you can only compare weights. You
+                  have a collection of balls (at least 3) one of which is
+                  either lighter or heavier than the others. You want to find
+                  out which ball is that odd one. What is the maximum number of
+                  balls you could that with in just two weighings?
+            \item Construct a matrix with 3 rows, and as many different columns
+                  as possible, that satisfies the same \textbf{4} conditions
+                  above.
+            \item How many ball can you handle if you are now allowed three
+                  weighings in the balance to find the odd ball? Describe the
+                  weighings.
+            \item How many balls could you handle in 4 weighings?
+         \end{enumerate}
+      
+      \textbf{Solution.}
+\end{enumerate}
+\end{document}
