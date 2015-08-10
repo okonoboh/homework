@@ -1,7 +1,7 @@
 \documentclass[9pt]{article}
 
 \usepackage{amssymb}
-\usepackage{amsmath}
+\usepackage{amsmath, array}
 \usepackage{amsfonts}
 \usepackage{comment}
 \usepackage{fancyhdr}
@@ -66,8 +66,8 @@
             \item Any field with 4 elements is isomorphic to
                   $$
                      \left\{\left(\begin{tabular}{@{}cc@{}}
-                        1 & 1 \\
-                        1 & 0
+                        0 & 1 \\
+                        1 & 1
                      \end{tabular}\right), \left(\begin{tabular}{@{}cc@{}}
                         1 & 1 \\
                         1 & 0
@@ -76,14 +76,15 @@
                   where these matrices are seen over $\Z_2$.
          \end{enumerate}
       
-      \textbf{Solution.}
+      \textbf{Solution.} Let $H^\times$ denote the nonzero elements of a field
+      $H$. 
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
          \item True.
    
                \textbf{Example.} Let $F$ be the field of fractions of the
-               integral domain $\Z/2\Z[x]$. Clearly $1 \in F$ and $1 + 1 = 0$
-               because 1 is also in $\Z/2\Z$. Thus
+               integral domain $\Z_2[x]$. Clearly $1 \in F$ and $1 + 1 = 0$
+               because 1 is also in $\Z_2$. Thus
                $$a + a = a \cdot (1 + 1) = a \cdot 0 = 0$$
                for all $a \in F$. Finally we observe that $F$ is infinite since
                it contains a polynomial of degree $n$ for each positive integer
@@ -103,18 +104,20 @@
                in $\mathcal{F}$, so that $a - b$ are also members of these
                fields. Thus $a - b \in K$. That is $(K, +)$ is a subgroup of
                $(\R, +)$. Now let $c$ and $d$ be nonzero members of $K$ (there
-               exists at least one, namely the multiplicative identity). We can
-               similarly argue as we did before that $cd^{-1}$ is a member of
-               all the fields in $\mathcal{F}$, so that $cd^{-1} \in K$. That
-               is, $(K^\times, \cdot)$ is a subgroup of $(\R^\times, \cdot)$.
-               Now we conclude that $K$ is a subfield of $\R$. \qed
+               exists at least one, namely the multiplicative identity). By
+               considering the multiplicative structure of the fields in
+               $\mathcal{F}$, we can similarly argue as we did for the additive
+               case that $cd^{-1}$ is a member of all the fields in
+               $\mathcal{F}$, so that $cd^{-1} \in K$. That is,
+               $(K^\times, \cdot)$ is a subgroup of $(\R^\times, \cdot)$. So
+               we conclude that $K$ is the minimal subfield of $\R$ that
+               contains $S$. \qed
          \item True.
          \item False.
 
-               \textbf{Proof.} Let $H^\times$ denote the nonzero elements of a 
-               field $H$. Suppose $|F| = 8$ and suppose to the contrary that $F$ 
-               contains a subfield $K$ of order 4. By definition of a field,
-               $(F^\times, \cdot)$ is a multiplicative group. Similarly
+               \textbf{Proof.} Suppose $|F| = 8$ and suppose to the contrary
+               that $F$ contains a subfield $K$ of order 4. By definition of a
+               field, $(F^\times, \cdot)$ is a multiplicative group. Similarly
                $(K^\times, \cdot)$ is also a multiplicative group. Since every
                element in $K^\times$ has a multiplicative inverse and since
                $K \subseteq F$, it follows that $K^\times \subseteq F^\times$,
@@ -123,6 +126,103 @@
                that a field with 8 elements cannot contain a subfield of 4
                elements. \qed
          \item True.
+         
+               \textbf{Proof.} Let $K = \{a_0, a_1, a_2, a_3\}$ be an arbitrary
+               field where $a_0$ is the additive identity and $a_1$ is the
+               multiplicative identity. By definition of a field, we know that
+               $\{a_1, a_2, a_3\}$ is a multiplicative group. Thus it follows by
+               Lagrange's Theorem that (multiplicative order)
+               $|a_2| = |a_3| = 3$. That is,  each of $a_2$ and $a_3$ generates
+               the group $\{a_1, a_2, a_3\}$. Hence, since
+               $${a_2}^1 = a_2 \text{ and } {a_2}^3 = a_1$$
+               it follows that ${a_2}^2 = a_3$. Similarly, ${a_3}^2 = a_2$.
+               Now multiply the equality ${a_2}^2 = a_3$ by $a_2$ to conclude
+               that $a_2$ and $a_3$ are multiplicative inverses of each other.
+               Thus we can fill out the multiplication table for $K$ as follows:
+               $$
+                  \begin{tabular}{@{}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|
+                     >{$}c<{$}|@{}} \hline
+                     \cdot & a_0 & a_1 & a_2 & a_3 \\ \hline
+                     a_0 & a_0 & a_0 & a_0 & a_0 \\ \hline
+                     a_1 & a_0 & a_1 & a_2 & a_3 \\ \hline
+                     a_2 & a_0 & a_2 & a_3 & a_1 \\ \hline
+                     a_3 & a_0 & a_3 & a_1 & a_2 \\ \hline
+                  \end{tabular}
+               $$
+               
+               Now we shall the investigate the additive structure of $K$. By
+               Lagrange's Theorem, the additive order of 1 is either 2 or 4, but
+               since $K$ is a field, we know that the characteristic of $K$ must
+               be prime; thus, the additive order of 1 is 2. Now we must have
+               that $a + a = a \cdot (1 + 1) = a \cdot 0 = 0$ for all $a \in K$.
+               So we can partially fill out a Cayley table for $(K, +)$ as
+               follows:
+               $$
+                  \begin{tabular}{@{}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|
+                     >{$}c<{$}|@{}} \hline
+                     + & a_0 & a_1 & a_2 & a_3 \\ \hline
+                     a_0 & a_0 & a_1 & a_2 & a_3 \\ \hline
+                     a_1 & a_1 & a_0 &  &  \\ \hline
+                     a_2 & a_2 &  & a_0 &  \\ \hline
+                     a_3 & a_3 &  &  & a_0 \\ \hline
+                  \end{tabular}
+               $$
+               By using the cancellation laws of groups, we know that every row
+               and column of a Cayley table is a permutation of the group
+               elements. Hence $a_1 + a_2 = a_2$ or $a_1 + a_2 = a_3$. The
+               former implies that $a_1 = a_0$, a contradiction. That is,
+               $a_1 + a_2 = a_3$ and $a_1 + a_3 = a_2$. We can use similar
+               arguments to fill out the rest of the table to get:
+               $$
+                  \begin{tabular}{@{}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|
+                     >{$}c<{$}|@{}} \hline
+                     + & a_0 & a_1 & a_2 & a_3 \\ \hline
+                     a_0 & a_0 & a_1 & a_2 & a_3 \\ \hline
+                     a_1 & a_1 & a_0 & a_3 & a_2  \\ \hline
+                     a_2 & a_2 & a_3 & a_0 & a_1 \\ \hline
+                     a_3 & a_3 & a_2 & a_1 & a_0 \\ \hline
+                  \end{tabular}
+               $$
+               
+               Finally let $b_0 = \textbf{0}$, $b_1 = \boldsymbol{I}$, $b_2 =
+               \left(\begin{tabular}{@{}cc@{}}
+                  0 & 1 \\
+                  1 & 1
+               \end{tabular}\right)$, and $b_3 =
+               \left(\begin{tabular}{@{}cc@{}}
+                  1 & 1 \\
+                  1 & 0
+               \end{tabular}\right)$, where these matrices are over $\Z_2$. We
+               want to show $\{b_0, b_1, b_2, b_3\} \cong
+               \{a_0, a_1, a_2, a_3\}$. The additive and multiplicative
+               structures of $\{b_0, b_1, b_2, b_3\}$ can be seen in the tables
+               below:
+               $$
+                  \begin{tabular}{@{}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|
+                     >{$}c<{$}|@{}} \hline
+                     \cdot & b_0 & b_1 & b_2 & b_3 \\ \hline
+                     b_0 & b_0 & b_0 & b_0 & b_0 \\ \hline
+                     b_1 & b_0 & b_1 & b_2 & b_3 \\ \hline
+                     b_2 & b_0 & b_2 & b_3 & b_1 \\ \hline
+                     b_3 & b_0 & b_3 & b_1 & b_2 \\ \hline
+                  \end{tabular} \quad
+                  \begin{tabular}{@{}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|
+                     >{$}c<{$}|@{}} \hline
+                     + & b_0 & b_1 & b_2 & b_3 \\ \hline
+                     b_0 & b_0 & b_1 & b_2 & b_3 \\ \hline
+                     b_1 & b_1 & b_0 & b_3 & b_2  \\ \hline
+                     b_2 & b_2 & b_3 & b_0 & b_1 \\ \hline
+                     b_3 & b_3 & b_2 & b_1 & b_0 \\ \hline
+                  \end{tabular}
+               $$
+               
+               Notice that for $0 \le i \le 3$, if we replace $a_i$ by $b_i$ in
+               the tables for the field $K$, then the resulting tables are 
+               exactly what we have above. This not only tells us that
+               $\{b_0, b_1, b_2, b_3\}$ is a field, but also suggests how to
+               construct the desired isomorphism between these two fields. That
+               is, we simply define a map that takes $a_i$ to $b_i$, and we are
+               done. \qed               
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $F$ be a field. Let $S = \{s_1 = 1, s_2, \ldots, s_k\}$ be a finite
