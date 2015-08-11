@@ -1,0 +1,133 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 424, Summer 2015\\Section 1 (11171)\\
+  HW \#5, DUE: 2015, August 11
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\noindent Complete these problems on a separate sheet of paper. Due August 11 at
+the start of lecture.
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Reading:
+
+         \begin{enumerate}
+            \item \textit{Skim} Chapter 9.2
+            \item Read Chapter 9.4
+            \item \textit{Skim} Chapter 9.7
+            \item Read Chapter 10 introduction
+            \item \textit{Skim} Chapter 10.1
+            \item Read Chapter 10.2
+            \item \textit{Skim} Chapter 10.3 - Clojure is based on Scheme; so
+                  much of the material here is relevant, but not all of it.
+                  Focus on syntax and ideas.
+            \item \textit{Skim} Chapter 10.5, 10.7      
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Given the following C++ class:
+
+         \verb|class Animal {| \\
+         \verb|public:| \\
+         \verb|   int GetAge();| \\
+         \verb|   virtual void Speak();| \\
+         \verb|   virtual double GetCost();| \\
+         \verb|   void SetAge();| \\
+         \verb|};|
+
+         \begin{enumerate}
+            \item How many function pointers will be compiled into
+                  \verb|class Animal|'s \textbf{vtable}?
+            \item Which member functions can be \textbf{statically bound}, that
+                  is, the compiler can determine at compile time what location
+                  to jump to when the function is called?
+            \item Which member functions must be \textbf{dynamically bound}?
+         \end{enumerate}
+
+      \textbf{Answer.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Write a C function that is not referentially transparent.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Write the following Clojure functions:
+
+         \begin{enumerate}
+            \item \verb|third [coll]:| return the third item of a list, or
+                  \verb|nil| if there is none.
+            \item \verb|mylast [coll]:| return the last item of a list, or
+                  \verb|nil| if the list is empty. Use recursion.
+            \item \verb|everyother [coll]:| return a list containing every other
+                  element of a collection including the first. Example:
+                  \verb|(everyother `(1 2 3 4 5)) -> (1 3 5)|. Use recursion.
+            \item \verb|sum [coll]|: return a single value that is the additive
+                  sum of all the elemens in the list. Use recursion.
+            \item \verb|sumif [f coll]:| return the additive sum of all elements
+                  in a list for which some predicate function \verb|f| returns
+                  true. Use recursion.
+            \item \verb|mybutlast [coll]|: return a list that contains all
+                  elements of the given list except the last element. Use
+                  recursion.
+         \end{enumerate}
+
+      \textbf{Answer.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Using \verb|map|, \verb|filter|, and \verb|reduce|, write a single
+         Clojure expression (not a function) to compute the following:
+         \begin{enumerate}
+            \item Given a list of integers, calculate the sum of the squares of
+                  the values in the list. Example: given \verb|`(1 2 3 4)|,
+                  calculate \verb|30|.
+            \item Given a list of maps, where each map has a key \verb|:name|
+                  for an employee's name and a key \verb|:salary| for the
+                  employee's salary, find the total salary of the employees in
+                  the list. Example: given \verb|`({:name "Neal" : salary 100}|
+                  \verb| {:name "Jaclyn" :salary 500})|, calculate \verb|600|.
+            \item Repeat (b), except find the total salary of all employees with
+                  a \verb|:salary| of at least \$50,000.
+         \end{enumerate}
+
+      \textbf{Answer.}
+\end{enumerate}
+\end{document}
