@@ -91,6 +91,36 @@
                $n$.
          \item True.
 
+               The statement $|\{a \in F : a^5 = 1\}| \le 5$ is logically
+               equivalent to the statement: every monic monomial of degree 5 in
+               $F[x]$ (where $F$ is a field) has at most 5 roots. Instead of 
+               proving this specific statement, we shall prove a general one. \\
+
+               \textbf{Lemma 1.1} \textit{The number of roots of a polynomial
+               of degree n, with coefficients in a field $F$, is at most n.} \\
+
+               \textbf{Proof.} Let $F$ be a field. We shall proceed by induction 
+               on $n$. It is clear that every polynomial of degree 0 (resp. 1)
+               has 0 solutions (resp. 1 solution); so our statement is true
+               whenever $n$ is 0 or 1. So assume that it is also true for some
+               positive integer $k$. Now suppose that $p$ is a polynomial of
+               degree $k + 1$, with $p \in F[x]$. If $p$ has no roots, then we
+               are done, so we can suppose that $p$ has at least one root, say
+               $a$. We can thus use the Division Algorithm to write
+               $$p(x) = (x - a)h(x)$$
+               where $h$ is a polynomial in $F[x]$ of degree $k$. If $b$ is a
+               root of $p$ then we must have that $0 = p(b) = (b - a)h(b)$. We
+               know that $F[x]$ is an integral domain since $F$ is an integral
+               domain; that is, $b - a = 0$ or $h(b) = 0$. This says that a root
+               of $p$ must either be a root of the polynomial $x - a$ or the
+               polynomial $h$. But our inductive hypothesis says that $h$ must
+               have at most $k$ roots, and since we know that $x - a$ has
+               exactly one root, it follows that $p$ must have at most $k + 1$
+               roots. Thus Lemma 1.1 follows by Mathematical Induction. \qed \\
+
+               Problem 1.3 follows from Lemma 1.1.
+         \item True.
+
                \textbf{Proof.} Let $S$ be a nonempty set of real numbers and let
                $\mathcal{F}$ be the set of subfields of $\R$ that contain $S$.
                The set $\mathcal{F}$ is not empty because $\R \in \mathcal{F}$. 
@@ -112,7 +142,6 @@
                $(K^\times, \cdot)$ is a subgroup of $(\R^\times, \cdot)$. So
                we conclude that $K$ is the minimal subfield of $\R$ that
                contains $S$. \qed
-         \item True.
          \item False.
 
                \textbf{Proof.} Suppose $|F| = 8$ and suppose to the contrary
