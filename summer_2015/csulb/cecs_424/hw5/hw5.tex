@@ -88,8 +88,31 @@ the start of lecture.
          \end{enumerate}
 
       \textbf{Answer.}
+      
+      \begin{enumerate}
+         \item Two.
+         \item \verb|GetAge| and \verb|SetAge|.
+         \item \verb|Speak| and \verb|GetCost|.
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Write a C function that is not referentially transparent.
+   
+      \textbf{Answer.}
+      
+      \verb|int not_referentially_transparent(int x);| \\ \\
+      \verb|int global = 90;| \\ \\
+      \verb|int main() {| \\
+      \verb|   return 0;| \\
+      \verb|}| \\ \\
+      \verb|int not_referentially_transparent(int x) {| \\
+      \verb|   ++global;| \\
+      \verb|   return global;| \\
+      \verb|}|
+      
+      The function \verb|not_referentially_transparent| is not referentially
+      transparent because
+      $$\verb|not_referentially_transparent(7) == not_referentially_transparent(7)|$$
+      is not true, although \verb|7 == 7| is true.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Write the following Clojure functions:
 
@@ -112,6 +135,33 @@ the start of lecture.
          \end{enumerate}
 
       \textbf{Answer.}
+      
+      \begin{enumerate}
+         \item \verb|(defn third [coll]| \\
+               \verb|  (first (next (next coll))))|
+         \item \verb|(defn mylast [coll]| \\
+               \verb|  (if (nil? (first (next coll)))| \\
+               \verb|    (first coll)| \\
+               \verb|    (mylast (next coll))))|
+         \item \verb|(defn everyother [coll]| \\
+               \verb|  (if (empty? coll)| \\
+               \verb|    nil| \\
+               \verb|    (cons (first coll) (everyother (next (next coll))))))|
+         \item \verb|(defn sum [coll]| \\
+               \verb|  (if (empty? coll)| \\
+               \verb|    0| \\
+               \verb|    (+ (first coll) (sum (next coll)))))|
+         \item \verb|(defn sumif [f coll]| \\
+               \verb|  (if (or (empty? coll))| \\
+               \verb|    0| \\
+               \verb|    (if (f (first coll))| \\
+               \verb|      (+ (first coll) (sumif f (next coll)))| \\
+               \verb|      (sumif f (next coll)))))|
+         \item \verb|(defn mybutlast [coll]| \\
+               \verb|  (if (nil? (first (next coll)))| \\
+               \verb|    nil| \\
+               \verb|    (cons (first coll) (mybutlast (next coll)))))|  
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Using \verb|map|, \verb|filter|, and \verb|reduce|, write a single
          Clojure expression (not a function) to compute the following:
@@ -129,5 +179,12 @@ the start of lecture.
          \end{enumerate}
 
       \textbf{Answer.}
+      
+      \begin{enumerate}
+         \item \verb|(reduce + (map #(* %1 %1) myListInt))|
+         \item \verb|(reduce + (map #(:salary %1) myListMap))|
+         \item \verb|(reduce +| \\
+               \verb|  (filter #(>= %1 50000) (map #(:salary %1) myListMap)))|
+      \end{enumerate}
 \end{enumerate}
 \end{document}
