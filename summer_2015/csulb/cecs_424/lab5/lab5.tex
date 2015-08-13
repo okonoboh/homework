@@ -1,0 +1,126 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 424, Summer 2015\\Section 1 (11171)\\
+  LAB \#5, DUE: 2015, August 13
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\noindent Due August 13 by the start of lecture
+
+\textbf{Program 1.}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \verb|(defn coord []| \\
+         \verb|  (list (rand 1) (rand 1)))| \\ \\
+  
+         \verb|(defn throw-darts [n]| \\
+         \verb|  (take n (repeatedly coord)))| \\
+  
+         \verb|(defn is-hit? [dart]| \\
+         \verb|  (let [x (first dart) y (second dart)]| \\
+         \verb|    (<= (Math/sqrt (+ (* x x) (* y y))) 1.0)))| \\ \\
+    
+         \verb|(defn count-hits [n]| \\
+         \verb|  (count (filter is-hit? (throw-darts n))))| \\ \\
+  
+         \verb|(defn estimate-pi [n]| \\
+         \verb|  (float (* 4 (/ (count-hits n) n))))|
+   \item The output of \verb|estimate-pi| for these values of \verb|n:|
+
+         \begin{enumerate}
+            \item 10
+            \item 100
+            \item 1000
+            \item 100000
+            \item The largest number you can enter, such that your computation
+                  runs for at most 3-4 seconds.
+         \end{enumerate}
+         
+      \textbf{Answer.}
+      
+      \begin{enumerate}      
+         \item 3.6
+         \item 3.32
+         \item 3.192
+         \item 3.1398
+         \item $\approx 2500000$
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item An explanation of why your estimates for smaller values of \verb|n| are
+         so poor.
+
+      \textbf{Answer.} Our method for computing $\pi$ uses a process known as
+      random statistical sampling. Since there are an infinite number of points
+      in any circle of nonzero radius, a smaller value for $n$ will undermine
+      the true value of the $\pi$ because they are statistically insignificant,
+      compared to all the other points. However, the more points we sample, the
+      more relatively significant our data become, and consequently, the
+      more accurate our calculated value of $\pi$ will be. Thus, bigger values
+      of $n$ will yield more accurate values of the $\pi$.
+\end{enumerate}
+
+
+\textbf{Program 2.}
+\begin{enumerate}
+   \item \verb|(take 10| \\
+         \verb|  (sort-by last >| \\
+         \verb|    (frequencies (re-seq #"[a-zA-Z]+"| \\
+         \verb|      (.toLowerCase (slurp "src/cecs424/emma.txt"))))))|
+   \item \verb|(| \\
+         \verb|   ["to" 5242]| \\
+         \verb|   ["the" 5204]| \\
+         \verb|   ["and" 4897]| \\
+         \verb|   ["of" 4293]| \\
+         \verb|   ["i" 3192]| \\
+         \verb|   ["a" 3130]| \\
+         \verb|   ["it" 2529]| \\
+         \verb|   ["her" 2490]| \\
+         \verb|   ["was" 2400]| \\
+         \verb|   ["she" 2364]| \\
+         \verb|)| 
+\end{enumerate}
+\end{document}
