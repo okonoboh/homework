@@ -7,7 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
-\usepackage[retainorgcmds]{IEEEtrantools}
+%\usepackage[retainorgcmds]{IEEEtrantools}
 
 
 \usepackage{tikz}
@@ -176,6 +176,95 @@
                    $n+i$ & $(n+i)^2$ & $(n+i)^3$ \\
                    $n-i$ & $(n-i)^2$ & $(n-i)^3$
                 \end{tabular}\right)\right| \\
+            &= \frac{i}{4} \left|(n+i)^2(n-i)^3-(n+i)^3(n-i)^2+ 
+                  (n+i)^3(n-i)-(n+i)(n-i)^3+ \right.\\
+                  &\quad \left.\quad (n+i)(n-i)^2-(n+i)^2(n-i)\right| \\
+            &= \frac{i}{4} \left|(n+i)^2(n-i)^2[(n-i)-(n+i)]+ 
+                  (n+i)(n-i)[(n+i)^2-(n-i)^2]+ \right.\\
+                  &\quad \left.\quad (n+i)(n-i)[(n-i)-(n+i)]\right| \\
+            &= \frac{i}{4} \left|(n+i)^2(n-i)^2(-2i)+ 
+                  (n^2+1)(4ni)+ (n^2+1)(-2i)\right| \\
+            &= \frac{i}{4} \left|(n^2+1)^2(-2i)+ 
+                  (n^2+1)(4ni)+ (n^2+1)(-2i)\right| \\
+            &= \frac{1}{4} \left|2(n^2+1)^2-4n(n^2+1)+2(n^2+1)\right| \\
+            &= \frac{1}{4} (n^2+1)(2(n^2+1)-4n+2) \\
+            &= \frac{1}{2} (n^2+1)(n^2-2n+2).
       \end{align*}
+      
+      Since $s_8 = 1625 < 2015$ and $s_9 = 2665 > 2015$, it follows that the
+      desired answer is $n = 9$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item A loop is made connecting rods of lengths 1, 2, \ldots, 90 in that
+         order. (The rod of length 90 is connected to the rods of lengths 89 and
+         1.) The loop is laid in the shape of an equilateral triangle of
+         perimeter 4095. Rods cannot be bent or broken. Compute the sum of the
+         shortest rods on each side of the triangle. (For example, the loop with
+         rods 1, 2, \ldots, 9 can be arranged into an equilateral triangle
+         because 4 + 5 + 6 = 7 + 8 = 9 + 1 + 2 + 3.)
+         
+      \textbf{Solution.} We shall be using the fact that the $n$-th sum of an
+      arithmetic sequence whose first term is $a$ and common difference is $d$
+      is $$\frac{n}{2}(2a + (n-1)d).$$
+      Suppose the side that contains the rod of length 1 is of the form
+      $$1 + 2 + \cdots + k$$
+      for some $1 < k < 90$. Thus it follows that
+      $$1 + 2 + \cdots + k = \frac{k(k+1)}{2} = 1365,$$
+      so that $k^2+k-2730=0$, a quadratic equation with no integral solution.
+      Thus no such $k$ exists. We then hypothesize that there exist positive
+      integers $n$, $h$, and $m$ such that the sides of the triangle are of the
+      following forms (the sides have been arbitrarily labelled):
+      
+      \textbf{Side 1.}
+      $$n + (n + 1) + \cdots + 90 + 1 + 2 + \cdots + h = 1365.$$
+      
+      \textbf{Side 2.}
+      $$(h + 1) + (h + 2) + \cdots + (h + m) = 1365.$$
+      
+      \textbf{Side 3.}
+      $$(h + m + 1) + \cdots (n - 1) = 1365.$$
+      
+      For side 1, we have
+      \begin{align*}
+         1365 &= n + (n + 1) + \cdots + 90 + 1 + 2 + \cdots + h \\
+              &= \frac{(90 + n)(91 - n)}{2} + \frac{h(h+1)}{2},
+      \end{align*}
+      so that
+      \begin{equation} \label{6_1}
+         n^2 - n - (h^2+h+5460) = 0.
+      \end{equation}
+      For side 2, we have
+      $$1365 = (h + 1) + (h + 2) + \cdots + (h + m) = \frac{m}{2}(2h+m+1),$$
+      so that
+      \begin{equation} \label{6_2}
+         m(2h+m+1) = 2730.
+      \end{equation}
+      Equation \eqref{6_2} tells us that $m$ is a factor of 2730. Now since
+      $2730 = 2 \cdot 3 \cdot 5 \cdot 7 \cdot 13$, it follows that there are
+      at most 32 pairs of $m$ and $h$ that satisfy Equation \eqref{6_2}.
+      Observe that $h$ and $m$ are both less than 90 and $h + m < 90$; hence we
+      can whittle down the solutions. A few computations will lead us to the
+      following candidates ($m$ is first component and $h$ is second) for the
+      solutions of Equation  \eqref{6_2}:
+      $$(21, 54), (26, 39), (30, 30), (35, 21), (39, 15), \text{ and }
+        (42, 11).$$
+      Now if we plug in the values of $h$ above in Equation \eqref{6_1}, we
+      shall notice that only $h = 15$ produces an integral value of $n$;
+      specifically, we shall get $n = 76$. Thus the sides of our triangle are:
+      
+      \textbf{Side 1.}
+      $$76 + 77 + \cdots + 90 + 1 + 2 + \cdots + 15 = 1365.$$
+      
+      \textbf{Side 2.}
+      $$16 + 17 + \cdots + 54 = 1365.$$
+      
+      \textbf{Side 3.}
+      $$55 + 56 + \cdots + 75 = 1365.$$
+      
+      Thus the sum of the shortest rods on each side is $1 + 16 + 55 = 72$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $a_1 = a_2 = a_3 = 1$. For $n > 3$, let $a_n$ be the number of
+         real numbers $x$ such that
+         $$x^4 - 2a_{n-1}x^2+a_{n-2}a_{n-3} = 0.$$
+         Compute the sum $a_1 + a_2 + a_3 + \cdots + a_{1000}$.
 \end{enumerate}
 \end{document}
