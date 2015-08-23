@@ -85,8 +85,8 @@
             \frac{1}{x} + \frac{540}{xy} = 2.
          \end{equation}
 
-      \textbf{Solution.} Clearly neither of $x$ and $y$ is 0, so multiply the
-      equation by $xy$ to get $y + 540 = 2xy$. Rearrange to get
+      \textbf{Solution.} Clearly neither of $x$ and $y$ is 0, so multiply
+      Equation \eqref{4_2} by $xy$ to get $y + 540 = 2xy$. Rearrange to get
       \begin{equation} \label{4_1}
          y(2x - 1) = 540.
       \end{equation}
@@ -120,10 +120,15 @@
       where $\det(M)$ is the determinant of a matrix $M$. Now suppose
       $$z_1 = a_1 + b_1i, z_2 = a_2 + b_2i, \text{ and } z_3 = a_3 + b_3i$$
       are the vertices of a triangle in the complex plane; also suppose that $s$
-      is the area of this triangle. Using the facts that adding a multiple of a
-      row to another does not change the determinant of a matrix and multiplying
-      a row by a scalar multiplies the determinant by the same scalar, it
-      follows that
+      is the area of this triangle. Letting $\overline{z}$ denote the conjugate
+      of the complex number $z$ and using the following facts:
+      \begin{itemize}
+         \item adding a multiple of a row to another does not change the 
+               determinant of a matrix and
+         \item multiplying a row by a scalar multiplies the determinant by the 
+               same scalar,
+      \end{itemize}
+      it follows that
       \begin{align*}
          s &= \frac{1}{2}\left|\det\left(\begin{tabular}{@{}ccc@{}}
                   1 & 1 & 1 \\
@@ -154,7 +159,23 @@
                   1 & 1 & 1 \\
                   $z_1$ & $z_2$ & $z_3$ \\
                   $\overline{z_1}$ & $\overline{z_2}$ & $\overline{z_3}$
-              \end{tabular}\right)\right| \\
+              \end{tabular}\right)\right|.
+      \end{align*}
+
+      Now, for a positive integer $n$, let $s_n$ denote the area of a triangle 
+      with vertices $n + i$, $(n + i)^2$, and $(n + i)^3$ in the complex plane.
+      As previously shown, it follows that
+      \begin{align*}
+         s_n &= \frac{i}{4}\left|\det\left(\begin{tabular}{@{}ccc@{}}
+                   1 & 1 & 1 \\
+                   $n+i$ & $(n+i)^2$ & $(n+i)^3$ \\
+                   $\overline{n+i}$& $\overline{(n+i)^2}$ & $\overline{(n+i)^3}$
+                \end{tabular}\right)\right| \\
+             &= \frac{i}{4}\left|\det\left(\begin{tabular}{@{}ccc@{}}
+                   1 & 1 & 1 \\
+                   $n+i$ & $(n+i)^2$ & $(n+i)^3$ \\
+                   $n-i$ & $(n-i)^2$ & $(n-i)^3$
+                \end{tabular}\right)\right| \\
       \end{align*}
 \end{enumerate}
 \end{document}
