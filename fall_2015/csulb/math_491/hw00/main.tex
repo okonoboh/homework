@@ -266,5 +266,106 @@
          real numbers $x$ such that
          $$x^4 - 2a_{n-1}x^2+a_{n-2}a_{n-3} = 0.$$
          Compute the sum $a_1 + a_2 + a_3 + \cdots + a_{1000}$.
+         
+      \textbf{Solution.} We can solve any quartic equation of the form
+      $$a_1x^4 + a_2x^2 + a_3 = 0$$
+      by making the substitution $y = x^2$, and consequently, reducing it to a
+      quadratic equation. So now we shall iteratively compute some of the
+      terms in the sequence $\{a_n\}$ to see if there is a repetition. From the
+      table below,
+      $$
+         \begin{tabular}{|c|c|c|} \hline
+            $n$ & Quartic Polynomial & $a_n = $ \#unique solutions \\ \hline
+            4  & $x^4 - 2x^2 + 1$  & 2 \\ \hline
+            5  & $x^4 - 4x^2 + 1$  & 4 \\ \hline
+            6  & $x^4 - 8x^2 + 2$  & 4 \\ \hline
+            7  & $x^4 - 8x^2 + 8$  & 4 \\ \hline
+            8  & $x^4 - 8x^2 + 16$ & 2 \\ \hline
+            9  & $x^4 - 4x^2 + 16$ & 0 \\ \hline
+            10 & $x^4 + 8$         & 0 \\ \hline
+            11 & $x^4$             & 1 \\ \hline
+            12 & $x^4 - 2x^2$      & 3 \\ \hline
+            13 & $x^4 - 6x^2$      & 3 \\ \hline
+            14 & $x^4 - 6x^2 + 3$  & 4 \\ \hline
+            15 & $x^4 - 8x^2 + 9$  & 4 \\ \hline
+            16 & $x^4 - 8x^2 + 12$ & 4 \\ \hline
+            17 & $x^4 - 8x^2 + 16$ & 2 \\ \hline
+         \end{tabular}
+      $$
+      we see that the terms $a_5$, $a_6$, $\cdots$, $a_{13}$ repeat. There are 9
+      of these terms and their sum is 21. Thus
+      \begin{align*}
+         \sum_{i=1}^{1000} a_i &= \sum_{i=1}^{4} a_i + \sum_{i=5}^{994} a_i +
+            \sum_{i=995}^{1000} a_i \\
+            &= 5 + 21 \cdot 110 + 14 \\
+            &= 2329.
+      \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compute the smallest positive integer $n$ such that
+         \begin{equation} \label{8_1}
+            \sum_{k=0}^n\log_2\left(1 + \frac{1}{2^{2^k}}\right) \ge 1 +
+              \log_2\left(\frac{2014}{2015}\right).
+         \end{equation}
+              
+      \textbf{Solution.} Let $n$ be a positive integer. It follows that
+      \begin{align*}
+         \sum_{k=0}^n\log_2\left(1 + \frac{1}{2^{2^k}}\right) &=
+            \sum_{k=0}^n\log_2\left(\frac{2^{2^k}+1}{2^{2^k}}\right) \\
+            &= \log_2\left(\frac{3}{2^1}\right) +
+               \log_2\left(\frac{5}{2^2}\right) + \cdots +
+               \log_2\left(\frac{2^{2^n}+1}{2^{2^n}}\right) \\
+            &= \log_2\left(\frac{3\cdot5\cdot17\cdots(2^{2^n}+1)}
+                  {2^1\cdot\cdot2^2\cdot2^4\cdots2^{2^n}}\right) \\
+            &= \log_2\left(\frac{3\cdot5\cdot17\cdots(2^{2^n}+1)}
+                  {2^{1+2+4+\cdots+2^n}}\right) \\
+            &= \log_2\left(\frac{3\cdot5\cdot17\cdots(2^{2^n}+1)}
+                  {2^{2^{n+1}-1}}\right).
+      \end{align*}
+      In the above notice that $1 + 2 + \cdots + 2^n$ is a geometric sum. So we
+      used the following fact: the $m$-th sum of a geometric series with first
+      term $a$ and common ration $r$ is given by
+      $$\frac{a(r^m - 1)}{r - 1}$$
+      to get $1 + 2 + \cdots + 2^n = 2^{2^{n+1}-1}$. Now we want to find a
+      closed form for the expression
+      $$f(n) = 3\cdot5\cdot17\cdots(2^{2^n}+1).$$
+      We have $f(0) = 3$, $f(1) = 15$, $f(2) = 255$, so we conjecture that
+      $f(n) = 2^{2^{n+1}} - 1$. We shall now prove this by induction. It is
+      clear that our conjecture holds whenever $n$ is 0, 1, or 2. So assume that
+      $f(j) = 2^{2^{j+1}} - 1$ for some positive integer $j$. So we have that
+      \begin{align*}
+         f(j+1) &= 3\cdot5\cdot17\cdots(2^{2^j}+1)\cdot(2^{2^{j+1}}+1) \\
+            &= f(j) \cdot (2^{2^{j+1}}+1) \\
+            &= (2^{2^{j+1}} - 1)\cdot (2^{2^{j+1}}+1)
+               &[\text{Inductive hypothesis}] \\
+            &= (2^{2^{j+1}})^2 - 1\\
+            &= 2^{2^{(j+1)+1}} - 1.
+      \end{align*}
+      We have just shown that our conjecture holds for $j + 1$. Thus it follows
+      by Mathematical Induction that it holds for all non-negative integers, and
+      we have that
+      $$\sum_{k=0}^n\log_2\left(1 + \frac{1}{2^{2^k}}\right) =
+           \log_2\left(\frac{2^{2^{n+1}} - 1}{2^{2^{n+1}-1}}\right).$$
+           
+      Since
+      $$1 + \log_2\left(\frac{2014}{2015}\right) = 
+        \log_22 + \log_2\left(\frac{2014}{2015}\right) =
+              \log_2\left(\frac{4028}{2015}\right),$$
+      it follows that \eqref{8_1} holds if and only if
+      $$
+         \log_2\left(\frac{2^{2^{n+1}} - 1}{2^{2^{n+1}-1}}\right) \ge
+            \log_2\left(\frac{4028}{2015}\right)
+      $$
+      if and only if
+      $$\frac{2^{2^{n+1}} - 1}{2^{2^{n+1}-1}} \ge \frac{4028}{2015}$$
+      if and only if
+      $$2015(2^{2^{n+1}}-1) \ge 4028(2^{2^{n+1}-1})$$
+      if and only if
+      $$2015(2^{2^{n+1}}-1) \ge 2014(2^{2^{n+1}})$$
+      if and only if
+      $$2^{2^{n+1}} \ge 2015$$
+      if and only if
+      $$n \ge \log_2(\log_22015) - 1.$$
+      Thus the smallest $n$ is 3.
+            
 \end{enumerate}
 \end{document}
