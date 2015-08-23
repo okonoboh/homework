@@ -53,12 +53,18 @@
    \item Let $f$ be the function defined by $f(x) = x^3 - 49x^2 + 623x - 2015$,
          and let $g(x) = f(x + 5)$. Compute the sum of the roots of $g$.
 
-      \textbf{Solution.} Using the Rational Root Theorem, we get the following
-      factorization
-      $$f(x) = (x - 5)(x-13)(x-31),$$
-      so that the roots of $f$ are 5, 13, and 31. Now observe that $c$ is a root 
-      of $f$ if and only if $c-5$ is a root of $g$; thus the sum of the roots of 
-      $g$ is $(5 - 5) + (13 - 5) + (31 - 5) = 34$.
+      \textbf{Solution.} First we observe that $c$ is a root of $f$ if and only
+      if $c-5$ is a root of $g$. If $f$ has a rational root, then the Rational
+      Root Theorem says that it must be a divisor of $2015$. Since
+      $2015 = 5 \cdot 13 \cdot 31 \cdot 403$, it follows that the candidates for 
+      the rational roots of $f$ are
+      $$\pm1, \pm5, \pm13, \pm31, \pm65, \pm155, \pm403, \text{ and } \pm2015.$$
+      Now $f(1) \neq -1440$ and $f(5) = 0$. Thus 5 is a root of $f$. By
+      division and further factorization, we get
+      $$f(x) = (x - 5)(x^2 -44x + 403) = (x - 5)(x - 13)(x - 31),$$
+      so that the roots of $f$ are 5, 13, and 31. Thus the sum of the roots of
+      $g$ is
+      $$(5 - 5) + (13 - 5) + (31 - 5) = 34.$$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Lay six long strings in parallel. Two people (each of whom cannot see
          what the other is doing) work at opposite ends of the bundle of
@@ -73,5 +79,82 @@
          \frac{4\pi}{5}\right)$.
 
       \textbf{Solution.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compute the number of ordered pairs of integers $(x, y)$ such that
+         \begin{equation} \label{4_2}
+            \frac{1}{x} + \frac{540}{xy} = 2.
+         \end{equation}
+
+      \textbf{Solution.} Clearly neither of $x$ and $y$ is 0, so multiply the
+      equation by $xy$ to get $y + 540 = 2xy$. Rearrange to get
+      \begin{equation} \label{4_1}
+         y(2x - 1) = 540.
+      \end{equation}
+      Equation \eqref{4_1} tells us that $(2x - 1)$ is an odd factor of 540.
+      Since $540 = 2^2 \cdot 3^3 \cdot 5$, it follows that the odd factors of
+      540 are
+      $$\pm1, \pm3, \pm9, \pm27, \pm5, \pm 15, \pm45, \text{ and } \pm135.$$
+      That is, $(2x - 1)$ must be one of the factors above, so that Equation
+      \eqref{4_1} has 16 ordered pairs of solutions. Now in each of the 16
+      solutions the $y$ component cannot be 0 since Equation \eqref{4_1} says
+      that the $y$ component is always a factor of 540; however, $(0, -540)$ is
+      a solution of Equation \eqref{4_1}, so we shall exclude it. Thus there are
+      15 solutions to Equation \eqref{4_2}. Listed explicitly, they are:
+      $(-67, -4)$, $(-22, -12)$, $(-13, -20)$, $(-7, -36)$, $(-4, -60)$,
+      $(-2, -108)$, $(-1, -180)$, $(1, 540)$, $(2, 180)$, $(3, 108)$, $(5, 60)$, 
+      $(8, 36), (14, 20)$, $(23, 12)$, and $(68, 4)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compute the smallest positive integer $n$ such that $n + i$,
+         $(n + i)^2$, and $(n + i)^3$ are the vertices of a triangle in the
+         complex plane whose area is greater than 2015.
+
+      \textbf{Solution.} Let $A(x_1, y_1)$, $B(x_2, y_2)$, and $C(x_3, y_3)$ be
+      points in the $xy$-plane; then it can be shown that
+      $$\text{Area of } \triangle ABC = \frac{1}{2}\left|\det\left(
+        \begin{tabular}{@{}ccc@{}}
+           1 & 1 & 1 \\
+           $x_1$ & $x_2$ & $x_3$ \\
+           $y_1$ & $y_2$ & $y_3$
+        \end{tabular}\right)\right|,
+      $$
+      where $\det(M)$ is the determinant of a matrix $M$. Now suppose
+      $$z_1 = a_1 + b_1i, z_2 = a_2 + b_2i, \text{ and } z_3 = a_3 + b_3i$$
+      are the vertices of a triangle in the complex plane; also suppose that $s$
+      is the area of this triangle. Using the facts that adding a multiple of a
+      row to another does not change the determinant of a matrix and multiplying
+      a row by a scalar multiplies the determinant by the same scalar, it
+      follows that
+      \begin{align*}
+         s &= \frac{1}{2}\left|\det\left(\begin{tabular}{@{}ccc@{}}
+                  1 & 1 & 1 \\
+                  $a_1$ & $a_2$ & $a_3$ \\
+                  $b_1$ & $b_2$ & $b_3$
+              \end{tabular}\right)\right| \\
+           &= \frac{1}{2i}\left|\det\left(\begin{tabular}{@{}ccc@{}}
+                  1 & 1 & 1 \\
+                  $a_1$ & $a_2$ & $a_3$ \\
+                  $b_1i$ & $b_2i$ & $b_3i$
+              \end{tabular}\right)\right| \\
+           &= \frac{1}{2i}\left|\det\left(\begin{tabular}{@{}ccc@{}}
+                  1 & 1 & 1 \\
+                  $a_1+b_1i$ & $a_2+b_2i$ & $a_3+b_3i$ \\
+                  $b_1i$ & $b_2i$ & $b_3i$
+              \end{tabular}\right)\right| \\
+           &= \frac{1}{-4i}\left|\det\left(\begin{tabular}{@{}ccc@{}}
+                  1 & 1 & 1 \\
+                  $a_1+b_1i$ & $a_2+b_2i$ & $a_3+b_3i$ \\
+                  $-2b_1i$ & $-2b_2i$ & $-2b_3i$
+              \end{tabular}\right)\right| \\
+           &= \frac{1}{-4i}\left|\det\left(\begin{tabular}{@{}ccc@{}}
+                  1 & 1 & 1 \\
+                  $a_1+b_1i$ & $a_2+b_2i$ & $a_3+b_3i$ \\
+                  $a_1-b_1i$ & $a_2-b_2i$ & $a_3-b_3i$
+              \end{tabular}\right)\right| \\
+           &= \frac{i}{4}\left|\det\left(\begin{tabular}{@{}ccc@{}}
+                  1 & 1 & 1 \\
+                  $z_1$ & $z_2$ & $z_3$ \\
+                  $\overline{z_1}$ & $\overline{z_2}$ & $\overline{z_3}$
+              \end{tabular}\right)\right| \\
+      \end{align*}
 \end{enumerate}
 \end{document}
