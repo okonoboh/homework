@@ -203,8 +203,8 @@
          because 4 + 5 + 6 = 7 + 8 = 9 + 1 + 2 + 3.)
          
       \textbf{Solution.} We shall be using the fact that the $n$-th sum of an
-      arithmetic sequence whose first term is $a$ and common difference is $d$
-      is $$\frac{n}{2}(2a + (n-1)d).$$
+      arithmetic sequence with first term $a$ and common difference $d$ is
+      $$\frac{n}{2}(2a + (n-1)d).$$
       Suppose the side that contains the rod of length 1 is of the form
       $$1 + 2 + \cdots + k$$
       for some $1 < k < 90$. Thus it follows that
@@ -366,6 +366,88 @@
       if and only if
       $$n \ge \log_2(\log_22015) - 1.$$
       Thus the smallest $n$ is 3.
-            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item In rectangle $WASH$, point $E$ lies on $\overline{SH}$ such that
+         $\angle AWS \cong \angle HWE$. Point $D$ lies on $\overline{WS}$ such
+         that $\overline{ED} \perp \overline{WS}$. Given that $[WASH] = 100$ and
+         $[SED] = 32$, compute $\sin \angle SWE$.
+
+      \textbf{Solution.} We shall use the following labels:
+      $$\phi := \angle AWS, w := \overline{AS},\text{ and } h :=\overline{ED}.$$
+      So it follows that
+      \begin{align*}      
+         \angle HWE &= \phi &[\text{Given}] \\
+         \angle SWE &= 90 - 2\phi &[\angle HWE + \angle AWS + \angle SWE = 90]\\
+         \overline{WA} &= 100 / w &[[WASH] = 100] \\
+         \overline{DS} &= 64 / h. &[[SED] = 32]
+      \end{align*}
+      From $\triangle DWE$, we have that
+      \begin{align*}
+         \sin \angle DWE &= \sin \angle SWE \\
+            &= \sin(90 - 2\phi) \\
+            &= \cos2\phi \\
+            &= 1 - 2\sin^2\phi.
+      \end{align*}
+      From $\triangle AWS$, we have that
+      \begin{align*}
+         \sin^2 \angle AWS &= \sin^2 \phi \\
+            &= \frac{\overline{AS}^2}{\overline{WS}^2} \\
+            &= \frac{w^2}{w^2 + \D\frac{10000}{w^2}}
+                  &[\text{Pythagoras Theorem}] \\
+            &= \frac{w^4}{w^4+10000}.
+      \end{align*}
+      Substituting $\sin^2 \phi = \D\frac{w^4}{w^4+10000}$ in the equation 
+      $\sin \angle SWE = 1 - 2\sin^2\phi$, we shall get
+      \begin{equation} \label{9_1}
+         \sin \angle SWE = \frac{10000 - w^4}{10000 + w^4}.
+      \end{equation}
+
+      Observe the following triangle similarities:
+      $$AWS \sim HWE \sim DSE.$$
+      We shall exploit these similarities to get
+      $$\overline{HE}/\overline{AS} = \overline{HW}/\overline{AW}.$$
+      That is, $\overline{HE} = w^3/100$. Similarly
+      $$\overline{DE}/\overline{AS} = \overline{DS}/\overline{AW}$$
+      and we simplify to get the relation $h = 4w/5$. Applying the Pythagoras
+      Theorem to $\triangle SDE$, we get
+      \begin{align*}
+         \overline{ES} &= \sqrt{h^2 + \frac{4096}{h^2}} \\
+            &= \sqrt{\frac{16w^2}{25} + \frac{6400}{w^2}}.
+      \end{align*}
+
+      From rectangle $WASH$, we now have that
+      $\overline{ES} = \overline{HS} - \overline{HE}$. That is,
+      $$\sqrt{\frac{16w^2}{25} + \frac{6400}{w^2}} = \frac{100}{w} -
+         \frac{w^3}{100}.$$
+      Squaring both sides of the preceding equation and simplifying the
+      resulting equation, we shall get
+      $$w^8 - 26400w^4 + 36000000 = 0.$$
+      Make the substitution $x = w^4$ to reduce the preceding equation to the
+      quadratic equation
+      $$x^2 - 26400x + 36000000 = 0.$$
+      Hence
+      \begin{align*}
+         x &= \frac{26400 \pm \sqrt{26400^2 - 4 \cdot 36000000}}{2} \\
+           &= \frac{26400 \pm \sqrt{552960000}}{2} \\
+           &= \frac{26400 \pm 9600\sqrt{6}}{2} \\
+           &= 13200 \pm 4800 \sqrt{6}.
+      \end{align*}
+      Since $\angle SWE$ is an acute angle, $\sin \angle SWE$ must be positive.
+      By observing \eqref{9_1} and using the fact that
+      $13200 + 4800\sqrt{6} > 10000$, it follows that the only solution is
+      $x = 13200 - 4800 \sqrt{6}$. Finally, it follows from \eqref{9_1} and our
+      recent results that 
+      \begin{align*}
+         \sin \angle SWE &= \frac{10000 - w^4}{10000 + w^4} \\
+            &= \frac{10000 - x}{10000 + x} \\
+            &= \frac{10000 - 13200 + 4800\sqrt{6}}
+               {10000 + 13200 - 4800\sqrt{6}} \\
+            &= \frac{-3200 + 4800\sqrt{6}}{23200 - 4800\sqrt{6}} \\
+            &= \frac{-4 + 6\sqrt{6}}{29 - 6\sqrt{6}} \cdot
+               \frac{29 + 6\sqrt{6}}{29 + 6\sqrt{6}} \\
+            &= \frac{100 + 150\sqrt{6}}{625} \\
+            &= \frac{4 + 6\sqrt{6}}{25}.
+      \end{align*}
+
 \end{enumerate}
 \end{document}
