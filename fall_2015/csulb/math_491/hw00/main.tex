@@ -7,7 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
-%\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[retainorgcmds]{IEEEtrantools}
 
 
 \usepackage{tikz}
@@ -396,8 +396,8 @@
                   &[\text{Pythagoras Theorem}] \\
             &= \frac{w^4}{w^4+10000}.
       \end{align*}
-      Substituting $\sin^2 \phi = \D\frac{w^4}{w^4+10000}$ in the equation 
-      $\sin \angle SWE = 1 - 2\sin^2\phi$, we shall get
+      Substitute $\sin^2 \phi = \D\frac{w^4}{w^4+10000}$ in the equation 
+      $\sin \angle SWE = 1 - 2\sin^2\phi$ to get
       \begin{equation} \label{9_1}
          \sin \angle SWE = \frac{10000 - w^4}{10000 + w^4}.
       \end{equation}
@@ -448,6 +448,61 @@
             &= \frac{100 + 150\sqrt{6}}{625} \\
             &= \frac{4 + 6\sqrt{6}}{25}.
       \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Six people of different heights are getting in line to buy donuts.
+         Compute the number of ways they can arrange themselves in line such
+         that no three consecutive people are in increasing order of height,
+         from front to back.
 
+      \textbf{Solution.} Let the heights of the six people (in increasing order)
+      be $h_1$, $h_2$, $h_3$, $h_4$, $h_5$, and $h_6$. Consider the following
+      arrangement:
+      $$h_2, h_3, h_1, h_6, h_5, h_4.$$
+      We shall say that $h_2$ occupies the first spot, $h_3$ occupies the second
+      spot, \ldots, and $h_4$ occupies the sixth spot. We shall regard the first 
+      spot to be the front. Now observe that if any arrangement has three
+      consecutive people in increasing height, from front to back, then these
+      three people must be occupying 
+      \begin{itemize}
+         \item the first, second, and third spots or
+         \item the second, third, and fourth spots or
+         \item the third, fourth, and fifth spots or
+         \item the fourth, fifth, and sixth spots.
+      \end{itemize}
+      For $1 \le i \le 4$, let $A_i$ be the number of arrangements such that
+      three consecutive people in increasing height, from front to back, are
+      occupying the $i$-th, $(i+1)$-th, and $(i+2)$-th spots, and let $A$ be
+      the number of arrangements such that three consecutive people are in 
+      increasing order of height, from front to back. By our aforementioned
+      observation, it follows that
+      $$|A| = |A_1 \cup A_2 \cup A_3 \cup A_4|.$$
+      By the Inclusion-Exclusion Principle, it follows that
+      \begin{IEEEeqnarray*}{rCl}
+         |A| & = & |A_1 \cup A_2 \cup A_3 \cup A_4| \\
+             & = & |A_1| + |A_2| + |A_3| + |A_4| - \\
+             &&   (|A_1 \cap A_2| + |A_1 \cap A_3| + |A_1 \cap A_4| +
+                   |A_2 \cap A_3| + |A_2 \cap A_4| + |A_3 \cap A_4|) + \\
+             &&    |A_1 \cap A_2 \cap A_3| + |A_1 \cap A_2 \cap A_4| +
+                   |A_1 \cap A_3 \cap A_4| + |A_2 \cap A_3 \cap A_4| - \\
+             &&    |A_1 \cap A_2 \cap A_3 \cap A_4|.
+      \end{IEEEeqnarray*}
+
+      We can now compute the following by counting:
+      \begin{align*}
+         |A_1| &= |A_2| = |A_3| = |A_4| = \binom{6}{3} \cdot 3! = 120, \\
+         |A_1 \cap A_2| &= |A_2 \cap A_3| = |A_3 \cap A_4| =
+            \binom{6}{4} \cdot 2! = 30, \\
+         |A_1 \cap A_3| &= |A_2 \cap A_4| = \binom{6}{5} \cdot 1! = 6, 
+         |A_1 \cap A_4| = \frac{6!}{3!3!} = 20 \\
+         |A_1 \cap A_2 \cap A_3| &= |A_2 \cap A_3 \cap A_4| =
+            \binom{6}{5} \cdot 1! = 6 \\
+         |A_1 \cap A_2 \cap A_4| &= |A_1 \cap A_3 \cap A_4| =
+            |A_1 \cap A_2 \cap A_3 \cap A_4| = 1.
+      \end{align*}
+
+      Thus $|A| = 381$, and we conclude that the number of ways in which no
+      three consecutive people are in increasing order of height, from front to 
+      back is
+      $$6! - |A| = 339.$$
 \end{enumerate}
 \end{document}
