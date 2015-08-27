@@ -1,0 +1,288 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath, array}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{bm}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 328, Fall 2015\\Section 1 (1273/3120)\\
+  HW \#01, DUE: 2015, August 27
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compute the exact values for
+
+         \begin{enumerate}
+            \item $\D\sum_{i=-1}^43$.
+            \item $\D\sum_{i=1}^n3$.
+            \item $\D\sum_{i=1}^n (i^3 + 2i^2 - i + 1)$.
+            \item $\D\sum_{i=1}^n \left(\frac{2}{i} - 4i + \frac{i}{5}\right)$.
+            \item $\D\sum_{j=1}^k\sum_{i=1}^j (i - j^2 - 2)$.
+            \item $\D\sum_{j=1}^m\sum_{k=1}^j (3C + k - 3j + i)$.
+            \item $\D\sum_{l=1}^n\sum_{j=1}^k\sum_{i=1}^j (i - 4)$.
+         \end{enumerate}
+      
+      \textbf{Solution.} We shall be making use of Exercises 5, 6, and 7.
+
+      \begin{enumerate}
+         \item $\D\sum_{i=-1}^43 = 3 \cdot ([4 - (-1)] + 1) = 18$.
+         \item $\D\sum_{i=1}^n3 = 3n$.
+         \item \begin{align*}
+                  \sum_{i=1}^n (i^3 + 2i^2 - i + 1) &= \sum_{i=1}^n i^3 +
+                     2\sum_{i=1}^ni^2 - \sum_{i=1}^ni + \sum_{i=1}^n1 \\
+                  &= \left(\frac{n(n+1)}{2}\right)^2 + \frac{n(n+1)(2n+1)}{3} -
+                     \frac{n(n+1)}{2} + n \\
+                  &= \frac{n(3n^3 + 14n^2 + 9n + 10)}{12}.
+               \end{align*}
+         \item TODO
+         \item \begin{align*}
+                  \sum_{j=1}^k\sum_{i=1}^j (i - j^2 - 2) &=
+                     \sum_{j=1}^k\left(\sum_{i=1}^ji - \sum_{i=1}^jj^2 -
+                     \sum_{i=1}^j2\right) \\
+                     &= \sum_{j=1}^k\left(\frac{j(j+1)}{2} - j^3 -2j\right) \\
+                     &= \sum_{j=1}^k\left(-j^3 + \frac{1}{2}j^2 -
+                           \frac{3}{2}j \right) \\
+                     &= -\sum_{j=1}^kj^3 + \frac{1}{2}\sum_{j=1}^kj^2 -
+                           \frac{3}{2}\sum_{j=1}^kj \\
+                     &= -\left(\frac{k(k+1)}{2}\right)^2 +
+                           \frac{k(k+1)(2k+1)}{12} - \frac{3k(k+1)}{4} \\
+                     &= -\frac{k(k + 1)(3k^2 + k + 8)}{12}
+               \end{align*}
+         \item \begin{align*}
+                  \sum_{j=1}^m\sum_{k=1}^j (3C + k - 3j + i) &=
+                     \sum_{j=1}^m\left(\sum_{k=1}^j3C + \sum_{k=1}^jk -
+                     \sum_{k=1}^j3j + \sum_{k=1}^ji\right) \\
+                     &= \sum_{j=1}^m\left(3Cj + \frac{j(j+1)}{2} - 3j^2 +
+                           ji\right) \\
+                     &= \sum_{j=1}^m\left(-\frac{5}{2}j^2 +
+                        \frac{6C+2i+1}{2}j\right) \\
+                     &= -\frac{5}{2}\sum_{j=1}^mj^2 +
+                        \frac{6C+2i+1}{2}\sum_{j=1}^mj \\
+                     &= -\frac{5}{12}m(m+1)(2m+1) + \frac{1}{4}m(m+1)(6C+2i+1)\\
+                     &= \frac{1}{12} m(m+1)[3(6C + 2i + 1)-5(2m+1)].
+               \end{align*}
+         \item \begin{align*}
+                  \sum_{l=1}^n\sum_{j=1}^k\sum_{i=1}^j (i - 4) &=
+                     \sum_{l=1}^n\sum_{j=1}^k\left(\sum_{i=1}^ji -
+                     \sum_{i=1}^j4\right) \\
+                     &= \sum_{l=1}^n\sum_{j=1}^k\left(\frac{j(j+1)}{2} -
+                        4j\right) \\
+                     &= \sum_{l=1}^n\sum_{j=1}^k\left(\frac{1}{2}j^2 -
+                           \frac{7}{2}j\right) \\
+                     &= \sum_{l=1}^n\left(\frac{1}{2}\sum_{j=1}^kj^2 -
+                           \frac{7}{2}\sum_{j=1}^kj\right) \\
+                     &= \sum_{l=1}^n\left(\frac{1}{12}k(k+1)(2k+1) -
+                           \frac{7}{4}k(k+1)\right) \\
+                     &= \frac{1}{6} nk(k+1)(k-10).
+               \end{align*}
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compute the derivative of
+
+         \begin{enumerate}
+            \item $-5x^3 + 2x - 1$.
+            \item $3x^4 - 2\sqrt{x} + x^{1/2} - 6x^{-2/3} - 5$.
+            \item $x\sqrt{x} + \sqrt{\sqrt{x}}$.
+            \item $\log(x) - x^2\ln(x) + \ln(x^4)$.
+            \item $\ln^3(x\sqrt{2x - 3}) + \sqrt{\ln(x^2)}$.
+            \item $\D\frac{\sqrt{x+5} - \ln(x)}{(x - 1)^3}$.
+            \item $\D\frac{\sqrt{x\sqrt{x}\ln^2(3x - 7)}}{\sqrt[8]{5x}}$.
+            \item $-\tan(x^4 - 6) + x\sin(x) -
+                    \D\frac{\log(x)\cot(x)}{x+2} - 467k$.
+         \end{enumerate}
+      
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item $\D\frac{d}{dx} (-5x^3 + 2x - 1) = -15x^2 + 2$.
+         \item $\D\frac{d}{dx} (3x^4 - 2\sqrt{x} + x^{1/2} - 6x^{-2/3} - 5) = 
+                12x^3 - \frac{1}{2}x^{-1/2} + 4x^{-5/3}$.
+         \item $\D\frac{d}{dx} \left(x\sqrt{x} + \sqrt{\sqrt{x}}\right) =
+                \frac{3}{2}\sqrt{x} + \frac{1}{4}x^{-3/4}$.
+         \item $\D\frac{d}{dx} (\log(x) - x^2\ln(x) + \ln(x^4)) = 
+                \frac{1}{x\ln(10)} - 2x\ln(x) - x + \frac{4}{x}$.
+         \item $\D\frac{d}{dx} (\ln^3(x\sqrt{2x - 3}) + \sqrt{\ln(x^2)}) = 
+                \frac{9(x-1)\ln^2(x\sqrt{2x-3})}{x(2x-3)} +
+                \frac{1}{x\sqrt{\ln(x^2)}}$.
+         \item $\D\frac{d}{dx}\left(\frac{\sqrt{x+5} -
+                   \ln(x)}{(x - 1)^3}\right) = $.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Determine the limit of
+
+         \begin{enumerate}
+            \item $\D\lim_{x \rightarrow \infty} \frac{3x + 2}{-5x - 6}$.
+            \item $\D\lim_{x \rightarrow \infty} \ln(x)$.
+            \item $\D\lim_{x \rightarrow \infty} \left(\frac{1}{x} + 3\right)$.
+            \item $\D\lim_{x \rightarrow \infty}
+                     \frac{3x\log(x)+ 2}{\sqrt{x^3} + 7x}$.
+            \item $\D\lim_{x \rightarrow \infty}
+                     \frac{\sqrt{x\sqrt{x}}}{\sqrt{\D\frac{2}{x}} +
+                     \log(x^3 - 4\sqrt{x})}$.
+            \item $\D\lim_{x \rightarrow 0}
+                   \frac{x^3 + x - \sqrt{3x}}{\sqrt{x}}$.
+            \item $\D\lim_{x \rightarrow 0}
+                   \frac{x^3 + x - \sqrt{3x}}{5x^{2.25}\sqrt{\sqrt{x}}}$.
+            \item $\D\lim_{x \rightarrow 0}
+                   \frac{\D\frac{1}{x^3}}{\D\frac{\sqrt{x}}{x^4}}$.
+            \item $\D\lim_{x \rightarrow 0}
+                   \frac{x^{0.1} - \sqrt{3}}{\sqrt{\sqrt{x}}}$.
+            \item $\D\lim_{x \rightarrow \infty}\frac{x^x}{2^x}$.
+            \item $\D\lim_{x \rightarrow \infty}\frac{x^x}{x2^x}$.
+            \item $\D\lim_{x \rightarrow \infty}\frac{x^{1/x}}{x^a}$.
+            \item $\D\lim_{x \rightarrow \infty}
+                     \frac{\log(x^{\log(x)})}{x^{1/5}}$.
+            \item $\D\lim_{x \rightarrow \infty}
+                     \frac{\sqrt{2}^{\log^4x^3}}{\log(2x+7)}$.
+            \item $\D\lim_{x \rightarrow \infty}\frac{2x^3 + \log(x) - 10x}
+                     {\D\frac{x^4}{\ln(x)}}$.
+            \item $\D\lim_{x \rightarrow \infty}
+                     \frac{\D\frac{x+1}{3x^{\ln(x)}}}{2x^2}$.
+            \item $\D\lim_{x \rightarrow \infty}\frac{\sin(x)}{\ln(x) + 2}$.
+            \item $\D\lim_{x \rightarrow \infty}\frac{\sqrt{2}^{\log(x^3)}}
+                     {\log^{\ln(x)}(2x)}$.
+         \end{enumerate}
+      
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item $\D\lim_{x \rightarrow \infty} \frac{3x + 2}{-5x - 6} =
+                -\frac{3}{5}$.
+         \item $\D\lim_{x \rightarrow \infty} \ln(x) = \infty$.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compute the exact values for
+
+         \begin{enumerate}
+            \item $\D\int_1^n(x + 1)\;dx$.
+            \item $\D\int_1^n(2x + 10)\;dx$.
+            \item $\D\int_1^n(x^4 + \sqrt{x})\;dx$.
+            \item $\D\int_1^n\left(Cx^3 - \frac{1}{x^2}\right)\;dx$.
+            \item $\D\int_1^n\left(x^4 - 3x^2 + \frac{1}{x}\right)\;dx$.
+            \item $\D\int_1^n\left(\frac{3}{\sqrt{x}} +\ln(x) + e^x\right)\;dx$.
+            \item $\D\int_1^nxe^x\;dx$.
+            \item $\D\int_1^nx\ln(x)\;dx$.
+            \item $\D\int_1^n\ln(x)\;dx$.
+            \item $\D\int_1^n\sin(x)\;dx$.
+            \item $\D\int_1^nx\sin(x)\;dx$.
+         \end{enumerate}
+      
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item $\D\int_1^n(x + 1)\;dx = \frac{1}{2}n^2 + n - \frac{3}{2}$.
+         \item $\D\int_1^n(2x + 10)\;dx = n^2 + 10n - 11$.
+         \item $\D\int_1^n(x^4 + \sqrt{x})\;dx = \frac{1}{5}n^5 +
+                   \frac{2}{3}n^{3/2} - \frac{13}{15}$.
+         \item $\D\int_1^n\left(Cx^3 - \frac{1}{x^2}\right)\;dx =
+                   \frac{C}{4}n^4 + \frac{1}{n} - \frac{C+4}{4}$.
+         \item $\D\int_1^n\left(x^4 - 3x^2 + \frac{1}{x}\right)\;dx =
+                   \frac{1}{5}n^5 - n^3 + \ln(n) - \frac{4}{5}$.
+         \item $\D\int_1^n\left(\frac{3}{\sqrt{x}} +\ln(x) + e^x\right)\;dx = 
+                   6\sqrt{n} + n \ln(n) - n + e^n - 5 - e$.
+         \item $\D\int_1^nxe^x\;dx = ne^n - e^n$.
+         \item $\D\int_1^nx\ln(x)\;dx = \frac{1}{2}n^2\ln(n) -
+                   \frac{1}{4}n^2 + \frac{1}{4}$.         
+         \item $\D\int_1^n\ln(x)\;dx = n\ln(n) - n + 1$.
+         \item $\D\int_1^n\sin(x)\;dx = -\cos(n) + \cos(1)$.
+         \item $\D\int_1^nx\sin(x)\;dx = -n\cos(n) + \sin(n) + \cos(1) -
+                   \sin(1)$.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Use mathematical induction to prove that
+         \begin{equation} \label{5_1}
+            1 + 2 + \cdots + n = \frac{n(n+1)}{2}.
+         \end{equation}
+
+      \textbf{Proof.} 
+
+      \textbf{Base case.} $n = 1$. Since $1 = \D\frac{1(1 + 1)}{2}$, it is clear 
+      that \eqref{5_1} holds when $n$ equals 1.
+
+      \textbf{Inductive hypothesis.} Now assume that \eqref{5_1} holds for some 
+      positive integer $k$. That is, assume that
+      $$1 + 2 + \cdots + k = \frac{k(k+1)}{2}.$$
+
+      Now we must show that \eqref{5_1} also holds for $(k+1)$. So it follows
+      that
+      \begin{align*}
+         1 + 2 + \cdots + k + (k+1) &= (1 + 2 + \cdots + k) + (k + 1) \\
+            &= \frac{k(k+1)}{2} + (k+1) &[\text{Inductive hypothesis}] \\
+            &= \frac{k(k+1)+2(k+1)}{2} \\
+            &= \frac{(k+1)(k+2)}{2} \\
+            &= \frac{(k+1)((k+1)+1)}{2},
+      \end{align*}
+      so that \eqref{5_1} holds for $(k+1)$. Thus it follows by mathematical 
+      induction that \eqref{5_1} holds for each positive integer $n$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Use mathematical induction to prove that
+         \begin{equation} \label{6_1}
+            1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}.
+         \end{equation}
+
+      \textbf{Proof.} 
+
+      \textbf{Base case.} \eqref{6_1} holds whenever $n$ equals 1 since
+      $1^2 = 1 = \D\frac{1(1+1)(2\cdot1+1)}{6}$.
+
+      \textbf{Inductive hypothesis.} Now assume that
+      $$1^2 + 2^2 + \cdots + j^2 = \frac{j(j+1)(2j+1)}{6}$$
+      for some positive integer $j$. Now it suffices to show that \eqref{6_1} 
+      also holds for $(j+1)$. Hence
+      \begin{align*}
+         1^2 + 2^2 + \cdots + j^2 + (j+1)^2 &=
+            (1^2 + 2^2 + \cdots + j^2) + (j + 1)^2 \\
+            &= \frac{j(j+1)(2j+1)}{6} + (j + 1)^2
+                  &[\text{Inductive hypothesis}] \\
+            &= \frac{j(j+1)(2j+1) + 6(j+1)^2}{6} \\
+            &= \frac{(j+1)(j(2j+1)+6(j+1))}{6} \\
+            &= \frac{(j+1)(j+2)(2j+3)}{6} \\
+            &= \frac{(j+1)((j+1)+1)(2(j+1)+1)}{6}
+      \end{align*}
+      so that \eqref{6_1} holds for $(j+1)$. Thus it follows by mathematical 
+      induction that \eqref{6_1} holds for each positive integer $n$. \qed
+      
+\end{enumerate}
+\end{document}
