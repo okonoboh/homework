@@ -90,9 +90,9 @@
          \item True.
 
                The statement $|\{a \in F : a^5 = 1\}| \le 5$ is logically
-               equivalent to the statement: Every monic monomial of degree 5 in
-               $F[x]$ (where $F$ is a field) has at most 5 roots. Instead of 
-               proving this specific statement, we shall prove a general one. \\
+               equivalent to the statement: The binomial $x^5 - 1 \in F[x]$ has 
+               at most 5 roots. Instead of proving this specific statement, we 
+               shall prove a general one. \\
 
                \textbf{Lemma 1.1} \textit{The number of roots of a polynomial
                of degree n, with coefficients in a field $F$, is at most n.} \\
@@ -281,10 +281,10 @@
       $m$; that is, $k \mid m$, so that $k \le m$. Since $F'$ is abelian, it  
       follows that there exists an element of order $k$ in $F'$. Now $y^k = 1$ 
       for all $y \in F'$ because $|y|$ divides $k$ for all $y \in F'$. Thus we 
-      have just show that the polynomial $x^k - 1$ has $m$ roots. Lemma 1.1 says 
-      that $x^k - 1$ can have at most $k$ roots, so that $m \le k$. But we 
-      already showed that $k \le m$. Thus $k = m$, and the proof is done.
-      \qed \\
+      have just shown that the polynomial $x^k - 1$ (in $F[x]$) has at least $m$ 
+      roots. Lemma 1.1 says that $x^k - 1$ can have at most $k$ roots, so that 
+      $m \le k$. But we already showed that $k \le m$. Thus $k = m$, and the 
+      proof is done. \qed \\
 
 
       According to Lemma 1.2, $S$ is cyclic. So we can write
@@ -416,14 +416,56 @@
                   \end{tabular}\right).
                $$
          \item 3.
-         \item $$
+         \item $$ M = 
                   \left(\begin{tabular}{@{}crcrrcrrrrcr@{}}
                      1 & 0 & 0 & $-1$ & 0 & 1 & $-1$ & $-1$ & 0 & $-1$ & 1 & 1\\
                      0 & $-1$ & 0 & 1 & $-1$ & 0 & 1 & $-1$ & 1 & 0 & 1 & $-1$\\
                      0 & 0 & 1 & 0 & $-1$ & 1 & $-1$ & 0 & $-1$ & 1 & 1 & $-1$
                   \end{tabular}\right).
                $$
-         \item 12.
+         \item 12 balls is the maximum that can be handled in 3 weighings.
+
+               \textbf{Describe the weighings.} Label the balls 1 through 12. \\
+
+               For the $i$-th weighing, we let 
+               \begin{equation*}
+                  c_i = \left\{
+                     \begin{array}{rl}
+                        1  & \text{if } \text{left side} > \text{right side}, \\
+                        -1 & \text{if } \text{right side} > \text{left side}, \\
+                        0  & \text{otherwise}
+                     \end{array} \right.
+               \end{equation*}
+
+               \textbf{1st weighing.}
+               \begin{quote}
+                     Place balls 1, 6, 11, and 12 on the left side of the
+                     balance and balls 4, 7, 8, and 10 on the right side of the
+                     balance.
+               \end{quote}
+
+               \textbf{2nd weighing}
+               \begin{quote}
+                     Place balls 4, 7, 9, and 11 on the left side of the
+                     balance and balls 2, 5, 8, and 12 on the right side of the
+                     balance.
+               \end{quote}
+
+               \textbf{3rd weighing.}
+               \begin{quote}
+                     Place balls 3, 6, 10, and 11 on the left side of the
+                     balance and balls 5, 7, 9, and 12 on the right side of the
+                     balance.
+               \end{quote}
+
+               Let $C = \left(\begin{tabular}{@{}c@{}}
+                  $c_1$ \\ $c_2$ \\ $c_3$
+               \end{tabular}\right)$. For some $1 \le j \le 12$, it follows that 
+               $C$ is the $j$-th column of $M$---the matrix from
+               \circled{3}---or it is the negative of the $j$-th column of $M$. 
+               In the former case, the odd ball is heavier than the rest, while  
+               it is lighter than the rest in the latter case. In either case, 
+               the $j$-th ball is the odd one out.
          \item 39.
       \end{enumerate}
 
