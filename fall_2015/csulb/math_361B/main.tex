@@ -61,10 +61,9 @@
       cases:
       
       \textbf{Case 1.} $c \in (a, b)$. Consider any subinterval $[x, y]$ of
-      $[a, b]$, where $x > a$ and $y < b$, such that $c \in [x, y]$ and
+      $[a, b]$, where $a < x < y < b$, such that $c \in [x, y]$ and
       $$y - x < \frac{\varepsilon}{2(M-m+1)}.$$
-      Now
-      observe that $f$ is continuous on $[a, x]$ and $[y, b]$. Thus it follows
+      By our hypothesis, $f$ is continuous on $[a, x]$ and $[y, b]$. Thus it follows
       by Theorem 6.2 that $f$ is Riemann-integrable on $[a, x]$ and $[y, b]$.
       So, by Theorem 6.1, there exist partitions $P_x$ of $[a, x]$ and $P_y$ of
       $[y, b]$ such that
@@ -87,7 +86,7 @@
       with $y > a$, such that
       $$y - a < \frac{\varepsilon}{2(M-m+1)};$$
       also let $M_c$ and $m_c$ denote the supremum and infimum of $f$ on
-      $[a, y]$. Because it is continuous, $f$ is Riemann-integrable by Theorem
+      $[a, y]$. Because it is continuous on $[y, b]$, $f$ is Riemann-integrable by Theorem
       6.2, and thus by Theorem 6.1, there exists a partition $P_y$ of $[y, b]$
       such that $$U(P_y, f) - L(P_y, f) < \frac{\varepsilon}{2}.$$
       

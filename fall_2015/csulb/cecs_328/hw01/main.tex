@@ -64,7 +64,7 @@
             \item $\D\sum_{l=1}^n\sum_{j=1}^k\sum_{i=1}^j (i - 4)$.
          \end{enumerate}
       
-      \textbf{Solution.} We shall be making use of Exercises 5, 6, and 7.
+      \textbf{Solution.} 
 
       \begin{enumerate}
          \item $\D\sum_{i=-1}^43 = 3 \cdot ([4 - (-1)] + 1) = 18$.
@@ -76,7 +76,8 @@
                      \frac{n(n+1)}{2} + n \\
                   &= \frac{n(3n^3 + 14n^2 + 9n + 10)}{12}.
                \end{align*}
-         \item TODO
+         \item $\D\sum_{i=1}^n \left(2^i - 4i + \frac{i}{5}\right) = 2^{n}-1
+                -4\frac{n(n+1)}{2} + \frac{1}{5}\frac{n(n+1)}{2}$.
          \item \begin{align*}
                   \sum_{j=1}^k\sum_{i=1}^j (i - j^2 - 2) &=
                      \sum_{j=1}^k\left(\sum_{i=1}^ji - \sum_{i=1}^jj^2 -
@@ -118,6 +119,7 @@
                      &= \frac{1}{6} nk(k+1)(k-10).
                \end{align*}
       \end{enumerate}
+\begin{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Compute the derivative of
 
@@ -191,6 +193,41 @@
          \item $\D\lim_{x \rightarrow \infty} \frac{3x + 2}{-5x - 6} =
                 -\frac{3}{5}$.
          \item $\D\lim_{x \rightarrow \infty} \ln(x) = \infty$.
+         \item $\D\lim_{x \rightarrow \infty} \left(\frac{1}{x} + 3\right) = 3$.
+         \item $\D\lim_{x \rightarrow \infty}
+                  \frac{3x\log(x)+ 2}{\sqrt{x^3} + 7x} = 0$.
+         \item $\D\lim_{x \rightarrow \infty}
+                  \frac{\sqrt{x\sqrt{x}}}{\sqrt{\D\frac{2}{x}} +
+                  \log(x^3 - 4\sqrt{x})} = \infty$.
+         \item $\D\lim_{x \rightarrow 0}
+                \frac{x^3 + x - \sqrt{3x}}{\sqrt{x}} = -\sqrt{3}$.
+         \item $\D\lim_{x \rightarrow 0}
+                \frac{x^3 + x - \sqrt{3x}}{5x^{2.25}\sqrt{\sqrt{x}}} = -\infty$.
+         \item $\D\lim_{x \rightarrow 0}
+                \frac{\D\frac{1}{x^3}}{\D\frac{\sqrt{x}}{x^4}} = 0$.
+         \item $\D\lim_{x \rightarrow 0}
+                \frac{x^{0.1} - \sqrt{3}}{\sqrt{\sqrt{x}}} = -\infty$.
+         \item $\D\lim_{x \rightarrow \infty}\frac{x^x}{2^x} = \infty$.
+         \item $\D\lim_{x \rightarrow \infty}\frac{x^x}{x2^x} = \infty$.
+         \item \begin{equation*}
+                  \D\lim_{x \rightarrow \infty}\frac{x^{1/x}}{x^a} = \left\{
+                     \begin{array}{cl}
+                        \infty & \text{if } a < 0,\\
+                        1      & \text{if } a = 0,\\
+                        0      & \text{if } a > 0.
+                     \end{array} \right.
+               \end{equation*}
+         \item $\D\lim_{x \rightarrow \infty}
+                  \frac{\log(x^{\log(x)})}{x^{1/5}} = 0$.
+         \item $\D\lim_{x \rightarrow \infty}
+                   \frac{\sqrt{2}^{\log^4x^3}}{\log(2x+7)}$.
+         \item $\D\lim_{x \rightarrow \infty}\frac{2x^3 + \log(x) - 10x}
+                  {\D\frac{x^4}{\ln(x)}} = 0$.
+         \item $\D\lim_{x \rightarrow \infty}
+                  \frac{\D\frac{x+1}{3x^{\ln(x)}}}{2x^2} = 0$.
+         \item $\D\lim_{x \rightarrow \infty}\frac{\sin(x)}{\ln(x) + 2} = 0$.
+         \item $\D\lim_{x \rightarrow \infty}\frac{\sqrt{2}^{\log(x^3)}}
+                  {\log^{\ln(x)}(2x)}$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Compute the exact values for
@@ -230,8 +267,9 @@
          \item $\D\int_1^nx\sin(x)\;dx = -n\cos(n) + \sin(n) + \cos(1) -
                    \sin(1)$.
       \end{enumerate}
+\end{comment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item Use mathematical induction to prove that
+   \item[5.] Use mathematical induction to prove that
          \begin{equation} \label{5_1}
             1 + 2 + \cdots + n = \frac{n(n+1)}{2}.
          \end{equation}
@@ -257,7 +295,7 @@
       so that \eqref{5_1} holds for $(k+1)$. Thus it follows by mathematical 
       induction that \eqref{5_1} holds for each positive integer $n$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item Use mathematical induction to prove that
+   \item[6.] Use mathematical induction to prove that
          \begin{equation} \label{6_1}
             1^2 + 2^2 + \cdots + n^2 = \frac{n(n+1)(2n+1)}{6}.
          \end{equation}
@@ -283,6 +321,31 @@
       \end{align*}
       so that \eqref{6_1} holds for $(j+1)$. Thus it follows by mathematical 
       induction that \eqref{6_1} holds for each positive integer $n$. \qed
+\item[Extra Credit 1.] Prove that 
+   $$\log_bx^a = a \log_bx.$$
+   
+   \textbf{Proof.} Let $y =\log_bx^a$. Then it follows that $b^y = x^a$. That
+   is, $b^{y/a} = x$. Now $b^{y/a} = x$ implies that $\log_bx = y/a$. Multiply
+   $\log_bx = y/a$ by $a$ to get $a\log_bx = y$. Since $y = \log_bx^a$, we have
+   that $a\log_bx = \log_bx^a$. \qed
+\item[Extra Credit 2.] Prove that 
+   $$y^{\log_bx} =x^{\log_yb}.$$
+   
+   \textbf{Proof.} Let $t = y^{\log_bx}$. Then it follows that
+   $\log_yt = \log_bx$. So
+   \begin{align*}
+      \log_bx = \log_yt = \frac{\log_xt}{\log_xy}.
+   \end{align*}
+   Thus
+   $\log_bx \cdot \log_xy = \log_xt$. But $\log_bx \cdot \log_xy = \log_by$. So
+   $\log_by = \log_bx\cdot\log_xy = \log_xt$. Since 
+   $$\log_by = \log_xt$$
+   we have $t = x^{\log_yb}$, so that $y^{\log_bx} = x^{\log_yb}$. \qed
+\item[Extra Problems]
+   $\D\sum_{i=2}^ni = -1 + \frac{n(n+1)}{2}$. \\
+   $\D\sum_{i=-1}^n(i^2-i+5) = 1 + \frac{n(n+1)(2n+1)}{6} + 1 - \frac{n(n+1)}{2} + 5(n+2)$.
+   
+   $\D\sum_{k=0}^{n+1}2i = 2i(n+2)$.
       
 \end{enumerate}
 \end{document}
