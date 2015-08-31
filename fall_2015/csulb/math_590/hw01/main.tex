@@ -307,6 +307,24 @@
                using the fact that $F$ is a integral domain, we must then have 
                that $\sigma = 0$ or $s_2 = 1$. Since the latter is false, we are 
                left with no choice but to conclude that $\sigma = 0$.
+         \item[\textbf{Bonus.}]  Would your conclusion be valid in any ring?
+                                 Think matrices.
+                                 
+               \textbf{Answer.} No. Take for example the subring
+               $$S' := \left\{\textbf{0}, \textbf{I},
+                  \left(\begin{tabular}{@{}cc@{}}
+                     1 & 1 \\
+                     1 & 1
+                  \end{tabular}\right), \left(\begin{tabular}{@{}cc@{}}
+                     0 & 1 \\
+                     1 & 0
+                  \end{tabular}\right)\right\}$$
+               of all 2 by 2 matrices over $\Z_2$. Now let
+               $$S = \left\{\textbf{I}, \left(\begin{tabular}{@{}cc@{}}
+                     0 & 1 \\
+                     1 & 0
+                \end{tabular}\right)\right\}.$$
+               It follows that the sum of the elements of $S$ is not zero.
          \item Suppose $k$ is odd. By Lagrange's Theorem, it follows that $S$
                has no element of order 2; that is, no non-identity element of
                $S$ is a multiplicative inverse of itself. So we mentally rewrite 
@@ -322,7 +340,12 @@
                       &= (t^k)^{\frac{(k+1)}{2}} &\quad
                         [(k+1)/2 \text{ is an integer since $k$ is odd}] \\
                       &= 1^{^{\frac{k+1}{2}}} = 1.
-               \end{align*}
+               \end{align*}         
+         \item[\textbf{Bonus.}]  Would your conclusion be valid in any ring?
+         
+            \textbf{Answer.} Notice that for the first proof we gave in
+            \circled{2}, we did not use any of the properties of a field, so the
+            conclusion is valid in any ring.
          \item Suppose $k$ is even. Then it follows that $k/2$ is an integer.
                Thus $t^{^{\frac{k^2}{2}}} = (t^k)^{k/2} = 1$. Now
                \begin{align*}
