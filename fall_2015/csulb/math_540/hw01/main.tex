@@ -7,8 +7,9 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
-\usepackage[retainorgcmds]{IEEEtrantools}
+%\usepackage[retainorgcmds]{IEEEtrantools}
 
+\everymath{\displaystyle}
 
 \usepackage{tikz}
 
@@ -78,11 +79,11 @@
                         \text{ and } \gcd(a, b) = 1\right\},$$
                is a group under addition.
 
-               \textbf{Proof.} First we must show that $S$ is closed under 
-               addition. Notice that $S$ is nonempty since it contains 7/5, so 
-               let $r, s \in S$. By definition of $S$, we have that
-               $r = a_1/b_1$ and $s = a_2/b_2$ for some integers $a_1$ and
-               $a_2$, odd integers $b_1$ and $b_2$, and
+               \textbf{Proof.} First we want show that $S$ is closed under 
+               addition. Notice that $S$ is nonempty since it contains
+               $\frac{7}{5}$, so let $r, s \in S$. By definition of $S$, we have
+               that $r = \frac{a_1}{b_1}$ and $s = \frac{a_2}{b_2}$ for some
+               integers $a_1$ with $a_2$, odd integers $b_1$ and $b_2$, and
                $\gcd(a_1, b_1) = \gcd(a_2, b_2) = 1$.
                It follows that
                \begin{align*}
@@ -103,38 +104,57 @@
                it follows that $S$ is also associative under addition. Thus $S$ 
                satisfies the group axioms, so that $(S, +)$ is a group. \qed
          \item The set
-               $$S = \left\{\frac{a}{b} \in \Q : b \text{ is even} \text{ and }
-                 \gcd(a, b) = 1\right\},$$
+               $$S = \left\{\frac{a}{b} \in \Q : a, b \in \Z, b
+                        \text{ is nonzero and even,} \text{ and }
+                        \gcd(a, b) = 1\right\},$$
                is not a group under addition because it is not closed. Indeed,
-               for $3/14 \in S$, we have $3/14 + 3/14 = 3/7 \notin S$.
+               we have $\frac{3}{14} \in S$, but
+               $\frac{3}{14} + \frac{3}{14} = \frac{3}{7} \notin S$.
          \item The set
-               $$S = \left\{\frac{a}{b} \in \Q :
-                     \left|\frac{a}{b}\right| < 1\right\},$$
-               is not a group under addition because it is not closed. Indeed,
-               for $9/10 \in S$, we have $9/10 + 9/10 = 18/10 \notin S$.
+               $$S = \left\{\frac{a}{b} \in \Q : a, b \in \Z \text{ with }
+                  b \neq 0, \text{ and }
+                  \left|\frac{a}{b}\right| < 1\right\},$$
+               is not a group under addition because it is not closed. For 
+               example, we have $\frac{9}{10} \in S$, but
+               $\frac{9}{10} + \frac{9}{10} = \frac{18}{10} \notin S$
+               because $\left|\frac{18}{10}\right| > 1$.
          \item The set
                $$S = \left\{\frac{a}{b} \in \Q : a = 0 \text{ or }
                      \left|\frac{a}{b}\right| \ge 1\right\},$$
-               is not a group under addition because it is not closed. Indeed,
-               for $-11/10, 10/10 \in S$, we have
-               $-11/10 + 10/10 = -1/10 \notin S$.
+               is not a group under addition because it is not closed. For
+               example, we have $-\frac{11}{10}, \frac{10}{10} \in S$, but
+               $-\frac{11}{10} + \frac{10}{10} = -\frac{1}{10} \notin S$ because
+               $\left|-\frac{1}{10}\right| < 1$.
          \item We claim that the set
-               $$S = \left\{\frac{a}{b} \in \Q : b = 1 \text{ or }
-                 b = 2\right\},$$
+               $$S = \left\{\frac{a}{b} \in \Q : a \in \Z \text{ and }
+                   b = 1 \text{ or } b = 2\right\},$$
                is a group under addition.
 
                \textbf{Proof.} It is clear that 0 is the identity for $S$ under
                addition, that $S$ is associative under addition (because
-               $S \subset \Q$ and $\Q$ is associative under addition, and that
+               $S \subset \Q$ and $\Q$ is associative under addition), and that
                the inverse of an element in $S$ is its additive inverse in $\Q$.
                So to complete the proof, we need only show that $S$ is closed
-               under addition. Let $a_1/b_1, a_2/b_2 \in \Q$. By observation, we
-               note that $a_1/b_1 + a_2/b_2$ must have a denominator of 1 or 2,
-               so that it is in $S$. Thus $S$ is closed under addition. \qed
+               under addition. To that end, let
+               $\frac{a_1}{b_1}, \frac{a_2}{b_2} \in S$.
+               
+               \textbf{Case 1.} $b_1 = b_2 = 1$. Then
+               $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1+a_2}{1} \in S.$$
+               
+               \textbf{Case 2.} $b_1 = 1$ and $b_2 = 2$. Then
+               $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{2a_1+a_2}{2} \in S.$$
+               
+               \textbf{Case 3.} $b_2 = 1$ and $b_1 = 2$. Use Case 2, with the
+               roles of $b_2$ and $b_1$ interchanged.
+               
+               \textbf{Case 4.} $b_1 = b_2 = 2$. Then
+               $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1+a_2}{2} \in S.$$
          \item The set
-               $$S = \left\{\frac{a}{b} \in \Q : b \in {1, 2, 3} \right\},$$
+               $$S = \left\{\frac{a}{b} \in \Q : a \in \Z \text{ and }
+                   b \in \{1, 2, 3\} \right\},$$
                is not a group under addition because it is not closed. Indeed,
-               for $1/2, 1/3 \in S$, we have $1/2 + 1/3 = 5/6 \notin S$.
+               for $\frac{1}{2}, \frac{1}{3} \in S$, we have $\frac{1}{2} +
+               \frac{1}{3} = \frac{5}{6} \notin S$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.19%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.1.19]  Let $x \in G$ and let $a, b \in \Z^+$.
@@ -148,36 +168,79 @@
                            (positive, negative or zero).
                   \end{enumerate}
                
-      \textbf{Proof.}
+      \textbf{Proof.} Fix positive integers $a$ and $b$. We shall be making use
+      of the following definitions
+      $$x^1 = x \text{ and, for each $m \in \Z^+$, } x^{m+1} = x^mx^1,$$
+      and
+      $$\text{for each } p \in \Z^+, x^{-p} = (x^{-1})^p.$$
       
       \begin{enumerate}
-         \item We have that
+         \item Now we want to show that
+               \begin{equation} \label{1_1_19_1}
+                  x^{a+n} = x^ax^n 
+               \end{equation}
+               holds for each positive integer $n$. So we shall proceed by
+               induction. Statement \eqref{1_1_19_1} holds for the base
+               case ($n = 1$) by definition. So assume that \eqref{1_1_19_1}
+               holds for some positive integer $k$. Thus it follows that
                \begin{align*}
-                  x^{a+b} &= \underbrace{xx\cdot x}_{a+b \text{ factors}} \\
-                          &= \underbrace{xx\cdot x}_{a \text{ factors}}\mbox{ }
-                             \underbrace{xx\cdot x}_{b \text{ factors}} \\
-                          &= x^ax^b.
-               \end{align*} \qed
-         \item We have that
+                  x^{a+(k+1)} &=x^{(a+k)+1}&[\text{Associativity of addition}]\\
+                     &= x^{a+k}x^1  &[\text{Definition}] \\
+                     &= (x^ax^k)x^1 &[\text{Inductive hypothesis}] \\
+                     &= x^a(x^kx^1) &[\text{Associativity of group operation}]\\
+                     &= x^ax^{k+1}.  &[\text{Definition}]
+               \end{align*}
+               Hence \eqref{1_1_19_1} holds for each positive integer $n$.
+               Particularly we have that $x^{a+b} = x^ax^b$. \\ \mbox{ } \qed
+         \item Next, we shall show by induction that
+               \begin{equation} \label{1_1_19_2}
+                  (x^a)^n = x^{an} 
+               \end{equation}
+               for each positive integer $n$. Statement \eqref{1_1_19_2} holds
+               trivially whenever $n = 1$, the base case. For our inductive
+               hypothesis, we shall now assume that \eqref{1_1_19_2} holds for a
+               positive integer $k$. So
                \begin{align*}
-                  (x^a)^b &= (\underbrace{xx\cdot x}_{a \text{ factors}})^b \\
-                          &= \underbrace{xx\cdot x}_{ab \text{ factors}} \\
-                          &= x^{ab}.
-               \end{align*} \qed
-         \item We have
+                  (x^a)^{k+1} &= (x^a)^k(x^a)^1 &[\text{Definition}] \\
+                     &= (x^a)^kx^a &[\text{Base case}] \\
+                     &= x^{ak}x^a &[\text{Inductive hypothesis}] \\
+                     &= x^{ak+a} &[1.1.19 (a)] \\
+                     &= x^{a(k+1)}.
+               \end{align*}
+               Hence \eqref{1_1_19_2} holds for each positive integer $n$.
+               Particularly we have that $(x^a)^b = x^{ab}$. \\ \mbox{ } \qed
+         \item Now consider the statement
+               \begin{equation} \label{1_1_19_3}
+                  x^{-n} = (x^n)^{-1}. 
+               \end{equation}
+               Observe that
                \begin{align*}
-                  (x^a)^{-1}
-                     &= (\underbrace{xx\cdot x}_{a \text{ factors}})^{-1} \\
-                     &= \underbrace{x^{-1}x^{-1}\cdot x^{-1}}_{
-                           a \text{ factors}} &[\text{Exercise 1.1.15}] \\
-                     &= x^{-a}.
-               \end{align*} \qed
+                  x^{-1} &= (x)^{-1} \\
+                         &= (x^1)^{-1}. &[x^1 = x \text{ by definition}]
+               \end{align*}
+               That is, \eqref{1_1_19_3} holds for the base case, $n = 1$. For
+               the inductive hypothesis, assume that \eqref{1_1_19_3} holds for
+               some positive integer $k$. It follows that
+               \begin{align*}
+                  x^{-(k+1)} &= (x^{-1})^{k+1} &[\text{By definition}] \\
+                             &= (x^{-1})^{k}(x^{-1})^1 &[\text{By definition}]\\
+                             &= (x^k)^{-1}(x^{-1})^1
+                                 &[\text{Inductive hypothesis}] \\
+                             &= (x^k)^{-1}(x^1)^{-1} &[\text{Base case}] \\
+                             &= (x^1x^k)^{-1} &[(rs)^{-1} = s^{-1}r^{-1}] \\
+                             &= (x^{1+k})^{-1} &[1.1.19 (a)] \\
+                             &= (x^{k+1})^{-1}.
+                                 &[\text{Commutativity of addition}]
+               \end{align*}
+               We have thus shown that \eqref{1_1_19_3} for each positive
+               integer $n$; particularly, we have that
+               $$(x^a)^{-1} = x^{-a}.$$
          \item Now suppose that $a$ is an integer and $b$ is a positive integer.
                We shall induct on $b$ to show that
                \begin{equation}
-                  x^{a+b} = x^ax^b. \label{1_1_19_1}
+                  x^{a+b} = x^ax^b. \label{1_1_19_11}
                \end{equation}
-               By Lemma 1.1.1, \eqref{1_1_19_1} holds if $b$ equals 1. So assume
+               By Lemma 1.1.1, \eqref{1_1_19_11} holds if $b$ equals 1. So assume
                that it also holds for some positive integer $k$. We now have
                that
                \begin{align*}
@@ -187,12 +250,12 @@
                              &= x^{(a+k)+1} &[\text{Lemma 1.3.2}] \\
                              &= x^{a+(k+1)}, &[\text{Associativity of addition}]
                \end{align*}
-               so that \eqref{1_1_19_1} holds for $k + 1$, and hence, by the 
+               so that \eqref{1_1_19_11} holds for $k + 1$, and hence, by the 
                Principle of Mathematical Induction, it holds for each positive
                integer $n$. \\
 
                If $a$ is 0 or $b$ is 0, then Lemma 1.1.1 tells us that
-               \eqref{1_1_19_1} holds, so the only remaining possibility is $a$ 
+               \eqref{1_1_19_11} holds, so the only remaining possibility is $a$ 
                and $b$ are negative.\footnote{If $a$ is positive and $b$ is
                negative, then interchange the roles of $a$ and $b$ in the 
                induction proof.} Now suppose that $a$ and $b$ are negative.
@@ -206,7 +269,7 @@
                \end{align*}
 
                Combining this result with part (a), we thus shown that
-               \eqref{1_1_19_1} holds for all integers $a$ and $b$. \qed
+               \eqref{1_1_19_11} holds for all integers $a$ and $b$. \qed
          \item It is clear that part (b) holds if $a$ is 0 or $b$ is 0, so let
                us complete the proof for arbritrary integers $a$ and $b$.
 

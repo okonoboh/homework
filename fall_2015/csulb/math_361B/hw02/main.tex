@@ -42,73 +42,93 @@
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\I}{\mathbb{I}}
-\newcommand{\M}{\mathbb{M}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\D}{\displaystyle}
 %\setcounter{section}{-1}
 
 \begin{document}
 \begin{enumerate}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item Prove that if $f$ is bounded on $[a, b]$ and has exactly one
-         discontinuity in $[a, b]$ then $f$ is Riemann-integrable on $[a, b]$.
-
-      \textbf{Proof.} Suppose that $f$ is bounded on $[a, b]$ and has exactly
-      one discontinuity at $c \in [a, b]$. Let $\varepsilon$ be a positive real
-      number, and let $M$ and $m$ be the supremum and infimum of $f$ on
-      $[a, b]$. We want to find a partition $P$ of $[a, b]$ such that
-      $U(P, f) - L(P, f) < \varepsilon$. Now we shall consider the following
-      cases:
-      
-      \textbf{Case 1.} $c \in (a, b)$. Consider any subinterval $[x, y]$ of
-      $[a, b]$, where $a < x < y < b$, such that $c \in [x, y]$ and
-      $$y - x < \frac{\varepsilon}{2(M-m+1)}.$$
-      By our hypothesis, $f$ is continuous on $[a, x]$ and $[y, b]$. Thus it follows
-      by Theorem 6.2 that $f$ is Riemann-integrable on $[a, x]$ and $[y, b]$.
-      So, by Theorem 6.1, there exist partitions $P_x$ of $[a, x]$ and $P_y$ of
-      $[y, b]$ such that
-      $$U(P_x, f) - L(P_x, f) < \frac{\varepsilon}{4} \text{ and }
-        U(P_y, f) - L(P_y, f) < \frac{\varepsilon}{4}.$$
-      Let $P = P_x \cup P_y$, a partition of $[a, b]$. Now let $M_c$ and $m_c$
-      be the supremum and infimum of $f$ on $[x, y]$ and observe that
-      $$U(P, f) = U(P_x, f) + U(P_y, f) + M_c(y - x) \text{ and }
-        L(P, f) = L(P_x, f) + L(P_y, f) + m_c(y - x).$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[6.9.] Let    
+               \begin{equation*}
+                  f(x) = \left\{
+                     \begin{array}{ll}
+                        x^2  & \text{if } x \in \Q \cap [a, b] \\
+                        0    & \text{if } x \in (\R - \Q) \cap [a, b]
+                     \end{array} \right.
+               \end{equation*}
+               where $a > 0$. Prove that
+               $\D\overline{\int} f = \frac{b^3-a^3}{3}$.
+               
+      \textbf{Proof.} Let $P_n$ be a regular partition of $[a, b]$. Since the
+      right endpoints of $P_n$ occur at rational numbers and since
+      $f(q_1) < f(q_2)$ for positive rational numbers $q_1$ and $q_2$, with
+      $q_1 < q_2$, it follows that the supremum of $f$ on each subinterval must
+      occur at the right endpoint. Thus
+      \begin{align*}
+         U(P_n, f) &= \sum_i^nM_i \cdot \Delta x_i \\
+            &= \sum_i^n\left(a + \frac{i}{n}(b-a)\right)^2 \frac{b-a}{n} \\
+            &= \frac{b-a}{n}\sum_i^n\left(a^2+\frac{2a}{n}(b-a)i+
+                  \frac{(b-a)^2}{n^2}i^2\right) \\
+            &= \frac{b-a}{n}\sum_i^na^2 + \frac{2a(b-a)^2}{n^2}\sum_i^ni +
+                  \frac{(b-a)^3}{n^3}\sum_i^ni^2 \\
+            &= a^2(b-a) + \frac{2a(b-a)^2}{n^2}\frac{n(n+1)}{2}+
+                  \frac{(b-a)^3}{n^3}\frac{n(n+1)(2n+1)}{6} \\
+            &= a^2(b-a) + a(b-a)^2\frac{n+1}{n}+
+                  \frac{(b-a)^3}{6}\frac{(n+1)(2n+1)}{n^2} \\
+            &= a^2(b-a) + a(b-a)^2\left(1 + \frac{1}{n}\right)+
+                  \frac{(b-a)^3}{6}\left(1+\frac{1}{n}\right)
+                  \left(2+\frac{1}{n}\right) \\
+            &= a^2(b-a) + a(b-a)^2 + \frac{a(b-a)^2}{n}+
+                  \frac{(b-a)^3}{6}\left(2+\frac{3}{n}+\frac{1}{n^2}\right) \\
+            &= ab^2-a^2b + \frac{a(b-a)^2}{n}+\frac{(b-a)^3}{3}+
+                  \frac{(b-a)^3}{2n}+\frac{(b-a)^3}{6n^2} \\
+            &= \frac{b^3-a^3}{3} +\frac{(b-a)^2(b+a)}{2n}+\frac{(b-a)^3}{6n^2}\\            
+            &= \frac{b^3-a^3}{3} +q(n),
+      \end{align*}
+      where
+      $$q(n) = \frac{(b-a)^2(b+a)}{2n}+\frac{(b-a)^3}{6n^2}.$$
+      Since $\D\overline{\int} f$ is the infimum of all the upper sums of
+      partitions of $f$, it follows that
+      $$\overline{\int} f \le \frac{b^3-a^3}{3}+q(n)$$
+      for each positive integer $n$. Now suppose to the contrary that
+      $$\overline{\int} f > \frac{b^3-a^3}{3}.$$
+      Choose $N_1$ such that
+      $$q(N_1) < \left(\overline{\int}f - \frac{b^3-a^3}{3}\right).$$
       Thus
       \begin{align*}
-         U(P, f) - L(P, f) &= U(P_x, f) - L(P_x, f) + U(P_y, f) - L(P_y, f) +
-          (M_c - m_c)(y - x) \\
-          &\le \frac{\varepsilon}{4} + \frac{\varepsilon}{4} + (M - m)(y - x) \\
-          &<\frac{\varepsilon}{2} + (M - m)\frac{\varepsilon}{2(M-m+1)} \\
-          &< \varepsilon.
+         \overline{\int}f &= \left(\overline{\int}f - \frac{b^3-a^3}{3}\right) + \frac{b^3-a^3}{3} \\
+           &> q(N_1) + \frac{b^3-a^3}{3},
       \end{align*}
+      a contradiction, since we just showed that 
+      $$\overline{\int} f \le \frac{b^3-a^3}{3}+q(n)$$
+      for each positive integer $n$. Thus
+      $$\overline{\int} f \le \frac{b^3-a^3}{3}.$$
       
-      \textbf{Case 2.} $c = a$. So let $[y, b]$ be a subinterval of $[a, b]$,
-      with $y > a$, such that
-      $$y - a < \frac{\varepsilon}{2(M-m+1)};$$
-      also let $M_c$ and $m_c$ denote the supremum and infimum of $f$ on
-      $[a, y]$. Because it is continuous on $[y, b]$, $f$ is Riemann-integrable by Theorem
-      6.2, and thus by Theorem 6.1, there exists a partition $P_y$ of $[y, b]$
-      such that $$U(P_y, f) - L(P_y, f) < \frac{\varepsilon}{2}.$$
-      
-      Let $P = \{a\} \cup P_y$, a partition of $[a, b]$. Thus
+      Let $\varepsilon$ be a positive real number. It follows by Theorem 6.4
+      that there exists a $\delta > 0$ such that
+      $U(P, f) < \varepsilon + \overline{\int} f$, whenever $||P|| < \delta$. So
+      choose $N'$ such that $||P_{N'}|| < \delta$. Thus it follows that
+      $$U(P_{N'}, f) < \varepsilon + \overline{\int} f$$
+      and thus
+      $$\frac{b^3-a^3}{3} + q(n) < \varepsilon + \overline{\int} f$$      
+      for all $n \ge N'$. We can similarly argue by contradiction that
+      \begin{equation}\label{9_1}
+         \frac{b^3-a^3}{3} < \varepsilon + \overline{\int} f.
+      \end{equation}
+      Finally suppose to the contrary that
+      $\D\frac{b^3-a^3}{3} > \overline{\int} f$. So it follows from \eqref{9_1}
+      that
       \begin{align*}
-         U(P, f) - L(P, f) &= [M_c(y - a) + U(P_y, f)] -
-            [m_c(y - a) + L(P_y, f)] \\
-            &= (M_c - m_c)(y - a) + U(P_y, f) - L(P_y, f) \\
-          &\le (M - m)(y - a) + \frac{\varepsilon}{2} \\
-          &<(M - m)\frac{\varepsilon}{2(M-m+1)} + \frac{\varepsilon}{2} \\
-          &< \varepsilon.
+         \varepsilon > \frac{b^3-a^3}{3} - \overline{\int} f > 0
       \end{align*}
-      
-      \textbf{Case 3.} $c = b$. This is similar to Case 2. So we can exploit the
-      symmetry to conclude that $U(P, f) - L(P, f) < \varepsilon$ for some
-      partition $P$ of $[a, b]$. \\
-      
-      In all cases, we showed that $U(P, f) - L(P, f) < \varepsilon$ for some
-      partition $P$ of $[a, b]$. We can then conclude by Theorem 6.1 that $f$ is
-      Riemann-integrable on $[a, b]$. \qed
-      
-      
-      
+      contradicting our assumption that $\varepsilon$ was an arbitrary positive
+      real number. Thus we have that
+      $$\frac{b^3-a^3}{3} \le \overline{\int} f$$
+      and since
+      $$\overline{\int} f \le \frac{b^3-a^3}{3}$$
+      we conclude that
+      $$\overline{\int} f = \frac{b^3-a^3}{3}.$$ \qed      
 \end{enumerate}
 \end{document}
