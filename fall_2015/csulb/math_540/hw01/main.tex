@@ -159,30 +159,30 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.19%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.1.19]  Let $x \in G$ and let $a, b \in \Z^+$.
                   \begin{enumerate}
-                     \item Prove that $x^{a+b} = x^ax^b$.
-                     \item Prove that $(x^a)^b = x^{ab}$.
+                     \item Prove that $x^{a+b} = x^ax^b$ \text{ and }
+                           $(x^a)^b = x^{ab}$.
                      \item Prove that $(x^a)^{-1} = x^{-a}$.
                      \item Establish part (a) for arbitrary integers $a$ and $b$
                            (positive, negative or zero).
-                     \item Establish part (b) for arbitrary integers $a$ and $b$
-                           (positive, negative or zero).
                   \end{enumerate}
                
-      \textbf{Proof.} Fix positive integers $a$ and $b$. We shall be making use
-      of the following definitions
-      $$x^1 = x \text{ and, for each $m \in \Z^+$, } x^{m+1} = x^mx^1,$$
+      \textbf{Proof.} Fix positive integers $a$ and $b$, a group $G$, and
+      $x \in G$. We shall be making use of the following definitions: 
+      $$x^0 = 1, x^1 = x \text{ and, for each $m \in \Z^+$, }
+        x^{m+1} = x^mx^1,$$
       and
       $$\text{for each } p \in \Z^+, x^{-p} = (x^{-1})^p.$$
       
       \begin{enumerate}
-         \item Now we want to show that
+         \item First, we shall prove that
                \begin{equation} \label{1_1_19_1}
                   x^{a+n} = x^ax^n 
-               \end{equation}
+               \end{equation}               
                holds for each positive integer $n$. So we shall proceed by
                induction. Statement \eqref{1_1_19_1} holds for the base
-               case ($n = 1$) by definition. So assume that \eqref{1_1_19_1}
-               holds for some positive integer $k$. Thus it follows that
+               case ($n = 1$) by definition. So, for our inductive hypothesis,
+               assume that \eqref{1_1_19_1} holds for some positive integer $k$.
+               Thus it follows that
                \begin{align*}
                   x^{a+(k+1)} &=x^{(a+k)+1}&[\text{Associativity of addition}]\\
                      &= x^{a+k}x^1  &[\text{Definition}] \\
@@ -190,16 +190,19 @@
                      &= x^a(x^kx^1) &[\text{Associativity of group operation}]\\
                      &= x^ax^{k+1}.  &[\text{Definition}]
                \end{align*}
-               Hence \eqref{1_1_19_1} holds for each positive integer $n$.
-               Particularly we have that $x^{a+b} = x^ax^b$. \\ \mbox{ } \qed
-         \item Next, we shall show by induction that
+               That is, \eqref{1_1_19_1} holds for $k + 1$. Hence, by induction,
+               \eqref{1_1_19_1} holds for each positive integer $n$.
+               Particularly, it follows that that $x^{a+b} = x^ax^b$. \\
+               \mbox{ } \qed \\
+               
+               Now we shall show by induction that
                \begin{equation} \label{1_1_19_2}
                   (x^a)^n = x^{an} 
                \end{equation}
                for each positive integer $n$. Statement \eqref{1_1_19_2} holds
-               trivially whenever $n = 1$, the base case. For our inductive
-               hypothesis, we shall now assume that \eqref{1_1_19_2} holds for a
-               positive integer $k$. So
+               trivially for the base case ($n = 1$). For our inductive
+               hypothesis, we shall now assume that \eqref{1_1_19_2} holds for
+               some positive integer $k$. So
                \begin{align*}
                   (x^a)^{k+1} &= (x^a)^k(x^a)^1 &[\text{Definition}] \\
                      &= (x^a)^kx^a &[\text{Base case}] \\
@@ -207,18 +210,21 @@
                      &= x^{ak+a} &[1.1.19 (a)] \\
                      &= x^{a(k+1)}.
                \end{align*}
-               Hence \eqref{1_1_19_2} holds for each positive integer $n$.
-               Particularly we have that $(x^a)^b = x^{ab}$. \\ \mbox{ } \qed
-         \item Now consider the statement
+               That is, \eqref{1_1_19_2} holds for $k + 1$, and we conclude by
+               induction that it also holds for each positive integer $n$.
+               Particularly, we have that $(x^a)^b = x^{ab}$. \\
+               \mbox{ } \qed
+         \item For a positive integer $n$, consider the statement
                \begin{equation} \label{1_1_19_3}
                   x^{-n} = (x^n)^{-1}. 
                \end{equation}
-               Observe that
+               
+               We shall use induction to prove \eqref{1_1_19_3}. Observe that
                \begin{align*}
                   x^{-1} &= (x)^{-1} \\
                          &= (x^1)^{-1}. &[x^1 = x \text{ by definition}]
                \end{align*}
-               That is, \eqref{1_1_19_3} holds for the base case, $n = 1$. For
+               That is, \eqref{1_1_19_3} holds for the base case: $n = 1$. For
                the inductive hypothesis, assume that \eqref{1_1_19_3} holds for
                some positive integer $k$. It follows that
                \begin{align*}
@@ -232,81 +238,111 @@
                              &= (x^{k+1})^{-1}.
                                  &[\text{Commutativity of addition}]
                \end{align*}
-               We have thus shown that \eqref{1_1_19_3} for each positive
-               integer $n$; particularly, we have that
-               $$(x^a)^{-1} = x^{-a}.$$
-         \item Now suppose that $a$ is an integer and $b$ is a positive integer.
-               We shall induct on $b$ to show that
-               \begin{equation}
-                  x^{a+b} = x^ax^b. \label{1_1_19_11}
+               We have thus shown that \eqref{1_1_19_3} also holds for $k+1$;
+               hence, by induction, it also holds for each positive integer $n$;
+               particularly, we have that
+               $$(x^a)^{-1} = x^{-a}.$$ \qed
+         \item We now must establish 
+               \begin{equation} \label{1_1_19_5}
+                  x^{m+n} = x^mx^n
                \end{equation}
-               By Lemma 1.1.1, \eqref{1_1_19_11} holds if $b$ equals 1. So assume
-               that it also holds for some positive integer $k$. We now have
-               that
+               for all integers $m$ and $n$. Statement \eqref{1_1_19_5} is
+               trivial whenever $m$ or $n$ is 0, and we already showed that it
+               also holds for positive $m$ and $n$. So consider the following
+               cases:
+               
+               \textbf{Case 1.} $m$ and $n$ are both negative. Let $c = -m$ and
+               $d = -n$; that is, $c$ and $d$ are both positive. Hence
+               
                \begin{align*}
-                  x^ax^{k+1} &= x^ax^kx^1 &[\text{Lemma 1.1.1}] \\
-                             &= (x^ax^k)x^1 \\
-                             &= x^{a+k}x^1 &[\text{Inductive hypothesis}] \\
-                             &= x^{(a+k)+1} &[\text{Lemma 1.3.2}] \\
-                             &= x^{a+(k+1)}, &[\text{Associativity of addition}]
+                  x^{m+n} &= x^{-(c+d)} \\
+                     &= (x^{-1})^{c+d} &[\text{By definition}] \\
+                     &= (x^{-1})^c(x^{-1})^d &[\text{1.1.19 (a)}] \\
+                     &= x^{-c}x^{-d} &[\text{By definition}] \\
+                     &= x^mx^n.
                \end{align*}
-               so that \eqref{1_1_19_11} holds for $k + 1$, and hence, by the 
-               Principle of Mathematical Induction, it holds for each positive
-               integer $n$. \\
-
-               If $a$ is 0 or $b$ is 0, then Lemma 1.1.1 tells us that
-               \eqref{1_1_19_11} holds, so the only remaining possibility is $a$ 
-               and $b$ are negative.\footnote{If $a$ is positive and $b$ is
-               negative, then interchange the roles of $a$ and $b$ in the 
-               induction proof.} Now suppose that $a$ and $b$ are negative.
-               Hence
+               
+               \textbf{Case 2.} $m$ and $n$ have different signs. Assume without
+               loss of generality that $m$ is positive and $n$ is negative.
+               \begin{quote}
+               \textbf{Case 2(i)} $m + n > 0$. Since $m+n$ and $-n$ are both
+               positive, it follows by 1.1.19(a) that
+               \begin{equation} \label{1_1_19_6}
+                  x^{m+n}x^{-n} = x^{m+n+(-n)} = x^m.
+               \end{equation}
+               1.1.19(b) tells us that $x^{-n} = (x^n)^{-1}$. Thus we will
+               multiply \eqref{1_1_19_6} on the right by $x^n$ to get
+               $$x^{m+n} = x^mx^n.$$
+               \end{quote}
+               
+               \begin{quote}               
+               \textbf{Case 2(ii)} $m + n < 0$. Let $c = -n$ and $d = -m$, so
+               that $c + d > 0$. Then it follows that
                \begin{align*}
-                  x^ax^b &= x^{-(-a)}x^{-(-b)} \\
-                     &= (x^{-1})^{-a}(x^{-1})^{-b} &[\text{Definition}] \\
-                     &= (x^{-1})^{(-a + (-b))} &[\text{Part (a)}] \\
-                     &= x^{-(-a + (-b))} &[\text{Definition}] \\
-                     &= x^{a+b}.
+                  x^{m+n} &= x^{-(c+d)} \\
+                     &= (x^{-1})^{c+d} &[\text{By definition}] \\
+                     &= (x^{-1})^c(x^{-1})^d &[\text{Case 2(i)}]\\
+                     &= x^{-c}x^{-d} \\
+                     &= x^nx^m = x^mx^n.
+               \end{align*}
+               \end{quote}
+               
+               \begin{quote}               
+               \textbf{Case 2(iii)} $m + n = 0$. That is
+               \begin{align*}
+                  x^{m+n} &= x^0 \\
+                     &= 1 &[\text{By definition}] \\
+                     &= x^m(x^m)^{-1} \\
+                     &= x^mx^{-m} &[\text{1.1.19(b)}] \\
+                     &= x^mx^n.
+               \end{align*}
+               \end{quote}
+         
+               Finally we want to prove that
+               \begin{equation} \label{1_1_19_4}
+                  (x^m)^n = (x^{mn}).
+               \end{equation}
+               for arbitrary integers $m$ and $n$. Statement \eqref{1_1_19_4}
+               trivially holds whenever $m$ or $n$ is 0. We have already shown
+               that \eqref{1_1_19_4} holds whenever $m$ and $n$ are both
+               positive. So we shall investigate the remaining cases.
+
+               \textbf{Case 1.} \textit{$m$ is positive and $n$ is negative}. 
+               Let $c = -n$, a positive integer. So
+               \begin{align*}
+                  (x^m)^n &= (x^m)^{-c} \\
+                          &= [(x^m)^{-1}]^c &[\text{By definition}] \\
+                          &= (x^{-m})^c &[\text{1.1.19 (b)}] \\
+                          &= [(x^{-1})^m]^c &[\text{By definition}] \\
+                          &= (x^{-1})^{mc} &[\text{1.1.19 (a)}] \\
+                          &= x^{(-mc)} &[\text{By definition}] \\
+                          &= x^{mn}.
                \end{align*}
 
-               Combining this result with part (a), we thus shown that
-               \eqref{1_1_19_11} holds for all integers $a$ and $b$. \qed
-         \item It is clear that part (b) holds if $a$ is 0 or $b$ is 0, so let
-               us complete the proof for arbritrary integers $a$ and $b$.
-
-               \textbf{Case 1:} \textit{$a$ is positive and $b$ is negative}. 
-               Hence
+               \textbf{Case 2.} \textit{$m$ and $n$ are both negative}. Let 
+               $c = -m$, a positive integer. Thus
                \begin{align*}
-                  (x^a)^b &= (x^a)^{-(-b)} \\
-                          &= [(x^a)^{-1}]^{-b} &[\text{Definition}] \\
-                          &= (x^{-a})^{-b} &[\text{Part (c)}] \\
-                          &= [(x^{-1})^a]^{-b} &[\text{Definition}] \\
-                          &= (x^{-1})^{-ab} &[\text{Part (b)}] \\
-                          &= x^{-(-ab)} &[\text{Definition}] \\
-                          &= x^{ab}.
+                  (x^m)^n &= (x^{-c})^n \\
+                          &= [(x^{-1})^c]^n &[\text{By definition}] \\
+                          &= (x^{-1})^{cn} &[\text{Case 1}] \\
+                          &= (x^{-1})^{-(mn)} \\
+                          &= [(x^{-1})^{-1}]^{mn}. &[\text{Definition}] \\
+                          &= x^{mn}. &[\text{Proposition 1 (3)}]
                \end{align*}
 
-               \textbf{Case 2:} \textit{$a$ and $b$ are negative}. Thus
+               \textbf{Case 3.} \textit{$m$ is negative and $n$ is positive}.
+               Let $c = -m$, a positive integer. Thus
                \begin{align*}
-                  (x^a)^b &= [x^{-(-a)}]^b \\
-                          &= [(x^{-1})^{-a}]^b &[\text{Definition}] \\
-                          &= (x^{-1})^{-ab} &[\text{Case 1}] \\
-                          &= [(x^{-1})^{-1}]^{ab}. &[\text{Definition}] \\
-                          &= x^{ab}. &[\text{Proposition 1 (3)}]
-               \end{align*}
-
-               \textbf{Case 3:} \textit{$a$ is negative and $b$ is positive}. 
-               Thus
-               \begin{align*}
-                  (x^a)^b &= [x^{-(-a)}]^b \\
-                          &= [(x^{-1})^{-a}]^b &[\text{Definition}] \\
-                          &= (x^{-1})^{-ab} &[\text{Case 1}] \\
-                          &= x^{-(-ab)} &[\text{Definition}] \\
-                          &= x^{ab}.
+                  (x^m)^n &= [x^{-c}]^n \\
+                          &= [(x^{-1})^c]^n &[\text{By definition}] \\
+                          &= (x^{-1})^{cn} &[\text{Case 1}] \\
+                          &= x^{-cn} &[\text{By definition}] \\
+                          &= x^{mn}.
                \end{align*}
 
                Combining these results with part (a), we can conclude that
-               $(x^a)^b = x^{ab}$ holds for all integers $a$ and $b$ and
-               $x \in G$. \qed
+               \eqref{1_1_19_4} and \eqref{1_1_19_5} hold for all integers $m$
+               and $n$. \qed
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.2.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.2.3]   Use the generators and relations above to show that every
@@ -314,19 +350,23 @@
                   Deduce that $D_{2n}$ is generated by the two elements $s$ and
                   $sr$, both of which have order 2.
                   
-      \textbf{Proof.} Suppose that $x \in D_{2n}$ such that $x$ is not an
-      integral power of $r$. Thus $x = sr^i$, with $0 \le i < n$ so that
+      \textbf{Proof.} Let $x \in D_{2n}$. Now suppose that $x$ is not an
+      integral power of $r$. That is, $x$ is not one of the rotations. Thus
+      we can write $x = sr^i$, for some $0 \le i < n$. Notice that that
+      $|x| \le 2$ because
       \begin{align*}
          x^2 &= (sr^isr^i) \\
-             &= (sr^ir^{-i}s) &[\text{Lemma 1.2.1}] \\
+             &= (sr^ir^{-i}s) \\
              &= s1s \\
              &= s^2 = 1.
       \end{align*}
-      That is, $|x| \le 2$. Now $sr^i \neq 1$ because $s \neq r^j$ for any
-      integer $j$, so that we can conclude that $|x| = 2$. Recall: for
-      $w \in D_{2n}$, there exist integers $x$ and $y$, such that $w = s^xr^y$.
-      That is, $w = s^x(ssr)^y$. This says that $D_{2n}$ is generated by $s$ and
-      $sr$. \qed
+      From our discussion in class, we know that $sr^i \neq 1$ because
+      $s \neq r^j$ for every integer $j$; that is, $|x| = 1$, and we conclude
+      that $|x| = 2$. Recall that $s$ and $r$ generate $D_{2n}$. So in order to
+      show that $s$ and $sr$ also generate $D_{2n}$, it suffices to show that
+      $s$ and $r$ are in the set generated by $s$ and $sr$. This follows
+      immediately since
+      $$s = s^1(sr)^0 \text{ and } r = s^1(sr)^1.$$ \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.2.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.2.4]   If $n = 2k$ is even and $n \ge 4$, show that $z = r^k$ is an
                   element of order 2 which commutes with all elements of
