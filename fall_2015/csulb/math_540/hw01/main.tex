@@ -54,7 +54,7 @@
 
 \begin{document}
 \begin{enumerate}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%L.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[]        \textbf{Lemma 1.} \textit{If $g$ is an element of a group
                   such that $g^m = 1$, then $|g|$ must divide $m$.}
 
@@ -69,6 +69,31 @@
                   If $0 < r < n$, then this will contradict the fact that the
                   order of $g$ is $n$, so we are forced to conclude that
                   $r = 0$. That is, $m = qn$, as desired. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%L.2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[]        \textbf{Lemma 2.} \textit{Let $r$ and $s$ be the generators of
+                  $D_{2n}$. Then the statement}
+                  \begin{equation} \label{L1_1}
+                     r^is = sr^{-i}
+                  \end{equation}
+                  \textit{holds for all positive integers $i$.}
+
+                  \textbf{Proof.} Proceed by induction on $i$. The base
+                  case($i = 1$) follows trivially from the presentation of
+                  $D_{2n}$. Now assume that \eqref{L1_1} also holds for some
+                  positive integer $k$. Then it follows that
+                  \begin{align*}
+                     r^{k+1}s &= (r^kr)s &[\text{Exercise 1.1.19(a)}] \\
+                        &= r^k(rs) &[\text{Associativity}] \\
+                        &= r^k(sr^{-1}) &[\text{Relation in presentation}] \\
+                        &= (r^ks)r^{-1} &[\text{Associativity}] \\
+                        &= (sr^{-k})r^{-1} &[\text{Inductive hypothesis}] \\
+                        &= s(r^{-k}r^{-1}) &[\text{Associativity}] \\
+                        &= sr^{-(k+1)} &[\text{Exercise 1.1.19(c)}], \\
+                  \end{align*}
+                  so that \eqref{L1_1} also holds for $k+1$. Thus it follows by
+                  induction that it holds for each positive integer $i$. \qed
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.1.6]   Determine which of the following sets are groups under
                   addition:
                   \begin{enumerate}
@@ -413,7 +438,7 @@
       \textbf{Case 1.} \textit{$y = r^i$, with $1 \le i < n$.} (Note that we
       left out the identity since it has order 1.) Now we must particularly have 
       that $y$ commutes with $s$. Using Lemma 2, we have that
-      $r^{-i}s = sr^i = r^is$, so that $r^{-i} = r^i$. Multiply the preceding 
+      $rs = sr^i = r^is$, so that $r^{-i} = r^i$. Multiply the preceding 
       equality by $r^i$ to obtain $r^{2i} = 1$. It follows by Lemma 1 that
       $n = 2k \mid 2i$, or equivalently, $k \mid i$, so that $i$ is a multiple
       of $k$. Since $i$ is positive and less than $n$, and since $k = n/2$, it 
