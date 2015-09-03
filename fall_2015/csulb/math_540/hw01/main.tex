@@ -80,12 +80,11 @@
                is a group under addition.
 
                \textbf{Proof.} First we want show that $S$ is closed under 
-               addition. Notice that $S$ is nonempty since it contains
-               $\frac{7}{5}$, so let $r, s \in S$. By definition of $S$, we have
-               that $r = \frac{a_1}{b_1}$ and $s = \frac{a_2}{b_2}$ for some
-               integers $a_1$ with $a_2$, odd integers $b_1$ and $b_2$, and
-               $\gcd(a_1, b_1) = \gcd(a_2, b_2) = 1$.
-               It follows that
+               addition. Notice that $S$ is nonempty since it contains 7/5, so
+               let $r, s \in S$. By definition of $S$, we have that
+               $r = \frac{a_1}{b_1}$ and $s = \frac{a_2}{b_2}$ for some
+               integers $a_1$, $a_2$, and odd integers $b_1$ and $b_2$, such
+               that $\gcd(a_1, b_1) = \gcd(a_2, b_2) = 1$. It follows that
                \begin{align*}
                   r + s &= \frac{a_1}{b_1} + \frac{a_2}{b_2} \\
                         &= \frac{a_1b_2 + a_2b_1}{b_1b_2}.
@@ -97,10 +96,10 @@
                the denominator of this lowest term will still be odd. Hence
                $r + s \in S$, so that $S$ is closed under addition. To complete 
                the proof we must now show that $S$ satisfies the group axioms. 
-               We observe that $0/1$ is the identity element in $S$. Also, it is 
-               clear that for all $s \in S$, we have $-s \in S$, so that every 
+               We observe that $0/1$ is the identity element in $S$ and that, 
+               for all $s \in S$, we have $-s \in S$, so that every 
                element of $S$ has an inverse under addition. Since
-               $S \subseteq \Q$, and since $\Q$ is associative under addition, 
+               $S \subset \Q$, and since $\Q$ is associative under addition, 
                it follows that $S$ is also associative under addition. Thus $S$ 
                satisfies the group axioms, so that $(S, +)$ is a group. \qed
          \item The set
@@ -109,7 +108,8 @@
                         \gcd(a, b) = 1\right\},$$
                is not a group under addition because it is not closed. Indeed,
                we have $\frac{3}{14} \in S$, but
-               $\frac{3}{14} + \frac{3}{14} = \frac{3}{7} \notin S$.
+               $\frac{3}{14} + \frac{3}{14} = \frac{3}{7} \notin S$ because 7 is
+               not even.
          \item The set
                $$S = \left\{\frac{a}{b} \in \Q : a, b \in \Z \text{ with }
                   b \neq 0, \text{ and }
@@ -130,25 +130,24 @@
                    b = 1 \text{ or } b = 2\right\},$$
                is a group under addition.
 
-               \textbf{Proof.} It is clear that 0 is the identity for $S$ under
-               addition, that $S$ is associative under addition (because
-               $S \subset \Q$ and $\Q$ is associative under addition), and that
-               the inverse of an element in $S$ is its additive inverse in $\Q$.
-               So to complete the proof, we need only show that $S$ is closed
-               under addition. To that end, let
-               $\frac{a_1}{b_1}, \frac{a_2}{b_2} \in S$.
+               \textbf{Proof.} The number $0/1 = 0$ is the identity for $S$
+               because $0 \in S$ and $s + 0 = 0 + s = s$ for all $s \in S$. The
+               set $S$ is associative under addition because $S \subset \Q$ and
+               $\Q$ is associative under addition. Finally, if the denominator
+               of a rational number $s$ is 1 or 2, then it trivially follows
+               that $-s$ has the same property. Thus $-s \in S$, and we have
+               that $S$ is closed under inverses. So to complete the proof, we
+               need only show that $S$ is closed under addition. To that end,
+               let $\frac{a_1}{b_1}, \frac{a_2}{b_2} \in S$. Assume without loss
+               of generality that $b_1 = b_2 = 2$ (if either is 1, simply
+               multiply the numerator and denominator by 2). So it follows that
+               $$\frac{a_1}{2} + \frac{a_2}{2} = \frac{a_1+a_2}{2}.$$
                
-               \textbf{Case 1.} $b_1 = b_2 = 1$. Then
-               $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1+a_2}{1} \in S.$$
-               
-               \textbf{Case 2.} $b_1 = 1$ and $b_2 = 2$. Then
-               $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{2a_1+a_2}{2} \in S.$$
-               
-               \textbf{Case 3.} $b_2 = 1$ and $b_1 = 2$. Use Case 2, with the
-               roles of $b_2$ and $b_1$ interchanged.
-               
-               \textbf{Case 4.} $b_1 = b_2 = 2$. Then
-               $$\frac{a_1}{b_1} + \frac{a_2}{b_2} = \frac{a_1+a_2}{2} \in S.$$
+               If $a_1 + a_2$ is odd, then the sum above is a member of $S$.
+               Also, if $a_1 + a_2$ is even, then we can reduce the sum to
+               $\frac{c_1}{1} \in S$, where $2c_1 = a_1 + a_2$. In either case,
+               we have shown that $S$ is closed under addition. Thus we conclude
+               that $(S, +)$ is a group. \qed
          \item The set
                $$S = \left\{\frac{a}{b} \in \Q : a \in \Z \text{ and }
                    b \in \{1, 2, 3\} \right\},$$
