@@ -55,7 +55,7 @@
 \begin{document}
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[]        \textbf{Lemma 1} \textit{If $g$ is an element of a group
+   \item[]        \textbf{Lemma 1.} \textit{If $g$ is an element of a group
                   such that $g^m = 1$, then $|g|$ must divide $m$.}
 
                   \textbf{Proof.} Let $g$ be an element of some group. Suppose
@@ -387,28 +387,38 @@
                   of $D_{2n}$ which commutes with all elements of $D_{2n}$. [cf.
                   Exercise 33 of Section 1.]
                   
-      \textbf{Proof.} Consider $D_{2n}$ where $n = 2k$ for some positive integer
-      $k \ge 2$. Let $z = r^k$. Since $k < n$ and since $|r| = n$, it must be
+      \textbf{Proof.} Let $r$ and $s$ be the generators of the dihedral group,
+      $D_{2n}$. Suppose that $n = 2k$ for some positive integer $k \ge 2$.
+      Let $z = r^k$. Since $k < n$ and since $|r| = n$, it must be
       the case that $|z| \neq 1$, so that $|z| \ge 2$. Now we have that
       $z^2 = r^kr^k = r^{2k} = r^n = 1$; i.e, $|z| = 2$. In particular, since
-      $r^kr^k = 1$, it follows that $r^{-k} = r^k$. It is clear that $z$
-      commutes with all elements that are integral powers of $r$. So consider
-      $sr^i$, with $0 \le i < n$. Then we have that
+      $r^kr^k = 1$, it follows that $r^{-k} = r^k$. Since $z$ is an integral
+      power of $r$, it must also commute with all elements that are integral 
+      powers of $r$. From our discussion in class, we know that an element of
+      $D_{2n}$ is either an integral power of $r$ or $s$ times an integral power
+      of $r$. So we now want to show that $z$ commutes with the latter type.
+      Thus consider $sr^i$, with $0 \le i < n$. Then we have that
       \begin{align*}
-         zsr^i &= r^ksr^i \\
-               &= sr^{-k}r^i  &[\text{Lemma 2}] \\
-               &= sr^kr^i     &[r^k = r^{-k}] \\
-               &= sr^ir^k = sr^iz.
+         z(sr^i) &= (r^k)sr^i = (r^ks)r^i  \\
+               &= (sr^{-k})r^i  &[\text{Lemma 2}] \\
+               &= (sr^k)r^i     &[r^k = r^{-k}] \\
+               &= s(r^kr^i) = s(r^ir^k) = (sr^i)r^k = (sr^i)z.
       \end{align*}
-      That is $z$ commutes with all elements of $D_{2n}$. Now we want to show
+      That is, $z$ commutes with all elements of $D_{2n}$. Now we want to show
       that $z$ is the only nonidentity element of $D_{2n}$ that commutes with
       every element of $D_{2n}$. So let $y \in D_{2n}$ be such an element (we
-      already showed that at least one, $r^k$, exists).
+      already showed that at least one---$r^k$---exists). As previously stated,
+      $y$ must be either of two forms, which we will now investigate:
       
-      \textbf{Case 1.} \textit{$y = r^i$, with $1 \le i < n$.} Particularly, we
-      must have that $y$ commutes with $s$. Using Lemma 2, we have that
-      $r^{-i}s = sr^i = r^is$, so that $r^{-i} = r^i$. Then we must have that
-      $r^{2i} = 1$, so that by Exercise 1.1.33, we have $i = k$.
+      \textbf{Case 1.} \textit{$y = r^i$, with $1 \le i < n$.} (Note that we
+      left out the identity since it has order 1.) Now we must particularly have 
+      that $y$ commutes with $s$. Using Lemma 2, we have that
+      $r^{-i}s = sr^i = r^is$, so that $r^{-i} = r^i$. Multiply the preceding 
+      equality by $r^i$ to obtain $r^{2i} = 1$. It follows by Lemma 1 that
+      $n = 2k \mid 2i$, or equivalently, $k \mid i$, so that $i$ is a multiple
+      of $k$. Since $i$ is positive and less than $n$, and since $k = n/2$, it 
+      follows that the only multiple of $k$ in the interval $[1, n)$ is $k$.
+      Thus $k = i$, and we have that $y = r^i = r^k = z$.
       
       \textbf{Case 2.} \textit{$y = sr^i$, with $0 \le i < n$.} Particularly, we
       must have that $y$ commutes with $r$. Then we have that
