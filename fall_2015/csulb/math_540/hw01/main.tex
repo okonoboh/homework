@@ -75,12 +75,14 @@
                   \begin{equation} \label{L1_1}
                      r^is = sr^{-i}
                   \end{equation}
-                  \textit{holds for all positive integers $i$.}
+                  \textit{holds for all non-negative integers $i$.}
 
                   \textbf{Proof.} Proceed by induction on $i$. The base
-                  case($i = 1$) follows trivially from the presentation of
-                  $D_{2n}$. Now assume that \eqref{L1_1} also holds for some
-                  positive integer $k$. Then it follows that
+                  case($i = 0$) holds trivially (additionally, \eqref{L1_1}
+                  also holds by observing the relations in the the presentation
+                  of $D_{2n}$). Now, for the inductive hypothesis, assume that
+                  \eqref{L1_1} also holds for some positive integer $k$. Then it
+                  follows that
                   \begin{align*}
                      r^{k+1}s &= (r^kr)s &[\text{Exercise 1.1.19(a)}] \\
                         &= r^k(rs) &[\text{Associativity}] \\
@@ -92,7 +94,53 @@
                   \end{align*}
                   so that \eqref{L1_1} also holds for $k+1$. Thus it follows by
                   induction that it holds for each positive integer $i$. \qed
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%L.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[]        \textbf{Lemma 3.} \textit{Let $n$ be a positive integer.
+                  If $a_1$, $a_2$, $\ldots$, $a_m$, are mutually commuting
+                  elements of a group, then}
+                  \begin{equation} \label{L3_1}
+                     (a_1a_2\ldots a_m)^n = {a_1}^n{a_2}^n\ldots{a_m}^n
+                  \end{equation}
+                  \textit{for each positive integer $m$.}
+    
+      \textbf{Proof.} Suppose $a$ and $b$ be commuting elements of some group.
+      We shall first show by induction on $n$ that
+      \begin{equation} \label{L3_2}
+         (ab)^n = a^nb^n.
+      \end{equation}
+      The base case ($n=1$) is a trivial since $(ab)^1 = ab = a^1b^1$. For the
+      inductive hypothesis, assume that \eqref{L3_2} holds for some positive
+      integer $k$. Then it follows that
+      \begin{align*}
+         (ab)^{k+1} &= (ab)^kab &[\text{Exercise 1.1.19(a)}] \\
+            &= (a^kb^k)ab &[\text{Inductive hypothesis}] \\
+            &= a^k(b^ka)b &[\text{Associativity}] \\
+            &= a^k(ab^k)b &[\text{$a$ commutes with $b$}] \\
+            &= (a^ka)(b^kb) &[\text{Associativity}] \\
+            &= a^{k+1}b^{k+1} &[\text{Exercise 1.1.19(a)}],
+      \end{align*}
+      so that \eqref{L3_2} holds for $k+1$. Hence, by induction, \eqref{L3_2}
+      holds for each positive integer $n$. Now we want to prove \eqref{L3_1} by
+      induction on $m$. The base case $m=1$ is trivial and we have just shown,
+      in \eqref{L3_2},
+      that the case $m = 2$ also holds. So assume, for the inductive hypothesis,
+      that \eqref{L3_1} holds for some positive integer $j$. Now suppose that
+      $b_1$, $b_2$, $\ldots$, $b_j$, $b_{j+1}$, are mutually commuting elements
+      of some group, and let $p$ be a positive integer. Since the $b_i$ elements
+      are mutually commuting, it follows that the order of the elements in the
+      product is irrelevant; that is,
+      $$(b_1b_2\ldots b_j) b_{j+1} = b_{j+1}(b_1b_2\ldots b_j).$$
+      Apply \eqref{L3_2} to the preceding equality (with $n = p$,
+      $a = (b_1b_2\ldots b_j)$, and $b = b_{j+1}$) to get
+      $$[(b_1b_2\ldots b_j) b_{j+1}]^p = (b_1b_2\ldots b_j)^p {b_{j+1}}^p.$$
+      Finally we have that
+      \begin{align*}
+         (b_1b_2\ldots b_jb_{j+1})^p &= (b_1b_2\ldots b_j)^p {b_{j+1}}^p \\
+            &= {b_1}^p{b_2}^p\ldots{b_j}^p{b_{j+1}}^p.
+               &[\text{Inductive hypothesis}]
+      \end{align*}
+      That is, \eqref{L3_1} holds for $j+1$, and we can conclude, by induction,
+      that it holds for each integer $m$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.1.6]   Determine which of the following sets are groups under
                   addition:
@@ -121,26 +169,32 @@
                \textbf{Proof.} First we want show that $S$ is closed under 
                addition. Notice that $S$ is nonempty since it contains 7/5, so
                let $r, s \in S$. By definition of $S$, we have that
-               $r = \frac{a_1}{b_1}$ and $s = \frac{a_2}{b_2}$ for some
-               integers $a_1$, $a_2$, and odd integers $b_1$ and $b_2$, such
-               that $\gcd(a_1, b_1) = \gcd(a_2, b_2) = 1$. It follows that
+               $r = \frac{r_1}{r_2}$ and $s = \frac{s_1}{s_2}$ for some
+               integers $r_1$, $s_1$, and odd integers $r_2$ and $s_2$, such
+               that $\gcd(r_1, r_2) = \gcd(s_1, s_2) = 1$. It follows that
                \begin{align*}
-                  r + s &= \frac{a_1}{b_1} + \frac{a_2}{b_2} \\
-                        &= \frac{a_1b_2 + a_2b_1}{b_1b_2}.
+                  r + s &= \frac{r_1}{r_2} + \frac{s_1}{s_2} \\
+                        &= \frac{r_1s_2 + r_2s_1}{r_2s_2}.
                \end{align*}
 
-               Since $b_1$ and $b_2$ are both odd, it must necessarily be the 
-               case that $b_1b_2$ is also odd. In order words, $b_1b_2$ contains 
+               Since $r_2$ and $s_2$ are both odd, it must necessarily be the 
+               case that $r_2s_2$ is also odd. In order words, $r_2s_2$ contains 
                no factor of 2, so that if we reduce $r + s$ to its lowest term, 
                the denominator of this lowest term will still be odd. Hence
                $r + s \in S$, so that $S$ is closed under addition. To complete 
                the proof we must now show that $S$ satisfies the group axioms. 
-               We observe that $0/1$ is the identity element in $S$ and that, 
-               for all $s \in S$, we have $-s \in S$, so that every 
-               element of $S$ has an inverse under addition. Since
-               $S \subset \Q$, and since $\Q$ is associative under addition, 
-               it follows that $S$ is also associative under addition. Thus $S$ 
-               satisfies the group axioms, so that $(S, +)$ is a group. \qed
+               We observe that $0/1$ is the identity element in $S$ because
+               it is an element of $S$ and $0 + s = s + 0 = s$ for every
+               $s \in S$. Next, we notice that
+               $\gcd(r_1, r_2) = \gcd(-r_1, r_2) = 1$, so that
+               $\frac{-r_1}{r_2} \in S$. Since
+               $$\frac{-r_1}{r_2} + \frac{r_1}{r_2} =
+                  \frac{r_1}{r_2} + \frac{-r_1}{r_2} = 0,$$
+               and since $r$ was arbitrarily chosen it follows that $S$ is
+               closed under inverses. Since $S \subset \Q$, and since $\Q$ is
+               associative under addition, it follows that $S$ is also
+               associative under addition. Thus $S$ satisfies the group axioms,
+               so that $(S, +)$ is a group. \qed
          \item The set
                $$S = \left\{\frac{a}{b} \in \Q : a, b \in \Z, b
                         \text{ is nonzero and even,} \text{ and }
@@ -217,7 +271,7 @@
                   x^{a+n} = x^ax^n 
                \end{equation}               
                holds for each positive integer $n$. So we shall proceed by
-               induction. Statement \eqref{1_1_19_1} holds for the base
+               induction on $n$. Statement \eqref{1_1_19_1} holds for the base
                case ($n = 1$) by definition. So, for our inductive hypothesis,
                assume that \eqref{1_1_19_1} holds for some positive integer $k$.
                Thus it follows that
@@ -233,7 +287,7 @@
                Particularly, it follows that that $x^{a+b} = x^ax^b$. \\
                \mbox{ } \qed \\
                
-               Now we shall show by induction that
+               Now we shall show by induction on $n$ that
                \begin{equation} \label{1_1_19_2}
                   (x^a)^n = x^{an} 
                \end{equation}
@@ -257,7 +311,8 @@
                   x^{-n} = (x^n)^{-1}. 
                \end{equation}
                
-               We shall use induction to prove \eqref{1_1_19_3}. Observe that
+               We shall use induction on $n$ to prove \eqref{1_1_19_3}. Observe
+               that
                \begin{align*}
                   x^{-1} &= (x)^{-1} \\
                          &= (x^1)^{-1}. &[x^1 = x \text{ by definition}]
@@ -350,9 +405,9 @@
                \begin{align*}
                   (x^m)^n &= (x^m)^{-c} \\
                           &= [(x^m)^{-1}]^c &[\text{By definition}] \\
-                          &= (x^{-m})^c &[\text{1.1.19 (b)}] \\
+                          &= (x^{-m})^c &[\text{1.1.19(b)}] \\
                           &= [(x^{-1})^m]^c &[\text{By definition}] \\
-                          &= (x^{-1})^{mc} &[\text{1.1.19 (a)}] \\
+                          &= (x^{-1})^{mc} &[\text{1.1.19(a)}] \\
                           &= x^{(-mc)} &[\text{By definition}] \\
                           &= x^{mn}.
                \end{align*}
@@ -393,16 +448,17 @@
       we can write $x = sr^i$, for some $0 \le i < n$. Notice that that
       $|x| \le 2$ because
       \begin{align*}
-         x^2 &= (sr^isr^i) \\
-             &= (sr^ir^{-i}s) \\
-             &= s1s \\
-             &= s^2 = 1.
+         x^2 &= (sr^i)(sr^i) \\
+             &= s((r^is)r^i) &[\text{Associativity}] \\
+             &= s(sr^{-i})r^i &[\text{Lemma 2}] \\
+             &= (ss)(r^{-i}r^i) &[\text{Associativity}] \\
+             &= 1.
       \end{align*}
       From our discussion in class, we know that $sr^i \neq 1$ because
-      $s \neq r^j$ for every integer $j$; that is, $|x| = 1$, and we conclude
+      $s \neq r^j$ for every integer $j$; that is, $|x| > 1$, and we conclude
       that $|x| = 2$. Recall that $s$ and $r$ generate $D_{2n}$. So in order to
       show that $s$ and $sr$ also generate $D_{2n}$, it suffices to show that
-      $s$ and $r$ are in the set generated by $s$ and $sr$. This follows
+      $s$ and $r$ are in the group generated by $s$ and $sr$. This follows
       immediately since
       $$s = s^1(sr)^0 \text{ and } r = s^1(sr)^1.$$ \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.2.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -412,7 +468,7 @@
                   of $D_{2n}$ which commutes with all elements of $D_{2n}$. [cf.
                   Exercise 33 of Section 1.]
                   
-      \textbf{Proof.} Let $r$ and $s$ be the generators of the dihedral group,
+      \textbf{Proof.} Let $r$ and $s$ be the generators of the dihedral group
       $D_{2n}$. Suppose that $n = 2k$ for some positive integer $k \ge 2$.
       Let $z = r^k$. Since $k < n$ and since $|r| = n$, it must be
       the case that $|z| \neq 1$, so that $|z| \ge 2$. Now we have that
@@ -421,29 +477,35 @@
       power of $r$, it must also commute with all elements that are integral 
       powers of $r$. From our discussion in class, we know that an element of
       $D_{2n}$ is either an integral power of $r$ or $s$ times an integral power
-      of $r$. So we now want to show that $z$ commutes with the latter type.
-      Thus consider $sr^i$, with $0 \le i < n$. Then we have that
+      of $r$. So we now want to show that $z$ commutes with the latter type of
+      elements. Thus consider $sr^i$, with $0 \le i < n$. Then we have that
       \begin{align*}
-         z(sr^i) &= (r^k)sr^i = (r^ks)r^i  \\
+         z(sr^i) &= (r^k)sr^i = (r^ks)r^i  &[\text{Associativity}] \\
                &= (sr^{-k})r^i  &[\text{Lemma 2}] \\
                &= (sr^k)r^i     &[r^k = r^{-k}] \\
                &= s(r^kr^i) = s(r^ir^k) = (sr^i)r^k = (sr^i)z.
+                                &[\text{Associativity}]
       \end{align*}
       That is, $z$ commutes with all elements of $D_{2n}$. Now we want to show
       that $z$ is the only nonidentity element of $D_{2n}$ that commutes with
       every element of $D_{2n}$. So let $y \in D_{2n}$ be such an element (we
-      already showed that at least one---$r^k$---exists). As previously stated,
-      $y$ must be either of two forms, which we will now investigate:
+      already showed that at least one exists, namely $r^k$). As previously
+      stated, $y$ must be either of two forms, which we will now investigate:
       
       \textbf{Case 1.} \textit{$y = r^i$, with $1 \le i < n$.} (Note that we
       left out the identity since it has order 1.) Now we must particularly have 
-      that $y$ commutes with $s$. Using Lemma 2, we have that
-      $rs = sr^i = r^is$, so that $r^{-i} = r^i$. Multiply the preceding 
-      equality by $r^i$ to obtain $r^{2i} = 1$. It follows by Lemma 1 that
-      $n = 2k \mid 2i$, or equivalently, $k \mid i$, so that $i$ is a multiple
-      of $k$. Since $i$ is positive and less than $n$, and since $k = n/2$, it 
-      follows that the only multiple of $k$ in the interval $[1, n)$ is $k$.
-      Thus $k = i$, and we have that $y = r^i = r^k = z$.
+      that $y$ commutes with $s$; thus,
+      \begin{align*}
+         sr^{-i} &= r^is &[\text{Lemma 2}] \\
+          &= ys = sy = sr^i.
+      \end{align*}
+      Use left cancellation on the resulting equality $sr^{-i} = sr^i$ to
+      obtain $r^{-i} = r^i$. Multiply the preceding equality by $r^i$ to obtain
+      $r^{2i} = 1$. It follows by Lemma 1 that $n = 2k \mid 2i$, or
+      equivalently, $k \mid i$, so that $i$ is a multiple of $k$. Since $i$ is
+      positive and less than $n$, and since $k = n/2$, it follows that the only
+      multiple of $k$ in the interval $[1, n)$ is $k$. Thus $k = i$, and we have
+      that $y = r^i = r^k = z$.
       
       \textbf{Case 2.} \textit{$y = sr^i$, with $0 \le i < n$.} Particularly, we
       must have that $y$ commutes with $r$. Then we have that
@@ -559,7 +621,7 @@
       $r > 1$ since the proof is trivial otherwise. Now
       \begin{align*}
          \sigma^r &= (\sigma_1\cdots\sigma_m)^r \\
-               &= {\sigma_1}^r\cdots{\sigma_m}^r &[\text{Exercise 1.1.24}] \\
+               &= {\sigma_1}^r\cdots{\sigma_m}^r &[\text{Lemma 3}] \\
                &= ({\sigma_1}^{|\sigma_1|})^{k_1}\cdots
                   ({\sigma_m}^{|\sigma_m|})^{k_m} \\
                &= 1^{k_1}\cdots1^{k_m} = 1, &[\text{Exercise 1.3.10}]
