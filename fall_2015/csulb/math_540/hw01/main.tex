@@ -55,6 +55,20 @@
 \begin{document}
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[]        \textbf{Lemma 1} \textit{If $g$ is an element of a group
+                  such that $g^m = 1$, then $|g|$ must divide $m$.}
+
+                  \textbf{Proof.} Let $g$ be an element of some group. Suppose
+                  that there exists an integer $m$ such that $g^m = 1$. This
+                  implies that $|g|$ is finite. So let $|g| = n \in \Z^+$. By
+                  the Euclidean algorithm, there exist unique integers $q$ and
+                  $r$ such that
+                  $$m = qn + r, \text{ where } 0 \le r < n.$$
+                  That is,
+                  $$1 = g^m = g^{qn + r} = g^{qn}g^r = (g^n)^qg^r =1^qg^r=g^r.$$
+                  If $0 < r < n$, then this will contradict the fact that the
+                  order of $g$ is $n$, so we are forced to conclude that
+                  $r = 0$. That is, $m = qn$, as desired. \qed
    \item[1.1.6]   Determine which of the following sets are groups under
                   addition:
                   \begin{enumerate}
@@ -382,7 +396,7 @@
       $sr^i$, with $0 \le i < n$. Then we have that
       \begin{align*}
          zsr^i &= r^ksr^i \\
-               &= sr^{-k}r^i  &[\text{Lemma 1.2.1}] \\
+               &= sr^{-k}r^i  &[\text{Lemma 2}] \\
                &= sr^kr^i     &[r^k = r^{-k}] \\
                &= sr^ir^k = sr^iz.
       \end{align*}
@@ -391,12 +405,12 @@
       every element of $D_{2n}$. So let $y \in D_{2n}$ be such an element (we
       already showed that at least one, $r^k$, exists).
       
-      \textbf{Case 1:} \textit{$y = r^i$, with $1 \le i < n$.} Particularly, we
-      must have that $y$ commutes with $s$. Using Lemma 1.2.1, we have that
+      \textbf{Case 1.} \textit{$y = r^i$, with $1 \le i < n$.} Particularly, we
+      must have that $y$ commutes with $s$. Using Lemma 2, we have that
       $r^{-i}s = sr^i = r^is$, so that $r^{-i} = r^i$. Then we must have that
       $r^{2i} = 1$, so that by Exercise 1.1.33, we have $i = k$.
       
-      \textbf{Case 2:} \textit{$y = sr^i$, with $0 \le i < n$.} Particularly, we
+      \textbf{Case 2.} \textit{$y = sr^i$, with $0 \le i < n$.} Particularly, we
       must have that $y$ commutes with $r$. Then we have that
       \begin{align*}
          (sr^i)r &= r(sr^i) &[yr = ry] \\
@@ -422,23 +436,36 @@
                            $x^n = 1$ and $x^3 = 1$.]
                   \end{enumerate}
 
-      \textbf{Proof.} Given $X_{2n} = \cyc{x, y :  x^n = y^2 = 1, \;xy = yx^2}$.
-      Also from the discussion on Page 27 of the textbook, we have $x^3 = 1$.
+      \textbf{Proof.} Let $X_{2n} = \cyc{x, y :  x^n = y^2 = 1, \;xy = yx^2}$ be
+      a presentation.
 
       \begin{enumerate}
-         \item Let $n = 3k$. Notice that we can deduce the relation
-               $x^n = x^{3k} = 1$ from the relation $x^3 = 1$. Thus
-               $$X_{2n} = \cyc{x, y :  x^3 = y^2 = 1, \;xy = yx^2}.$$
-               Since no other collapsing is possible it follows that
-               $|X_{2n}| = |x| \cdot |y| = 3 \cdot 2 = 6$. Since $x^3 = 1$, it
-               follows that $x^2 = x^{-1}$. Thus the relation $xy = yx^2$ is
-               equivalent to $xy = yx^{-1}$. If we replace $x$ by $r$ and $y$ by
-               $s$, then we see that $X_{2n}$ has the same generators and
-               relations as $D_6$.
-         \item Suppose $(3, n) = 1$. Thus there exist integers $p$ and $q$ such
+         \item Suppose $n = 3k$. From page 27 of the textbook, we have the
+               following:
+               \begin{align*}
+                  x &= xy^2 = (xy)y = (yx^2)y = (yx)(xy) = (yx)(yx^2) \\
+                    &= y(xy)x^2 = y(yx^2)x^2 = y^2x^4 = x^4,
+               \end{align*}
+               so that $x^3 = 1$, by cancellation. Now multiply the equality
+               $x^3 = 1$ by $x^{-1}$ to get $x^2 = x^{-1}$, and notice that the
+               the relation $1 = x^n = x^{3k}$ can be deduced from the relation 
+               $x^3 = 1$ by taking the $k$-th power of the latter. Hence
+               $$X_{2n} = \cyc{x, y :  x^3 = y^2 = 1, \;xy = yx^{-1}}.$$
+               We know that
+               $$D_6 = \cyc{r, s :  r^3 = s^2 = 1, \;rs = sr^{-1}}$$
+               and $r^n = r^{3k} = (r^3)^k = 1^k = 1$. That is, if we replace
+               $x$ by $r$ and $y$ by $s$, then we see that $X_{2n}$ has the same 
+               generators and relations as $D_6$. Now suppose we have other
+               hidden relations, or collapsing, in the presentation of $X_{2n}$,
+               then, since $D_6$ and $X_{2n}$ satisfy the same relations, the 
+               same must be true for $D_6$. However, we know this to be false
+               for $D_6$, so that it is also false for $X_{2n}$, and we conclude
+               that $|X_{2n}| = |D_6| = 6$.
+         \item Suppose $(3, n) = 1$. It follows by the Bezout's identity that
+               there exist integers $p$ and $q$ such
                that $1 = 3p + nq$. So
                $x^1 = x^{3p+nq} = (x^3)^p(x^n)^q = 1^p1^q = 1$. Thus
-               $X_{2n} = \cyc{y : y^2 = 1}$, so that $|X_{2n}| = 2$.
+               $X_{2n} = \cyc{y : y^2 = 1}$, so that $|X_{2n}| = 2$. 
       \end{enumerate} \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.3.11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.3.11]  Let $\sigma$ be the $m$-cycle (1 2 $\ldots$ $m$). Show that
@@ -459,7 +486,7 @@
       $$1 + pi \equiv 1 + qi \mbox{ (mod $m$)}$$
       for some $p, q \in \{0, 1, \ldots, m-1\}$. It follows that
       $pi \equiv qi$ (mod $m$). Since $i$ and $m$ are relatively prime, it
-      follows by the Bezout's Identity that there exist some integers $a$ and
+      follows by the Bezout's identity that there exist some integers $a$ and
       $b$ such that $ai + bm = 1$. That is, $ai \equiv 1$ (mod $m$). So if
       we multiply $pi \equiv qi$ (mod $m$) by $a$, we shall get $p \equiv q$
       (mod $m$). Since $0 \le p < m$ and $0 \le q < m$, it follows that $p = q$.
@@ -508,8 +535,9 @@
       $j$, with $1 \le j \le m$,  such that $|\sigma_j| \nmid s$ (otherwise,
       all the orders will divide $s$, and by definition of $r$, we will have
       $r \le s$, a contradiction). Now suppose to the contrary that
-      ${\sigma_j}^s = 1$, then it follows by Lemma 1.3.1 that $|\sigma_j| \mid s$,
-      a contradiction. Thus ${\sigma_j}^s \neq 1$. So there exist two non-equal elements $a_1, a_2 \in \sigma_j$ such that
+      ${\sigma_j}^s = 1$, then it follows by Lemma 1 that
+      $|\sigma_j| \mid s$, a contradiction. Thus ${\sigma_j}^s \neq 1$. So there
+      exist two non-equal elements $a_1, a_2 \in \sigma_j$ such that
       ${\sigma_j}^s(a_1) = a_2$. Indeed, since $a_1$ and $a_2$ are only
       contained in $\sigma_j$, it follows that $\sigma^s(a_1) = a_2$. This says
       that $\sigma^s \neq 1$. So no positive power of $\sigma$ less than $r$ is
