@@ -1,0 +1,346 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath, array}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{bm}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 328, Fall 2015\\Section 1 (1273/3120)\\
+  HW \#02, DUE: 2015, September 03
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+%\newcommand{\D}{\displaystyle}
+\everymath{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that $f(n) = 10n^4 + 2n^2 + 3$ is $O(n^4)$.
+
+      \textbf{Proof.} To prove that $f(n) = O(n^4)$, it suffices to show that 
+      there exists a $C > 0$ and $k \ge 0$ such that
+      \begin{equation} \label{1_1}
+         10n^4 + 2n^2 + 3 \le Cn^4
+      \end{equation}
+      for all $n \ge k$. Now we have that
+      $$10n^4 + 2n^2 + 3 \le 10n^4 + 2n^4 + 3n^4 = 15n^4$$
+      for all $n \ge 1$. That is, \eqref{1_1} holds if we choose $C = 15$ and
+      $k = 1$. Thus, $f(n) = O(n^4)$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that $f(n) = 2n^2 - n\log(n) + 3\log(n)$ is $O(n^2)$.
+
+      \textbf{Proof.} To prove that $f(n) = O(n^2)$, we must show that there
+      exists a $C > 0$ and $k \ge 0$ such that
+      \begin{equation} \label{2_1}
+         2n^2 - n\log(n) + 3\log(n) \le Cn^2
+      \end{equation}
+      for all $n \ge k$. Since
+      $$2n^2 - n\log(n) + 3\log(n) \le 2n^2 + n^2 + 3n^2 = 6n^2$$
+      for all $n \ge 1$, it follows that \eqref{2_1} holds if we choose
+      $C = 6$ and $k = 1$. Thus, $f(n) = O(n^2)$. \mbox{ }\qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that $f(n) = 2n^4\log(n^4) - n^2 + 3\log(n)$ is $O(n^4\log(n))$.
+
+      \textbf{Proof.} We want to $C > 0$ and $k \ge 0$ such
+      that
+      $$2n^4\log(n^4) - n^2 + 3\log(n) \le n^4\log(n)$$
+      for every $n \ge k$. Since
+      $$2n^4\log(n^4) - n^2 + 3\log(n) \le 2n^4\log(n^4) + n^4\log(n^4) +
+        3n^4\log(n^4) = 6n^4\log(n^4)$$
+      for each $n \ge 1$, it follows that $f(n) = O(n^4\log(n))$ (where $C = 6$
+      and $k = 1$).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Given
+         $$f(n) = 3n^2 + 2n + 1 \text{ and } g(n) = 5n^3 - n + 3.$$
+
+         Are they
+         \begin{enumerate}
+            \item $O(n^2)$.
+            \item $O(n^3)$.
+            \item $\Omega(n)$.
+            \item $\Theta(n^3)$.
+            \item $\omega(n)$.
+            \item $o(n^2)$.
+         \end{enumerate}
+         ?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item What is the growth of the functions below:
+         \begin{enumerate}
+            \item $f(n) = 2n^4\log(n^4) + n^{4.0001}-3\log(n)$.
+            \item $f(n) = 3n^3\log(n^4-n^2)+100000$.
+            \item $f(n) = \log^{100}n^{50} + n$.
+            \item $f(n) = n^4\log^3(n)+4$.
+            \item $f(n) = 10000n\log(n^7)+3\log(n)+1000\sqrt{n}$.
+            \item $f(n) = \sqrt[10]{n}+10^{10}\log^{100}(n)+8$.
+            \item $f(n) = \sqrt{\sqrt{n}}+9\log(n)$.
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that $(n+5)^{100} = \Theta(n^{100})$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Discuss the growth of the functions below.
+         \begin{enumerate}
+            \item $f(n) = (\log(n))^{\log(n)}$.
+            \item $f(n) = 2^{\sqrt{2\log(n)}}$.
+            \item $f(n) = (\sqrt{2})^{\log(n)}$.
+            \item $f(n) = n^{1/\log(n)}$.
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove transitivity of big-$O$: if $f(n) = O(g(n))$ and
+         $g(n) = O(h(n))$, then $f(n) = O(h(n))$.
+
+      \textbf{Proof.} Suppose that $f(n) = O(g(n))$ and $g(n) = O(h(n))$. To
+      prove that ${f(n) = O(h(n))}$, it suffices to find $C > 0$ and $k \ge 0$,
+      such that
+
+      \begin{equation} \label{8_0}
+         f(n) \le C \cdot h(n) \text{ for all } n \ge k.
+      \end{equation}
+
+      Since
+      $f(n) = O(g(n))$ and $g(n) = O(h(n))$, it follows by definition that there
+      exist $C_1 > 0$, $C_2 > 0$, $k_1 \ge 0$, $k_2 \ge 0$, such that
+      \begin{equation} \label{8_1}
+         f(n) \le C_1 \cdot g(n) \text{ for all } n \ge k_1
+      \end{equation}
+       and
+      \begin{equation} \label{8_2}
+         g(n) \le C_2 \cdot h(n) \text{ for all } n \ge k_2.
+      \end{equation}
+
+      Multiply inequality \eqref{8_2} by the positive number $C_1$ to get
+      \begin{equation} \label{8_3}
+         C_1 \cdot g(n) \le C_1C_2 \cdot h(n) \text{ for all } n \ge k_2.
+      \end{equation}
+      
+      Combine \eqref{8_1} and \eqref{8_3} to get
+      \begin{equation} \label{8_4}
+         f(n) \le C_1 \cdot g(n) \le C_1C_2 \cdot h(n) \text{ for all }
+         n \ge k_3 = \max\{k_1, k_2\}.
+      \end{equation}
+
+      Inequality \eqref{8_4} says that \eqref{8_0} holds if we choose
+      $C = C_1C_2$ and $k = k_3$. That is, ${f(n) = O(h(n))}$, as desired. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that $f(n) = O(g(n))$ iff $g(n) = \Omega(f(n))$.
+
+      \textbf{Proof.} $(\Rightarrow)$ Suppose first that $f(n) = O(g(n))$. We
+      want to now show that ${g(n) = \Omega(f(n))}$. That is, we must find
+      $C > 0$ and $k \ge 0$, such that
+
+      \begin{equation} \label{9_1}
+         g(n) \ge C \cdot f(n) \text{ for all } n \ge k.
+      \end{equation}
+
+      Since $f(n) = O(g(n))$, it follows by definition that there exist
+      $C_1 > 0$ and $k_1 \ge 0$ such that 
+
+      \begin{equation} \label{9_2}
+         f(n) \le C_1 \cdot g(n) \text{ for all } n \ge k_1.
+      \end{equation}
+
+      Multiply \eqref{9_2} by $1/C_1$ to get
+
+      \begin{equation} \label{9_3}
+         g(n) \ge (1/C_1) \cdot f(n) \text{ for all } n \ge k_1.
+      \end{equation}
+
+      Inequality \eqref{9_3} says that \eqref{9_1} holds if we choose
+      $C = 1/C_1$ and $k = k_1$. That is, $g(n) = \Omega(f(n))$.
+
+      $(\Leftarrow)$ Now suppose that $g(n) = \Omega(f(n))$. To show that
+      $f(n) = O(g(n))$, we must find $D > 0$ and $j \ge 0$ such that
+
+      \begin{equation} \label{9_4}
+         f(n) \le D \cdot g(n) \text{ for all } n \ge j.
+      \end{equation}
+
+      Since $g(n) = \Omega(f(n))$, it follows by definition that there exist
+      $C_2 > 0$ and $k_2 \ge 0$ such that 
+
+      \begin{equation} \label{9_5}
+         g(n) \ge C_2 \cdot f(n) \text{ for all } n \ge k_2.
+      \end{equation}
+
+      Multiply \eqref{9_5} by $1/C_2$ to get
+
+      \begin{equation} \label{9_6}
+         f(n) \le (1/C_2) \cdot g(n) \text{ for all } n \ge k_2.
+      \end{equation}
+
+      Inequality \eqref{9_6} says that \eqref{9_4} holds if we choose
+      $D = 1/C_2$ and $j = k_2$. That is, $f(n) = O(g(n))$, and the proof is
+      done. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compare the growth of $f(n) = n$ and $g(n) = n^{1+\sin(n)}$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compare the growth of $f(n) = \sqrt{n}$ and $g(n) = n\sin(n)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Compare the growth of $f(n) = n$ and $g(n) = n\sin(n)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove or disprove: $2^{n+1} = O(2^n)$.
+
+      \textbf{Proof.} We want to show that $2^{n+1} = O(2^n)$. Observe that
+      $$2^{n+1} = 2 \cdot 2^n \le 2 \cdot 2^n$$
+      for all $n \ge 0$. It immediately follows that $2^{n+1} = O(2^n)$.
+      (Choose $C = 2$ and $k = 0$.) \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove or disprove: $2^{2n} = O(2^n)$.
+
+      \textbf{Proof.} We shall proof by contradiction that $2^{2n} \neq O(2^n)$.
+      So assume to the contrary that $2^{2n} = O(2^n)$. That is, there exist a
+      $C > 0$ and $k \ge 0$ such that
+
+      \begin{equation} \label{14_1}
+         2^{2n} \le C_1 \cdot 2^n \text{ for all } n \ge k.
+      \end{equation}
+
+      Since $2^n$ is positive for every integer $n$, we will divide \eqref{14_1}
+      by $2^n$ to obtain
+
+      \begin{equation} \label{14_2}
+         2^n \le C_1 \text{ for all } n \ge k.
+      \end{equation}
+
+      \eqref{14_2} says that the exponential function, $2^n$, is bounded above
+      by the constant $C_1$ as $n \rightarrow \infty$, a contradiction, since
+      $2^n \rightarrow \infty$ as $n \rightarrow \infty$; thus, we conclude that
+      $2^{2n} \neq O(2^n)$. \mbox{ } \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that if $\lim_{n\rightarrow\infty}\frac{g(n)}{f(n)} = C$, for
+         some constant $C > 0$, then $f(n) = \Theta(g(n))$.
+
+      \textbf{Proof.} Assume that
+      $\lim_{n\rightarrow\infty}\frac{g(n)}{f(n)} = C > 0$. To prove that
+      $f(n) = \Theta(g(n))$, we must show that $f(n) = O(g(n))$ and
+      $f(n) = \Omega(g(n))$. Since
+      $\lim_{n\rightarrow\infty}\frac{g(n)}{f(n)} = C$, it follows by definition
+      that there exists $N \ge 0$ such that
+      $$\left|\frac{g(n)}{f(n)} - C\right| < \frac{C}{2} \text{ for all }
+         n \ge N.$$
+      That is,
+      $$-\frac{C}{2} < \frac{g(n)}{f(n)} - C < \frac{C}{2} \text{ for all }
+         n \ge N,$$
+      so that
+
+      \begin{equation} \label{15_1}
+         \frac{C}{2} < \frac{g(n)}{f(n)} < \frac{3C}{2} \text{ for all }n \ge N.
+      \end{equation}
+
+      \eqref{15_1} says that the quotient $g(n)/f(n)$ is positive for all
+      $n \ge N$. That is, $g(n)$ and $f(n)$ are both positive for $n \ge N$. So
+      multiply \eqref{15_1} by $f(n)$ to get
+
+      \begin{equation} \label{15_2}
+         \frac{C}{2} f(n) < g(n) < \frac{3C}{2}f(n) \text{ for all } n \ge N.
+      \end{equation}
+
+      \eqref{15_2} contains two inequalities, namely:
+
+      \begin{equation} \label{15_3}
+         g(n) > \frac{C}{2} f(n) \text{ for all } n \ge N
+      \end{equation}
+
+      and
+
+      \begin{equation} \label{15_4}
+         g(n) < \frac{3C}{2}f(n) \text{ for all } n \ge N.
+      \end{equation}
+
+      \eqref{15_3} says that $g(n) = \Omega(f(n))$, so that $f(n) = O(g(n))$,
+      while $\eqref{15_4}$ says that $g(n) = O(f(n))$, so that
+      $f(n) = \Omega(g(n))$. Thus we conclude that $f(n) = \Theta(g(n))$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose $g(n) \ge 1$ for all $n$, and that $f(n) \le g(n) + L$, for
+         some constant $L$ and all $n$. Prove that $f(n) = O(g(n))$.
+
+      \textbf{Proof.} Suppose first that $L \le 0$ then it follows that
+      $f(n) \le g(n) + L \le g(n)$ for all $n$. That is, $f(n) = O(g(n))$
+      (Choose $C = 1$ and $k = 1$). Now suppose that $L > 0$. We want to find
+      $C > 0$ and $k \ge 0$ such that
+      $$f(n) \le C \cdot g(n) \text{ for all } n \ge k.$$
+      Since $g(n) \ge 1$ for all $n$ and since $L$ is positive, it follows
+      that $L \le L \cdot g(n)$ for all $n$. Thus we have that
+      $$f(n) \le g(n) + L \le g(n) + L \cdot g(n) = (L+1) \cdot g(n)$$
+      for all $n \ge 0$. That is, $f(n) = O(g(n))$ (Choose $C = L + 1$ and
+      $k = 0$). So regardless of the value of $L$, we conclude that
+      $f(n) = O(g(n))$. \qed
+
+      \textbf{Note.} \textit{The hypothesis did not need to hold for all $n$; it 
+      only needed to hold for a sufficiently large $n$.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove or disprove: if $f(n) = O(g(n))$ and $f(n) \ge 1$ and
+         $\log(g(n)) \ge 1$ for sufficiently large $n$, then
+         $\log(f(n)) = O(\log(g(n)))$.
+
+      \textbf{Proof.} Suppose $f(n) = O(g(n))$. Also suppose that $f(n) \ge 1$
+      and $\log(g(n)) \ge 1$ for $n \ge N$, where $N$ is some positive integer.
+      Since $f(n) = O(g(n))$, it follows that there exist $C > 0$ and $k \ge 0$
+      such that $f(n) \le C \cdot g(n)$ for all $n \ge k$. Let
+      $k' = \max\{k, N\}$. It follows that 
+
+      \begin{equation} \label{17_1}
+         f(n) \le C \cdot g(n) \text{ and } f(n) \ge 1 \text{ for all }n \ge k'.
+      \end{equation}
+      After taking the $\log$ of \eqref{17_1}, we get
+      $$\log(f(n)) \le \log(g(n)) + \log(C) \text{ for all }n \ge k'.$$
+      Observe that $\log(C)$ is a constant and that we were given
+      $\log(g(n)) \ge 1$ for each $n \ge k'$. It follows by Exercise 16 that
+      $\log(f(n)) = O(\log(g(n)))$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Show that $\log(n!) = \Theta(n\log(n))$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%19%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that $n! = o(n^n)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%20%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that $n! = \omega(2^n)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Which one of the below functions grows faster? Explain.
+         $$f(n) = 2^{2^n} \text{ and } g(n) = n!$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Provide a closed-form expression for the asymptotic growth of
+         $n + n/2 + n/3 + \cdots + 1$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%23%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Use the integral theorem to calculate the growth of
+         $1 + 2^k + 3^k + \cdots + n^k$.
+   \item[\textbf{Extra Credit.}] Prove or disprove: if $f(n) = O(g(n))$, then
+                                 $2^{f(n)} = O(2^{g(n)})$.
+      
+\end{enumerate}
+\end{document}
