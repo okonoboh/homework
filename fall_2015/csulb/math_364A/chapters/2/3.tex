@@ -1,0 +1,170 @@
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.]   Consider a tank used in certain hydrodynamic experiments. After
+               one experiment the tank contains 200 $L$ of a dye solution with a
+               concentration of 1 $g/L$. To prepare for the next experiment, the  
+               tank is to be rinsed with fresh water flowing in at a rate of 2
+               $L$/min, the well-stirred solution flowing out at the same rate. 
+               Find the time that will elapse before the concentration of dye in 
+               the tank reaches 1\% of its original value.
+               
+      \textbf{Solution.} Let $Q(t)$ be the amount (in grams) of dye solution
+      after $t$ minutes. Thus it follows that
+      \begin{align*}
+         Q(0) &= \frac{200\;L}{1} \cdot \frac{1\;g}{L} = 200\;g \\
+         \text{Rate of dye in}&=\frac{0\;g}{L}\cdot\frac{2\;L}{\text{min}}=0 \\
+         \text{Rate of dye out}&=\frac{Q(t)}{200\;L}\cdot\frac{2\;L}{\text{min}}
+            = \frac{Q(t)}{100}.
+      \end{align*}
+      
+      Since
+      $$\frac{dQ}{dt} = \text{Rate of dye in} - \text{Rate of dye out},$$
+      it follows that
+      $$\frac{dQ}{dt} = 0 - \frac{Q(t)}{100} \Rightarrow$$
+      $$\frac{dQ}{dt} + \frac{Q(t)}{100} = 0.$$
+      Multiply the above equation by the integrating factor,
+      $\mu(t) = e^{\int(1/100)\;dt} = e^{(1/100)t}$, and our differential
+      equation becomes
+      $$\frac{d}{dt}\left(Q(t)e^{(1/100)t}\right) = 0.$$
+      Taking the integral of the above equation and using the initial condition
+      $Q(0) = 200$ will give us
+      $$Q(t) = 200e^{-(1/100)t}.$$
+      
+      Let $t_2$ be the time in minutes after which concentration of the dye
+      reaches 1\% of its original value. Thus $Q(t_2) = 2$. Solving this
+      equation will give us
+      $$t_2 = 200\ln(10) \approx 461 \text{ minutes}.$$
+      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.]   A tank initially contains 120 L of pure water. A mixture
+               containing a concentration of $\gamma$ g/L of salt enters the
+               tank at a rate of 2 L/min, and the well-stirred mixture leaves
+               the tank at the same rate. Find an expression in terms of
+               $\gamma$ for the amount of salt in the tank at any time $t$. Also
+               find the limiting amount of salt in the tank as
+               $t \rightarrow \infty$.
+               
+      \textbf{Solution.} Let $Q(t)$ be the amount (in grams) of salt in the tank
+      after $t$ minutes. Thus it follows that
+      \begin{align*}
+         Q(0) &= 0 \\
+         \text{Rate of dye in}&=\frac{\gamma\;g}{L}\cdot\frac{2\;L}
+            {\text{min}}=2\gamma \\
+         \text{Rate of dye out}&=\frac{Q(t)}{120\;L}\cdot\frac{2\;L}{\text{min}}
+            = \frac{Q(t)}{60}.
+      \end{align*}
+      
+      Since
+      $$\frac{dQ}{dt} = \text{Rate of salt in} - \text{Rate of salt out},$$
+      it follows that
+      $$\frac{dQ}{dt} = 2\gamma - \frac{Q(t)}{60} \Rightarrow$$
+      $$\frac{dQ}{dt} + \frac{Q(t)}{60} = 2\gamma.$$
+      Solving with integrating factor $e^{(1/60)t}$ and the initial condition
+      $Q(0) = 0$ will give us
+      $$120\gamma(1 - e^{-(1/60)t}).$$
+      That is, the limiting amount of salt is $120\gamma$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.]   A tank with a capacity of 500 gal originally contains 200 gal of
+               water with 100 lb of salt in solution. Water containing 1 lb of
+               salt per gallon is entering at a rate of 9 gal/min, and the
+               mixture is allowed to flow out of the tank at a rate of
+               6 gal/min. Find the amount of salt in the tank at any time prior
+               to the instant when the solution begins to overflow. Find the
+               concentration (in pounds per gallon) of salt in the tank when it
+               is on the point of overflowing. Compare this concentration with
+               the theoretical limiting concentration if the tank had infinite
+               capacity.
+
+      \textbf{Solution.} Let $Q(t)$ be the amount of salt after $t$ minutes. It
+      follows that
+      \begin{align*}
+         \frac{dQ}{dt} &= \text{rate of salt in} - \text{rate of salt out} \\
+            &= \frac{1 \text{ lb}}{1 \text{ gal}} \cdot
+               \frac{9 \text{ gal}}{1 \text{ min}} -
+               \frac{Q(t)}{200 + 3t} \cdot
+               \frac{6 \text{ gal}}{1 \text{ min}}.
+      \end{align*}
+      That is,
+      $$\frac{dQ}{dt} + \frac{6Q(t)}{200+3t} = 9.$$
+      Multiplying the by the integrating factor $e^{\int6 dt/(200+3t)}$,
+      solving, and then using the initial condition $Q(0) = 100$ will yield
+      $$Q(t) = 200 + 3t - \frac{4000000}{(200 + 3t)^2},$$
+      which is the amount of salt prior to the time before the tank starts to
+      overflow. The volume of the solution becomes 500 at $t = 100$, so the
+      concentration of the salt at this point is
+      $$\frac{Q(100)}{500} = 0.968 \text{ lb/gal}.$$
+      The theoretical limiting concentration if the tank had infinite capacity
+      is
+      $$\lim_{t\rightarrow\infty}\frac{Q(t)}{200+3t} = 1\text{ lb/gal}.$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[10.]  A home buyer can afford to spend no more than \$1500/month on
+               mortgage payments. Suppose that the interest rate is 6\%, that
+               interest is compounded continuously, and that payments are also
+               made continuously.
+
+               \begin{enumerate}
+                  \item Determine the maximum amount that this buyer can afford
+                        to borrow on a 20-year mortage; on a 30-year mortage.
+                  \item Determine the total interest paid during the term of the
+                        mortgage in each of the cases in part (a).
+               \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item Let $S(t)$ be the amount of the loan that is left after $t$
+               years. Mortage payments of \$1500/month = \$18000/year. So our
+               differential equation is
+               $$\frac{dS}{dt} = rS - k = \frac{6S}{100} - 18000,$$
+               so that
+               $$\frac{dS}{dt} - \frac{6S}{100} = - 18000.$$
+               Multiply by the integrating factor $e^{\int-(6/100)dt}$ and solve 
+               to get
+               $$S(t) = 300000 + Ce^{0.06t}.$$
+               The amount that the buyer can afford is $S(0)$, so we use the
+               initial conditions $S(20) = 0$ and $S(30) = 0$ for the 20-year
+               and 30-year mortgages respectively. Thus we get that
+               \$209641.74 and \$250410.33 for the 20-year and 30-year
+               mortgages.
+         \item Interest for the 20-year mortgage is: 
+               $$\$18000 \cdot 20 - \$209641.74 = \$150358.26$$
+               and interest for the 30-year mortgage is:
+               $$\$18000 \cdot 30 - \$250410.33 = \$289589.67.$$
+
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[21.]  Assume that the conditions are as in Problem 20 except there is a
+               force due to air resistance of magnitude $|v|/30$ directed
+               opposite to the velocity, where the velocity $|v|$ is measured in
+               m/s.
+
+               \begin{enumerate}
+                  \item Find the maximum height above the ground that the ball
+                        reaches.
+               \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%23%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[23.]  A skydiver weighing 180 lb (including equipment) falls vertically
+               downward from an altitude of 5000 ft and opens the parachute
+               after 10s of free fall. Assume that the force of air resistance,
+               which is directed opposite to the velocity, is of magnitude
+               $0.75|v|$ when the parachute is closed and is of magnitude
+               $12|v|$ when the parachute is open, where the velocity $v$ is
+               measured in ft/s.
+
+               \begin{enumerate}
+                  \item Find the speed of the skydiver when the parachute opens.
+                  \item Find the distance fallen before the parachute opens.
+                  \item What is the limiting velocity $v_L$ after the parachute
+                        opens?
+               \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%26%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[26.]  A body of mass $m$ is projected vertically upward with an initial
+               velocity $v_0$ in a medium offering a resistance $k|v|$, where
+               $k$ is a constant. Assume that the gravitational attraction of
+               the earth is constant.
+
+               \begin{enumerate}
+                  \item Find the velocity $v(t)$ of the body at any time.
+               \end{enumerate}
+      
+\end{enumerate}
