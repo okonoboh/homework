@@ -38,7 +38,7 @@ $t \rightarrow \infty$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.8]   $(1 + t^2)y' + 4ty = (1 + t^2)^{-2}$.
 
-      \textbf{Proof.} First we rewrite the equation in standard form to get:
+      \textbf{Solution.} First we rewrite the equation in standard form to get:
       $$y' + \frac{4t}{1+t^2}y = (1 + t^2)^{-3}.$$
       The integrating factor is thus $e^{\int((4t/1+t^2))\;dt} = (1 + t^2)^2$.
       So multiply the standard form by the integrating factor to get
@@ -48,6 +48,15 @@ $t \rightarrow \infty$.
       Thus $y \rightarrow 0$ as $t \rightarrow \infty$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.11]  $y' + y = 5\sin(2t)$.
+
+      \textbf{Solution.} The integrating factor is $e^{\int dt} = e^t$. So
+      multiply the equation by $e^t$ to arrive at
+      $$(e^ty)' = 5e^t\sin(2t).$$
+      Integrate (use by parts on the right) and divide the result by $e^t$ to
+      get
+      $$y(t) = \sin(2t) - 2\cos(2t) + Ce^{-t}.$$
+      It follows that $y$ oscillates as $t$ approaches infinity.
+      
 \end{enumerate}
 
 In Problems 13, 15, 16, 17, 18, and 20, find the solution of the given initial
@@ -55,15 +64,58 @@ value problem.
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.13]  $y' - y = 2te^{2t}, \quad y(0) = 1$
+
+      \textbf{Solution.} Using the integrating factor
+      $e^{\int-t\;dt} = -e^{-t}$, it follows that
+      $$y(t) = 2te^{2t} - Ce^t - 2e^{2t}.$$
+      Now use the initial condition $y(0) = 1$ to get
+      $$y(t) = 2te^{2t} + 3e^t - 2e^{2t}$$
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.15]  $ty' + 2y = t^2 - t + 1, \quad y(1) = \frac{1}{2},
                                            \quad t > 0$
+
+      \textbf{Solution.} Put the equation in standard form:
+      $$y' + \frac{2}{t}y = t - 1 + \frac{1}{t}.$$
+      Now use the integrating factor $e^{\int(2/t)\;dt} = t^2$ to solve;
+      thus
+      $$y(t) = \frac{t^2}{4} - \frac{t}{3} + \frac{1}{2} + \frac{C}{t^2}.$$
+      Finally use the initial condition $y(1) = 1/2$ to get
+      $$y(t) = \frac{t^2}{4} - \frac{t}{3} + \frac{1}{2} + \frac{1}{12t^2}$$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.16]  $y' + (2/t)y = (\cos(t))/t^2, \quad y(\pi) = 0, \quad t > 0$
+
+      \textbf{Solution.} The general solution using the integrating factor
+      $e^{\int(2/t)\;dt} = t^2$ is
+      $$y(t) = \frac{\sin(t)}{t^2} + \frac{C}{t^2},$$
+      and, thus, $y(t) = \frac{\sin(t)}{t^2}$, after using the initial
+      condition.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.17]  $y' - 2y = e^{2t}, \quad y(0) = 2$
+
+      \textbf{Solution.} Using the initial conditipn and the
+      integrating factor $e^{\int-2\;dt} = e^{-2t}$, it follows that
+      $$y(t) = te^{2t} + Ce^{2t},$$
+      and thus $y(t) = te^{2t} + 2e^{2t}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.18]  $ty' + 2y = \sin(t), \quad y(\pi/2) = 1, \quad t > 0$
+
+      \textbf{Solution.} The standard form of the equation is
+      $$y' + \frac{2}{t}y = \frac{\sin(t)}{t}.$$
+      Now use the integrating factor $e^{\int(2/t)\;dt} = t^2$ to get
+      $$y(t) = -\frac{\cos(t)}{t} + \frac{\sin(t)}{t^2} + \frac{C}{t^2},$$
+      and thus
+      $$y(t) = -\frac{\cos(t)}{t} + \frac{\sin(t)}{t^2} +
+                \frac{\pi^2 - 4}{4t^2}$$
+      by the initial conditon $y(\pi/2) = 1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.20]  $ty' + (t + 1)y = t, \quad y(\ln(2)) = 1, \quad t > 0$
+
+      \textbf{Solution.} The standard form of the equation is
+      $$y' + \frac{t+1}{t}y = 1,$$
+      so that the integrating factor is $e^{\int(t+1/t)\;dt} = te^t$, and thus,
+      $$y(t) = \frac{C}{te^t} - \frac{1}{t} + 1,$$
+      so that
+      $$y(t) = \frac{2}{te^t} - \frac{1}{t} + 1$$
+      after using the initial condition.
 \end{enumerate}

@@ -15,16 +15,16 @@
 
 \usepackage[utf8]{inputenc}
 
-%\usepackage{hyperref}
-%\hypersetup{
-%    colorlinks=true,
-%    linkcolor=blue,
-%    filecolor=magenta,      
-%    urlcolor=cyan,
-%    pdftitle={Sharelatex Example},
-%    bookmarks=true,
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    %pdftitle={Sharelatex Example},
+    bookmarks=true,
 %    pdfpagemode=FullScreen,
-%}
+}
 
 %\voffset = -50pt
 %\textheight = 700pt
@@ -53,18 +53,25 @@
 \begin{document}
 
    \maketitle
-\begin{comment}   
+%\begin{comment}   
+   \begingroup
+   \let\cleardoublepage\clearpage
    \tableofcontents
+   \endgroup
 
    \chapter{Introduction}
+   \setcounter{section}{2}
       \section{Classification of Differential Equations}
          \input{chapters/1/3}
          
-   \part{}
+   %\part{}
 
    \chapter{First Order Differential Equations}
       \section{Linear Equations; Method of Integrating Factors}
-\end{comment}
-      \section{Linear Equations; Method of Integrating Factors}
          \input{chapters/2/1}
+      \section{Separable Equations}
+         \input{chapters/2/2}
+      \section{Modeling with First Order Equations}
+         \input{chapters/2/3}
+%\end{comment}
 \end{document}
