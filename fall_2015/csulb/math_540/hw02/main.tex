@@ -1,0 +1,254 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 540, Fall 2015\\Section 1 (9932)\\
+  HW \#2, DUE: 2015, September 10
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.6.1]   Let $\varphi : G \rightarrow H$ be a homomorphism.
+                  \begin{enumerate}
+                     \item Prove that $\varphi(x^n) = \varphi(x)^n$ for all
+                           $n \in \Z^+$.
+                     \item Do part (a) for $n = -1$ and deduce that
+                           $\varphi(x^n) = \varphi(x)^n$ for all $n \in \Z$.
+                  \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item \textbf{Proof.} We shall proceed by induction on $n$. It is clear
+               that $\varphi(x^1) = \varphi(x)^1$. Now suppose that
+               $\varphi(x^k) = \varphi(x)^k$ for some integer $k$. Thus
+               \begin{align*}
+                  \varphi(x^{k+1}) &= \varphi(x^kx) \\
+                     &= \varphi(x^k)\varphi(x)
+                        &[\varphi\text{ is a homomorphism}] \\
+                     &= \varphi(x)^k\varphi(x) &[\text{Inductive hypothesis}] \\
+                     &= \varphi(x)^{k+1},
+               \end{align*}
+               so that, by Mathematical Induction, $\varphi(x^n) = \varphi(x)^n$ 
+               for all $n \in \Z^+$. \qed
+         \item Since
+               $$1 \cdot \varphi(1) = \varphi(1) = \varphi(1 \cdot 1) =
+                 \varphi(1)\cdot\varphi(1),$$
+               it follows by cancellation that $\varphi(1) = 1$. Thus
+               $$\varphi(x)\varphi(x^{-1}) = \varphi(xx^{-1}) =\varphi(1) = 1,$$
+               so that $\varphi(x^{-1}) = \varphi(x)^{-1}$. Now let $n$ be a
+               positive integer. Then it follows that
+               \begin{align*}
+                  \varphi(x^{-n}) &= \varphi((x^{-1})^n) \\
+                     &= \varphi(x^{-1})^n &[\text{1.6.1(a)}] \\
+                     &= (\varphi(x)^{-1})^n \\
+                     &= \varphi(x)^{-n}.
+               \end{align*}
+               Moreover $\varphi(x^0) = 1 = \varphi(x)^0$; thus we can conclude 
+               that $\varphi(x^n) = \varphi(x)^n$ for all $n \in \Z$.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.6.3]   If $\varphi : G \rightarrow H$ is an isomorphism, prove that
+                  $G$ is abelian if and only if $H$ is abelian. If
+                  $\varphi : G \rightarrow H$ is a homomorphism, what additional
+                  conditions on $\varphi$ (if any) are sufficient to ensure that
+                  if $G$ is abelian, then so is $H$?
+
+      \textbf{Proof.} Suppose $\varphi : G \rightarrow H$ is an isomorphism.
+
+      ($\Rightarrow$) Assume $G$ is abelian. Consider $h_1$ and $h_2$ in $H$.
+      Since $\varphi$ is surjective, there exist $g_1$, $g_2 \in G$ such that
+      $\varphi(g_1) = h_1$ and $\varphi(g_2) = h_2$. Since $G$ is abelian, we
+      have that
+      $$h_1h_2 = \varphi(g_1)\varphi(g_2) = \varphi(g_1g_2) = \varphi(g_2g_1) = 
+        \varphi(g_2)\varphi(g_1) = h_2h_1,$$
+      so that $H$ is also abelian.
+
+      ($\Rightarrow$) Now assume that $H$ is abelian. Consider $g_3$ and $g_4$ 
+      in $G$. Since $H$ is abelian, we have that
+      $$\varphi(g_3g_4) = \varphi(g_3)\varphi(g_4) = \varphi(g_4)\varphi(g_3) =
+        \varphi(g_4g_3).$$
+      We thus conclude that $g_3g_4 = g_4g_3$ since $\varphi$ is injective. That
+      is, $G$ is abelian. \qed
+
+      Finally suppose $\varphi$ is an homomorphism and $G$ is abelian. Looking
+      at the first direction of our proof above, we see that restricting
+      $\varphi$ to be surjective is sufficient to make $H$ abelian.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.6.6]   Prove that the additive groups of $\Z$ and $\Q$ are not
+                  isomorphic.
+
+      \textbf{Proof.} First we shall show that $(\Q, +)$ is not cyclic. So
+      suppose that $(\Q, +) = \cyc{c}$. Thus there exists an integer $n$ such 
+      that $nc = \D\frac{c}{2}$, so that $\D n = \frac{1}{2}$, a contradiction. 
+      That is, $(\Q, +)$ is not cyclic. Now suppose to the contrary that
+      $\varphi : \Z \rightarrow \Q$ is a homomorphism from $(\Z, +)$ to
+      $(\Q, +)$. Let $q \in \Q$ and let $z$ be the unique preimage of $q$ under
+      $\varphi$. Thus
+      \begin{align*}
+         q &= \varphi(z) \\
+           &= \varphi(z \cdot 1) \\
+           &= z \cdot \varphi(1),  &[1.6.1(a)]
+      \end{align*}
+      so that $\Q = \cyc{\varphi(1)}$, a contradiction. Thus $(\Z, +)$ and
+      $(\Q, +)$ are not isomorphic. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6.14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.6.14]  Let $G$ and $H$ be groups and let $\varphi : G \rightarrow H$
+                  be a homomorphism. Define the \text{kernel} of $\varphi$ to be
+                  $\{g \in G : \varphi(g) = 1_H\}$. Prove that the kernel of
+                  $\varphi$ is a subgroup of $G$. Prove that $\varphi$ is
+                  injective if and only if the kernel of $\varphi$ is the
+                  identity subgroup of $G$.
+
+      \textbf{Proof 1.} Let ker($\varphi$) be the kernel of $\varphi$. The set
+      ker($\varphi$) is not empty because $1_G \in \text{ker}(\varphi)$. Now let
+      $x, y \in \text{ker}(\varphi)$. Then we have that
+      $$\varphi(xy^{-1}) = \varphi(x)\varphi(y)^{-1} = 1_H{1_H}^{-1} = 1_H,$$
+      so that $xy^{-1} \in \text{ker}(\varphi)$. That is ker($\varphi$) is a
+      subgroup of $G$. \qed
+
+      \textbf{Proof 2.} ($\Rightarrow$) Assume that $\varphi$ is injective. Let
+      $x \in \text{ker}(\varphi)$. Thus we have that
+      $\varphi(1_G) = \varphi(x) = 1_H$, so that $x = 1_G$ since $\varphi$ is
+      one to one. That is ker($\varphi$) = $\{1_G\}$, the identity subgroup of
+      $G$.
+
+      ($\Leftarrow$) Assume that ker($\varphi$) = $\{1_G\}$. Suppose that
+      $\varphi(g_1) = \varphi(g_2)$ for some $g_1, g_2 \in G$. Then it follows
+      that $\varphi(g_1)\varphi(g_2)^{-1} = 1_H$, so that
+      $\varphi(g_1{g_2}^{-1}) = 1_H$. Since ker($\varphi$) = $\{1_G\}$, we can
+      conclude that $g_1{g_2}^{-1} = 1_G$, so that $g_1 = g_2$; i.e., $\varphi$
+      is injective. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.7.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.7.3]   Show that the additive group $\R$ acts on the $x, y$ plane
+                  $\R \times \R$ by $r \cdot (x, y) = (x + ry, y)$.
+
+      \textbf{Proof.} Let $r_1$, $r_2$, $r_3$, and $r_4$ be real numbers. Since
+      $\R$ is closed under addition, we have that
+      $r_1 \cdot (r_2, r_3) = (r_2 + r_1r_3, r_3) \in \R \times \R$. We also
+      have that
+      $$0 \cdot (r_1, r_2) = (r_1 + 0 \cdot r_2, r_2) = (r_1, r_2).$$
+      Finally we have that
+      \begin{align*}
+         r_1 \cdot (r_2 \cdot (r_3, r_4)) &= r_1 \cdot (r_3 + r_2r_4, r_4) \\
+            &= (r_3 + r_2r_4 + r_1r_4, r_4) \\
+            &= (r_3 + (r_2 + r_1)r_4, r_4) \\
+            &= (r_2 + r_1) \cdot (r_3, r_4), \\
+      \end{align*}
+      so that $\R$ acts on the cartesian plane by the given operation. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.7.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.7.6]   Prove that a group $G$ acts faithfully on a set $A$ if and
+                  only if the kernel of the action is the set consisting only of
+                  the identity.
+
+      \textbf{Proof.} Let $\varphi : G \rightarrow S_A$ be the corresponding 
+      permutation representation.
+
+      ($\Rightarrow$) Assume that $G$ acts faithfully on $A$. Let $g$ be an
+      element of the kernel of this action. Then it follows that
+      $\varphi(g) = 1$; but $\varphi$ is injective (since this action is
+      faithul), so that $g = 1$, and it follows that the kernel of the action is
+      trivial.
+
+      ($\Leftarrow$) Conversely, suppose the kernel of this action is trivial.
+      Then it follows by Exercise 1.7.5 that the kernel of $\varphi$ is also
+      trivial. So suppose that $\varphi(g_2) = \varphi(g_3)$. Then we have
+      that $\varphi(g_2{g_3}^{-1}) = 1$, and since the kernel of $\varphi$ is 
+      trivial, it follows that $g_2{g_3}^{-1} = 1$. Thus $g_2 = g_3$ and we
+      have that $\varphi$ is injective; that is, $G$ acts faithfully on $A$.
+      \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.7.11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.7.11]  Write out the cycle decomposition of the eight permutations in
+                  $S_4$ corresponding to the elements of $D_8$ given by the
+                  action of $D_8$ on the vertices of a square (where the
+                  vertices of the square are labelled as in Section 2).
+
+      \textbf{Solution.}
+
+      $$
+         \begin{tabular}{@{}|c|c|@{}} \hline
+            Element in $D_8$ & Corresponding element in $S_4$ \\ \hline         
+            1      & (1) \\ \hline
+            $r$    & (1 2 3 4) \\ \hline
+            $r^2$  & (1 3)(2 4) \\ \hline
+            $r^3$  & (1 4 3 2) \\ \hline        
+            $s$    & (2 4) \\ \hline
+            $sr$   & (1 4)(2 3) \\ \hline
+            $sr^2$ & (1 3) \\ \hline
+            $sr^3$ & (1 2)(3 4)\\ \hline
+         \end{tabular}
+      $$      
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.7.18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.7.18]  Let $H$ be a group acting on a set $A$. Prove that the
+                  relation $\sim$ on $A$ defined by
+                  $$a \sim b \quad \text{if and only if} \quad
+                    a = hb \quad \text{for some }h \in H$$
+                  is an equivalence relation. (For each $x \in A$ the
+                  equivalence class of $x$ under $\sim$ is called the
+                  \textit{orbit} of $x$ under the action of $H$. The orbits
+                  under the action of $H$ partition the set $A$.)
+
+      \textbf{Proof.} Let $a, b, c \in H$.
+
+      \textbf{Reflexivity.} Since $1a = a$, it follows that $a \sim a$, so that
+      $\sim$ is reflexive on $A$.
+
+      \textbf{Symmetry.} Suppose $a \sim b$. Then there exists $h \in H$ such
+      that $a = hb$. Now $h^{-1}a = h^{-1}hb = 1b = b$, so that $b \sim a$; thus
+      $\sim$ is symmetric on $A$.
+
+      \textbf{Transitivity.} Suppose $a \sim b$ and $b \sim c$. Then there exist
+      $h_1, h_2 \in H$ such that $a = h_1b$ and $b = h_2c$. Thus
+      $a = h_1b = h_1(h_2c) = (h_1h_2)c$, so that $a \sim c$; thus $\sim$ is 
+      transitive on $A$.
+
+      We can thus conclude that $\sim$ is an equivalence relation on $A$. \qed
+\end{enumerate}
+\end{document}

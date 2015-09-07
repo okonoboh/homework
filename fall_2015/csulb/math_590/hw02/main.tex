@@ -1,0 +1,205 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath, array}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{bm}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 590, Fall 2015\\Section 1 (9529)\\
+  HW \#02, DUE: 2015, September 09
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the veracity or falsehood of each of the following statements.
+         For bonus, argue for those that you believe are true while providing a
+         counterexample for those that you believe are false. Here $A$ and $B$
+         are adjacency matrices of graphs.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item $AB$ is a symmetric matrix.
+            \item $A$ is regular if and only if $AJ = kJ$ for some constant $k$.
+            \item $A^2 + I$ is invertible.
+            \item $AJ = JA$ implies $A$ is regular.
+            \item If $A$ is connected and $AJ = 3J$, then 3 only occurs once as
+                  an eigenvalue of $A$.
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{On Graphs \& Their Automorphisms.} Let $G = (V, E)$ be a graph.
+         Thus $V$ is the (finite) set of vertices and $E$ is the set of edges,
+         and we are assuming the relation is symmetric and irreflexive: if
+         $x \sim y$ then $y \sim x$, and $x \not\sim x$. A permutation or
+         bijection $\alpha : V \rightarrow V$ is said to be an automorphism of
+         $G$ if whenever $x \sim y$ then $\alpha(x) \sim \alpha(y)$. Let
+         Aut($G$) denote the set of automorphisms.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Prove Aut($G$) is a subgroup of the group of permutations of
+                  $V$.
+            \item Show that for any two vertices, $x, y \in V$, if there exists
+                  $\alpha \in \text{Aut}(G)$ such that $\alpha(x) = y$, then
+                  they have the same degree---namely the number of edges coming
+                  out of each is the same.
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item We are going to describe a graph with 50 vertices. The vertices $V$ are
+         simply the following $(a \quad b)$ and $\left(\begin{tabular}{@{}c@{}}
+            $a$ \\
+            $b$  
+         \end{tabular}\right)$ where $a, b \in \Z_5$. Recall that the squares
+         $\S$ in $\Z_5$ are $\{1, 4\}$ and the non-squares $\N$ are $\{2, 3\}$.
+         Observe $-\S = \S$ and $-\N = \N$. We now describe the edges:
+
+         $(a \quad b) \sim (c \quad d)$ if and only if $a = c$ and
+         $b - d \in \S$. Note this is symmetric. $\left(\begin{tabular}{@{}c@{}}
+            $a$ \\
+            $b$  
+         \end{tabular}\right) \sim \left(\begin{tabular}{@{}c@{}}
+            $c$ \\
+            $d$  
+         \end{tabular}\right)$ if and only if $a = c$ and $b - d \in \N$. Note
+         this is symmetric. $(a \quad b) \sim \left(\begin{tabular}{@{}c@{}}
+            $c$ \\
+            $d$  
+         \end{tabular}\right)$ if and only if $\left(\begin{tabular}{@{}c@{}}
+            $c$ \\
+            $d$  
+         \end{tabular}\right) \sim (a \quad b)$ if and only if $b = ca + d$.
+         Since $0 \notin \S \cup \N$, the relation is irreflexive so we have a
+         graph $G$. Let $A$ be its $50 \times 50$ adjacency matrix. Do the
+         following:
+
+         \begin{enumerate}[start=0, label=\protect\circled{\arabic*}]
+            \item Find the vertices connected to $(0 \quad 0)$.
+                  \textbf{Hint.} Do it by cases.
+            \item Find the vertices connected to $\left(\begin{tabular}{@{}c@{}}
+                     0 \\
+                     0  
+                  \end{tabular}\right)$.
+            \item Show the mapping $\alpha_x : V \rightarrow V$ defined by
+                  $(a \quad b) \mapsto (a \quad b + x)$ and
+                  $\left(\begin{tabular}{@{}c@{}}
+                     $c$ \\
+                     $d$
+                  \end{tabular}\right) \mapsto \left(\begin{tabular}{@{}c@{}}
+                     $c$ \\
+                     $d + x$  
+                  \end{tabular}\right)$ is an automorphism of the graph.
+            \item Let $m \neq 0 \in \Z_5$. Show that the mapping
+                  $\beta_m(a \quad b) = (ma \quad b)$ and
+                  $\beta_m\left(\begin{tabular}{@{}c@{}}
+                     $c$ \\
+                     $d$  
+                  \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
+                     $m^{-1}c$ \\
+                     $d$  
+                  \end{tabular}\right)$ is an automorphism of the graph.
+            \item Show that $AJ = kJ$ for some $k$ and find the $k$.
+            \item Show that if $(a \quad b) \sim (c \quad d)$, or
+                  $\left(\begin{tabular}{@{}c@{}}
+                     $a$ \\
+                     $b$  
+                  \end{tabular}\right) \sim \left(\begin{tabular}{@{}c@{}}
+                     $c$ \\
+                     $d$  
+                  \end{tabular}\right)$, or $(a \quad b) \sim
+                  \left(\begin{tabular}{@{}c@{}}
+                     $c$ \\
+                     $d$  
+                  \end{tabular}\right)$, then there is no vertex joined to both.
+                  \textbf{Hint.} Do cases.
+            \item Show that if $(a \quad b) \not\sim (c \quad d)$, or
+                  $\left(\begin{tabular}{@{}c@{}}
+                     $a$ \\
+                     $b$  
+                  \end{tabular}\right) \not\sim \left(\begin{tabular}{@{}c@{}}
+                     $c$ \\
+                     $d$  
+                  \end{tabular}\right)$, or $(a \quad b) \not\sim
+                  \left(\begin{tabular}{@{}c@{}}
+                     $c$ \\
+                     $d$  
+                  \end{tabular}\right)$, then there is exactly one vertex joined
+                  to both.
+            \item Show there exist integers $m, n, l$ such that   
+                  $A^2 = mA + nI + lJ$ and find them.
+            \item Find the spectrum of the graph. \textbf{Hint.} Use the
+                  spectrum of $J$ and the fact that the spectrum of a polynomial
+                  is the polynomial of the spectrum, and use the trace.
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+   \item[\textbf{Bonus.}]  Let $G$ be a connected graph. If for any two vertices
+                           $x, y \in V$, there exists $\alpha \in \text{Aut}(G)$
+                           such that $\alpha(x) = y$, then we say the group of
+                           automorphisms is \textbf{vertex transitive}.
+
+                           \begin{enumerate}[label=\protect\circled{\arabic*}]   
+                              \item Prove that if $\text{Aut}(G)$ is vertex
+                                    transitive, then the graph is regular,
+                                    namely the number of edges leaving a vertex
+                                    is the same for any two vertices. Assume
+                                    vertex transitivity. Then $\text{Aut}(G)$ is
+                                    \textbf{edge transitive} when for any pairs
+                                    of points, $x_1 \sim y_1$ and $x_2 \sim y_2$
+                                    there exists $\alpha \in \text{Aut}(G)$ such
+                                    that $\alpha(x_1) = x_2$ and
+                                    $\alpha(x_2) = y_2$.
+                              \item Prove that if $\text{Aut}(G)$ is
+                                    \textbf{edge transitive}, and if
+                                    $x_1 \not\sim y_1$ and $x_2 \not\sim y_2$,
+                                    there exists $\alpha \in \text{Aut}(G)$ such
+                                    that $\alpha(x_1) = x_2$ and
+                                    $\alpha(x_2) = y_2$.
+                              \item Prove that if $\text{Aut}(G)$ is edge
+                                    transitive, and $A$ is the adjacency matrix
+                                    of the graph, then there exist integers
+                                    $a, b, c$ such that $A^2 = aA + bI +cJ$.
+                              \item Decide if the graph in the previous problem
+                                    has a vertex transitive group or an edge
+                                    transitive group.
+                           \end{enumerate}
+\end{enumerate}
+\end{document}
