@@ -238,28 +238,28 @@
       such that
 
       \begin{equation} \label{8_0}
-         f(n) \le C \cdot h(n) \text{ for all } n \ge k.
+         |f(n)| \le C \cdot |h(n)| \text{ for all } n \ge k.
       \end{equation}
 
       Since
       $f(n) = O(g(n))$ and $g(n) = O(h(n))$, it follows by definition that there
       exist $C_1 > 0$, $C_2 > 0$, $k_1 \ge 0$, $k_2 \ge 0$, such that
       \begin{equation} \label{8_1}
-         f(n) \le C_1 \cdot g(n) \text{ for all } n \ge k_1
+         |f(n)| \le C_1 \cdot |g(n)| \text{ for all } n \ge k_1
       \end{equation}
        and
       \begin{equation} \label{8_2}
-         g(n) \le C_2 \cdot h(n) \text{ for all } n \ge k_2.
+         |g(n)| \le C_2 \cdot |h(n)| \text{ for all } n \ge k_2.
       \end{equation}
 
       Multiply inequality \eqref{8_2} by the positive number $C_1$ to get
       \begin{equation} \label{8_3}
-         C_1 \cdot g(n) \le C_1C_2 \cdot h(n) \text{ for all } n \ge k_2.
+         C_1 \cdot |g(n)| \le C_1C_2 \cdot |h(n)| \text{ for all } n \ge k_2.
       \end{equation}
       
       Combine \eqref{8_1} and \eqref{8_3} to get
       \begin{equation} \label{8_4}
-         f(n) \le C_1 \cdot g(n) \le C_1C_2 \cdot h(n) \text{ for all }
+         |f(n)| \le C_1 \cdot |g(n)| \le C_1C_2 \cdot |h(n)| \text{ for all }
          n \ge k_3 = \max\{k_1, k_2\}.
       \end{equation}
 
@@ -273,20 +273,20 @@
       $C > 0$ and $k \ge 0$, such that
 
       \begin{equation} \label{9_1}
-         g(n) \ge C \cdot f(n) \text{ for all } n \ge k.
+         |g(n)| \ge C \cdot |f(n)| \text{ for all } n \ge k.
       \end{equation}
 
       Since $f(n) = O(g(n))$, it follows by definition that there exist
       $C_1 > 0$ and $k_1 \ge 0$ such that 
 
       \begin{equation} \label{9_2}
-         f(n) \le C_1 \cdot g(n) \text{ for all } n \ge k_1.
+         |f(n)| \le C_1 \cdot |g(n)| \text{ for all } n \ge k_1.
       \end{equation}
 
       Multiply \eqref{9_2} by $1/C_1$ to get
 
       \begin{equation} \label{9_3}
-         g(n) \ge (1/C_1) \cdot f(n) \text{ for all } n \ge k_1.
+         |g(n)| \ge (1/C_1) \cdot |f(n)| \text{ for all } n \ge k_1.
       \end{equation}
 
       Inequality \eqref{9_3} says that \eqref{9_1} holds if we choose
@@ -296,20 +296,20 @@
       $f(n) = O(g(n))$, we must find $D > 0$ and $j \ge 0$ such that
 
       \begin{equation} \label{9_4}
-         f(n) \le D \cdot g(n) \text{ for all } n \ge j.
+         |f(n)| \le D \cdot |g(n)| \text{ for all } n \ge j.
       \end{equation}
 
       Since $g(n) = \Omega(f(n))$, it follows by definition that there exist
       $C_2 > 0$ and $k_2 \ge 0$ such that 
 
       \begin{equation} \label{9_5}
-         g(n) \ge C_2 \cdot f(n) \text{ for all } n \ge k_2.
+         |g(n)| \ge C_2 \cdot |f(n)| \text{ for all } n \ge k_2.
       \end{equation}
 
       Multiply \eqref{9_5} by $1/C_2$ to get
 
       \begin{equation} \label{9_6}
-         f(n) \le (1/C_2) \cdot g(n) \text{ for all } n \ge k_2.
+         |f(n)| \le (1/C_2) \cdot |g(n)| \text{ for all } n \ge k_2.
       \end{equation}
 
       Inequality \eqref{9_6} says that \eqref{9_4} holds if we choose
@@ -338,7 +338,7 @@
    \item Prove or disprove: $2^{n+1} = O(2^n)$.
 
       \textbf{Proof.} We want to show that $2^{n+1} = O(2^n)$. Observe that
-      $$2^{n+1} = 2 \cdot 2^n \le 2 \cdot 2^n$$
+      $$|2^{n+1}| = 2^{n+1} = 2 \cdot 2^n \le 2 \cdot 2^n = 2 \cdot |2^n|$$
       for all $n \ge 0$. It immediately follows that $2^{n+1} = O(2^n)$.
       (Choose $C = 2$ and $k = 0$.) \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -349,7 +349,8 @@
       $C > 0$ and $k \ge 0$ such that
 
       \begin{equation} \label{14_1}
-         2^{2n} \le C_1 \cdot 2^n \text{ for all } n \ge k.
+         |2^{2n}| = 2^{2n} \le C_1 \cdot |2^n| = C_12^n \text{ for all }
+            n \ge k.
       \end{equation}
 
       Since $2^n$ is positive for every integer $n$, we will divide \eqref{14_1}
@@ -385,23 +386,32 @@
       \end{equation}
 
       \eqref{15_1} says that the quotient $g(n)/f(n)$ is positive for all
-      $n \ge N$. That is, $g(n)$ and $f(n)$ are both positive for $n \ge N$. So
-      multiply \eqref{15_1} by $f(n)$ to get
+      $n \ge N$. That is,
+      $$\left|\frac{g(n)}{f(n)}\right| = \frac{g(n)}{f(n)} \quad
+        \text{if }n \ge N.$$
+      We can then rewrite \eqref{15_1} to get
+      \begin{equation} \label{15_5}
+         \frac{C}{2} < \left|\frac{g(n)}{f(n)}\right| < \frac{3C}{2}
+         \text{ for all }n \ge N.
+      \end{equation}
+
+      So multiply \eqref{15_5} by $|f(n)|$ to get
 
       \begin{equation} \label{15_2}
-         \frac{C}{2} f(n) < g(n) < \frac{3C}{2}f(n) \text{ for all } n \ge N.
+         \frac{C}{2} |f(n)| < |g(n)| < \frac{3C}{2}|f(n)|
+            \text{ for all } n \ge N.
       \end{equation}
 
       \eqref{15_2} contains two inequalities, namely:
 
       \begin{equation} \label{15_3}
-         g(n) > \frac{C}{2} f(n) \text{ for all } n \ge N
+         |g(n)| > \frac{C}{2} |f(n)| \text{ for all } n \ge N
       \end{equation}
 
       and
 
       \begin{equation} \label{15_4}
-         g(n) < \frac{3C}{2}f(n) \text{ for all } n \ge N.
+         |g(n)| < \frac{3C}{2}|f(n)| \text{ for all } n \ge N.
       \end{equation}
 
       \eqref{15_3} says that $g(n) = \Omega(f(n))$, so that $f(n) = O(g(n))$,
@@ -448,8 +458,12 @@
    \item Show that $\log(n!) = \Theta(n\log(n))$.
 
       \textbf{Proof.} Let $f(n) = \log(n)$. Observe that $f$ is increasing and
-      $$\int_1^nf(x)\;dx = \frac{1}{\ln(2)}(x\ln(x) - x) \bigg|_1^n =
-         n\log(n) - \frac{n}{\ln(2)} + \frac{1}{\ln(2)}.$$
+      \begin{align*}
+         O\left(\int_1^nf(x)\;dx\right) &=
+            O\left(\frac{1}{\ln(2)}(x\ln(x) - x)\bigg|_1^n\right) \\
+            &= O\left(n\log(n) - \frac{n}{\ln(2)} + \frac{1}{\ln(2)}\right) \\
+            &= O(n\log(n)).
+      \end{align*}
       Since $f(n) = O(n\log(n))$, it follows that
       $$f(n) = O\left(\int_1^nf(x)\;dx\right).$$
       Hence
@@ -473,7 +487,7 @@
       exists $N > 0$ such that if $n > N$, then
       $$\left|\frac{n!}{n^n}\right| < \varepsilon.$$
       Let $\varepsilon$ be an arbritrary positive number. For each positive
-      integer $n$, we have that
+      integer $n > 1$, we have that
       \begin{align*}
          \left|\frac{n!}{n^n}\right| &= \frac{n!}{n^n} \\
             &= \frac{n}{n} \cdot \frac{n-1}{n} \cdot \frac{n-2}{n} \cdots
@@ -491,17 +505,70 @@
       so that $n! = o(n^n)$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%20%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Prove that $n! = \omega(2^n)$.
+
+      \textbf{Proof.} To prove that $n! = \omega(2^n)$, it suffices to show that
+      $$\lim_{n \rightarrow \infty} \frac{n!}{2^n} = \infty.$$
+      Thus, by definition, this is equivalent to showing that for every $M > 0$
+      there exists $N > 0$ such that $\frac{n!}{2^n} > M$, whenever $n > N$. Let
+      $M$ be an arbitrary positive number. It follows that
+      \begin{align*}
+         \frac{n!}{2^n} &= \frac{1}{2}\cdot\frac{2}{2}\cdot\frac{3}{2}\cdot
+         \frac{4}{2}\cdot\frac{5}{2}\cdots\frac{n}{2} \\
+         &= \frac{3}{4} \cdot \frac{4}{2}\cdot\frac{5}{2}\cdots\frac{n}{2} \\
+         &> \frac{3}{4} \cdot 2 \cdot 2 \cdots 2 \\
+         &= \frac{3}{4} \cdot 2^{n-3}
+      \end{align*}
+      if $n \ge 4$. But $\frac{3}{4} \cdot 2^{n-3} > M$ if and only if
+      $n > 3 + \log\left(\frac{4M}{3}\right)$. That is, we let
+      $N = \max\left\{4, 3 + \log\left(\frac{4M}{3}\right)\right\}$, so that
+      $\frac{n!}{2^n} > \frac{3}{4} \cdot 2^{n-3} > M$, if $n > N$. Thus, we
+      have shown that $n! = \omega(2^n)$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Which one of the below functions grows faster? Explain.
          $$f(n) = 2^{2^n} \text{ and } g(n) = n!$$
+
+      \textbf{Answer.} The function $f(n)$ grows much faster than $g(n)$
+      because $g(n) = o(f(n))$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Provide a closed-form expression for the asymptotic growth of
          $n + n/2 + n/3 + \cdots + 1$.
+
+      \textbf{Solution.} Let $f(x) = n/x$, where $n$ is a positive integer.
+      Observe that $f$ is a decreasing whenever $x$ is increasing. Thus
+      \begin{align*}
+         n + n/2 + n/3 + \cdots + 1 &= \sum_{i=1}^nf(i) \\
+            &= \Theta\left(\int_1^n f(x)\;dx\right) &[\text{Integral Theorem}]\\
+            &= \Theta\left(n\ln(x)\bigg|_1^n\right) \\
+            &= \Theta(n\ln(n)) \\
+            &= \Theta\left(\frac{1}{\log(e)}n\log(n)\right) \\
+            &= \Theta(n\log(n)).
+      \end{align*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%23%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Use the integral theorem to calculate the growth of
          $1 + 2^k + 3^k + \cdots + n^k$.
+
+      \textbf{Solution.} Let $f(x) = x^k$, for some positive number $k$. It is
+      clear that $f$ is an increasing function. Now we have that
+      $$O\left(\int_1^nf(x)\;dx\right) = O\left(\frac{n^{k+1}}{k+1} -
+          \frac{1}{k+1}\right) = O(n^{k+1}).$$
+      Since $f(n) = n^k = O(n^{k+1}) = O\left(\int_1^nf(x)\;dx\right)$, it 
+      follows that
+      \begin{align*}
+         1 + 2^k + 3^k + \cdots + n^k &= \sum_{i=1}^nf(i) \\
+            &= \Theta\left(\int_1^nf(x)\;dx\right) &[\text{Integral Theorem}]\\
+            &= \Theta(n^{k+1}).
+      \end{align*}
    \item[\textbf{Extra Credit.}] Prove or disprove: if $f(n) = O(g(n))$, then
                                  $2^{f(n)} = O(2^{g(n)})$.
+
+      \textbf{Counterexample.} Let $f(n) = 2n^3$ and $g(n) = n^3$. Clearly,
+      $f(n) = O(g(n))$. Suppose to the contrary that $2^{f(n)} = O(2^{g(n)})$.
+      Then it follows, by definition, that there exist $C > 0$ and $k \ge 0$
+      such that $|2^{f(n)}| \le C|2^{g(n)}|$, if $n \ge k$. Since $f$ and $g$
+      are both nonnegative for $n \ge 0$, it follows that $2^{2n^3}\le C2^{n^3}$,
+      or equivalently, $C \ge 2^{n^3}$, if $n \ge k$. But this is a
+      contradiction since $2^{n^3}$ is unbounded as $n$ becomes larger and $C$
+      is a constant. Thus, $2^{f(n)} \neq O(2^{g(n)})$.
       
 \end{enumerate}
 \end{document}
