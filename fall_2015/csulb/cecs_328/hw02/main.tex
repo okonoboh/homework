@@ -188,13 +188,13 @@
       \textbf{Answer.}
 
       \begin{enumerate}
-         \item $O(n^{4.0001})$.
-         \item $O(n^3\log(n))$.
+         \item $O(n^{4.0001})$, polynomial growth.
+         \item $O(n^3\log(n))$, log-polynomial growth.
          \item Linear growth.
-         \item $O(n^4\log^3(n))$.
+         \item $O(n^4\log^3(n))$, log-polynomial growth.
          \item Log-linear growth.
-         \item $O(n^{1/10})$.
-         \item $O(n^{1/4})$.
+         \item $O(n^{1/10})$, polynomial growth.
+         \item $O(n^{1/4})$, polynomial growth.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Prove that $(n+5)^{100} = \Theta(n^{100})$.
@@ -221,13 +221,15 @@
       \textbf{Answer.}
 
       \begin{enumerate}
-         \item
-         \item
+         \item $f(n)$ has superpolynomial growth since
+               $$\lim_{n\rightarrow\infty}\frac{f(n)}{n^k} = \infty$$
+               for every $k$, so that $f(n) = \Omega(n^k)$, for every $k$.
+         \item $f(n)$ has linear growth since $f(n) = O(n)$.
          \item Since $f(n) = (\sqrt{2})^{\log(n)} = (2^{1/2})^{\log(n)} =
                        2^{\log(n^{1/2})} = n^{1/2}$. It follows that
-               $f(n) = O(n^{1/2})$.
+               $f(n) = O(n^{1/2})$, a polynomial growth.
          \item We have $f(n) = n^{1/\log(n)} = n^{\log_n2} = 2$. That is,
-               $O(f(n)) = 1$.
+               $O(f(n)) = 1$, a constant growth.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Prove transitivity of big-$O$: if $f(n) = O(g(n))$ and
