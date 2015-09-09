@@ -36,6 +36,10 @@
 
 \newcommand{\qed}{\hfill \ensuremath{\Box}}
 
+\newcommand{\col}[2]{\left(\begin{tabular}{@{}c@{}}
+   $#1$ \\
+   $#2$  
+ \end{tabular}\right)}
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
@@ -84,92 +88,113 @@
                   they have the same degree---namely the number of edges coming
                   out of each is the same.
          \end{enumerate}
+         
+      \textbf{Proof.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item The set $\text{Aut}(G)$ is not empty since it contains the
+               identity permutation---the permutation that fixes all vertices of
+               $V$. Associativity is already taken care of because the group of
+               permutations is associative under function composition; the
+               identity permutation serves as the identity for Aut($G$), and
+               since Aut($G$) is finite, it is also closed under taking
+               inverses. So we only need to show closure under function
+               composition. To that end, let
+               $\beta, \gamma \in \text{Aut}(G)$. Suppose we have $x \sim y$ for
+               some $x, y \in V$. Since $\gamma$ is a member of Aut($G$), it
+               follows that $\gamma(x) \sim \gamma(y)$. Similarly, since
+               $\gamma(x)$ and $\gamma(y)$ are members of $V$, it follows that
+               $\beta(\gamma(x)) \sim \beta(\gamma(y))$, so that
+               $(\beta\circ\gamma)(x) \sim (\beta\circ\gamma)(y)$; that is,
+               $\beta\circ\gamma \in \text{Aut}(G)$, and so we conclude that
+               $\text{Aut}(G) \le S_V$.
+         \item Let $S_v = \{u \in V: u \sim v\}$, where $v \in V$. It is clear
+               that for $v \in V$, we have $\text{degree($v$)} = |S_v|$. Now
+               suppose that there exist $x, y \in V$ and
+               $\alpha \in \text{Aut}(G)$ such that $\alpha(x) = y$. We want to
+               show that degree($x$) = degree($y$); that is, $|S_x| = |S_y|$.
+               Assume that $S_x$ is not empty. So let
+               $a \in S_x$, so that $x \sim a$. It follows that
+               $y = \alpha(x) \sim \alpha(a)$; that is, $\alpha(a) \in S_y$.
+               Since $\alpha$ is injective, it must therefore map all elements
+               of $S_x$ to unique elements in $S_y$; thus $|S_x| \le |S_y|$.
+               Now let $b \in S_y$, so that $y \sim b$; recall that Aut($G$) is
+               a group, so we must have $\alpha^{-1} \in \text{Aut}(G)$. Thus
+               since $y \sim b$, it follows that
+               $x = \alpha^{-1}(y) \sim \alpha^{-1}(b)$, so that
+               $\alpha^{-1}(b) \in S_x$. Similarly, we conclude that
+               $\alpha^{-1}$ maps elements of $S_y$ to unique elements in $S_x$
+               because it is injective. Thus $|S_y| \le |S_x|$ and we conclude
+               that $|S_x| = |S_y|$, so that degree($x$) = degree($y$). Now if
+               $S_x$ is empty, then our arguments above show us that $S_y$ must
+               also be empty (since the preimage of the elements of $S_y$ under
+               $\alpha$ are precisely the elements of $S_x$), and the proof is
+               complete.\qed
+      \end{enumerate}
+      
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item We are going to describe a graph with 50 vertices. The vertices $V$ are
-         simply the following $(a \quad b)$ and $\left(\begin{tabular}{@{}c@{}}
-            $a$ \\
-            $b$  
-         \end{tabular}\right)$ where $a, b \in \Z_5$. Recall that the squares
-         $\S$ in $\Z_5$ are $\{1, 4\}$ and the non-squares $\N$ are $\{2, 3\}$.
-         Observe $-\S = \S$ and $-\N = \N$. We now describe the edges:
+         simply the following $(a \quad b)$ and $\col{a}{b}$ where
+         $a, b \in \Z_5$. Recall that the squares $\S$ in $\Z_5$ are $\{1, 4\}$
+         and the non-squares $\N$ are $\{2, 3\}$. Observe $-\S = \S$ and
+         $-\N = \N$. We now describe the edges:
 
          $(a \quad b) \sim (c \quad d)$ if and only if $a = c$ and
-         $b - d \in \S$. Note this is symmetric. $\left(\begin{tabular}{@{}c@{}}
-            $a$ \\
-            $b$  
-         \end{tabular}\right) \sim \left(\begin{tabular}{@{}c@{}}
-            $c$ \\
-            $d$  
-         \end{tabular}\right)$ if and only if $a = c$ and $b - d \in \N$. Note
-         this is symmetric. $(a \quad b) \sim \left(\begin{tabular}{@{}c@{}}
-            $c$ \\
-            $d$  
-         \end{tabular}\right)$ if and only if $\left(\begin{tabular}{@{}c@{}}
-            $c$ \\
-            $d$  
-         \end{tabular}\right) \sim (a \quad b)$ if and only if $b = ca + d$.
-         Since $0 \notin \S \cup \N$, the relation is irreflexive so we have a
+         $b - d \in \S$. Note this is symmetric. $\col{a}{b} \sim \col{c}{d}$
+         if and only if $a = c$ and $b - d \in \N$. Note this is symmetric.
+         $(a \quad b) \sim \col{c}{d}$ if and only if
+         $\col{c}{d} \sim (a \quad b)$ if and only if $b = ca + d$. Since
+         $0 \notin \S \cup \N$, the relation is irreflexive so we have a
          graph $G$. Let $A$ be its $50 \times 50$ adjacency matrix. Do the
          following:
 
          \begin{enumerate}[start=0, label=\protect\circled{\arabic*}]
             \item Find the vertices connected to $(0 \quad 0)$.
                   \textbf{Hint.} Do it by cases.
-            \item Find the vertices connected to $\left(\begin{tabular}{@{}c@{}}
-                     0 \\
-                     0  
-                  \end{tabular}\right)$.
+            \item Find the vertices connected to $\col{0}{0}$.
             \item Show the mapping $\alpha_x : V \rightarrow V$ defined by
                   $(a \quad b) \mapsto (a \quad b + x)$ and
-                  $\left(\begin{tabular}{@{}c@{}}
-                     $c$ \\
-                     $d$
-                  \end{tabular}\right) \mapsto \left(\begin{tabular}{@{}c@{}}
-                     $c$ \\
-                     $d + x$  
-                  \end{tabular}\right)$ is an automorphism of the graph.
+                  $\col{c}{d} \mapsto \col{c}{d+x}$ is an automorphism of the
+                  graph.
             \item Let $m \neq 0 \in \Z_5$. Show that the mapping
                   $\beta_m(a \quad b) = (ma \quad b)$ and
-                  $\beta_m\left(\begin{tabular}{@{}c@{}}
-                     $c$ \\
-                     $d$  
-                  \end{tabular}\right) = \left(\begin{tabular}{@{}c@{}}
-                     $m^{-1}c$ \\
-                     $d$  
-                  \end{tabular}\right)$ is an automorphism of the graph.
+                  $\col{c}{d} = \col{m^{-1}c}{d}$ is an automorphism of the
+                  graph.
             \item Show that $AJ = kJ$ for some $k$ and find the $k$.
             \item Show that if $(a \quad b) \sim (c \quad d)$, or
-                  $\left(\begin{tabular}{@{}c@{}}
-                     $a$ \\
-                     $b$  
-                  \end{tabular}\right) \sim \left(\begin{tabular}{@{}c@{}}
-                     $c$ \\
-                     $d$  
-                  \end{tabular}\right)$, or $(a \quad b) \sim
-                  \left(\begin{tabular}{@{}c@{}}
-                     $c$ \\
-                     $d$  
-                  \end{tabular}\right)$, then there is no vertex joined to both.
-                  \textbf{Hint.} Do cases.
+                  $\col{a}{b} \sim \col{c}{d}$, or
+                  $(a \quad b) \sim \col{c}{d}$, then there is no vertex joined
+                  to both. \textbf{Hint.} Do cases.
             \item Show that if $(a \quad b) \not\sim (c \quad d)$, or
-                  $\left(\begin{tabular}{@{}c@{}}
-                     $a$ \\
-                     $b$  
-                  \end{tabular}\right) \not\sim \left(\begin{tabular}{@{}c@{}}
-                     $c$ \\
-                     $d$  
-                  \end{tabular}\right)$, or $(a \quad b) \not\sim
-                  \left(\begin{tabular}{@{}c@{}}
-                     $c$ \\
-                     $d$  
-                  \end{tabular}\right)$, then there is exactly one vertex joined
-                  to both.
+                  $\col{a}{b} \not\sim \col{c}{d}$, or
+                  $(a \quad b) \not\sim\col{c}{d}$, then there is exactly one
+                  vertex joined to both.
             \item Show there exist integers $m, n, l$ such that   
                   $A^2 = mA + nI + lJ$ and find them.
             \item Find the spectrum of the graph. \textbf{Hint.} Use the
                   spectrum of $J$ and the fact that the spectrum of a polynomial
                   is the polynomial of the spectrum, and use the trace.
          \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[start=0, label=\protect\circled{\arabic*}]
+         \item Suppose that $(0 \quad 0) \sim (a \quad b)$ and
+               $(0 \quad 0)\sim \col{c}{d}$. It follows that $a = 0$ and
+               $b - 0 = b \in \S$ and $0 = 0 + d$. Thus the vertices
+               connected to $(0 \quad 0)$ are:
+               $$(0 \quad 1), (0 \quad 4), \col{0}{0}, \col{1}{0}, \col{2}{0},
+               \col{3}{0}, \text{ and }\col{4}{0}.$$
+         \item Now suppose that $\col{0}{0} \sim (a \quad b)$ and 
+               $\col{0}{0} \sim \col{c}{d}$. Then it follows that
+               $b = 0 \cdot a + 0 = 0$, $c = 0$, and $d - 0 = d \in \N$. Thus
+               the vertices connected to $(0 \quad 0)$ are:
+               $$(0 \quad 0), (1 \quad 0), (2 \quad 0), (3 \quad 0),
+                 (4 \quad 0), \col{0}{2}, \text{ and } \col{0}{3}.$$
+      \end{enumerate}
+      
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
    \item[\textbf{Bonus.}]  Let $G$ be a connected graph. If for any two vertices
                            $x, y \in V$, there exists $\alpha \in \text{Aut}(G)$
