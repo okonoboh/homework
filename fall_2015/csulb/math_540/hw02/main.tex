@@ -57,42 +57,54 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.6.1]   Let $\varphi : G \rightarrow H$ be a homomorphism.
                   \begin{enumerate}
-                     \item Prove that $\varphi(x^n) = \varphi(x)^n$ for all
-                           $n \in \Z^+$.
+                     \item Prove that
+                           \begin{equation} \label{1_6_1_0}
+                              \varphi(x^n) = \varphi(x)^n
+                           \end{equation}
+                           for all $n \in \Z^+$.
                      \item Do part (a) for $n = -1$ and deduce that
                            $\varphi(x^n) = \varphi(x)^n$ for all $n \in \Z$.
                   \end{enumerate}
 
-      \textbf{Solution.}
+      \textbf{Solution.} Let $x \in G$.
 
       \begin{enumerate}
-         \item \textbf{Proof.} We shall proceed by induction on $n$. It is clear
-               that $\varphi(x^1) = \varphi(x)^1$. Now suppose that
-               $\varphi(x^k) = \varphi(x)^k$ for some integer $k$. Thus
+         \item \textbf{Proof.} We shall proceed by induction on $n$. It is
+               immediate that statement \eqref{1_6_1_0} holds for the base
+               case ($n = 1$) because
+               $$\varphi(x^1) = \varphi(x) = \varphi(x)^1.$$
+               For our inductive hypothesis, we shall now suppose that
+               \eqref{1_6_1_0} holds for some positive integer $k$. Thus
                \begin{align*}
-                  \varphi(x^{k+1}) &= \varphi(x^kx) \\
+                  \varphi(x^{k+1}) &= \varphi(x^kx) &[\text{Exercise 1.1.19}] \\
                      &= \varphi(x^k)\varphi(x)
                         &[\varphi\text{ is a homomorphism}] \\
                      &= \varphi(x)^k\varphi(x) &[\text{Inductive hypothesis}] \\
-                     &= \varphi(x)^{k+1},
+                     &= \varphi(x)^{k+1} &[\text{Exercise 1.1.19}],
                \end{align*}
-               so that, by Mathematical Induction, $\varphi(x^n) = \varphi(x)^n$ 
-               for all $n \in \Z^+$. \qed
+               so that \eqref{1_6_1_0} also holds for $k+1$; hence, we
+               conclude by mathematical induction that \eqref{1_6_1_0} holds for
+               all $n \in \Z^+$. \qed
          \item Since
-               $$1 \cdot \varphi(1) = \varphi(1) = \varphi(1 \cdot 1) =
-                 \varphi(1)\cdot\varphi(1),$$
-               it follows by cancellation that $\varphi(1) = 1$. Thus
-               $$\varphi(x)\varphi(x^{-1}) = \varphi(xx^{-1}) =\varphi(1) = 1,$$
-               so that $\varphi(x^{-1}) = \varphi(x)^{-1}$. Now let $n$ be a
-               positive integer. Then it follows that
+               $$1_H \cdot \varphi(1_G) = \varphi(1_G) = \varphi(1_G \cdot 1_G)
+                 = \varphi(1_G)\cdot\varphi(1_G),$$
+               it follows by cancellation that $\varphi(1_G) = 1_H$. Thus
+               $$\varphi(x)\varphi(x^{-1}) = \varphi(xx^{-1}) =\varphi(1_G) =
+                  1_H,$$
+               so that $\varphi(x^{-1}) = \varphi(x)^{-1}$. Now let $m$ be a
+               negative integer, so that $m = -n$ for some positive integer $n$.
+               Then it follows that
                \begin{align*}
-                  \varphi(x^{-n}) &= \varphi((x^{-1})^n) \\
+                  \varphi(x^m) &= \varphi(x^{-n}) \\
+                     &= \varphi((x^{-1})^n) &[\text{By Definition}] \\
                      &= \varphi(x^{-1})^n &[\text{1.6.1(a)}] \\
-                     &= (\varphi(x)^{-1})^n \\
-                     &= \varphi(x)^{-n}.
+                     &= (\varphi(x)^{-1})^n &[\varphi(x^{-1}) = \varphi(x)^{-1}] \\
+                     &= \varphi(x)^{-n}. &[\text{Exercise 1.1.19}] \\
+                     &= \varphi(x)^m.
                \end{align*}
-               Moreover $\varphi(x^0) = 1 = \varphi(x)^0$; thus we can conclude 
-               that $\varphi(x^n) = \varphi(x)^n$ for all $n \in \Z$.
+               Moreover $\varphi(x^0) = \varphi(1_G) = 1_H = \varphi(x)^0$; thus
+               we conclude that $\varphi(x^n) = \varphi(x)^n$ for all
+               $n \in \Z$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.6.3]   If $\varphi : G \rightarrow H$ is an isomorphism, prove that
@@ -103,42 +115,57 @@
 
       \textbf{Proof.} Suppose $\varphi : G \rightarrow H$ is an isomorphism.
 
-      ($\Rightarrow$) Assume $G$ is abelian. Consider $h_1$ and $h_2$ in $H$.
-      Since $\varphi$ is surjective, there exist $g_1$, $g_2 \in G$ such that
-      $\varphi(g_1) = h_1$ and $\varphi(g_2) = h_2$. Since $G$ is abelian, we
-      have that
-      $$h_1h_2 = \varphi(g_1)\varphi(g_2) = \varphi(g_1g_2) = \varphi(g_2g_1) = 
-        \varphi(g_2)\varphi(g_1) = h_2h_1,$$
+      ($\Rightarrow$) Assume $G$ is abelian. Let $h_1, h_2 \in H$. Since
+      $\varphi$ is an isomorphism, it must be surjective; thus, by definition,
+      there exist $g_1$, $g_2 \in G$ such that
+      $\varphi(g_1) = h_1$ and ${\varphi(g_2) = h_2}$. It follows that
+      \begin{align*}
+         h_1h_2 &= \varphi(g_1)\varphi(g_2) \\
+            &= \varphi(g_1g_2) &[\varphi \text{ is a homomorphism}] \\
+            &= \varphi(g_2g_1) &[G \text{ is abelian}] \\
+            &= \varphi(g_2)\varphi(g_1) &[\varphi \text{ is a homomorphism}] \\
+            &= h_2h_1,
+      \end{align*}
       so that $H$ is also abelian.
 
-      ($\Rightarrow$) Now assume that $H$ is abelian. Consider $g_3$ and $g_4$ 
-      in $G$. Since $H$ is abelian, we have that
-      $$\varphi(g_3g_4) = \varphi(g_3)\varphi(g_4) = \varphi(g_4)\varphi(g_3) =
-        \varphi(g_4g_3).$$
-      We thus conclude that $g_3g_4 = g_4g_3$ since $\varphi$ is injective. That
-      is, $G$ is abelian. \qed
+      ($\Rightarrow$) Now assume that $H$ is abelian. Consider arbitrary 
+      elements $g_3$ and $g_4$ in $G$. It follows that
+      \begin{align*}
+         \varphi(g_3g_4) &= \varphi(g_3)\varphi(g_4)
+            &[\varphi \text{ is a homomorphism}] \\
+            &= \varphi(g_4)\varphi(g_3) &[H \text{ is abelian}] \\
+            &= \varphi(g_4g_3), &[\varphi \text{ is a homomorphism}]
+      \end{align*}
+      and, since $\varphi$ is injective, we conclude that $g_3g_4 = g_4g_3$.
+      That is, $G$ is abelian. \qed
 
       Finally suppose $\varphi$ is an homomorphism and $G$ is abelian. Looking
-      at the first direction of our proof above, we see that restricting
+      at the first direction of our proof above, we see that requiring
       $\varphi$ to be surjective is sufficient to make $H$ abelian.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.6.6]   Prove that the additive groups of $\Z$ and $\Q$ are not
                   isomorphic.
 
-      \textbf{Proof.} First we shall show that $(\Q, +)$ is not cyclic. So
-      suppose that $(\Q, +) = \cyc{c}$. Thus there exists an integer $n$ such 
-      that $nc = \D\frac{c}{2}$, so that $\D n = \frac{1}{2}$, a contradiction. 
-      That is, $(\Q, +)$ is not cyclic. Now suppose to the contrary that
-      $\varphi : \Z \rightarrow \Q$ is a homomorphism from $(\Z, +)$ to
-      $(\Q, +)$. Let $q \in \Q$ and let $z$ be the unique preimage of $q$ under
-      $\varphi$. Thus
+      \textbf{Proof.} Assume to the contrary that $\Z$ and $\Q$ are isomorphic.
+      Then it follows by definition that there exists a bijective homomorphism
+      $$\varphi : \Z \rightarrow \Q.$$
+      Let $q \in \Q$. Since $\varphi$ is surjective, there exists an integer $z$
+      such that $\varphi(z) = q$. Thus
       \begin{align*}
          q &= \varphi(z) \\
            &= \varphi(z \cdot 1) \\
-           &= z \cdot \varphi(1),  &[1.6.1(a)]
+           &= z \cdot \varphi(1).  &[1.6.1(a)]
       \end{align*}
-      so that $\Q = \cyc{\varphi(1)}$, a contradiction. Thus $(\Z, +)$ and
-      $(\Q, +)$ are not isomorphic. \qed
+      Since $q$ was arbitrary, we have just shown that every element in $\Q$ can
+      be written as an integral multiple of $\varphi(1)$; that is, $\varphi(1)$
+      generates $\Q$. Particularly, we must have that
+      $$\frac{\varphi(1)}{2} \in \cyc{\varphi(1)} = \Q.$$
+      So there exists an integer $n$ such that
+      $$\frac{\varphi(1)}{2} = n \cdot \varphi(1).$$
+      Observe that $\varphi(1) \neq 0$ since that would imply that
+      $\cyc{\varphi(1)} = 0$. So divide the preceding equality by $\varphi(1)$
+      to get $n = 1/2$, contradicting our assumption that $n$ was an integer.
+      Therefore Thus $(\Z, +)$ and $(\Q, +)$ are not isomorphic. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.6.14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.6.14]  Let $G$ and $H$ be groups and let $\varphi : G \rightarrow H$
                   be a homomorphism. Define the \text{kernel} of $\varphi$ to be
@@ -147,63 +174,99 @@
                   injective if and only if the kernel of $\varphi$ is the
                   identity subgroup of $G$.
 
-      \textbf{Proof 1.} Let ker($\varphi$) be the kernel of $\varphi$. The set
-      ker($\varphi$) is not empty because $1_G \in \text{ker}(\varphi)$. Now let
-      $x, y \in \text{ker}(\varphi)$. Then we have that
-      $$\varphi(xy^{-1}) = \varphi(x)\varphi(y)^{-1} = 1_H{1_H}^{-1} = 1_H,$$
-      so that $xy^{-1} \in \text{ker}(\varphi)$. That is ker($\varphi$) is a
-      subgroup of $G$. \qed
+      \textbf{Proof 1.} Let ker($\varphi$) be the kernel of $\varphi$. In
+      Exercise 1.6.1(b), we showed that ${\varphi(1_G) = 1_H}$; that is,
+      $1_G  \in \text{ker}(\varphi)$. Since ker($\varphi$) is not empty, we let
+      $x, y \in \text{ker}(\varphi)$. To show that ker($\varphi$) is a subgroup
+      of $G$, it suffices to show that $xy$ and $x^{-1}$ are also members of
+      ker($\varphi$). Thus
+      \begin{align*}
+         \varphi(xy) &= \varphi(x)\varphi(y)
+            &[\varphi \text{ is a homomorphism}] \\
+            &= 1_H1_H &[x, y \in \text{ker}(\varphi)] \\
+            &= 1_H,
+      \end{align*}
+      so that $xy \in \ker(\varphi)$. Also, we have that      
+      \begin{align*}
+         \varphi(x^{-1}) &= \varphi(x)^{-1} &[\text{Exercise }1.6.1] \\
+            &= {1_H}^{-1} &[x \in \text{ker}(\varphi)] \\
+            &= 1_H,
+      \end{align*}
+      so that $x^{-1} \in \text{ker}(\varphi)$. We have just shown that
+      ker($\varphi$) is closed under multiplication and inverses; thus
+      ker($\varphi$) is a subgroup of $G$. \qed
 
       \textbf{Proof 2.} ($\Rightarrow$) Assume that $\varphi$ is injective. Let
-      $x \in \text{ker}(\varphi)$. Thus we have that
-      $\varphi(1_G) = \varphi(x) = 1_H$, so that $x = 1_G$ since $\varphi$ is
-      one to one. That is ker($\varphi$) = $\{1_G\}$, the identity subgroup of
-      $G$.
+      $g \in \text{ker}(\varphi)$. Thus we have that
+      $$\varphi(1_G) = 1_H = \varphi(g),$$
+      so that $\varphi(1_G) = \varphi(g)$. But since $\varphi$ is injective, it
+      follows that $1_G = g$. This says that if an element of $G$ maps to the
+      identity in $H$, then that element must necessarily be the identity in
+      $G$. That is, ker($\varphi$) = $\{1_G\}$, the identity subgroup of $G$.
 
-      ($\Leftarrow$) Assume that ker($\varphi$) = $\{1_G\}$. Suppose that
+      ($\Leftarrow$) Conversely, assume that ker($\varphi$) = $\{1_G\}$. Suppose that
       $\varphi(g_1) = \varphi(g_2)$ for some $g_1, g_2 \in G$. Then it follows
-      that $\varphi(g_1)\varphi(g_2)^{-1} = 1_H$, so that
-      $\varphi(g_1{g_2}^{-1}) = 1_H$. Since ker($\varphi$) = $\{1_G\}$, we can
-      conclude that $g_1{g_2}^{-1} = 1_G$, so that $g_1 = g_2$; i.e., $\varphi$
-      is injective. \qed
+      that
+      \begin{align*}
+         1_H &= \varphi(g_2)\varphi(g_2)^{-1} \\
+             &= \varphi(g_1)\varphi(g_2)^{-1} &[\varphi(g_1) = \varphi(g_2)] \\
+             &= \varphi(g_1)\varphi({g_2}^{-1}) &[\text{Exercise }1.6.1] \\
+             &= \varphi(g_1{g_2}^{-1}), &[\varphi \text{ is a homomorphism}]
+      \end{align*}
+      so that $g_1{g_2}^{-1} \in \text{ker}(\varphi)$. But ker($\varphi$) is a
+      singleton containing $1_G$; that is,
+      $g_1{g_2}^{-1} = 1_G = g_2{g_2}^{-1}$, and $g_1 = g_2$, by cancellation.
+      Thus, $\varphi$ is injective. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.7.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.7.3]   Show that the additive group $\R$ acts on the $x, y$ plane
                   $\R \times \R$ by $r \cdot (x, y) = (x + ry, y)$.
 
-      \textbf{Proof.} Let $r_1$, $r_2$, $r_3$, and $r_4$ be real numbers. Since
-      $\R$ is closed under addition, we have that
-      $r_1 \cdot (r_2, r_3) = (r_2 + r_1r_3, r_3) \in \R \times \R$. We also
-      have that
+      \textbf{Proof.} Let $r_1$, $r_2$, $r_3$, and $r_4$ be real numbers. First
+      we want to show that the map is well defined; that is, we want to show
+      that $r_1 \cdot (r_2, r_3)  \in \R \times \R$. Since $\R$ is closed under
+      addition and multiplication, it follows that
+      $r_1 \cdot (r_2, r_3) = (r_2 + r_1r_3, r_3) \in \R \times \R$. Now we
+      want to show that the identity of $\R$---0---fixes every point on the
+      $x, y$ plane. So we have that
       $$0 \cdot (r_1, r_2) = (r_1 + 0 \cdot r_2, r_2) = (r_1, r_2).$$
       Finally we have that
       \begin{align*}
          r_1 \cdot (r_2 \cdot (r_3, r_4)) &= r_1 \cdot (r_3 + r_2r_4, r_4) \\
             &= (r_3 + r_2r_4 + r_1r_4, r_4) \\
             &= (r_3 + (r_2 + r_1)r_4, r_4) \\
-            &= (r_2 + r_1) \cdot (r_3, r_4), \\
+            &= (r_2 + r_1) \cdot (r_3, r_4). \\
       \end{align*}
-      so that $\R$ acts on the cartesian plane by the given operation. \qed
+      Hence $\R$ acts on the cartesian plane by the given operation. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.7.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.7.6]   Prove that a group $G$ acts faithfully on a set $A$ if and
                   only if the kernel of the action is the set consisting only of
                   the identity.
 
-      \textbf{Proof.} Let $\varphi : G \rightarrow S_A$ be the corresponding 
-      permutation representation.
-
+      \textbf{Proof.} Let $G$ be a group acting on a set $A$.
+      
       ($\Rightarrow$) Assume that $G$ acts faithfully on $A$. Let $g$ be an
-      element of the kernel of this action. Then it follows that
-      $\varphi(g) = 1$; but $\varphi$ is injective (since this action is
-      faithul), so that $g = 1$, and it follows that the kernel of the action is
-      trivial.
+      element of the kernel of this action (the kernel of the action is not
+      empty since it contains $1_G$). Since $g$ is an element of the kernel of
+      the action, it follows by definition that $g$ must fix all the elements of
+      $A$. Since the group action is faithful, all the elements of $G$ must
+      induce different permutations of $A$; but $1_G$ also fixes all the
+      elements of $A$, so that $1_G$ and $g$ induce the same permutation of $A$.
+      Thus $g = 1_G$, and it follows that the kernel of the action is a 
+      singleton containing $1_G$.
 
-      ($\Leftarrow$) Conversely, suppose the kernel of this action is trivial.
-      Then it follows by Exercise 1.7.5 that the kernel of $\varphi$ is also
-      trivial. So suppose that $\varphi(g_2) = \varphi(g_3)$. Then we have
-      that $\varphi(g_2{g_3}^{-1}) = 1$, and since the kernel of $\varphi$ is 
-      trivial, it follows that $g_2{g_3}^{-1} = 1$. Thus $g_2 = g_3$ and we
-      have that $\varphi$ is injective; that is, $G$ acts faithfully on $A$.
-      \qed
+      ($\Leftarrow$) Conversely, assume the kernel of this action is trivial.
+      Suppose that $g, h \in G$ such that $ga = ha$ for all $a \in A$. To show
+      that the group action is faithful, it suffices to show that $g = h$. Let
+      $b \in A$. Using the axioms of a group action and the fact that $gb = hb$,
+      it follows that
+      $$b = 1_Gb = (g^{-1}g)b = g^{-1}(gb) = g^{-1}(hb) = (g^{-1}h)b.$$
+      Since $b$ was arbitrary, it follows that $(g^{-1}h)c = c$ for all
+      $c \in A$. That is, $g^{-1}h$ fixes every element of $A$, so that
+      $g^{-1}h$ is in the kernel of the action. But the action is trivial, so
+      we have that $g^{-1}h = 1_G$. (Left) Multiply the equality
+      $g^{-1}h = 1_G$ by $g$ to conclude that $g = h$. That is, $G$ acts
+      faithfully on $A$, as desired. \qed
+      g
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1.7.11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[1.7.11]  Write out the cycle decomposition of the eight permutations in
                   $S_4$ corresponding to the elements of $D_8$ given by the
@@ -235,10 +298,12 @@
                   \textit{orbit} of $x$ under the action of $H$. The orbits
                   under the action of $H$ partition the set $A$.)
 
-      \textbf{Proof.} Let $a, b, c \in H$.
+      \textbf{Proof.} Let $a, b, c \in A$. To show that $\sim$ is an equivalence
+      relation on $A$, we must show that $\sim$ is reflexive, symmetric, and
+      transitive on $A$. So:
 
-      \textbf{Reflexivity.} Since $1a = a$, it follows that $a \sim a$, so that
-      $\sim$ is reflexive on $A$.
+      \textbf{Reflexivity.} Since $1a = a$, it follows by definition that
+      $a \sim a$, so that $\sim$ is reflexive on $A$.
 
       \textbf{Symmetry.} Suppose $a \sim b$. Then there exists $h \in H$ such
       that $a = hb$. Now $h^{-1}a = h^{-1}hb = 1b = b$, so that $b \sim a$; thus
@@ -249,6 +314,6 @@
       $a = h_1b = h_1(h_2c) = (h_1h_2)c$, so that $a \sim c$; thus $\sim$ is 
       transitive on $A$.
 
-      We can thus conclude that $\sim$ is an equivalence relation on $A$. \qed
+      We thus conclude that $\sim$ is an equivalence relation on $A$. \qed
 \end{enumerate}
 \end{document}
