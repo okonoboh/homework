@@ -93,10 +93,21 @@
                   0 & 1 & 1 \\
                   0 & 0 & 0
                \end{tabular}\right)$, a non-symmetric matrix.
-         \item True. Suppose $A$ is regular. Then it follows by definition that
-               every vertex in the graph that $A$ represents has the same
-               degree; that is, there exists a nonnegative integer $k$ such that
-               the number of 1s in every row of $A$ is $k$. Thus $AJ = kJ$.
+         \item True.
+
+               $(\Rightarrow)$ Suppose $A$ is regular. Then it follows by 
+               definition that every vertex in the graph that $A$ represents has 
+               the same degree; that is, there exists a nonnegative integer $k$  
+               such that the number of 1s in every row of $A$ is $k$. Thus
+               $AJ = kJ$.
+
+               $(\Leftarrow)$ Conversely suppose that $AJ = kJ$ for nonnegative
+               integer $k$. Notice that the $(i,j)$ entry in the product $AJ$ is 
+               the sum of the entries of row $i$. Since $AJ = kJ$, it follows
+               that every $(i, j)$ entry is $k$, so that the sum of every row is
+               $k$. Thus the number of 1s in every row of $A$ must be the same,
+               so that $A$ is regular. Thus we conclude that $A$ is regular if 
+               and only if $AJ = kJ$ for some constant $k$. \qed
          \item True.
          
                \textbf{Proof.} Let $x$ be an eigenvalue of $A$. Since $A$ is
@@ -107,6 +118,16 @@
                never be 0. Thus $A^2 + I$ has no zero eigenvalues; that is,
                $A^2 + I$ has a nonzero determinant, so that it is invertible.
                \mbox{ } \qed
+         \item True.
+
+               \textbf{Proof.} Suppose that $AJ = JA$. We previously noted that
+               the $(i, j)$ entry of the product $AJ$ is the sum of the entries
+               of row $i$, while the $(i, j)$ entry of the product $JA$ is the 
+               sum of the entries of column $j$. Since $AJ = JA$, it follows
+               that the sum of the entries in each row and each column must all
+               be equal. Particularly, the sum of the entries in each row must
+               be equal, so that the number of 1s in each row of $A$ is the
+               same. Hence, we conclude that $A$ is regular. \qed
       \end{enumerate}
       
       
