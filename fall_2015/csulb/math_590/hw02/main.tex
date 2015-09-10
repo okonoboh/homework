@@ -71,6 +71,45 @@
             \item If $A$ is connected and $AJ = 3J$, then 3 only occurs once as
                   an eigenvalue of $A$.
          \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item False.
+         
+               \textbf{Counterexample.} Let
+               $$A = \left(\begin{tabular}{@{}ccc@{}}
+                  0 & 0 & 1 \\
+                  1 & 0 & 0 \\
+                  0 & 0 & 0
+               \end{tabular}\right) \text{ and }
+               B = \left(\begin{tabular}{@{}ccc@{}}
+                  0 & 1 & 1 \\
+                  1 & 0 & 1 \\
+                  1 & 1 & 0
+               \end{tabular}\right).$$
+               It follows that $AB = \left(\begin{tabular}{@{}ccc@{}}
+                  1 & 0 & 1 \\
+                  0 & 1 & 1 \\
+                  0 & 0 & 0
+               \end{tabular}\right)$, a non-symmetric matrix.
+         \item True. Suppose $A$ is regular. Then it follows by definition that
+               every vertex in the graph that $A$ represents has the same
+               degree; that is, there exists a nonnegative integer $k$ such that
+               the number of 1s in every row of $A$ is $k$. Thus $AJ = kJ$.
+         \item True.
+         
+               \textbf{Proof.} Let $x$ be an eigenvalue of $A$. Since $A$ is
+               symmetric, we know from Linear Algebra that $x$ must be a real
+               number. Now since the spectrum of a polynomial is the polynomial
+               of the spectrum, it follows that $x^2 + 1$ must be an eigenvalue
+               of $A^2 + I$. But since $x$ is real, the number $x^2 + 1$ can
+               never be 0. Thus $A^2 + I$ has no zero eigenvalues; that is,
+               $A^2 + I$ has a nonzero determinant, so that it is invertible.
+               \mbox{ } \qed
+      \end{enumerate}
+      
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item \textbf{On Graphs \& Their Automorphisms.} Let $G = (V, E)$ be a graph.
          Thus $V$ is the (finite) set of vertices and $E$ is the set of edges,
@@ -192,6 +231,23 @@
                the vertices connected to $(0 \quad 0)$ are:
                $$(0 \quad 0), (1 \quad 0), (2 \quad 0), (3 \quad 0),
                  (4 \quad 0), \col{0}{2}, \text{ and } \col{0}{3}.$$
+         \item The map $\alpha_{-x}$ is a two sided inverse of $\alpha_x$;
+               so $\alpha_x$ is bijective and thus a permutation of $V$.
+               
+               \textbf{Case I}. $(a \quad b) \sim (c \quad d)$; that is, $a = c$
+               and $b - d \in \S$. It follows that
+               \begin{align*}
+                  \alpha_x((a \quad b)) &= (a \quad b+x) \\
+                                        &= (c \quad b+x) &[\text{Since }a = c]\\
+                                        &\sim (c \quad d+x) &[b+x - (d+x)=b-d \in \S]\\ 
+                                        &= \alpha_x((c \quad d)),
+               \end{align*}
+               so that $ \alpha_x((a \quad b)) \sim  \alpha_x((c \quad d)).$
+               
+               \textbf{Case II}. $\col{a}{b} \sim \col{c}{d}$. The proof is
+               similar to Case I (however, replace $\S$ with $\N$).
+               
+               \textbf{Case III}. $(a \quad b) \sim \col{c}{d}$.
       \end{enumerate}
       
       
