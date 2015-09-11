@@ -7,7 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
-\usepackage[retainorgcmds]{IEEEtrantools}
+%\usepackage[retainorgcmds]{IEEEtrantools}
 
 
 \usepackage{tikz}
@@ -25,7 +25,7 @@
   \scshape
   \begin{tabular}[t]{@{}r@{}}
   MATH 562, Fall 2015\\Section 1 (9934)\\
-  HW \#1, DUE: 2015, September 01
+  HW \#1, DUE: 2015, September 10
   \end{tabular}}
 \fancyhead[L]{%
   \scshape
@@ -44,7 +44,8 @@
 \newcommand{\I}{\mathbb{I}}
 \newcommand{\M}{\mathbb{M}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\D}{\displaystyle}
+\newcommand{\C}{\mathbb{C}}
+\everymath{\displaystyle}
 %\setcounter{section}{-1}
 
 \begin{document}
@@ -53,11 +54,83 @@
    \item[2.2.3.]  Show from the definition that the functions $x = \text{Re }z$
                   and $y = \text{Im }z$ are not complex differentiable at any 
                   point.
+                  
+      \textbf{Proof.} Let $x(z) = \text{Re}(z)$. It follows by definition that
+      \begin{align*}
+         \frac{dx}{dz} &= \lim_{\Delta z\rightarrow 0}
+            \frac{x(z + \Delta z) - x(z)}{\Delta z} \\
+            &=  \lim_{\Delta z\rightarrow 0}
+            \frac{\text{Re}(z + \Delta z) - \text{Re}(z)}{\Delta z} \\
+            &=  \lim_{\Delta z\rightarrow 0}
+            \frac{\text{Re}(z) + \text{Re}(\Delta z) - \text{Re}(z)}{\Delta z} \\
+            &=  \lim_{\Delta z\rightarrow 0}
+            \frac{\text{Re}(\Delta z)}{\Delta z}.
+      \end{align*}      
+      If we let $\Delta z$ approach 0 along the real axis, then $\Delta z$
+      is real, so that 
+      $$\lim_{\Delta z\rightarrow 0}\frac{\text{Re}(\Delta z)}{\Delta z}
+        = \frac{\Delta z}{\Delta z} = 1.$$     
+      However, if we let $\Delta z$ approach 0 along the imaginary axis, then
+      $\Delta z$ is pure imaginary, so that 
+      $$\lim_{\Delta z\rightarrow 0}\frac{\text{Re}(\Delta z)}{\Delta z}
+        = \frac{0}{\Delta z} = 0.$$
+      Thus $x$ is not complex differentiable since the limit has two different
+      values for two different paths. Similarly, we Let $y(z) = \text{Im}(z)$.
+      It follows by definition that
+      \begin{align*}
+         \frac{dy}{dz} &= \lim_{\Delta z\rightarrow 0}
+            \frac{y(z + \Delta z) - y(z)}{\Delta z} \\
+            &=  \lim_{\Delta z\rightarrow 0}
+            \frac{\text{Im}(z + \Delta z) - \text{Im}(z)}{\Delta z} \\
+            &=  \lim_{\Delta z\rightarrow 0}
+            \frac{\text{Im}(z) + \text{Im}(\Delta z) - \text{Im}(z)}{\Delta z} \\
+            &=  \lim_{\Delta z\rightarrow 0}
+            \frac{\text{Im}(\Delta z)}{\Delta z}.
+      \end{align*}      
+      If we let $\Delta z$ approach 0 along the real axis, then $\Delta z$
+      is real, so that 
+      $$\lim_{\Delta z\rightarrow 0}\frac{\text{Im}(\Delta z)}{\Delta z}
+        = \frac{0}{\Delta z} = 0.$$     
+      However, if we let $\Delta z$ approach 0 along the imaginary axis, then
+      $\Delta z$ is pure imaginary, so that 
+      $$\lim_{\Delta z\rightarrow 0}\frac{\text{Im}(\Delta z)}{\Delta z}
+        = \frac{\Delta z}{\Delta z} = 1.$$
+      Thus $y$ is not complex differentiable since the limit has two different
+      values for two different paths. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.2.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.2.5.]  Show that if $f$ is analytic on $D$, then
                   $g(z) = \overline{f(\overline{z})}$ is analytic on the
                   reflected domain $D^* = \{\overline{z} : z \in D\}$, and
                   $g'(z) = \overline{f'(\overline{z})}$.
+                  
+      \textbf{Proof.} Suppose that $f$ is analytic on $D$. Let
+      $D^* = \{\overline{z} : z \in D\}$ and
+      $$g : D^* \rightarrow \C, \quad z \mapsto\overline{f(\overline{z})}.$$
+      For readiblity sake, we let $C(z)$ denote the complex conjugate of a
+      complex number $z$. So
+      \begin{align*}
+         \frac{dg}{dz} &= \lim_{\Delta z \rightarrow 0}
+            \frac{g(z + \Delta z) - g(z)}{\Delta z} \\
+            &= \lim_{\Delta z \rightarrow 0}
+            \frac{C(f(\overline{z + \Delta z})) -
+               C(f(\overline{z}))}{\Delta z} \\
+            &= \lim_{\Delta z \rightarrow 0}
+            \frac{C(f(\overline{z + \Delta z}) -
+               f(\overline{z}))}{C(C(\Delta z))} \\
+            &= \lim_{\Delta z \rightarrow 0}
+            C\left(\frac{f(\overline{z} + \overline{\Delta z}) -
+               f(\overline{z})}{\overline{\Delta z}}\right) \\
+            &= C\left(\lim_{\Delta z \rightarrow 0}
+            \frac{f(\overline{z} + \overline{\Delta z}) -
+               f(\overline{z})}{\overline{\Delta z}}\right) \\
+            &= C\left(\lim_{\overline{\Delta z} \rightarrow 0}
+            \frac{f(\overline{z} + \overline{\Delta z}) -
+               f(\overline{z})}{\overline{\Delta z}}\right) \\
+            &= C\left(\lim_{\Delta z \rightarrow 0}
+            \frac{f(\overline{z} + \Delta z) -
+               f(\overline{z})}{\Delta z}\right) \\
+            &= C(f'\overline{z}) = \overline{}
+      \end{align*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.3.3.]  Show that if $f$ and $\overline{f}$ are both analytic on a
                   domain $D$, then $f$ is constant.
