@@ -107,9 +107,10 @@
       $D^* = \{\overline{z} : z \in D\}$ and
       $$g : D^* \rightarrow \C, \quad z \mapsto\overline{f(\overline{z})}.$$
       For readiblity sake, we let $C(z)$ denote the complex conjugate of a
-      complex number $z$. So
+      complex number $z$. Let $z \in D^*$ (so that $\overline{z} \in D$ and,
+      thus, $f$ is differentaible at $\overline{z}$). It follows that
       \begin{align*}
-         \frac{dg}{dz} &= \lim_{\Delta z \rightarrow 0}
+         \frac{dg}{dz}(z) &= \lim_{\Delta z \rightarrow 0}
             \frac{g(z + \Delta z) - g(z)}{\Delta z} \\
             &= \lim_{\Delta z \rightarrow 0}
             \frac{C(f(\overline{z + \Delta z})) -
@@ -125,38 +126,211 @@
                f(\overline{z})}{\overline{\Delta z}}\right) \\
             &= C\left(\lim_{\overline{\Delta z} \rightarrow 0}
             \frac{f(\overline{z} + \overline{\Delta z}) -
-               f(\overline{z})}{\overline{\Delta z}}\right) \\
-            &= C\left(\lim_{\Delta z \rightarrow 0}
-            \frac{f(\overline{z} + \Delta z) -
-               f(\overline{z})}{\Delta z}\right) \\
-            &= C(f'\overline{z}) = \overline{f'\overline{z}}.
+               f(\overline{z})}{\overline{\Delta z}}\right)
+               &[\overline{\Delta z} \rightarrow 0 \text{ iff }
+                 \Delta z \rightarrow 0] \\
+            &= C(f'(\overline{z})) = \overline{f'(\overline{z})}.
+               &[f \text{ is differentiable at }\overline{z}]
       \end{align*}
+      That is, $g$ is differentable for all $z \in D^*$, and we conclude that
+      $g$ is analytic on $D^*$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.3.3.]  Show that if $f$ and $\overline{f}$ are both analytic on a
                   domain $D$, then $f$ is constant.
+                  
+      \textbf{Proof.} Suppose that $f$ and $\overline{f}$ are both analytic on a
+      domain $D$. Let $f = u + iv$, so that $\overline{f} = u - iv$. Because
+      $f$ is analytic, it follows by the Cauchy-Riemann equations that
+      \begin{equation} \label{2_3_3_1}
+         \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+            \text{ and }
+         \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
+      \end{equation}
+      on $D$. Similarly, since  $\overline{f}$ is also analytic, it follows
+      by the Cauchy-Riemann equations that
+      \begin{equation} \label{2_3_3_2}
+      \frac{\partial u}{\partial x} = -\frac{\partial v}{\partial y}
+        \text{ and }
+        \frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}
+      \end{equation}
+      on $D$. By solving \eqref{2_3_3_1} and \eqref{2_3_3_2}, we shall get
+      $$\frac{\partial u}{\partial x} = \frac{\partial u}{\partial y} =
+        \frac{\partial v}{\partial x} = \frac{\partial u}{\partial y} = 0$$
+      on $D$; that is, $\Delta u = \Delta v = 0$. It follows by the Theorem on
+      Page 38 that $u$ and $v$ are both constant on $D$, so that $f$ is constant
+      on $D$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.3.4.]  Show that if $f$ is analytic on a domain $D$, and if $|f|$ is
                   constant, then $f$ is constant. \textit{Hint.} Write
                   $\overline{f} = |f|^2/f$.
+                  
+      \textbf{Proof.} Let $f$ be analytic on a domain $D$. Suppose that $|f|$ is
+      constant. If $f$ is 0 at any point in $D$, then $f$ must be identically
+      zero at all points in $D$ because $|f|$ is constant. So further suppose
+      that $f$ is never zero. Let $r = |f|^2$, where $r$ is some positive
+      real number. Since the constant funtion $g(z) = r$ and $f$ are both
+      differentiable (since $f$ is analytic), it follows that $g/f$ is also
+      differentiable. Observe that $\overline{f} = |f|^2/f = r/f = g/f$. That
+      is, $\overline{f}$ is also differentiable on $D$. So it follows by
+      Exercise 2.3.3 that $f$ is constant on $D$. \mbox{ }\qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.3.6.]  If $f = u + iv$ is analytic on $D$, then $\nabla v$ is
                   obtained by rotating $\nabla u$ by $90^\circ$. In particular,
                   $\nabla u$ and $\nabla v$ are orthogonal.
+                  
+      \textbf{Solution.} Suppose that $f = u + iv$ is analytic on $D$. By
+      definition, we have 
+      $$\Delta u = \left(\frac{\partial u}{\partial x},
+           \frac{\partial u}{\partial y}\right) \text{ and }
+        \Delta v = \left(\frac{\partial v}{\partial x},
+            \frac{\partial v}{\partial y}\right).$$
+      Since $f$ is analytic, apply the Cauchy-Riemann equations to $\Delta v$,
+      so that
+      $$\Delta v = \left(\frac{\partial v}{\partial x},
+            \frac{\partial v}{\partial y}\right) =
+        \left(-\frac{\partial u}{\partial y},
+            \frac{\partial u}{\partial x}\right).$$
+      First we observe that $\Delta u$ are $\Delta v$ orthogonal because
+      $$\Delta u \cdot \Delta v = \left(\frac{\partial u}{\partial x},
+           \frac{\partial u}{\partial y}\right) \cdot
+        \left(-\frac{\partial u}{\partial y},
+            \frac{\partial u}{\partial x}\right) =
+        -\frac{\partial u}{\partial x}\frac{\partial u}{\partial y} +
+            \frac{\partial u}{\partial x} \frac{\partial u}{\partial y} = 0.$$
+            
+      Recall: to rotate a 2-column vector by $90^\circ$, we can (left) multiply
+      the vector by the matrix $A = \left[\begin{tabular}{@{}rr@{}}
+         0 & $-1$ \\
+         1 & 0
+      \end{tabular}\right]$. Thus
+      $$
+         A(\Delta u)^T = A\left[\begin{tabular}{@{}rr@{}}
+         $\frac{\partial u}{\partial x}$ \\ \\
+         $\frac{\partial u}{\partial y}$
+      \end{tabular}\right] = \left[\begin{tabular}{@{}rr@{}}
+         $-\frac{\partial u}{\partial y}$ \\ \\
+         $\frac{\partial u}{\partial x}$
+      \end{tabular}\right] = (\Delta v)^T,
+      $$
+      so that $\Delta v$ is obtained by rotating $\Delta u$ by $90^\circ$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.4.8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.4.8.]  Sketch the image of the circle $\{|z-1| \le 1\}$ under the map
                   $w = z^2$. Compute the area of the image.
+                  
+      \textbf{Solution.} Observe that the region $D$ is given by
+      $$r = 2 \cos(\theta), 0 \le \theta \le \pi$$
+      in polar coordinates. Thus using Exercise 2.4.7, it follows that the area
+      of the region is
+      \begin{align*}
+         \int\int_D|f'(z)|^2dx\;dy &= \int\int_D|2z|^2dx\;dy \\
+            &= 4\int\int_D|z|^2dx\;dy \\
+            &= 4\int\int_D x^2 + y^2 dx\;dy  \\
+            &= 8\int_0^{\pi/2}\int_0^{2\cos(\theta)} r^3 dr\;d\theta  \\
+            &= 8\int_0^{\pi/2} \frac{r^4}{4} \bigg|_0^{2\cos(\theta)}\;d\theta  \\
+            &= 32\int_0^{\pi/2} \cos^4(\theta)\;d\theta  \\
+            &= 32\left(\frac{3x}{8}+ \frac{\sin(2x)}{4}+\frac{\sin(4x)}{32}\right)\bigg|_0^{\pi/2} \\
+            &= 32 \cdot \frac{3\pi}{16} \\
+            &= 6\pi.
+      \end{align*} 
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.4.9%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.4.9.]  Compute
-                  $$\int\int_D|f'(z)dx dy|,$$
+                  $$\int\int_D|f'(z)|^2dx\;dy,$$
                   for $f(z) = z^2$ and $D$ the open unit disk $\{|z| \le 1\}$.
                   Interpret your answer in terms of areas.
+                  
+      \textbf{Solution.} We have that
+      \begin{align*}
+         \int\int_D|f'(z)|^2dx\;dy &= \int\int_D|2z|^2dx\;dy \\
+            &= 4\int\int_D|z|^2dx\;dy \\
+            &= 4\int\int_D x^2 + y^2 dx\;dy  \\
+            &= 4\int_0^{2\pi}\int_0^1 r^3 dr\;d\theta  \\
+            &= 4\int_0^1 r^3 dr\;\int_0^{2\pi}d\theta  \\
+            &= 2\pi.
+      \end{align*}
+      According to Exercise 2.4.7, the area of $f(D)$ is $2\pi$. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.5.2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.5.2.]  Show that if $v$ is a harmonic conjugate for $u$, then $-u$ is
                   a harmonic conjugate for $v$.
+                  
+      \textbf{Proof.} Suppose $v$ is a harmonic conjugate for $u$. Then it
+      follows by definition that $u + iv$ is analytic. Since $u$ is harmonic, it
+      follows that
+      $$\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2}
+        = 0,$$
+      so that
+      $$-\frac{\partial^2 u}{\partial x^2} - \frac{\partial^2 u}{\partial y^2}
+        = 0.$$
+      That is, $-u$ is also harmonic. To show that $-u$ is a harmonic conjugate
+      for $v$, it suffices to show that $v - iu$ is analytic. The constant
+      function $g(z) = -i$ is complex differentiable and since $u + iv$ is
+      analytic, it must also be complex differentiable; thus the product
+      $$g \cdot (u + iv) = -i(u + iv) = v - iu$$
+      must be also be complex differentiable, and thus analytic. We conclude
+      that $-u$ is a harmonic conjugate for $v$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.5.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.5.4.]  Show that if $h(z)$ is a complex-valued harmonic function 
                   (solution of Laplace's equation) such that $zh(z)$ is also
                   harmonic, then $h(z)$ is analytic.
+                  
+      \textbf{Proof.} Suppose $h(z)$ is a complex-valued harmonic function such
+      that $zh(z)$ is also harmonic. First recall that $z = x + iy$ so that
+      \begin{align*}
+         \frac{\partial z}{\partial x} = 1, \quad
+         \frac{\partial^2 z}{\partial x^2} = 0, \quad
+         \frac{\partial z}{\partial y} = i, \quad \text{and} \quad
+         \frac{\partial^2 z}{\partial y^2} = 0.
+      \end{align*}
+      
+      Now since $h(z)$ is harmonic, it follows that
+      \begin{equation} \label{2_5_4_1}
+         0 = \frac{\partial^2 h}{\partial x^2} +
+             \frac{\partial^2 h}{\partial y^2}.
+      \end{equation}
+      
+      Also, since $zh(z)$ is harmonic, we have that
+      \begin{align*}
+         0 &= \frac{\partial^2 (zh)}{\partial x^2} +
+              \frac{\partial^2 (zh)}{\partial y^2} \\
+           &=  \frac{\partial}{\partial x}
+               \left(\frac{\partial (zh)}{\partial x}\right) +
+               \frac{\partial}{\partial y}
+               \left(\frac{\partial (zh)}{\partial y}\right) \\
+           &=  \frac{\partial}{\partial x}
+               \left(\frac{\partial z}{\partial x}h +
+               \frac{\partial h}{\partial x}z\right) +
+               \frac{\partial}{\partial y}
+               \left(\frac{\partial z}{\partial y}h +
+               \frac{\partial h}{\partial y}z\right) \\
+           &=  \frac{\partial^2z}{\partial x^2}h +2\frac{\partial z}{\partial x}
+               \frac{\partial h}{\partial x} +\frac{\partial^2h}{\partial x^2}z+
+               \frac{\partial^2z}{\partial y^2}h+2\frac{\partial z}{\partial y}
+               \frac{\partial h}{\partial y}+\frac{\partial^2h}{\partial y^2}z\\
+           &=  \frac{\partial^2z}{\partial x^2}h +2\frac{\partial z}{\partial x}
+               \frac{\partial h}{\partial x} +
+               \frac{\partial^2z}{\partial y^2}h+2\frac{\partial z}{\partial y}
+               \frac{\partial h}{\partial y}+
+               \left(\frac{\partial^2h}{\partial x^2}+
+               \frac{\partial^2h}{\partial y^2}\right)z \\
+           &=  0 \cdot h+2\cdot1\cdot
+               \frac{\partial h}{\partial x} +
+               0 \cdot h+2\cdot i \cdot
+               \frac{\partial h}{\partial y}+ 0 \cdot z \\
+           &=  2\frac{\partial h}{\partial x} +
+               2i\frac{\partial h}{\partial y} \\
+           &=  2\frac{\partial u}{\partial x} +2i\frac{\partial v}{\partial x}+
+               2i\frac{\partial u}{\partial y}-2\frac{\partial v}{\partial y} \\
+           &=  \frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}+
+               i\left(\frac{\partial u}{\partial y}+
+               \frac{\partial v}{\partial x}\right).               
+      \end{align*}
+      
+      That is
+      $$\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+        \text{ and }
+        \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x},$$
+      so that $u$ and $v$ satisfy the Cauchy-Riemann equations. Thus, $f$ is
+      analytic. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.6.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.6.3.]  Sketch the families of level curves of $u$ and $v$ for the
                   functions $f = u + iv$ given by (a) $f(z) = e^z$, (b)
@@ -168,10 +342,49 @@
                   unit circle $\{|z| = 1\}$, the image of the open unit disk
                   $\{|z| < 1\}$, and the image of the imaginary axis. Illustrate
                   with a sketch.
+                  
+      \textbf{Solution.} Let $w$ be the fractional linear transformation such
+      that $1 \mapsto i$, $0 \mapsto 1 + i$, and $-1 \mapsto 1$. By Theorem on
+      page 64, it follows that the fractional linear transformation
+      $$f(z) = \frac{-z + 1}{z+1}$$
+      maps 1 to 0, 0 to 1, and $-1$ to $\infty$. Also the fractional linear
+      transformation
+      $$g(z) = \frac{iz + 1}{z-1}$$
+      maps $i$ to 0, $1 + i$ to 1, and 1 to $\infty$; thus
+      $$g^{-1}(z) = \frac{z + 1}{z-i}$$
+      maps 0 to $i$, 1 to $1 + i$, and $\infty$ to 1. That is,
+      $$w = (g^{-1} \circ f) = \frac{i-1}{z+i}.$$
+      To determine the  image of the following sets under $w$, we shall follow
+      the same line of reasoning as Gamelin did for his solutions to the Exercises on page 66.
+      
+      \textbf{Image of unit circle } $|z| = 1$. Since $w(-i) = \infty$, it
+      follows that $w$ maps the circle $|z| = 1$ to the straight line that
+      passes through $i$ and 1.
+      
+      \textbf{Image of open disk } $|z| < 1$. Since orientations are preserved,
+      it follows that $w$ maps the open disk $|z| < 1$ to the upper left half
+      plane of the  straight line that passes through $i$ and 1.
+      
+      \textbf{Image of imaginary axis.} $w$ maps the imaginary axis to a circle
+      that passes through $1 + i$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.7.9%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.7.9.]  Show that the fractional linear transformations that are real
                   on the real axis are precisely those that can be expressed in
                   the form $(az+b)/(cz+d)$, where $a$, $b$, $c$, and $d$ are
                   real.
+                  
+      \textbf{Proof.} Suppose that $f$ is a linear transformation that is real
+      on the real axis. Then there must exist distinct real numbers $r_0$,
+      $r_1$, and $r_2$ such that $f(r_0) = 0$, $f(r_1) = 1$, and
+      $f(r_2) = \infty$. Now consider the fractional linear transformation
+      $$g(z) = \frac{z-r_0}{r_1-r_0}.$$
+      Note that that $r_0$, $r_1$, and $r_2$ have the same images under $f$
+      and $g$. Thus by Theorem on Page 64, it follows that $f$ and $g$ are
+      equal (up to multiplication of $a$, $b$, $c$, and $d$ by the same nonzero
+      constant). Thus, for a nonzero constant complex number $C$, we have
+      $$f = \frac{C(z - r_0)}{C(r_1 - r_0)}.$$
+      That is, $f$ can be expressed in the form $(az+b)/(cz+d)$, where $a$,
+      $b$, $c$, and $d$ are real. This form is precisely
+      $$\frac{z-r_0}{r_1-r_0}.$$ \qed
 \end{enumerate}
 \end{document} 
