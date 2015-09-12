@@ -215,12 +215,12 @@
             \item Find the vertices connected to $\col{0}{0}$.
             \item Show the mapping $\alpha_x : V \rightarrow V$ defined by
                   $(a \quad b) \mapsto (a \quad b + x)$ and
-                  $\col{c}{d} \mapsto \col{c}{d+x}$ is an automorphism of the
+                  ${\col{c}{d} \mapsto \col{c}{d+x}}$ is an automorphism of the
                   graph.
             \item Let $m \neq 0 \in \Z_5$. Show that the mapping
-                  $\beta_m(a \quad b) = (ma \quad b)$ and
-                  $\col{c}{d} = \col{m^{-1}c}{d}$ is an automorphism of the
-                  graph.
+                  $$\beta_m(a \quad b) = (ma \quad b) \text{ and }
+                    \beta_m\left(\col{c}{d}\right) = \col{m^{-1}c}{d}$$
+                  is an automorphism of the graph.
             \item Show that $AJ = kJ$ for some $k$ and find the $k$.
             \item Show that if $(a \quad b) \sim (c \quad d)$, or
                   $\col{a}{b} \sim \col{c}{d}$, or
@@ -252,26 +252,149 @@
                the vertices connected to $(0 \quad 0)$ are:
                $$(0 \quad 0), (1 \quad 0), (2 \quad 0), (3 \quad 0),
                  (4 \quad 0), \col{0}{2}, \text{ and } \col{0}{3}.$$
-         \item The map $\alpha_{-x}$ is a two sided inverse of $\alpha_x$;
-               so $\alpha_x$ is bijective and thus a permutation of $V$.
+         \item Let $x \in V$. Consider the map
+               $$\alpha_x : V \rightarrow V \text{ defined by } (a \quad b)
+                 \mapsto (a \quad b + x) \text{ and } {\col{c}{d}
+                 \mapsto \col{c}{d+x}}.$$
+               Since the map $\alpha_{-x}$ is a two sided inverse of $\alpha_x$,
+               it follows that $\alpha_x$ is bijective and thus a permutation of
+               $V$. Now we shall show that $\alpha_x$ is an automorphism for all
+               possible cases:
                
                \textbf{Case I}. $(a \quad b) \sim (c \quad d)$; that is, $a = c$
                and $b - d \in \S$. It follows that
                \begin{align*}
                   \alpha_x((a \quad b)) &= (a \quad b+x) \\
                                         &= (c \quad b+x) &[\text{Since }a = c]\\
-                                        &\sim (c \quad d+x) &[b+x - (d+x)=b-d \in \S]\\ 
+                                        &\sim (c \quad d+x) &[b+x -
+                                         (d+x)=b-d \in \S]\\ 
                                         &= \alpha_x((c \quad d)),
                \end{align*}
-               so that $ \alpha_x((a \quad b)) \sim  \alpha_x((c \quad d)).$
+               so that $ \alpha_x((a \quad b)) \sim  \alpha_x((c \quad d))$.
                
                \textbf{Case II}. $\col{a}{b} \sim \col{c}{d}$. The proof is
                similar to Case I (however, replace $\S$ with $\N$).
                
-               \textbf{Case III}. $(a \quad b) \sim \col{c}{d}$.
+               \textbf{Case III}. $(a \quad b) \sim \col{c}{d}$. That is,
+               $b = ca + d$, so that $b + x = ca + d + x$. Hence
+               \begin{align*}
+                  \alpha_x((a \quad b)) = (a \quad b+x)
+                                        &\sim \col{c}{d+x} &[b + x = ca + d+x]\\ 
+                                        &= \alpha_x\left(\col{c}{d}\right),
+               \end{align*}
+               so that $ \alpha_x((a \quad b)) \sim 
+               \alpha_x\left(\col{c}{d}\right)$.
+         \item Let $m$ be a nonzero element in $\Z_5$, so that $m^{-1}$ exists.
+               Consider the map
+               $$\beta_m : V \rightarrow V \text{ defined by } (a \quad b)
+                 \mapsto (ma \quad b) \text{ and }
+                 \beta_m\left(\col{c}{d}\right) = \col{m^{-1}c}{d}.$$
+               The map $\beta_m$ is a permuation of $V$ because it has a
+               two-sided inverse, namely $\beta_{m^{-1}}$. Now we shall show
+               that $\alpha_x$ is an automorphism for all possible cases:
+               
+               \textbf{Case I}. $(a \quad b) \sim (c \quad d)$; that is, $a = c$
+               and $b - d \in \S$. It follows that
+               \begin{align*}
+                  \beta_m((a \quad b)) &= (ma \quad b) \\
+                                       &= (mc \quad b) &[\text{Since }a = c] \\
+                                       &\sim (mc \quad d) &[b - d \in \S]\\ 
+                                        &= \alpha_x((c \quad d)),
+               \end{align*}
+               so that $ \beta_m((a \quad b)) \sim  \beta_m((c \quad d))$.
+               
+               \textbf{Case II}. $\col{a}{b} \sim \col{c}{d}$. The proof is
+               similar to Case I (however, replace $\S$ with $\N$).
+               
+               \textbf{Case III}. $(a \quad b) \sim \col{c}{d}$. That is,
+               $b = ca + d$, so that
+               $$b = cm^{-1}ma + d = (m^{-1}c)(ma) + d.$$
+               Hence
+               \begin{align*}
+                  \beta_m((a \quad b)) = (ma \quad b)
+                                        &\sim \col{m^{-1}c}{d}
+                                          &[b = (m^{-1}c)(ma) + d] \\ 
+                                        &= \alpha_x\left(\col{c}{d}\right),
+               \end{align*}
+               so that $ \beta_m((a \quad b)) \sim 
+               \beta_m\left(\col{c}{d}\right)$.
+         \item Consider the arbitrary vertices $(a \quad b)$ and $\col{c}{d}$.
+               A few compuations will reveal that the vertices $(a \quad b)$ is
+               connected to are:
+               $$(a \quad b+1), (a \quad b+4), \col{0}{b}, \col{1}{b-a},
+                 \col{2}{b-2a}, \col{3}{b-3a}, \text{ and }\col{4}{b-4a},$$
+               and the vertices $\col{c}{d}$ is connected to are:
+               $$(0 \quad d), (1 \quad c+d), (2 \quad 2c+d), (3 \quad 3c+d),
+                 (4 \quad 4c+d), \col{c}{2+d}, \text{ and } \col{c}{3+d}.$$
+               That is, every vertex in $V$ is connected to exactly seven
+               other vertices, so that $AJ = 7J$.
+         \item \textbf{Proof.} Suppose two vertices $v_1, v_2 \in V$ are joined.
+
+               \textbf{Case 1.} $v_1 = (a \quad b)$ and $v_2 = (c \quad d)$.
+               
+               \begin{quote}
+                  \textbf{Case (a).} $v_1 \sim (p \quad q)$ and
+                  $v_2 \sim (p \quad q)$. Since $v_1$ is joined to both $v_2$
+                  and $(p \quad q)$, we can use our results in \circled{4} to 
+                  assume without loss of generality that $v_2$ is
+                  $(a \quad b+1)$ while $(p \quad q)$ is $(a \quad b+4)$. But
+                  $b+4-(b+1) = 3 \notin \S$. That is, $(p \quad q)$ is not 
+                  joined to $v_2$, a contradiction. So no other vertex of the 
+                  form $(p \quad q)$ is joined to $v_1$ and $v_2$.
+               \end{quote}
+
+               \begin{quote}
+                  \textbf{Case (b).} $v_1 \sim \col{p}{q}$ and
+                  $v_2 \sim \col{p}{q}$. The former relation allows us to 
+                  conclude that $b = ap+q$. Since $v_2 \sim v_1$, we know that
+                  $v_2 = (a \quad b + 1)$ or $v_2 = (a \quad b + 4)$. The former
+                  case will imply that $b = (ap + q) - 1$ and the latter case 
+                  will imply that $b = (ap + q) - 4$, both contradicting our 
+                  previous result that says that $b = ap + q$. Thus, we have 
+                  shown that $v_1$ and $v_2$ are not both joined to any other 
+                  vertex.
+               \end{quote}
+
+               \textbf{Case 2.} $v_1 = (a \quad b)$ and $v_2 = \col{c}{d}$.
+               
+               \begin{quote}
+                  \textbf{Case (a).} $v_1 \sim (p \quad q)$ and
+                  $v_2 \sim (p \quad q)$. By Case 1(a), this is impossible.
+               \end{quote}
+   
+               \begin{quote}
+                  \textbf{Case (b).} $v_1 \sim \col{p}{q}$ and
+                  $v_2 \sim \col{p}{q}$. Since $v_2$ is joined to $\col{p}{q}$, 
+                  it follows that $\col{p}{q} = \col{c}{2+d}$ or
+                  $\col{p}{q} = \col{c}{3+d}$; since $\col{p}{q}$ is also joined 
+                  to $v_1$, we must have that $b = ac + d + 2$ in the former 
+                  case or $b = ac + d + 3$ in the latter case, contradicting the 
+                  fact that $b = ac + d$ (since $v_1 \sim v_2$). Thus, we have 
+                  shown that $v_1$ and $v_2$ are not both joined to any other 
+                  vertex.
+               \end{quote}
+
+               \textbf{Case 3.} $v_1 = \col{a}{b}$ and $v_2 = \col{c}{d}$.
+               
+               \begin{quote}
+                  \textbf{Case (a).} $v_1 \sim (p \quad q)$ and
+                  $v_2 \sim (p \quad q)$. By Case 2(b), this is impossible.
+               \end{quote}
+   
+               \begin{quote}
+                  \textbf{Case (b).} $v_1 \sim \col{p}{q}$ and
+                  $v_2 \sim \col{p}{q}$. Since $v_1 \sim (p \quad q)$, it
+                  follows that $q = ap + b$; now we know that
+                  $v_2 = \col{a}{b+2}$ or $v_2 = \col{a}{b+3}$ because
+                  $v_2 \sim v_1$, and since $(p \quad q) \sim v_1$, we must
+                  either have $q = ap + b + 2$ or $q = ap + b + 3$,
+                  contradicting the fact that $q = ap + b$. Thus, we have shown
+                  that $v_1$ and $v_2$ are not both joined to any other vertex.
+               \end{quote}
       \end{enumerate}
-      
-      
+
+      From all the possible cases above, we conclude that no other vertex is
+      joined to both $v_1$ and $v_2$. \qed   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
    \item[\textbf{Bonus.}]  Let $G$ be a connected graph. If for any two vertices
                            $x, y \in V$, there exists $\alpha \in \text{Aut}(G)$
