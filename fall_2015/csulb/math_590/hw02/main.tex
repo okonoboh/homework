@@ -261,7 +261,7 @@
                $V$. Now we shall show that $\alpha_x$ is an automorphism for all
                possible cases:
                
-               \textbf{Case I}. $(a \quad b) \sim (c \quad d)$; that is, $a = c$
+               \textbf{Case 1.} $(a \quad b) \sim (c \quad d)$; that is, $a = c$
                and $b - d \in \S$. It follows that
                \begin{align*}
                   \alpha_x((a \quad b)) &= (a \quad b+x) \\
@@ -272,10 +272,10 @@
                \end{align*}
                so that $ \alpha_x((a \quad b)) \sim  \alpha_x((c \quad d))$.
                
-               \textbf{Case II}. $\col{a}{b} \sim \col{c}{d}$. The proof is
+               \textbf{Case 2.} $\col{a}{b} \sim \col{c}{d}$. The proof is
                similar to Case I (however, replace $\S$ with $\N$).
                
-               \textbf{Case III}. $(a \quad b) \sim \col{c}{d}$. That is,
+               \textbf{Case 3.} $(a \quad b) \sim \col{c}{d}$. That is,
                $b = ca + d$, so that $b + x = ca + d + x$. Hence
                \begin{align*}
                   \alpha_x((a \quad b)) = (a \quad b+x)
@@ -293,7 +293,7 @@
                two-sided inverse, namely $\beta_{m^{-1}}$. Now we shall show
                that $\alpha_x$ is an automorphism for all possible cases:
                
-               \textbf{Case I}. $(a \quad b) \sim (c \quad d)$; that is, $a = c$
+               \textbf{Case 1.} $(a \quad b) \sim (c \quad d)$; that is, $a = c$
                and $b - d \in \S$. It follows that
                \begin{align*}
                   \beta_m((a \quad b)) &= (ma \quad b) \\
@@ -303,10 +303,10 @@
                \end{align*}
                so that $ \beta_m((a \quad b)) \sim  \beta_m((c \quad d))$.
                
-               \textbf{Case II}. $\col{a}{b} \sim \col{c}{d}$. The proof is
+               \textbf{Case 2.} $\col{a}{b} \sim \col{c}{d}$. The proof is
                similar to Case I (however, replace $\S$ with $\N$).
                
-               \textbf{Case III}. $(a \quad b) \sim \col{c}{d}$. That is,
+               \textbf{Case 3.} $(a \quad b) \sim \col{c}{d}$. That is,
                $b = ca + d$, so that
                $$b = cm^{-1}ma + d = (m^{-1}c)(ma) + d.$$
                Hence
@@ -390,11 +390,154 @@
                   either have $q = ap + b + 2$ or $q = ap + b + 3$,
                   contradicting the fact that $q = ap + b$. Thus, we have shown
                   that $v_1$ and $v_2$ are not both joined to any other vertex.
-               \end{quote}
-      \end{enumerate}
+               \end{quote} 
 
-      From all the possible cases above, we conclude that no other vertex is
-      joined to both $v_1$ and $v_2$. \qed   
+               From all the possible cases above, we conclude that no other 
+               vertex is joined to both $v_1$ and $v_2$. \qed
+         \item Let $v_1, v_2 \in V$ such that $v_1 \not\sim v_2$. We now want to
+               find a unique vertex that joins both $v_1$ and $v_2$.
+
+               \textbf{Case 1.} $v_1 = (a \quad b)$ and $v_2 = (c \quad d)$.
+               
+               \begin{quote}
+                  \textbf{Case (a).} $a \neq c$. Thus a vertex of the form 
+                  $(p \quad q)$ cannot be joined to both $v_1$ and $v_2$, for
+                  otherwise, we would have $a = p = c$, contradicting
+                  $a \neq c$. So assume that $\col{p}{q}$ is joined to both
+                  $v_1$ and $v_2$. To show existence and uniqueness, it suffices
+                  to show that $p$ and $q$ can each take on exactly one value.
+                  Since $\col{p}{q}$ is joined to both $v_1$ and $v_2$, we have
+                  the following equations:
+                  \begin{equation} \label{2_6_1}
+                     b = pa + q \text{ and } d = pc + q.
+                  \end{equation}
+                  Substituting $q = b - pa$ from the first equation into the 
+                  second will yield $b - d = p(a - c)$. Since $a \neq c$, it
+                  follows that $(a-c)^{-1}$ exists; that is,
+                  $$p = (a-c)^{-1}(b - d) \text{ and } q=(da - bc)(a-c)^{-1},$$
+                  so that only one vertex is joined to both $v_1$ and $v_2$.
+               \end{quote}
+               
+               \begin{quote}
+                  \textbf{Case (b).} $a = c$ and $b - d \notin \S$. Now a vertex 
+                  of the form $\col{p}{q}$ cannot be joined to both $v_1$ and    
+                  $v_2$, for otherwise, we would have from \eqref{2_6_1} that
+                  $b = d$, a statement that is not generally true (take $a=c=1$,
+                  $b = 4$, and $d = 2$). So assume that $(p \quad q)$ is joined 
+                  to both $v_1$ and $v_2$. It immediately follows that
+                  $c = p = a$. Also, we must have that $b - q \in \S$ and
+                  $d - q \in \S$. Note that we cannot have $b - q = d - q$ since
+                  that would imply that $b = d$. So suppose first that
+                  $b - q = 1$ and $d - q = 4$. That is, $q = b - 1 = d - 4$,
+                  so that $b - d = 2 \in \N$, in agreement with our hypothesis.
+                  Now if $b - q = 4$ and $d - q = 1$, then we would have that
+                  $q = b - 4 = d - 1$, so that $b - d = 3 \in \N$. That is,
+                  only one vertex is joined to both $v_1$ and $v_2$.
+               \end{quote}
+
+               \textbf{Case 2.} $v_1 = (a \quad b)$ and $v_2 = \col{c}{d}$.
+               Since $v_1$ is not joined to $v_2$, it follows that
+               $b \neq ca + d$, so that $b - (ca + d) \neq 0$.
+               
+               \begin{quote}
+                  \textbf{Case (a).} $b - (ca + d) \in \S$. Suppose first that
+                  $b - (ca + d) = 1$, so that $b = ca + d + 1$. We shall now
+                  show that a vertex of the form $\col{p}{q}$ cannot join both
+                  $v_1$ and $v_2$. So suppose otherwise. Since
+                  $v_2 \sim \col{p}{q}$, it follows that $p = c$ and
+                  $d - q \in \N$, and $b = ap + q = ac + q$ since
+                  $v_1 \sim \col{p}{q}$. Now since $b = ca + d + 1$ and
+                  $b = ac + q$, it follows that $d + 1 = q$, so that
+                  $d - q = 4 \notin \N$, a contradiction. So assume that
+                  $(p \quad q)$ is joined to $v_1$ and $v_2$. We must have that
+                  $p = a$ and $b - q \in \S$ since $v_1 \sim (p \quad q)$.
+                  Similarly, it follows that $q = pc + d = ac + d$ because
+                  $v_2 \sim (p \quad q)$. But recall that $b = ca + d + 1$; so
+                  we conclude that $b - q = 1 \in \S$. So choose $q = b - 1$. 
+                  Now if $b - (ca + d) = 4$, repeat the process above. That is,
+                  first show that $\col{r}{s}$ cannot join both $v_1$ and $v_2$.
+                  Then show that $(r \quad s)$, where $r = a$ and $s = b - 4$ is
+                  the only vertex that joins $v_1$ and $v_2$.
+               \end{quote}
+               
+               \begin{quote}
+                  \textbf{Case (b).} $b - (ca + d) \in \N$. Suppose first that
+                  $b - (ca + d) = 2$, so that $b = ca + d + 2$. We shall now
+                  show that a vertex of the form $(p \quad q)$ cannot join both
+                  $v_1$ and $v_2$. So suppose otherwise. Since
+                  $v_1 \sim (p \quad q)$, it follows that $p = a$ and
+                  $b - q \in \S$, and $q = cp + d = ca + d$ since
+                  $v_2 \sim (p \quad q)$. Now since $b = ca + d + 2$ and
+                  $q = ca + d$, it follows that $b - q = 2 \notin \S$, a 
+                  contradiction. So assume that $\col{p}{q}$ is joined to
+                  $v_1$ and $v_2$. We must have that $p = c$ and $d - q \in \N$ 
+                  since $v_2 \sim \col{p}{q}$. Similarly, it follows that
+                  $b = pa + q = ca + q$ because $v_1 \sim \col{p}{q}$. But 
+                  recall that $b = ca + d + 2$; so we conclude that
+                  $d - q = 2 \in \N$. So choose $q = d - 2$. Now if
+                  $b - (ca + d) = 3$, repeat the process above. That is,
+                  first show that $(r \quad s)$ cannot join both $v_1$ and
+                  $v_2$. Then show that $\col{r}{s}$, where $r = c$ and
+                  $s = d - 3$ is the only vertex that joins $v_1$ and $v_2$.
+               \end{quote}
+
+               \textbf{Case 3.} $v_1 = \col{a}{b}$ and $v_2 = \col{c}{d}$.
+               
+               \begin{quote}
+                  \textbf{Case (a).} $a \neq c$. The argument for this case is
+                  similar to that for Case 1(a). However, in this case, the
+                  unique vertex that joins $v_1$ and $v_2$ is of the form $(p 
+                  \quad q)$, where, as in Case 1(a),
+                  $$p = (a-c)^{-1}(b - d) \text{ and } q=(da - bc)(a-c)^{-1}.$$
+               \end{quote}
+               
+               \begin{quote}
+                  \textbf{Case (b).} $a = c$ and $b - d \notin \N$. Now a vertex 
+                  of the form $(p \quad q)$ cannot be joined to both $v_1$ and
+                  $v_2$, for otherwise, we would have that $q = pa + b = pc + b$
+                  and $q = pc + d$, so that $b = d$, a contradiction if we
+                  take $a=c=1$, $b = 4$, and $d = 0$. So assume that
+                  $\col{p}{q}$ is joined to both $v_1$ and $v_2$. It immediately 
+                  follows that $c = p = a$. Also, we must have that
+                  $b - q \in \N$ and $d - q \in \N$. Note that we cannot have
+                  $b - q = d - q$ since that would imply that $b = d$. So 
+                  suppose first that $b - q = 2$ and $d - q = 3$. That is,
+                  $q = b - 2 = d - 3$, so that $b - d = 4 \notin \N$, in 
+                  agreement with our hypothesis. Now if $b - q = 3$ and
+                  $d - q = 2$, then we would have that $q = b - 3 = d - 2$, so 
+                  that $b - d = 1 \notin \N$. That is, only one vertex is joined 
+                  to both $v_1$ and $v_2$.
+               \end{quote}
+         \item Recall that the $(i, j)$ entry of $A^n$ is the number of paths of
+               length $n$ from vertex $i$ to vertex $j$. Suppose there is a
+               path of length two from a vertex to itself, say
+               $k \rightarrow l \rightarrow k$. Then it follows that vertex $k$
+               must be joined to vertex $l$. The converse is also true. Thus the
+               main diagonal of $A^2$ must all be 7s because each vertex is
+               joined to exactly seven other vertices. We showed in \circled{5}
+               that if vertex $i$ is joined to vertex $j$, then no other vertex
+               joins the both of them; that is, there is no path of length two
+               from $i$ to $j$. So the non-diagonal entries of $A$ that contain
+               1s must contain 0s in $A^2$. Now if $i$ and $j$ are not
+               connected, then, according to \circled{6}, there is exactly 1  
+               vertex joining the both of them. So the non-diagonal entries of
+               $A$ that contain 0s must contain 1s in $A^2$. It follows that
+               $$A^2 = -A + 6I + J.$$
+         \item The spectrum of $J_{50}$ is
+               $50, \underbrace{0, \cdots, 0}_{49 \text{ times}}$. Since
+               $A^2 + A = 6I + J_{50}$, it follows that the spectrum of
+               $A^2 + A$ is $56, \underbrace{6, \cdots, 6}_{49 \text{ times}}$.
+               That is, one of the eigenvalue of $A$ must satisfy
+               $\mu^2+\mu=56$. We know that $AJ = 7J$, so this eigenvalue must 
+               be 7. The other eigenvalues must satisfy $\lambda^2+\lambda = 6$; 
+               thus $\lambda = -3$ or $\lambda = 2$. Let $m$ and $n$ be the
+               multiplicities of $-3$ and $2$ respectively. It follows that
+               $$m + n = 49 \text{ and } 7 - 3m + 2n = 0.$$
+               Solving these equations will yield $m = 21$ and $n = 28$. Thus
+               the spectrum of $A$ is
+               $$7, \underbrace{-3, \cdots, -3}_{21 \text{ times}},
+                    \underbrace{2, \cdots, 2}_{28 \text{ times}}$$
+      \end{enumerate}   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
    \item[\textbf{Bonus.}]  Let $G$ be a connected graph. If for any two vertices
                            $x, y \in V$, there exists $\alpha \in \text{Aut}(G)$
@@ -426,5 +569,11 @@
                                     has a vertex transitive group or an edge
                                     transitive group.
                            \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item 
+      \end{enumerate}
 \end{enumerate}
 \end{document}
