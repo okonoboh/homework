@@ -157,14 +157,13 @@
                $V$. Associativity is already taken care of because the group of
                permutations is associative under function composition; the
                identity permutation serves as the identity for Aut($G$), and
-               since Aut($G$) is finite, it is also closed under taking
-               inverses. So we only need to show closure under function
-               composition. To that end, let
-               $\beta, \gamma \in \text{Aut}(G)$. Suppose we have $x \sim y$ for
-               some $x, y \in V$. Since $\gamma$ is a member of Aut($G$), it
-               follows that $\gamma(x) \sim \gamma(y)$. Similarly, since
-               $\gamma(x)$ and $\gamma(y)$ are members of $V$, it follows that
-               $\beta(\gamma(x)) \sim \beta(\gamma(y))$, so that
+               since Aut($G$) is finite, it is also closed under inverses. So we 
+               only need to show closure under function composition. To that 
+               end, let $\beta, \gamma \in \text{Aut}(G)$. Suppose we have
+               $x \sim y$ for some $x, y \in V$. Since $\gamma$ is a member of 
+               Aut($G$), it follows that $\gamma(x) \sim \gamma(y)$. Similarly, 
+               since $\gamma(x)$ and $\gamma(y)$ are members of $V$, it follows 
+               that $\beta(\gamma(x)) \sim \beta(\gamma(y))$, so that
                $(\beta\circ\gamma)(x) \sim (\beta\circ\gamma)(y)$; that is,
                $\beta\circ\gamma \in \text{Aut}(G)$, and so we conclude that
                $\text{Aut}(G) \le S_V$.
@@ -542,25 +541,24 @@
    \item[\textbf{Bonus.}]  Let $G$ be a connected graph. If for any two vertices
                            $x, y \in V$, there exists $\alpha \in \text{Aut}(G)$
                            such that $\alpha(x) = y$, then we say the group of
-                           automorphisms is \textbf{vertex transitive}.
+                           automorphisms is \textbf{vertex transitive}. Assume
+                           vertex transitivity. Then $\text{Aut}(G)$ is
+                           \textbf{edge transitive} when for any pairs
+                           of points, $x_1 \sim y_1$ and $x_2 \sim y_2$ there 
+                           exists $\alpha \in \text{Aut}(G)$ such that
+                           $\alpha(x_1) = x_2$ and $\alpha(y_1) = y_2$.
 
                            \begin{enumerate}[label=\protect\circled{\arabic*}]   
                               \item Prove that if $\text{Aut}(G)$ is vertex
                                     transitive, then the graph is regular,
                                     namely the number of edges leaving a vertex
-                                    is the same for any two vertices. Assume
-                                    vertex transitivity. Then $\text{Aut}(G)$ is
-                                    \textbf{edge transitive} when for any pairs
-                                    of points, $x_1 \sim y_1$ and $x_2 \sim y_2$
-                                    there exists $\alpha \in \text{Aut}(G)$ such
-                                    that $\alpha(x_1) = x_2$ and
-                                    $\alpha(x_2) = y_2$.
+                                    is the same for any two vertices. 
                               \item Prove that if $\text{Aut}(G)$ is
                                     \textbf{edge transitive}, and if
                                     $x_1 \not\sim y_1$ and $x_2 \not\sim y_2$,
                                     there exists $\alpha \in \text{Aut}(G)$ such
                                     that $\alpha(x_1) = x_2$ and
-                                    $\alpha(x_2) = y_2$.
+                                    $\alpha(y_1) = y_2$.
                               \item Prove that if $\text{Aut}(G)$ is edge
                                     transitive, and $A$ is the adjacency matrix
                                     of the graph, then there exist integers
@@ -573,7 +571,21 @@
       \textbf{Solution.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item 
+         \item \textbf{Proof.} Let $x, y \in V$. Since Aut($G$) is vertex 
+               transitive, it follows that there exists
+               $\alpha \in \text{Aut}(G)$ such that $\alpha(x) = y$. Thus,
+               by Exercise 2.2, we conclude that $x$ and $y$ have the same 
+               degree. Since $x$ and $y$ were arbitrarily chosen, it follows 
+               that all the vertices in $V$ have the same degree, so that $G$
+               is regular. \qed
+         \item \textbf{Proof.} Suppose that Aut($G$) is edge transitive, and
+               suppose that $x_1$, $y_1$, $x_2$, $y_2 \in V$, such that
+               $x_1 \not\sim y_1$ and $x_2 \not\sim y_2$. Recall that $G$ is
+               connected; that is, there exist vertices $a_1, \cdots, a_m$ and
+               $b_1, \cdots, b_n$ such that
+               $$x_1 \sim a_1 \sim \cdots \sim a_m \sim y_1 \text{ and }
+                 x_2 \sim b_1 \sim \cdots \sim b_n \sim y_2$$
+               for some positive integers $m$ and $n$.
       \end{enumerate}
 \end{enumerate}
 \end{document}
