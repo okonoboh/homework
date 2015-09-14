@@ -1,0 +1,105 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath, array}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{bm}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 590, Fall 2015\\Section 1 (9529)\\
+  HW \#03, DUE: 2015, September 14
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+\newcommand{\col}[2]{\left(\begin{tabular}{@{}c@{}}
+   $#1$ \\
+   $#2$  
+ \end{tabular}\right)}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the veracity or falsehood of each of the following statements.
+         For bonus, argue for those that you believe are true while providing a
+         counterexample for those that you believe are false. Let $V$, $W$ be
+         subspaces of $F^n$ where $|F| = q$.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item The number of subspaces of $F^n$ of dimension $n-1$ is
+                  $1+q+q^2+\cdots+q^{n-1}$.
+            \item $V+W = \{v+w : v \in V, w \in W\}$ is the smallest subspace
+                  containing both $V$ and $W$.
+            \item If $V \le W$, then $\dim V \le \dim W$.
+            \item If $\dim V = 2$, then $V$ has $q^2 - q$ bases.
+            \item $\dim(V+W) = \dim V + \dim W - \dim(V \cap W)$.
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose your alphabet consists of four symbols: 0, 1, $\alpha$, and
+         $\beta$.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item How many words of length $n$ can be made with these four
+                  letters?
+            \item How many words are there in a ball of radius 2?
+            \item Suppose we wanted a code with at least one hundred words that
+                  will be able to correct two errors. What is the minimum length
+                  of such a code?
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item The parity check matrix for the Hamming Code was built by using all
+         nonzero columns of size 3 over $\Z_2$ obtaining the $3 \times 7$ matrix
+         of rank 4.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Emulate the construction by using all the nonzero columns of
+                  size 4. Using this new matrix as a parity check matrix for a
+                  code, what is the length of the code and what is its
+                  dimension.
+            \item Decide if this is also a perfect code?
+            \item Assume the probability of sending a correct bit is $p$. What
+                  is the probability of correct decoding in this code?
+            \item Would you say it is superior to the Hamming Code? Why or why
+                  not?
+         \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{enumerate}
+\end{document}
