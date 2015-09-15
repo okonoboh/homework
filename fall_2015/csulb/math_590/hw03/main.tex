@@ -72,6 +72,145 @@
             \item If $\dim V = 2$, then $V$ has $q^2 - q$ bases.
             \item $\dim(V+W) = \dim V + \dim W - \dim(V \cap W)$.
          \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item True.
+            
+                  \textbf{Proof.} Suppose $W$ is a subspace of $F^n$ such that
+                  $\dim W = n-1$. Consider the orthogonal complement of $W$,
+                  $W^{\perp}$. It follows from our discussion in class that
+                  $\dim W^{\perp} = n - (n - 1) = 1$. Recall from Linear
+                  Algebra that $F^n = W \oplus W^{\perp}$; that is, every vector
+                  in $F^n$ can be written as a unique sum of a vector in $W$ and
+                  a vector in $W^{\perp}$. So there is a one to one
+                  correspondence between the subspaces of dimension $n-1$ and
+                  the subspaces of dimension 1. So we count the latter since it
+                  is easier. To form a vector space of dimension 1, we choose
+                  a nonzero vector (to form a singleton basis) from all possible
+                  choices---$q^n$ total vectors; but we cannot choose the zero
+                  vector, so we have a total choice of $q^n - 1$. Now notice
+                  that we have over counted since all the $q^n-1$ vectors are a
+                  multiple of exactly $q-1$ other vectors. Thus, we have
+                  $\D\frac{q^n-1}{q-1}$ choices. And since
+                  $$\frac{q^n-1}{q-1} = 1+q+q^2+\cdots+q^{n-1},$$
+                  the proof is done. \qed
+            \item True.
+            
+                  \textbf{Proof.} Suppose a vector space $X$ contains $V$ and
+                  $W$. Let $u \in V + W$. Then it follows that there exist
+                  $v \in V$ and $w \in W$ such that $u = v + w$; particularly,
+                  we have that $v, w \in X$. By closure, it follows that
+                  $u = v + w \in X$. That is, $X$ contains $V + W$. Since $X$
+                  was arbitrary, it follows that $V + W$ is contained in every
+                  vector space that contains $V$ and $W$. To complete the proof, we need to show that $V+W$ is indeed a
+                  subspace. Let $a_1, a_2 \in V + W$ and $\alpha \in F$. It
+                  follows by definition that $a_1 = v_1 + w_1$ and
+                  $a_2 = v_2 + w_2$ for some $v_1, v_2 \in V$ and
+                  $w_1, w_2 \in W$. By commutativity of addition, we
+                  have that
+                  $$a_1 + a_2 = (v_1 + w_1) + (v_2 + w_2) = (v_1 + v_2) +
+                  (w_1 + w_2),$$
+                  so that $a_1 + a_2 \in V + W$ since, by closure, we have that
+                  $v_1 + v_2 \in V$ and $w_1 + w_2 \in W$. Finally, we have
+                  that $\alpha a_1 = \alpha(v_1 + w_1) = \alpha v_1 +
+                  \alpha w_1 \in V$, since $V$ is closed under addition and
+                  scalar multiplication. Hence
+                  $\alpha a_1 = \alpha a_1 + 0 \in V + W$; that is, $V + W$ is
+                  closed under addition and scalar multiplication, so that it
+                  is a subspace. \qed
+            \item True.
+            
+                  \textbf{Proof.} Suppose $V \le W$. Let $\dim V = n$ and
+                  $\dim W = m$. Suppose to the contrary that $n > m$. We know
+                  that $V$ has $n$ independent vectors. Since $V \subseteq W$,
+                  these $n$ independent vectors must also be in $W$, so that $W$
+                  has $n$ linearly independent vectors, a contradiction since
+                  its dimension, $m$, wa assumed to be less than $n$. Thus
+                  $\dim V \le \dim W$. \qed
+            \item False.
+            
+                  \textbf{Counterexample.} Let $F ={\Z_2}$ and $n = 2$. The
+                   hypothesis says that we would have $2^2 - 2 = 2$ bases, but
+                   we have the following three bases:
+                   $$\{(1, 1), (0, 1)\}, \{(1, 1), (1, 0)\}, \text{ and }
+                     \{(1, 0), (0, 1)\}$$
+            \item True.
+            
+                  \textbf{Proof.} Let $V$ and $W$ be vector spaces. If either
+                  one is contained in the other, the proof is trivial, so assume
+                  otherwise. Now let $\dim V \cap W = n$. Since we are assuming
+                  that $V \not\subseteq W$ and $W \not \subseteq V$, and since
+                  the intersection of both vector spaces is contained in both
+                  vector spaces, it follows that $n < \dim V$ and $n < \dim W$.
+                  Let $\{u_1, \ldots, u_n\}$ be a basis for $V \cap W$. Extend
+                  this to $\{u_1, \ldots, u_n, v_1, \ldots v_{r}\}$, a basis for
+                  $V$, and $\{u_1, \ldots, u_n, w_1, \ldots, w_m\}$, a basis for
+                  $W$. That is, $\dim V = n + r$ and $\dim W = n + m$. Now we
+                  want to show that $\dim(V+W) = n + m + r$. To that end we
+                  claim that $X = \{u_1, \ldots, u_n, v_1, \ldots, v_r, w_1,
+                  \ldots, w_m\}$ is a basis for $V+W$. First, we want to show
+                  that $X$ spans $V+W$, so let $v + w \in V + W$. Since $v$ can
+                  be written as a linear combination of
+                  $u_1, \ldots, u_n, v_1, \ldots v_{r}$ and since $w$ can be
+                  written as a linear combination of
+                  $u_1, \ldots, u_n, w_1, \ldots, w_m$, it follows that $v+w$
+                  can be written as a linear combination of the vectors in $X$.
+                  That is, $X$ spans $V+W$. To show linear independence,
+                  consider the linear equation:
+                  \begin{equation} \label{1_1}
+                     a_1u_1 + \cdots + a_nu_n + b_1v_1 + \cdots + b_rv_r +
+                        c_1w_1 + \cdots + c_mw_m = 0.
+                  \end{equation}
+                  From \eqref{1_1}, we have that
+                  $$b_1v_1 + \cdots + b_rv_r = -a_1u_1 - \cdots - a_nu_n - 
+                       c_1w_1 - \cdots - c_mw_m,$$
+                  so that $b_1v_1 + \cdots + b_rv_r \in W$ and
+                  $$c_1w_1 + \cdots + c_mw_m = -a_1u_1 - \cdots - a_nu_n -
+                       b_1v_1 - \cdots - b_rv_r,$$
+                  so that $c_1w_1 + \cdots + c_mw_m \in V$. Clearly
+                  $b_1v_1 + \cdots + b_rv_r \in V$ and
+                  $c_1w_1 + \cdots + c_mw_m \in W$. Thus we have that
+                  $$b_1v_1 + \cdots + b_rv_r, c_1w_1 + \cdots + c_mw_m \in
+                   V + W.$$
+                  So we can write $b_1v_1 + \cdots + b_rv_r + c_1w_1 + \cdots +
+                  c_mw_m$ as a linear combination of $u_1, \ldots, u_n$, so that
+                  the sum in \eqref{1_1} can be written as a linear combination
+                  of $u_1, \ldots, u_n$. Use the linear independence of 
+                  $u_1, \ldots, u_n$ to conclude that
+                  $$a_1 = \cdots = a_n = 0.$$
+                  Thus \eqref{1_1} reduces to
+                  \begin{equation} \label{1_2}
+                     b_1v_1 + \cdots + b_rv_r = -c_1w_1 - \cdots - c_mw_m.
+                  \end{equation}
+                  Equation \eqref{1_2} tells us that
+                  $b_1v_1 + \cdots + b_rv_r \in W$ and
+                  $-c_1w_1 - \cdots - c_mw_m \in V$. That is,
+                  $b_1v_1 + \cdots + b_rv_r$ and $-c_1w_1 - \cdots - c_mw_m$ are
+                  both in $V + W$, so that
+                  $$b_1v_1 + \cdots + b_rv_r = d_1u_1 + \cdots + d_nu_n$$
+                  $$-c_1w_1 - \cdots - c_mw_m = e_1u_1 + \cdots + e_nu_n.$$
+                  Subtracting the right-hand side of the two equations above
+                  from the left-hand side, and using the fact that the vectors
+                  $v_1, \ldots, v_r, u_1, \ldots, u_n$ form a basis for $V$
+                  and that $\{w_1, \ldots, w_m, u_1, \ldots, u_n\}$ is a basis
+                  for $W$, we conclude that
+                  $$b_1 = \cdots b_r = c_1 = \cdots = c_m = 0$$
+                  so that the vectors in $X$ are linearly independent and thus
+                  form a basis for $V + W$. Now we have that
+                  \begin{align*}
+                     \dim(V+W) &= n + r + m \\
+                               &= n + r + n + m - n \\
+                               &= \dim V + \dim W - \dim(V \cap W),
+                  \end{align*}
+                  as desired. \qed
+                  
+                  
+                  
+       \end{enumerate}
+      
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Suppose your alphabet consists of four symbols: 0, 1, $\alpha$, and
          $\beta$.
@@ -84,6 +223,24 @@
                   will be able to correct two errors. What is the minimum length
                   of such a code?
          \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item $4^n$.
+         \item Let $w$ be a word. Then
+               \begin{align*}
+                  B_2(w) &= S_0(w) + S_1(w) + S_2(w) \\
+                     &= 1 + 3n + 3^2 \cdot \binom{n}{2} \\
+                     &= \frac{9n^2-3n+2}{2}.
+               \end{align*}
+         \item To be able to correct two errors, we must find $n$ such that
+               $$100\left(\frac{9n^2-3n+2}{2}\right) \le 4^n.$$
+               A few computations for $n$ will show us that the minimum $n$ 
+               that works is 8.
+      \end{enumerate}
+      
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item The parity check matrix for the Hamming Code was built by using all
          nonzero columns of size 3 over $\Z_2$ obtaining the $3 \times 7$ matrix
@@ -100,6 +257,42 @@
             \item Would you say it is superior to the Hamming Code? Why or why
                   not?
          \end{enumerate}
+         
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item The new matrix is         
+               $$\left(
+               \begin{tabular}{@{}ccccccccccccccc@{}}
+                  0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+                  0 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+                  0 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\
+                  1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+               \end{tabular}\right).$$               
+               Thus the length of the code is 15 and the number of meaningful
+               bits is 11 since the dimension of the nullspace of the matrix is
+               11.
+         \item We have $k = 11$ and $n = 15$. Using the sphere-packing bound
+               inequality, we have $2^k(1+n) = 32768 = 2^n$, so that the code is
+               perfect.
+         \item
+               $$
+               \begin{tabular}{@{}|c|c|c|@{}} \hline
+                  \# of errors & \# of words & \# Probability of word \\ \hline
+                  0 & 1 & $p^{15}$ \\ \hline
+                  1 & 15 & $p^{14}(1-p)$ \\ \hline
+               \end{tabular}
+               $$
+               Thus the probability of correct decoding is
+               $$p^{15} + 15p^{14}(1-p).$$
+         \item This code is inferior to the Hamming code because for
+               $0 < p < 1$, (where $p$ is the probability of decoding a
+               message), we have $p^7 + 7p^6(1-p) > p^{15} + 15p^{14}(1-p)$, so
+               that the probability of the Hamming code is much larger than that
+               of this new code. The expression $p^7 + 7p^6(1-p)$ is the
+               probability that the Hamming code correctly decodes.
+      \end{enumerate}
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{enumerate}
 \end{document}
