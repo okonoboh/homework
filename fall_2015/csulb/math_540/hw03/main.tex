@@ -1,0 +1,257 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 540, Fall 2015\\Section 1 (9932)\\
+  HW \#3, DUE: 2015, September 17
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.1.1]   In each of (c) and (d) prove that the specified subset is a
+                  subgroup of the given group:
+                  \begin{enumerate}
+                     \item[(c)]  for fixed $n \in \Z^+$ the set of rational 
+                                 numbers(in lowest terms) whose denominators 
+                                 divide $n$ (under addition)
+                     \item[(d)]  for fixed $n \in \Z^+$ the set of rational 
+                                 numbers whose denominators are relatively prime 
+                                 to $n$ (under addition)
+                  \end{enumerate}
+                  
+      \textbf{Proof.}
+      
+      \begin{enumerate}
+         \item[(c)]
+               Let $n$ be a positive integer and
+               $$S = \left\{\frac{a}{b} \in
+               \Q : \text{ if } \frac{a'}{b'} = \frac{a}{b},
+               \text{ with }\gcd(a', b') = 1, \text{ then } b' \mid n\right\}.$$ 
+               The set $S$ is nonempty since it contains 0. Let $\D\frac{a}{b}$,
+               $\D\frac{c}{d} \in S$. Writing these rationals in lowest terms,
+               we have $\D\frac{a}{b} = \frac{a'}{b'}$ and
+               $\D\frac{c}{d} = \frac{c'}{d'}$. Let $l = \mbox{lcm}(b', d')$.
+               By membership in $S$, we have that $b' \mid n$ and $d' \mid n$. 
+               Thus $l \mid n$. Now there exists an integer $m$ such that 
+               $\D\frac{a'}{b'} - \frac{c'}{d'} = \frac{m}{l}$. Let
+               $\D\frac{m'}{l'} = \frac{m}{l}$ such that $\gcd(m', l') = 1$.
+               Then $l' \mid l$; since $l \mid n$, it follows that $l' \mid n$,
+               so that $\D\frac{a}{b} - \frac{c}{d} = \D\frac{a'}{b'} -
+               \frac{c'}{d'} = \frac{m}{l} =\frac{m'}{l'} \in S$. Thus $S < \Q$.
+         \item[(d)]
+               Let $n$ be a positive integer and
+               $$S = \left\{\frac{a}{b} \in
+               \Q : \text{ if } \frac{a'}{b'} = \frac{a}{b},
+               \text{ with }\gcd(a',b')=1, \text{ then } \gcd(b',n)=1\right\}.$$ 
+               The set $S$ is nonempty since it contains 0. Let $\D\frac{a}{b}$,
+               $\D\frac{c}{d} \in S$. Writing these rationals in lowest terms,
+               we have $\D\frac{a}{b} = \frac{a'}{b'}$ and
+               $\D\frac{c}{d} = \frac{c'}{d'}$. Let $l = \mbox{lcm}(b', d')$.
+               By membership in $S$, we have that $\gcd(b',n) = \gcd(d',n) = 1$. 
+               Thus $\gcd(l,n)=1$. Now there exists an integer $m$ such that 
+               $\D\frac{a'}{b'} - \frac{c'}{d'} = \frac{m}{l}$. Let
+               $\D\frac{m'}{l'} = \frac{m}{l}$ such that $\gcd(m', l') = 1$.
+               Then $l' \mid l$; since $\gcd(l,n)=1$, it follows that
+               $\gcd(l',n)=1$, so that
+               $$\frac{a}{b}-\frac{c}{d}=\D\frac{a'}{b'}-\frac{c'}{d'} =
+                 \frac{m}{l} =\frac{m'}{l'} \in S.$$ Thus $S < \Q$.
+      \end{enumerate} \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.1.5]   Prove that $G$ cannot have a subgroup $H$ with $|H| = n - 1$,
+                  where $n = |G| > 2$.
+
+      \textbf{Proof.} Suppose that $G$ is a finite group of order $n > 2$. Now
+      suppose to the contrary that $H < G$, where $|H| = n - 1$. Let $y \in G$
+      be the element not in $H$. Since $|G| \ge 3$, there exists an
+      $x \in H$ such that $x \neq 1$ (and $x \neq y$). Now consider the element
+      $x^{-1}y$. If $x^{-1}y = y$, then $x = 1$, contrary to our assumption. If
+      $x^{-1}y = 1$, then $x = y$, another contradiction. Thus $x^{-1}y$ is
+      neither equal to $y$ nor 1. Particularly we have $x^{-1}y \in H$; thus
+      $y = x(x^{-1}y) \in H$, a contradiction. Thus $H$ cannot have size
+      $n - 1$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.1.10]  \begin{enumerate}
+                     \item Prove that if $H$ and $K$ are subgroups of $G$ then
+                           so is their intersection $H \cap K$.
+                     \item Prove that the intersection of an arbitrary nonempty
+                           collection of subgroups of $G$ is again a subgroup of
+                           $G$ (do not assume the collection is countable).
+                  \end{enumerate}
+
+      \textbf{Proof.}
+
+      \begin{enumerate}
+         \item See (b).
+         \item Let $G$ be a group and $S = \D\bigcap_{i \in I}G_i$ be the
+               intersection of an arbitrary collection of subgroups of $G$,
+               where $G_i \le G$, for each $i \in I$, and $I$ is some indexing   
+               set. Since 1 belongs to all $G_i$, it follows that $1 \in S$. Now
+               let $x, y \in S$. Then each $G_i$ must have $x$ and $y$ as
+               elements. Also since each $G_i$ is a group, it must also contain
+               $xy^{-1}$, so that $xy^{-1} \in S$. That is, $S \le G$.
+      \end{enumerate} \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.2.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.2.3]   Prove that if $A$ and $B$ are subsets of $G$ with
+                  $A \subseteq B$ then $C_G(B)$ is a subgroup of $C_G(A)$.
+
+      \textbf{Proof.} Suppose that $A \subseteq B \subseteq G$, with
+      $A \neq \emptyset$. By the discussion on Page 49 of the textbook, we know
+      that $C_G(B) \le G$ and $C_G(A) \le G$. Since $A \subseteq B$, it follows
+      that every element $g \in G$ that commutes with all elements in $B$ must
+      necessarily commute with all elements in $A$; thus
+      $C_G(B) \subseteq C_G(A)$, so that $C_G(B) \le C_G(A)$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.2.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.2.5]   In each parts (a) to (c) show that for the specified group $G$
+                  and subgroup $A$ of $G$, $C_G(A) = A$ and $N_G(A) = G$.
+                  \begin{enumerate}
+                     \item[(a)]  $G = S_3$ and $A = $ \{1, (1 2 3), (1 3 2)\}.
+                     \item[(c)]  $G = D_{10}$ and $A = \{1, r, r^2, r^3, r^4\}$.
+                  \end{enumerate}
+      
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item[(a)]
+               The set $A$ is a cyclic subgroup of $G$ since $A$ is generated by
+               (1 2 3). Thus $A \le C_G(A)$, so that $|C_G(A)| \ge 3$. By
+               Lagrange's Theorem, it follows that $|C_G(A)| = 3$ or 6. Since
+               (1 3) does not commute with (1 2 3), it follows that
+               $|C_G(A)| = 3$, so that $A = C_G(A)$. We know that
+               $A \le N_G(A)$, so we have to check if the other elements of $G$
+               normalize $A$. Thus
+               \begin{align*}
+                  (1\;2)A(1\;2)^{-1} &= (1\;2)A(1\;2) \\
+                     &= \{(1\;2)(1)(1\;2), (1\;2)(1\;2\;3)(1\;2),
+                          (1\;2)(1\;3\;2)(1\;2)\} \\
+                     &= \{(1), (1\;3\;2), (1\;2\;3)\} \\
+                     &= A.
+               \end{align*}
+               
+               This says that (1 2) $\in N_G(A)$ so that $|N_G(A)| \ge 4$. But
+               $|N_G(A)| = 3$ or 6 by Lagrange's Theorem; thus $N_G(A) = G$.
+         \item[(c)]
+               The set $A$ is the cyclic subgroup of rotations of $G$, so
+               $|C_G(A)| \ge 5$. Since $r$ does not commute with $s$, it follows
+               that $r \notin C_G(A)$; thus $|C_G(A)| = 5$ by Lagrange's
+               Theorem. Note that $N_G(A) \ge 5$ since $C_G(A) \le N_G(A)$; so
+               since
+               \begin{align*}
+                  sA^s{-1} &= sAs \\
+                     &= \{s1s, srs, sr^2s, sr^3s, sr^4s\} \\
+                     &= \{s^2, s^2r^{-1}, s^2r^{-2}, s^2r^{-3}, s^2r^{-4}\} \\
+                     &= \{1, r^4, r^3, r^2, r^1\} \\
+                     &= A,
+               \end{align*}
+               it follows that $s \in N_G(A)$, and we have that
+               $|N_G(A)| \ge 6$. Thus $|N_G(A)| = 10$ by Lagrange's Theorem and
+               we can conclude that $N_G(A) = G$.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.2.8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.2.8]   Let $G = S_n$, fix an $i \in \{1, 2, \ldots, n\}$ and let
+                  $G_i = \{\sigma \in G : \sigma(i) = i\}$ (the stabilizer of
+                  $i$ in $G$). Use group actions to prove that $G_i$ is a
+                  subgroup of $G$. Find $|G_i|$.
+
+      \textbf{Proof.} Let $I_n = \{1, 2, \ldots, n\}$. Now consider the map 
+      $f: G \times I_n \rightarrow I_n$, $(g, a) \mapsto g(a)$. We want to first
+      show that $f$ is a group action of $G$ on $I_n$. Let $\sigma_1$,
+      $\sigma_2 \in G$ and $a \in I_n$. So it follows that $f(1, a) = 1(a) = a$
+      and
+      \begin{align*}
+         f(\sigma_1, f(\sigma_2, a)) &= f(\sigma_1, \sigma_2(a)) \\
+            &= \sigma_1(\sigma_2(a)) \\
+            &= (\sigma_1 \circ \sigma_2)(a) \\
+            &= f(\sigma_1 \circ \sigma_2, a),
+      \end{align*}
+      so that $f$ is a group action. Now $G_i$ is the stabilizer of $i$ in $G$;
+      thus $|G_i| \le G$ by Exercise 1.7.4(b). By counting we have that
+      $|G_i| = (n - 1)!$ \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.3.2]   If $x$ is an element of the finite group $G$ and $|x| = |G|$,
+                  prove that $G = \cyc{x}$. Give an explicit example to show 
+                  that this result need not be true if $G$ is an infinite group.
+                  
+      \textbf{Proof.} Let $G$ be a finite group, so that $|G| = n \in \Z^+$.
+      Suppose that there exists $x \in G$ such that $|x| = n$. Clearly
+      $\cyc{x} \subseteq G$. But $|\cyc{x}| = n$ since $|x| = n$; thus
+      $G \subseteq \cyc{x}$ so that $G = \cyc{x}$. Now let $G = \Z$. We have
+      that $|\cyc{2}| = |G|$ but $G \neq \cyc{2}$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.3.4]   Find all generators for $\Z/202\Z$.
+   
+      \textbf{Solution.} Let $S$ be the set of generators for $\Z/202\Z$. Then
+      $|S| = 100$ since
+      $$S = \{\cyc{x} : x \text{ is odd and positive}, x \neq 101, \text{ and }
+        x < 202\}.$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.3.6]   In $\Z/48\Z$ write out all elements of $\cyc{\overline{a}}$
+                  for every $\overline{a}$. Find all inclusions between
+                  subgroups in $\Z/48\Z$.
+      
+      \textbf{Solution.}
+      $$
+         \begin{tabular}{|c|c|} \hline
+            \textbf{Generators} & \textbf{Subgroups in} $\Z/48\Z$ \\ \hline
+            0 & $\{0\}$ \\ \hline
+            24 & $\{0, 24\}$ \\ \hline
+            16, 32 & $\{0, 16, 32\}$ \\ \hline
+            12, 36 & $\{0, 12, 24, 36\}$ \\ \hline
+            8, 40 & $\{0, 8, 16, 24, 32, 40\}$ \\ \hline
+            6, 18, 30, 42 & $\{0, 6, 12, 18, 24, 30, 36, 42\}$ \\ \hline
+            4,20,28,44 & $\{0,4,8,12,16, 20, 24, 28, 32, 36, 40, 44\}$ \\ \hline
+            3, 9, 15, 21, 27, 33, 39, 45 & $\{0, 3, 6, 9, 12, 15, 18, 21, 24,
+            27, 30, 33, 36, 39, 42, 45\}$ \\ \hline            
+            2, 10, 14, 22, 26, 34, 38, 46 & $\{x : 0 \le x \le 46,
+            x \text{ is even}\}$ \\ \hline
+            \text{See Exercise } 2.3.3 & $\Z/48\Z$ \\ \hline
+         \end{tabular}
+      $$
+\end{enumerate}
+\end{document}
