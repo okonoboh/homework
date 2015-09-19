@@ -70,50 +70,86 @@
       
       \begin{enumerate}
          \item[(c)]
-               Let $n$ be a positive integer and
+               Fix a positive integer $n$ and consider the set
                $$S = \left\{\frac{a}{b} \in
                \Q : \text{ if } \frac{a'}{b'} = \frac{a}{b},
-               \text{ with }\gcd(a', b') = 1, \text{ then } b' \mid n\right\}.$$ 
-               The set $S$ is nonempty since it contains 0. Let $\D\frac{a}{b}$,
-               $\D\frac{c}{d} \in S$. Writing these rationals in lowest terms,
-               we have $\D\frac{a}{b} = \frac{a'}{b'}$ and
-               $\D\frac{c}{d} = \frac{c'}{d'}$. Let $l = \mbox{lcm}(b', d')$.
-               By membership in $S$, we have that $b' \mid n$ and $d' \mid n$. 
-               Thus $l \mid n$. Now there exists an integer $m$ such that 
-               $\D\frac{a'}{b'} - \frac{c'}{d'} = \frac{m}{l}$. Let
-               $\D\frac{m'}{l'} = \frac{m}{l}$ such that $\gcd(m', l') = 1$.
-               Then $l' \mid l$; since $l \mid n$, it follows that $l' \mid n$,
-               so that $\D\frac{a}{b} - \frac{c}{d} = \D\frac{a'}{b'} -
-               \frac{c'}{d'} = \frac{m}{l} =\frac{m'}{l'} \in S$. Thus $S < \Q$.
+               \text{ with }\gcd(a', b') = 1, \text{ then } b' \mid n\right\}.$$
+
+               \textbf{Identity.} The set $S$ is not empty since it contains
+               $0=\frac{0}{1}$, the identity element.
+               
+               \textbf{Closure \& Inverse.} Let $x, y \in S$. Then there exist
+               integers $a$ and $c$ and nonzero integers $b$ and $d$ such that
+               $x = \D\frac{a}{b}$ and $y = \D\frac{c}{d}$. Write these
+               rationals in lowest terms, so that
+               $\D\frac{a}{b} = \frac{a'}{b'}$ and
+               $\D\frac{c}{d} = \frac{c'}{d'}$, for some integers $a'$ and $c'$
+               and nonzero integers $b'$ and $d'$, where
+               $\gcd(a', b') = \gcd(c', d') = 1$. Let $l$ be the lowest common
+               multiple of $b'$ and $d'$.
+               By membership of $x$ and $y$ in $S$, we have that $b' \mid n$
+               and $d' \mid n$. Thus $l \mid n$. By definition, there exist
+               integers $b''$ and $d''$ such that $l = b'b'' = d'd''$; that is,
+               $$x - y = \frac{a'}{b'} - \frac{c'}{d'} =
+                  \frac{a'b''}{b'b''} - \frac{c'd''}{d'd''} =
+               \frac{a'b''-c'd''}{l}.$$
+               Let $m = a'b''-c'd''$, and write $\D\frac{m'}{l'} = \frac{m}{l}$,
+               for some integer $m'$ such that $\gcd(m', l') = 1$. Hence we
+               have that
+               $$l\frac{m'}{l'} =m $$
+               and since $\gcd(m', l') = 1$, it must be the case that
+               $l' \mid l$; since $l \mid n$, it follows by transitivity that
+               $l' \mid n$,
+               so that
+               $$x-y = \frac{a}{b} - \frac{c}{d} = \frac{a'}{b'} -
+               \frac{c'}{d'} = \frac{m}{l} =\frac{m'}{l'} \in S.$$
+               Thus $S \le \Q$ by the Subgroup Criterion. \qed
          \item[(d)]
-               Let $n$ be a positive integer and
+               Fix a positive integer $n$ and consider the set
                $$S = \left\{\frac{a}{b} \in
                \Q : \text{ if } \frac{a'}{b'} = \frac{a}{b},
-               \text{ with }\gcd(a',b')=1, \text{ then } \gcd(b',n)=1\right\}.$$ 
-               The set $S$ is nonempty since it contains 0. Let $\D\frac{a}{b}$,
-               $\D\frac{c}{d} \in S$. Writing these rationals in lowest terms,
-               we have $\D\frac{a}{b} = \frac{a'}{b'}$ and
-               $\D\frac{c}{d} = \frac{c'}{d'}$. Let $l = \mbox{lcm}(b', d')$.
-               By membership in $S$, we have that $\gcd(b',n) = \gcd(d',n) = 1$. 
-               Thus $\gcd(l,n)=1$. Now there exists an integer $m$ such that 
-               $\D\frac{a'}{b'} - \frac{c'}{d'} = \frac{m}{l}$. Let
-               $\D\frac{m'}{l'} = \frac{m}{l}$ such that $\gcd(m', l') = 1$.
-               Then $l' \mid l$; since $\gcd(l,n)=1$, it follows that
+               \text{ with }\gcd(a',b')=1, \text{ then } \gcd(b',n)=1\right\}.$$
+
+               \textbf{Identity.} Since $0 = \frac{0}{1}$ and since
+               $\gcd(1, n) = 1$, it follows that $S$ contains 0, the
+               identity element 
+
+               \textbf{Closure \& Inverse.} Let $x, y \in S$. Thus there exist
+               integers $a$ and $c$ and nonzero integers $b$ and $d$, with
+               $\gcd(a, b) = \gcd(c, d) = 1$, such that $x = \D\frac{a}{b}$
+               and $y = \D\frac{c}{d}$. Let $l$ be the lowest common multiple of
+               $b$ and $d$. By definition of $S$, we have that
+               $\gcd(b,n) = \gcd(d ,n) = 1$. Observe that the a prime factor of
+               $l$ is either a prime factor of $b$ or a prime factor of $d$. So
+               since $b$ and $n$ have no prime factors in common and $d$ and
+               $n$ have no prime factors in common, it follows that
+               $\gcd(l,n)=1$. Now there exist integers $b'$ and $d'$ such that
+               $bb' = dd' = l$. That is, 
+               $$x - y = \D\frac{a}{b} - \frac{c}{d} =
+                \D\frac{ab'}{bb'} - \frac{cd'}{dd'} = \frac{m}{l},$$ where
+               $m = ab' - cd'$. So we now write $\frac{m}{l}$ in lowest terms;
+               that is, there exists an integer $m'$ such that
+               $\D\frac{m'}{l'} = \frac{m}{l}$ and $\gcd(m', l') = 1$. Since
+               $l\frac{m'}{l'} =m $  and since $\gcd(m', l') = 1$, it follows
+               that $l' \mid l$, and moreover since $\gcd(l,n)=1$, it follows that
                $\gcd(l',n)=1$, so that
-               $$\frac{a}{b}-\frac{c}{d}=\D\frac{a'}{b'}-\frac{c'}{d'} =
-                 \frac{m}{l} =\frac{m'}{l'} \in S.$$ Thus $S < \Q$.
+               $$x - y = \frac{a}{b}-\frac{c}{d}=
+                 \frac{m}{l} =\frac{m'}{l'} \in S.$$ Thus $S \le \Q$ by the
+               subgroup criterion.
       \end{enumerate} \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.1.5]   Prove that $G$ cannot have a subgroup $H$ with $|H| = n - 1$,
                   where $n = |G| > 2$.
 
-      \textbf{Proof.} Suppose that $G$ is a finite group of order $n > 2$. Now
-      suppose to the contrary that $H < G$, where $|H| = n - 1$. Let $y \in G$
-      be the element not in $H$. Since $|G| \ge 3$, there exists an
-      $x \in H$ such that $x \neq 1$ (and $x \neq y$). Now consider the element
-      $x^{-1}y$. If $x^{-1}y = y$, then $x = 1$, contrary to our assumption. If
-      $x^{-1}y = 1$, then $x = y$, another contradiction. Thus $x^{-1}y$ is
-      neither equal to $y$ nor 1. Particularly we have $x^{-1}y \in H$; thus
+      \textbf{Proof.} Let $G$ be a finite group of order $n > 2$. Now suppose to
+      the contrary that $H \le G$, such that $|H| = n - 1$. That is, $H$ contains
+      all elements of $G$ but one. Let $y \in G$ be the element not in $H$. Note
+      that $y$ cannot be the identity element because all groups must have an
+      identity element. Since $|G| \ge 3$, there exists an $x \in H$ such that
+      $x \neq 1$. Now consider the element
+      $x^{-1}y$. If $x^{-1}y$ is not in $H$, then it must necessarily be the
+      case that $x^{-1}y = y$, so that $x = 1$, contrary to our assumption. That
+      is, $x^{-1}y \in H$; by closure of $H$, it follows that
       $y = x(x^{-1}y) \in H$, a contradiction. Thus $H$ cannot have size
       $n - 1$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.1.10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,24 +164,35 @@
       \textbf{Proof.}
 
       \begin{enumerate}
-         \item See (b).
+         \item Let $G$ be a group such that $H \le G$ and $K \le G$. Use part
+               part (b) with $I = \{1, 2\}$ and $I_1 = H$ and $I_2 = K$.
          \item Let $G$ be a group and $S = \D\bigcap_{i \in I}G_i$ be the
                intersection of an arbitrary collection of subgroups of $G$,
                where $G_i \le G$, for each $i \in I$, and $I$ is some indexing   
-               set. Since 1 belongs to all $G_i$, it follows that $1 \in S$. Now
-               let $x, y \in S$. Then each $G_i$ must have $x$ and $y$ as
-               elements. Also since each $G_i$ is a group, it must also contain
-               $xy^{-1}$, so that $xy^{-1} \in S$. That is, $S \le G$.
+               set.
+               
+               \textbf{Identity.} Since 1 belongs to $G_i$, for all $i \in I$,
+               it follows that $1 \in S$.
+               
+               \textbf{Closure \& Inverse.} Let $x, y \in S$. Then it follows
+               that $x \in G_i$ and $y \in G_i$, for all $i \in I$. Now since,
+               for every $i \in I$, $G_i$ is a group, it follows by closure
+               under the operation and inverses that $G_i$ also contains
+               $xy^{-1}$, so that $xy^{-1} \in S$. Thus we conclude by the
+               Subgroup Criterion that $S \le G$.
       \end{enumerate} \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.2.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.2.3]   Prove that if $A$ and $B$ are subsets of $G$ with
                   $A \subseteq B$ then $C_G(B)$ is a subgroup of $C_G(A)$.
 
-      \textbf{Proof.} Suppose that $A \subseteq B \subseteq G$, with
-      $A \neq \emptyset$. By the discussion on Page 49 of the textbook, we know
-      that $C_G(B) \le G$ and $C_G(A) \le G$. Since $A \subseteq B$, it follows
-      that every element $g \in G$ that commutes with all elements in $B$ must
-      necessarily commute with all elements in $A$; thus
+      \textbf{Proof.} Let $G$ be a group. Suppose that $A$ and $B$ are sets such
+      that $A \subseteq B \subseteq G$, with $A \neq \emptyset$. By the
+      proof on Page 49 of the textbook, it follows that $C_G(B)$ and $C_G(A)$
+      are both subgroups of $G$. So to show that $C_G(B) \le C_G(A)$, it
+      suffices to show that $C_G(B) \subseteq C_G(A)$. Let $h \in C_G(B)$ and
+      let $r \in A$. Since $A$ is a subset of $B$, it must be the case that
+      $r$ is also a member of $B$. That is, $hr = rh$, since $h$ commutes with
+      all elements of $B$. Thus $h \in C_G(A)$, and we conclude that
       $C_G(B) \subseteq C_G(A)$, so that $C_G(B) \le C_G(A)$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.2.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.2.5]   In each parts (a) to (c) show that for the specified group $G$
@@ -158,40 +205,60 @@
       \textbf{Solution.}
       
       \begin{enumerate}
-         \item[(a)]
+         \item[(a)] Let $G = S_3$.
                The set $A$ is a cyclic subgroup of $G$ since $A$ is generated by
-               (1 2 3). Thus $A \le C_G(A)$, so that $|C_G(A)| \ge 3$. By
-               Lagrange's Theorem, it follows that $|C_G(A)| = 3$ or 6. Since
-               (1 3) does not commute with (1 2 3), it follows that
-               $|C_G(A)| = 3$, so that $A = C_G(A)$. We know that
-               $A \le N_G(A)$, so we have to check if the other elements of $G$
-               normalize $A$. Thus
+               (1 2 3). Thus $A$ is a subgroup of $C_G(A)$ because all powers of
+               an element of a group commute. But
+               $$(1\;2)(1\;2\;3) = (2\;3) \neq (1\;3) = (1\;2\;3)(1\;2),$$
+               $$(1\;3)(1\;2\;3) = (1\;2) \neq (2\;3) = (1\;2\;3)(1\;3),$$
+               and
+               $$(2\;3)(1\;2\;3) = (1\;3) \neq (1\;2) = (1\;2\;3)(2\;3),$$
+               so that the transpositions in $G$ do not commute with
+               (1 2 3). Thus we have that $C_G(A) = A$. Since the centralizer of
+               a set is contained in the normalizer of that same set, it follows
+               that $A \le N_G(A)$ so that $|N_G(A)| \ge 3$.
+               Now we have to check if the other elements of $G$ normalize $A$.
+               Thus
                \begin{align*}
                   (1\;2)A(1\;2)^{-1} &= (1\;2)A(1\;2) \\
                      &= \{(1\;2)(1)(1\;2), (1\;2)(1\;2\;3)(1\;2),
                           (1\;2)(1\;3\;2)(1\;2)\} \\
                      &= \{(1), (1\;3\;2), (1\;2\;3)\} \\
+                     &= A. \\ \\
+                  (1\;3)A(1\;3)^{-1} &= (1\;3)A(1\;3) \\
+                     &= \{(1\;3)(1)(1\;3), (1\;3)(1\;2\;3)(1\;3),
+                          (1\;3)(1\;3\;2)(1\;3)\} \\
+                     &= \{(1), (1\;3\;2), (1\;2\;3)\} \\
+                     &= A. \\ \\
+                  (2\;3)A(2\;3)^{-1} &= (2\;3)A(2\;3) \\
+                     &= \{(2\;3)(1)(2\;3), (2\;3)(1\;2\;3)(2\;3),
+                          (2\;3)(1\;3\;2)(2\;3)\} \\
+                     &= \{(1), (1\;3\;2), (1\;2\;3)\} \\
                      &= A.
                \end{align*}
                
-               This says that (1 2) $\in N_G(A)$ so that $|N_G(A)| \ge 4$. But
-               $|N_G(A)| = 3$ or 6 by Lagrange's Theorem; thus $N_G(A) = G$.
-         \item[(c)]
+               This says that transpositions are also in $N_G(A)$ so that
+               $N_G(A) = G$.
+         \item[(c)] Let $G = D_{10}$.
                The set $A$ is the cyclic subgroup of rotations of $G$, so
-               $|C_G(A)| \ge 5$. Since $r$ does not commute with $s$, it follows
-               that $r \notin C_G(A)$; thus $|C_G(A)| = 5$ by Lagrange's
-               Theorem. Note that $N_G(A) \ge 5$ since $C_G(A) \le N_G(A)$; so
-               since
+               $A \le C_G(A)$ because the powers of an element of a group
+               commute. Since
+               $sr \neq sr^4 = rs$; $(sr)r \neq s = r(sr)$;
+               $(sr^2)r \neq sr = r(sr^2)$; $(sr^3)r \neq sr^2 = r(sr^3)$;
+               $(sr^4)r \neq sr^3 = r(sr^4)$, it follows that $s$, $sr$,
+               $sr^2$, $sr^3$, and $sr^4$ do not commute with $r$, so that
+               $C_G(A) = A$. Now since $C_G(A) \le N_G(A)$, it follows that
+               $r \in N_G(A)$. Now we have that
                \begin{align*}
-                  sA^s{-1} &= sAs \\
+                  sAs^{-1} &= sAs \\
                      &= \{s1s, srs, sr^2s, sr^3s, sr^4s\} \\
                      &= \{s^2, s^2r^{-1}, s^2r^{-2}, s^2r^{-3}, s^2r^{-4}\} \\
                      &= \{1, r^4, r^3, r^2, r^1\} \\
-                     &= A,
+                     &= A.
                \end{align*}
-               it follows that $s \in N_G(A)$, and we have that
-               $|N_G(A)| \ge 6$. Thus $|N_G(A)| = 10$ by Lagrange's Theorem and
-               we can conclude that $N_G(A) = G$.
+               This says that $s \in N_G(A)$. That is, $N_G(A)$ contains the
+               generators of $G$, namely $r$ and $s$. Hence since $N_G(A) \le G$, it
+               follows that $N_G(A) = G$. \qed
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.2.8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.2.8]   Let $G = S_n$, fix an $i \in \{1, 2, \ldots, n\}$ and let
@@ -199,37 +266,41 @@
                   $i$ in $G$). Use group actions to prove that $G_i$ is a
                   subgroup of $G$. Find $|G_i|$.
 
-      \textbf{Proof.} Let $I_n = \{1, 2, \ldots, n\}$. Now consider the map 
-      $f: G \times I_n \rightarrow I_n$, $(g, a) \mapsto g(a)$. We want to first
-      show that $f$ is a group action of $G$ on $I_n$. Let $\sigma_1$,
-      $\sigma_2 \in G$ and $a \in I_n$. So it follows that $f(1, a) = 1(a) = a$
-      and
+      \textbf{Proof.} Let $G = S_n$ and $I_n = \{1, 2, \ldots, n\}$. Now
+      consider the map $f: G \times I_n \rightarrow I_n$ defined by 
+      $(g, a) \mapsto g(a)$. We want to first show that $f$ is a group action of
+      $G$ on $I_n$. Let $\sigma_1$, $\sigma_2 \in G$ and $a \in I_n$. So it
+      follows that $f(1, a) = 1(a) = a$ and
       \begin{align*}
          f(\sigma_1, f(\sigma_2, a)) &= f(\sigma_1, \sigma_2(a)) \\
             &= \sigma_1(\sigma_2(a)) \\
             &= (\sigma_1 \circ \sigma_2)(a) \\
             &= f(\sigma_1 \circ \sigma_2, a),
       \end{align*}
-      so that $f$ is a group action. Now $G_i$ is the stabilizer of $i$ in $G$;
-      thus $|G_i| \le G$ by Exercise 1.7.4(b). By counting we have that
-      $|G_i| = (n - 1)!$ \qed
+      so that $f$ is a group action. Now fix $i \in I_n$ and consider the set
+      $G_i = \{\sigma \in G : \sigma(i) = i\}$. That is, $G_i$ is the stabilizer
+      of $i$ in $G$ under $f$; thus $|G_i| \le G$ by Exercise 1.7.4(b). By
+      counting we have that $|G_i| = (n - 1)!$ \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.3.2]   If $x$ is an element of the finite group $G$ and $|x| = |G|$,
                   prove that $G = \cyc{x}$. Give an explicit example to show 
                   that this result need not be true if $G$ is an infinite group.
                   
       \textbf{Proof.} Let $G$ be a finite group, so that $|G| = n \in \Z^+$.
-      Suppose that there exists $x \in G$ such that $|x| = n$. Clearly
-      $\cyc{x} \subseteq G$. But $|\cyc{x}| = n$ since $|x| = n$; thus
-      $G \subseteq \cyc{x}$ so that $G = \cyc{x}$. Now let $G = \Z$. We have
-      that $|\cyc{2}| = |G|$ but $G \neq \cyc{2}$. \qed
+      Suppose that there exists $x \in G$ such that $|x| = n$. Now
+      $\cyc{x} \subseteq G$ by the closure property of a group. But we showed in
+      class that if $|y| = m \in \Z^+$ for some element $y$ in a group $H$, then the
+      cardinality of the group that $y$ generates is $m$. Thus $|\cyc{x}| = n$
+      since $|x| = n$; Since $G$ is finite and since $|\cyc{x}| = |G| = n$, it
+      follows that $\cyc{x} = G$. If $G$ were an infinite group, say $G = \Z$,
+      then we have that $\cyc{2} \neq \Z$, although $|\Z| = |\cyc{2}|$.      \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.3.4]   Find all generators for $\Z/202\Z$.
    
       \textbf{Solution.} Let $S$ be the set of generators for $\Z/202\Z$. Then
       $|S| = 100$ since
-      $$S = \{\cyc{x} : x \text{ is odd and positive}, x \neq 101, \text{ and }
-        x < 202\}.$$
+      $$S = \{\overline{x} \in \Z/202\Z: x \text{ is odd and positive},
+        x \neq 101, \text{ and } x < 202\}.$$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2.3.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[2.3.6]   In $\Z/48\Z$ write out all elements of $\cyc{\overline{a}}$
                   for every $\overline{a}$. Find all inclusions between
@@ -250,8 +321,10 @@
             27, 30, 33, 36, 39, 42, 45\}$ \\ \hline            
             2, 10, 14, 22, 26, 34, 38, 46 & $\{x : 0 \le x \le 46,
             x \text{ is even}\}$ \\ \hline
-            \text{See Exercise } 2.3.3 & $\Z/48\Z$ \\ \hline
+            \text{See Below } & $\Z/48\Z$ \\ \hline
          \end{tabular}
       $$
+      The generators for $\Z/48\Z$ are: 1, 5, 7, 11, 13, 17, 19, 23, 25, 29, 31,
+      35, 37, 41, 43, and 47.
 \end{enumerate}
 \end{document}
