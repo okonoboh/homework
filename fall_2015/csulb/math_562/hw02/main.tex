@@ -1,0 +1,127 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 562, Fall 2015\\Section 1 (9934)\\
+  HW \#2, DUE: 2015, September 24
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\everymath{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.1.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.1.4.]  Evaluate $\int_\gamma y\;dx$ both directly and using
+                  Green's Theorem, where $\gamma$ is the semicircle in the upper
+                  half-plane from $R$ to $-R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.2.3.]  Suppose that $P$ and $Q$ are smooth functions on the annulus
+                  $\{a < |z| < b\}$ that satisfy
+                  $\partial P/ \partial y =  \partial Q/ \partial x$. Show
+                  directly using Green's theorem that
+                  $\oint_{|z|=r} P\;dx + Q\;dy$ is independent of the radius
+                  $r$, for $a < r < b$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.3.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.3.1.]  For each of the following harmonic functions $u$, find $du$,
+                  find $dv$, and find $v$, the conjugate harmonic function of
+                  $u$.
+                  \begin{enumerate}
+                     \item[(b)] $u(x, y) = x^3 - 3xy^2$.
+                     \item[(d)] $u(x, y) = \frac{y}{x^2+y^2}$.
+                  \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.3.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.3.5.]  The flux of a function $u$ across a curve $\gamma$ is defined
+                  to be
+                  $$\int_\gamma\frac{\partial u}{\partial n} ds =
+                    \int_\gamma\nabla u \cdot \textbf{n}\;ds,$$
+                  where $\textbf{n}$ is the unit normal vector to $\gamma$ and
+                  $ds$ is arc length. Show that if a harmonic function $u$ on a
+                  domain $D$ has a conjugate harmonic function $v$ on $D$, then
+                  the integral giving the flux is independent of path in $D$.
+                  Further, the flux across a path $\gamma$ in $D$ from $A$ to
+                  $B$ is $v(B) - v(A)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.4.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.4.1.]  Let $f(z)$ be a continuous function on a domain $D$. Show that
+                  if $f(z)$ has the mean value property with respect to circles,
+                  as defined above, then $f(z)$ has the mean value property with
+                  respect to disks, that is, if $z_0 \in D$ and $D_0$ is a disk
+                  centered at $z_0$ with area $A$ and contained in $D$, then
+                  $f(z_0) = \frac{1}{A} \iint_{D_0} f(z)\;dx\;dy$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.4.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.4.3.]  A function $f(t)$ on an interval $I = (a, b)$ has the
+                  \textbf{mean value property} if
+                  $$f\left(\frac{s+t}{2}\right) = \frac{f(s) + f(t)}{2},
+                    \quad s, t \in I.$$
+                  Show that any affine function $f(t) = At + B$ has the mean
+                  value property. Show that any continuous function on $I$ with
+                  the mean value property is affine.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.5.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.5.1.]  Let $D$ be a bounded domain, and let $u$ be a real-valued
+                  harmonic function on $D$ that extends continuously to the
+                  boundary $\partial D$. Show that if $a \le u \le b$ on
+                  $\partial D$, then $a \le u \le b$ on $D$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.5.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.5.3.]  Use the maximum principle to prove the fundamental theorem of
+                  algebra, that any polynomial $p(z)$ of degree $n \ge 1$ has a
+                  zero, by applying the maximum principle to $1/p(z)$ on a disk
+                  of large radius.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.5.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.5.4.]  Let $f(z)$ be an analytic function on a domain $D$ that has no
+                  zeros on $D$.
+                  \begin{enumerate}
+                     \item Show that if $|f(z)|$ attains its minimum on $D$,
+                           then $f(z)$ is constant.
+                     \item Show that if $D$ is bounded, and if $f(z)$ extends
+                           continuously to the boundary $\partial D$ of $D$,
+                           then $|f(z)|$ attains its minimum on $\partial D$.
+                  \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.6.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.6.1.]  Consider the fluid flow with constant velocity
+                  $\textbf{V} = (2, 1)$. Find the velocity potential $\phi(z)$,
+                  the stream function $\psi(z)$, and the complex velocity
+                  potential $f(z)$ of the flow. Sketch the streamlines of the
+                  flow. Determine the flux of the flow across the interval
+                  $[0, 1]$ on the real axis and across the interval $[0, i]$ on
+                  the imaginary axis.
+\end{enumerate}
+\end{document} 
