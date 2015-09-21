@@ -39,9 +39,12 @@
    $#2$  
  \end{tabular}\right)}
 
+\newcommand{\li}[3]{\ell\left(\col{#1}{#2}, #3\right)}
+
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
 
+\everymath{\displaystyle}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\I}{\mathbb{I}}
 \newcommand{\F}{\mathbb{F}}
@@ -60,7 +63,7 @@
          For bonus, argue for those that you believe are true while providing a
          counterexample for those that you believe are false. Work either
          column. These all concern the affine plane (see below) built using a
-         field $\F$ with q elements.
+         field $\F$ with $q$ elements.
 
          \begin{enumerate}[label=\protect\circled{\arabic*}]
             \item There are $q^2$ points.
@@ -68,7 +71,30 @@
             \item Every line has $q$ points.
             \item Every point is in $q$ lines.
             \item No two lines contain all points.
-         \end{enumerate}      
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item True. There are $q$ choices for each component of a point, for a
+               total of $q \cdot q = q^2$ choices.
+         \item False. If $\F = \Z_2$, so that $q = 2$, then there are 6, not
+               $2^2 + 1 = 5$, lines. See Exercise 3.4 for the lines.
+         \item True. If $(c \quad d)$ is a point on the line $\li{1}{x}{k}$,
+               where $x, k \in \F$, then it follows that $c + dx = k$, so that
+               $c = k - dx$. There are $q$ choices for $d$, and once $d$ is
+               chosen, the value of $c$ is automatically determined, so that 
+               there are $q$ choices for $(c \quad d)$. Similarly if
+               $(c' \quad d')$ is a point on the line $\li{0}{1}{k'}$,
+               where $k' \in \F$, then it follows that $d' = k'$, so that there
+               are $q$ choices for $(c' \quad d')$ since there are no
+               restrictions on $c'$.
+         \item False. If $\F = \Z_2$, so that $q = 2$, then we see observe from 
+               Exercise 3.4 that the point $(0 \quad 0)$ is on
+               three---not 2---lines.
+         \item False. If $\F = \Z_2$, then the lines $\li{1}{0}{0}$ and
+               $\li{1}{0}{1}$ contain all four points.
+      \end{enumerate}   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item In the last homework you built an extension of the Hamming code using
          columns of size 4 over $\Z_2$. Give the weight enumerator of the code
@@ -112,6 +138,76 @@
                   with 52, likely not more. I could fit 8 around a table if need
                   be.}
          \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item \textbf{Proof.} Let $(a \quad b)$ and $(c \quad d)$ be different 
+               points in $\textbf{P}$. We have the following cases:
+
+               \textbf{Case 1.} $b = d$. That is, $(c \quad d) = (c \quad b)$. 
+               Since we assumed that points $(a \quad b)$ and $(c \quad d)$ are 
+               different and since $b = d$, it must be the case that $a \neq c$. 
+               So suppose that $(a \quad b)$ and $(c \quad b)$ are on a line
+               $\li{0}{1}{k}$, where $k \in \F$. Then it follows that
+               $$(a \quad b)\col{0}{1} = b = k = b = (c \quad b)\col{0}{1},$$
+               so that the points $(a \quad b)$ and $(c \quad b)$ are both on 
+               the line $\li{0}{1}{b}$. Now suppose to the contrary that, for
+               some $x', k' \in \F$, some line $\li{1}{x'}{k'}$ contains
+               $(a \quad b)$ and $(c \quad b)$. It follows by definition that
+               $$(a \quad b)\col{1}{x'} = a + bx' = k' = c + bx' =
+                 (c \quad d)\col{1}{x'},$$
+               so that $a + bx' = c + bx'$, and thus, $a = c$, a contradiction. 
+               Thus, the only line that contains $(a \quad b)$ and
+               $(c \quad b)$ is $\li{0}{1}{b}$.
+
+               \textbf{Case 2.} $b \neq d$. First we make the observation that
+               points $(a \quad b)$ and $(c \quad d)$ cannot lie on a line
+               $\li{0}{1}{k''}$ for some $k'' \in \F$, because that would imply
+               that
+               $$(a \quad b)\col{0}{1} = b = k'' = d = (c \quad d)\col{0}{1},$$
+               a contradiction since $b \neq d$. Now suppose that, for some
+               $x, k \in \F$, some line $\li{1}{x}{k}$ contains points
+               $(a \quad b)$ and $(c \quad d)$. It follows by definition that
+               $$(a \quad b)\col{1}{x} = a + bx = k = c + dx =
+                 (c \quad d)\col{1}{x},$$
+               so that $(b - d)x = c - a$. Now since $b \neq d$, it follows that
+               $b - d \neq 0$, so that $(b-d)^{-1}$ exists. That is,
+               $x = (c - a)(b - d)^{-1}$. Substitute this value of $x$ above to
+               get $k = \frac{bc-ad}{b-d}$. So the only line that contains
+               points $(a \quad b)$ and $(c \quad d)$ is
+               $\li{1}{(c - a)(b - d)^{-1}}{\frac{bc-ad}{b-d}}$. \qed
+         \item \textbf{Proof.} Let us make the following observation:
+               If $\textbf{v}$ is a slope, then for $i, j \in \F$, with
+               $i \neq j$, it follows that $\ell(\textbf{v}, i)$ and
+               $\ell(\textbf{v}, j)$ are disjoint. This is so because if
+               $(i_1 \quad i_2) \in \ell(\textbf{v}, i)$ and
+               $(j_1 \quad j_2) \in \ell(\textbf{v}, j)$, then it follows that
+               $$(i_1 \quad i_2)\textbf{v} = i \neq j =
+                 (j_1 \quad j_2)\textbf{v}.$$
+
+               Now let $(a \quad b)$ be a point in \textbf{P} and $\ell_1$ a
+               line in \textbf{L}. Suppose that $(a \quad b) \notin \ell_1$. 
+               Then we have the following cases:
+
+               \textbf{Case 1.} $\ell_1 = \li{0}{1}{k}$, where $k \in \F$ and
+               $k \neq b$. The point $(a \quad b)$ does not lie on $\ell_1$
+               because $k \neq b$. Let $\ell_2 = \li{0}{1}{b}$ and observe that
+               $(a \quad b) \in \ell_2$. Since $k \neq b$ and since $\ell_1$ and
+               $\ell_2$ have the same slope, it follows that 
+               $\ell_1 \cap \ell_2 = \emptyset$, so that $\ell_1$ and
+               $\ell_2$ are parallel.
+
+               \textbf{Case 2.} $\ell_1 = \li{1}{x}{r}$, where $x, r \in \F$ 
+               such that $a + bx \neq r$. Let $\ell_2 = \li{1}{x}{a+bx}$. The
+               point $(a \quad b)$ does not lie on $\ell_1$ because
+               $a + bx \neq r$, but it lies on $\ell_2$. Since $\ell_1$ and
+               $\ell_2$ have the same slope and since $a + bx \neq r$, it
+               follows that $\ell_1$ and $\ell_2$ are parallel.
+         \item This is trivially true if $|\F| = 2$ since each line will contain
+               exactly two points. So suppose $q = |\F| \ge 3$. The number of 
+               lines is $|S| \cdot |\F| = (q+1)q = q^2 + q$.
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
    \item[\textbf{Bonus.}]  \textbf{The Projective Plane.} Let \textbf{P} be the
                            collection of one dimensional subspaces of $\F^3$
