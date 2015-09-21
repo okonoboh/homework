@@ -207,6 +207,98 @@
          \item This is trivially true if $|\F| = 2$ since each line will contain
                exactly two points. So suppose $q = |\F| \ge 3$. The number of 
                lines is $|S| \cdot |\F| = (q+1)q = q^2 + q$.
+         \item Let $\F = \Z_2$. Then the points are
+               $$(0 \quad 0), (0 \quad 1), (1 \quad 0),
+                 \text{ and } (1 \quad 1),$$
+               the slopes are
+               $$\textbf{u}_1 = \col{1}{0}, \textbf{u}_2 = \col{1}{1},
+                 \text{ and } \textbf{u}_3 = \col{0}{1},$$
+               and the lines are
+               \begin{align*}
+                  \ell(\textbf{u}_1, 0) &= \{(0 \quad 0), (0 \quad 1)\} \\
+                  \ell(\textbf{u}_1, 1) &= \{(1 \quad 0), (1 \quad 1)\} \\
+                  \ell(\textbf{u}_2, 0) &= \{(0 \quad 0), (1 \quad 1)\} \\
+                  \ell(\textbf{u}_2, 1) &= \{(0 \quad 1), (1 \quad 0)\} \\
+                  \ell(\textbf{u}_3, 0) &= \{(0 \quad 0), (1 \quad 0)\} \\
+                  \ell(\textbf{u}_3, 1) &= \{(0 \quad 1), (1 \quad 1)\}.
+               \end{align*}
+         \item[\textbf{Bonus.}] Let $\F = GF(4) = \{0, 1, a, b\}$, where the addition and
+               multiplication operations are defined below:
+               $$
+                  \begin{tabular}{@{}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|
+                     >{$}c<{$}|@{}} \hline
+                     + & 0 & 1 & a & b \\ \hline
+                     0 & 0 & 1 & a & b \\ \hline
+                     1 & 1 & 0 & b & a  \\ \hline
+                     a & a & b & 0 & 1 \\ \hline
+                     b & b & a & 1 & 0 \\ \hline
+                  \end{tabular} \quad
+                  \begin{tabular}{@{}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|>{$}c<{$}|
+                     >{$}c<{$}|@{}} \hline
+                     \cdot & 0 & 1 & a & b \\ \hline
+                     0 & 0 & 0 & 0 & 0 \\ \hline
+                     1 & 0 & 1 & a & b \\ \hline
+                     a & 0 & a & b & 1 \\ \hline
+                     b & 0 & b & 1 & a \\ \hline
+                  \end{tabular}
+               $$
+               Then the points are
+               $$
+               \begin{tabular}{@{}cccc@{}}
+                  $(0\quad 0),$ & $(0\quad 1),$ & $(0\quad a),$&$(0\quad b),$ \\
+                  $(1\quad 0),$ & $(1\quad 1),$ & $(1\quad a),$&$(1\quad b),$ \\
+                  $(a\quad 0),$ & $(a\quad 1),$ & $(a\quad a),$&$(a\quad b),$ \\
+                  $(b\quad 0),$ & $(b\quad 1),$ & $(b\quad a),$&$(b\quad b),$
+               \end{tabular}
+               $$
+               
+               the slopes are
+               $$\textbf{u}_1 = \col{1}{0}, \textbf{u}_2 = \col{1}{1},
+                 \textbf{u}_3 = \col{1}{a}, \textbf{u}_4 = \col{1}{b}
+                 \text{ and } \textbf{u}_5 = \col{0}{1},$$
+               and the lines are
+               \begin{align*}
+                  \ell(\textbf{u}_1, 0) &=
+                     \{(0 \quad 0), (0 \quad 1), (0 \quad a), (0 \quad b)\} \\
+                  \ell(\textbf{u}_1, 1) &=
+                     \{(1 \quad 0), (1 \quad 1), (1 \quad a), (1 \quad b)\} \\
+                  \ell(\textbf{u}_1, a) &=
+                     \{(a \quad 0), (a \quad 1), (a \quad a), (a \quad b)\} \\
+                  \ell(\textbf{u}_1, b) &=
+                     \{(b \quad 0), (b \quad 1), (b \quad a), (b \quad b)\} \\
+                  \ell(\textbf{u}_2, 0) &=
+                     \{(0 \quad 0), (1 \quad 1), (a \quad a), (b \quad b)\} \\
+                  \ell(\textbf{u}_2, 1) &=
+                     \{(0 \quad 1), (1 \quad 0), (a \quad b), (b \quad a)\} \\
+                  \ell(\textbf{u}_2, a) &=
+                     \{(0 \quad a), (1 \quad b), (a \quad 0), (b \quad 1)\} \\
+                  \ell(\textbf{u}_2, b) &=
+                     \{(0 \quad b), (1 \quad a), (a \quad 1), (b \quad 0)\} \\
+                  \ell(\textbf{u}_3, 0) &=
+                     \{(0 \quad 0), (1 \quad b), (a \quad 1), (b \quad a)\} \\
+                  \ell(\textbf{u}_3, 1) &=
+                     \{(0 \quad b), (1 \quad 0), (a \quad a), (b \quad 1)\} \\
+                  \ell(\textbf{u}_3, a) &=
+                     \{(0 \quad 1), (1 \quad a), (a \quad 0), (b \quad b)\} \\
+                  \ell(\textbf{u}_3, b) &=
+                     \{(0 \quad a), (1 \quad 1), (a \quad b), (b \quad 0)\} \\
+                  \ell(\textbf{u}_4, 0) &=
+                     \{(0 \quad 0), (1 \quad a), (a \quad b), (b \quad 1)\} \\
+                  \ell(\textbf{u}_4, 1) &=
+                     \{(0 \quad a), (1 \quad 0), (a \quad 1), (b \quad b)\} \\
+                  \ell(\textbf{u}_4, a) &=
+                     \{(0 \quad b), (1 \quad 1), (a \quad 0), (b \quad a)\} \\
+                  \ell(\textbf{u}_4, b) &=
+                     \{(0 \quad 1), (1 \quad b), (a \quad a), (b \quad 0)\} \\
+                  \ell(\textbf{u}_5, 0) &=
+                     \{(0 \quad 0), (1 \quad 0), (a \quad 0), (b \quad 0)\} \\
+                  \ell(\textbf{u}_5, 1) &=
+                     \{(0 \quad 1), (1 \quad 1), (a \quad 1), (b \quad 1)\} \\
+                  \ell(\textbf{u}_5, a) &=
+                     \{(0 \quad a), (1 \quad a), (a \quad a), (b \quad a)\} \\
+                  \ell(\textbf{u}_5, b) &=
+                     \{(0 \quad b), (1 \quad b), (a \quad b), (b \quad b)\}.
+               \end{align*}
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
    \item[\textbf{Bonus.}]  \textbf{The Projective Plane.} Let \textbf{P} be the
@@ -236,5 +328,101 @@
                               \item Give the lines and points when $\F = \Z_2$.
                               \item Give the lines and points when $\F = GF(4)$.
                            \end{enumerate}
+                           
+      \textbf{Solution.}
+      
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item Let $[p]$ and $[r]$ be different points in \textbf{P} ($p \neq 0$
+               and $r \neq 0$ because $\dim [p] = \dim [r] = 1$). Since $[p]$
+               and $[r]$ are different points, then they must be different one
+               dimensional subspaces of $\F^3$. If $p$ is a multiple of $r$,
+               then $r$ must also be a multiple of $p$, so that
+               $[p] \subseteq [r]$ and $[r] \subseteq [p]$, and thus
+               $[p] = [r]$, contradicting our assumption that these two points
+               are different. Thus $p$ is not a multiple of $r$; that is,
+               $p$ and $r$ are independent, so that $[p, r] \in \textbf{L}$.
+               Since $p = 1 \cdot p + 0 \cdot r$ and
+               $r = 0 \cdot p + 1 \cdot r$, it follows that both $[p]$ and
+               $[r]$ are on the line $[p, r]$. Now suppose that $[p]$ and $[r]$
+               lie on some other line $[x, y]$. Then it follows by closure
+               under addition and scalar multiplication that
+               $[p, r] \le [x, y]$. Note that $\dim [p, r] = \dim [x, y] = 2$.
+               That is, a basis for $[p , r]$ is also a basis for $[x, y]$, so
+               that $[p, r] = [x, y]$; thus, $[p, r]$ is the unique line that
+               contains the points $[p]$ and $[r]$.
+         \item Let $[x, y]$ and $[z, w]$ be two different lines in \textbf{L},
+               and let $W = [x, y] \cap [z, w]$. To show that the lines $[x, y]$ and $[z, w]$ intersect at a
+               unique point, it suffices to show that $\dim W = 1$. Since
+               $W \le [x, y]$, it follows by Exercise 1.3 (Homework 3) that
+               $\dim W \le \dim [x, y] = 2$. Suppose first that $\dim W = 2$.
+               But since $W \le [x, y]$ and $\dim W = \dim [x, y]$, we conclude
+               that $W = [x, y]$. Similarly, $W \le [z, w]$ and
+               $\dim [z, w] = 2$, so that $W = [x, y] = [z, w]$, contradicting
+               our assumption that $[x, y]$ and $[z, w]$ are two different
+               lines. Now suppose that $\dim W = 0$. This says that the only
+               point that the lines $[x, y]$ and $[z, w]$ have in common is
+               $(0, 0, 0)$. Recall that $x$ and $y$ are linearly independent
+               and $z$ and $w$ are linearly independent. Thus $\F^3$ has
+               four different linearly independent vectors, contradicting the
+               fact that it can have at most 3, since $\dim \F^3 = 3$. Hence
+               $\dim W > 0$, so that $\dim W = 1$, as desired. \qed
+         \item TODO
+         \item TODO
+         \item Let $\F = \Z_2$. Then the points are:
+               $$
+               \begin{tabular}{@{}|c|c|@{}} \hline
+                     & \textbf{Points.} \\ \hline
+                  1. & {[(0, 0, 1)]} \\ \hline
+                  2. & {[(0, 1, 1)]} \\ \hline
+                  3. & {[(1, 0, 0)]} \\ \hline
+                  4. & {[(0, 1, 0)]} \\ \hline
+                  5. & {[(1, 0, 1)]} \\ \hline
+                  6. & {[(1, 1, 0)]} \\ \hline
+                  7. & {[(1, 1, 1)]} \\ \hline
+               \end{tabular}
+               $$
+               and the lines are               
+               $$
+               \begin{tabular}{@{}|c|c|@{}} \hline
+                     & \textbf{Lines.} \\ \hline
+                  1. & {[(0, 0, 1), (0, 1, 0)]} \\ \hline
+                  2. & {[(0, 0, 1), (1, 0, 0)]} \\ \hline
+                  3. & {[(0, 0, 1), (1, 1, 0)]} \\ \hline
+                  4. & {[(0, 1, 0), (1, 0, 0)]} \\ \hline
+                  5. & {[(0, 1, 0), (1, 0, 1)]} \\ \hline
+                  6. & {[(0, 1, 1), (1, 0, 0)]} \\ \hline
+                  7. & {[(0, 1, 1), (1, 0, 1)]} \\ \hline
+               \end{tabular}
+               $$
+         \item Let $\F = GF(4) = \{0, 1, a, b\}$ where addition and
+               multiplication are defined as in the Bonus in Exercise 3. Then
+               the points are:
+               $$
+               \begin{tabular}{@{}|c|c|@{}} \hline
+                     & \textbf{Points.} \\ \hline
+                   1. & {[(0, 0, 1)]} \\ \hline
+                   2. & {[(0, 1, 0)]} \\ \hline
+                   3. & {[(0, 1, 1)]} \\ \hline
+                   4. & {[(0, 1, $a$)]} \\ \hline
+                   5. & {[(0, 1, $b$)]} \\ \hline
+                   6. & {[(1, 0, 0)]} \\ \hline
+                   7. & {[(1, 0, 1)]} \\ \hline
+                   8. & {[(1, 0, $a$)]} \\ \hline
+                   9. & {[(1, 0, $b$)]} \\ \hline
+                  10. & {[(1, 1, 0)]} \\ \hline
+                  11. & {[(1, 1, 1)]} \\ \hline
+                  12. & {[(1, 1, $a$)]} \\ \hline
+                  13. & {[(1, 1, $b$)]} \\ \hline
+                  14. & {[(1, $a$, 0)]} \\ \hline
+                  15. & {[(1, $a$, 1)]} \\ \hline
+                  16. & {[(1, $a$, $a$)]} \\ \hline
+                  17. & {[(1, $a$, $b$)]} \\ \hline
+                  18. & {[(1, $b$, 0)]} \\ \hline
+                  19. & {[(1, $b$, 1)]} \\ \hline
+                  20. & {[(1, $b$, $a$)]} \\ \hline
+                  21. & {[(1, $b$, $b$)]} \\ \hline
+               \end{tabular}
+               $$
+      \end{enumerate}
 \end{enumerate}
 \end{document}
