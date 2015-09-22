@@ -4,17 +4,33 @@ import java.util.Arrays;
 
 public class Search {
    public static Random random = new Random();
-   
-   public static int getArraySize() {
-      Scanner sc = new Scanner(System.in);
-      int n = 0;
-      
-      do {
-         System.out.print("Please enter a positive integer: ");
-         n = sc.nextInt();
-      } while(n <= 0);
-      
-      return n;
+
+   public static long averageBinarySearchRunTime(int[] a, int repetition) {  
+      long startTime = System.nanoTime();
+
+      int key;
+      for(int i = 0; i < repetition; ++i) {
+         key = randomKey(a);
+         binarySearch(a, key);
+      }
+
+      long end_time = System.nanoTime();
+
+      return (end_time - startTime) / repetition;
+   }
+
+   public static long averageLinearSearchRunTime(int[] a, int repetition) {  
+      long startTime = System.nanoTime();
+
+      int key;
+      for(int i = 0; i < repetition; ++i) {
+         key = randomKey(a);
+         linearSearch(a, key);
+      }
+
+      long end_time = System.nanoTime();
+
+      return (end_time - startTime) / repetition;
    }
    
    public static int binarySearch(int[] a, int key) {
@@ -38,6 +54,18 @@ public class Search {
       }
       
       return -1;
+   }
+   
+   public static int getArraySize() {
+      Scanner sc = new Scanner(System.in);
+      int n = 0;
+      
+      do {
+         System.out.print("Please enter a positive integer: ");
+         n = sc.nextInt();
+      } while(n <= 0);
+      
+      return n;
    }
    
    public static int linearSearch(int[] a, int key) {
@@ -64,20 +92,21 @@ public class Search {
    
    public static void main(String[] args) {
       int n = getArraySize();
+      int repetition = 30;
       
       int[] a = new int[n];
       populateArray(a, -100, 100);
+
+      long linearTime = averageLinearSearchRunTime(a, repetition);
+      long binaryTime = averageBinarySearchRunTime(a, repetition);
       
-      System.out.println("");
       
-      int key = randomKey(a);
-      
-      System.out.format("Using Linear Search, %d was found at index: %d.\n",
-         key, linearSearch(a, key));
+      System.out.format("Using Linear Search, the average time for %d " +
+         "elements with %d repetitions is %d nanoseconds.\n",
+         n, repetition, linearTime);
          
-      Arrays.sort(a);
-         
-      System.out.format("Using Binary Search, %d was found at index: %d.\n",
-         key, binarySearch(a, key));
+      System.out.format("Using Binary Search, the average time for %d " +
+         "elements with %d repetitions is %d nanoseconds.\n",
+         n, repetition, binaryTime);
    }
 }
