@@ -103,6 +103,52 @@
 
          \textbf{Bonus.} Find the weight enumerator of the Hamming code that is
          the null space of the matrix.
+         
+      \textbf{Solution.} Recall that the matrix is given by
+      $$A = \left(
+           \begin{tabular}{@{}ccccccccccccccc@{}}
+              0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+              0 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+              0 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 \\
+              1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & 1 \\
+            \end{tabular}\right).
+      $$
+      The rank of $A$ is 4, so its rows are linearly independent. Thus there are
+      16 codes in the rowspace of $A$ and they are
+      $$
+         \begin{tabular}{@{}|c|c|c|@{}} \hline
+            & \textbf{Code} & \textbf{Weight} \\ \hline
+          1. & \textbf{000000000000000} & 0 \\ \hline
+          2. & \textbf{101010101010101} & 8 \\ \hline
+          3. & \textbf{011001100110011} & 8 \\ \hline
+          4. & \textbf{110011001100110} & 8 \\ \hline
+          5. & \textbf{000111100001111} & 8 \\ \hline         
+          6. & \textbf{101101001011010} & 8 \\ \hline
+          7. & \textbf{011110000111100} & 8 \\ \hline
+          8. & \textbf{110100101101001} & 8 \\ \hline
+          9. & \textbf{000000011111111} & 8 \\ \hline
+         10. & \textbf{101010110101010} & 8 \\ \hline
+         11. & \textbf{011001111001100} & 8 \\ \hline
+         12. & \textbf{110011010011001} & 8 \\ \hline
+         13. & \textbf{000111111110000} & 8 \\ \hline
+         14. & \textbf{101101010100101} & 8 \\ \hline
+         15. & \textbf{011110011000011} & 8 \\ \hline
+         16. & \textbf{110100110010110} & 8 \\ \hline
+         \end{tabular}
+      $$
+      Let $V$ be the codes of the row space of $A$; it follows from the table
+      above that
+      $$w_V(x) = 1 + 15x^8.$$
+      
+      \textbf{Bonus.} By the MacWilliams' Identity, it follows that the weight
+      enumerator of the Hamming Code of the null space of $A$ is
+      \begin{align*}
+         w_{V^\perp}(x) &= \frac{1}{2^4}(1+x)^{15}
+            w_V\left(\frac{1-x}{1+x}\right) \\
+            &= \frac{1}{16}(1+x)^{15}
+               \left(1 + 15\frac{(1-x)^8}{(1+x)^8}\right) \\
+            &= \frac{1}{16}((1+x)^{15} + 15(1-x^2)^7(1-x))
+      \end{align*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item \textbf{The Affine Plane.} Let $\textbf{P} = \F^2 =
          \{(a \quad b) : a, b \in \F\}$ be the points in a geometry, where $\F$
@@ -176,7 +222,9 @@
                $x = (c - a)(b - d)^{-1}$. Substitute this value of $x$ above to
                get $k = \frac{bc-ad}{b-d}$. So the only line that contains
                points $(a \quad b)$ and $(c \quad d)$ is
-               $\li{1}{(c - a)(b - d)^{-1}}{\frac{bc-ad}{b-d}}$. \qed
+               $\li{1}{(c - a)(b - d)^{-1}}{\frac{bc-ad}{b-d}}$. Note that the
+               uniqueness of the line followed from the uniqueness of $x$,
+               which, in turn, followed from the uniqueness of inverses. \qed
          \item \textbf{Proof.} Let us make the following observation:
                If $\textbf{v}$ is a slope, then for $i, j \in \F$, with
                $i \neq j$, it follows that $\ell(\textbf{v}, i)$ and
@@ -204,9 +252,18 @@
                $a + bx \neq r$, but it lies on $\ell_2$. Since $\ell_1$ and
                $\ell_2$ have the same slope and since $a + bx \neq r$, it
                follows that $\ell_1$ and $\ell_2$ are parallel.
-         \item This is trivially true if $|\F| = 2$ since each line will contain
-               exactly two points. So suppose $q = |\F| \ge 3$. The number of 
-               lines is $|S| \cdot |\F| = (q+1)q = q^2 + q$.
+         \item Consider the points $p_1 = (0 \quad 0)$, $p_2 = (0 \quad 1)$
+               and $p_3 = (1 \quad 0)$, and $p_4 = (1 \quad 1)$.
+               These points exist in \textbf{P} for every $\F$. Points
+               $p_1$, $p_2$, $p_3$ are not collinear because they can never lie
+               on a line $\li{1}{x}{k}$ because that will imply that
+               $$0 = x = 1 = k,$$
+               a contradiction, and, they can never lie on a line
+               $\li{0}{1}{k'}$ because that would imply that
+               $$0 = 1 = 0 = k',$$
+               another contradiction. Argue similarly to conclude that
+               any three points from $p_1$, $p_2$, $p_3$, and $p_4$ cannot be
+               collinear.
          \item Let $\F = \Z_2$. Then the points are
                $$(0 \quad 0), (0 \quad 1), (1 \quad 0),
                  \text{ and } (1 \quad 1),$$
@@ -299,6 +356,23 @@
                   \ell(\textbf{u}_5, b) &=
                      \{(0 \quad b), (1 \quad b), (a \quad b), (b \quad b)\}.
                \end{align*}
+         \item We shall be working in the affine plane $\Z_7$, and we shall
+               view every student as a point in the plane. Let $u_1$, $u_2$,
+               $\ldots$, $u_8$ be the slopes in the plane. For each slope and
+               each $x \in \Z_7$, there are seven points. Also recall
+               $\ell(u_i, k_1) \neq \ell(u_i, k_2)$ if $k_1 \neq k_2$. So
+               different lines with the same slopes partition the points.
+               Since there are 8 slopes, all the
+               students can meet one another if we divide them into groups of
+               7, for 8 consecutive days, wherein each group corresponds to a
+               line. For day $j$, the groups will consist of the following
+               lines:
+               $$\ell(u_j, 0), \ell(u_j, 1), \ell(u_j, 2), \ldots,
+                 \ell(u_j, 6),$$
+               where $1 \le j \le 8$.
+               Note that since we have more points than students, there are
+               days wherein each student will meet 4 or 5 (instead of 6) people
+               in a group. Empty chairs may serve as the extraneous two points.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Bonus%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
    \item[\textbf{Bonus.}]  \textbf{The Projective Plane.} Let \textbf{P} be the
@@ -359,15 +433,49 @@
                that $W = [x, y]$. Similarly, $W \le [z, w]$ and
                $\dim [z, w] = 2$, so that $W = [x, y] = [z, w]$, contradicting
                our assumption that $[x, y]$ and $[z, w]$ are two different
-               lines. Now suppose that $\dim W = 0$. This says that the only
-               point that the lines $[x, y]$ and $[z, w]$ have in common is
-               $(0, 0, 0)$. Recall that $x$ and $y$ are linearly independent
-               and $z$ and $w$ are linearly independent. Thus $\F^3$ has
-               four different linearly independent vectors, contradicting the
-               fact that it can have at most 3, since $\dim \F^3 = 3$. Hence
+               lines. Now suppose that $\dim W = 0$. This implies that the lines
+               $[x, y]$ and $[z, w]$ do not intersect. Recall that $x$ and $y$
+               are linearly independent and $z$ and $w$ are linearly
+               independent. Since $[x, y]$ and $[z, w]$ do not intersect, it
+               follows that $\F^3$ has four different linearly independent
+               vectors, namely $x$, $y$, $z$, and $w$, contradicting the fact
+               that it can have at most 3, since $\dim \F^3 = 3$. Hence
                $\dim W > 0$, so that $\dim W = 1$, as desired. \qed
-         \item TODO
-         \item TODO
+         \item Consider the points
+               $$p_1 = [(0, 0, 1)], p_2 = [(0, 1, 1)], p_3 = [(1, 0, 0)],
+                 \text{ and } [(1, 1, 0)].$$
+               We shall be using the fact that two points are on a unique line
+               and we shall also be referencing the lines in part \circled{5}.
+               Points $p_1$ and $p_2$ are on Line 1 while $p_2$ and $p_3$ are
+               on Line 6, so that $p_1$, $p_2$, and $p_3$ are not collinear.
+               Points $p_2$ and $p_4$ are on Line 7, so that $p_1$, $p_2$, and
+               $p_4$ are not collinear. Points $p_1$ and $p_3$ are on Line 2,
+               while $p_3$ and $p_4$ are on Line 4, so that $p_1$, $p_3$, and
+               $p_4$ are not collinear. Finally, points $p_2$, $p_3$, and $p_4$
+               are not collinear because $p_2$ and $p_3$ are on Line 6 while
+               $p_3$ and $p_4$ are on Line 4. Thus, no three points amongst
+               $p_1$, $p_2$, $p_3$, and $p_4$ are collinear.
+         \item Consider Line 1, Line 2, Line 4, and Line 7 from \circled{5}. Now
+               if three lines, say $\ell_1$, $\ell_2$, and $\ell_3$, intersect
+               at a point, then since two lines intersect at a unique point, it
+               must be the case that $\ell_1 \cap \ell_2 = \ell_2 \cap \ell_3$.
+               Now
+               $$\text{Line 1 } \cap \text{ Line 2 } = [(0, 0, 1)] \neq
+                 [(1, 0, 0)] = \text{Line 2 } \cap \text{ Line 4},$$
+               so that Lines 1, 2, and 4 do not intersect at a point. Also since               
+               $$\text{Line 1 } \cap \text{ Line 2 } = [(0, 0, 1)] \neq
+                 [(1, 0, 1)] = \text{Line 2 } \cap \text{ Line 7},$$
+               it follows that Lines 1, 2, and 7 do not intersect at a point.
+               Similarly       
+               $$\text{Line 1 } \cap \text{ Line 4 } = [(0, 1, 0)] \neq
+                 [(1, 1, 0)] = \text{Line 4 } \cap \text{ Line 7},$$
+               so that Lines 1, 4, and 7 do not intersect at a point. Finally we
+               have that     
+               $$\text{Line 2 } \cap \text{ Line 4 } = [(1, 0, 0)] \neq
+                 [(1, 1, 0)] = \text{Line 4 } \cap \text{ Line 7},$$
+               so that Lines 2, 4, and 7 do not intersect at a point. Thus we
+               have shown that no three lines from Lines 1, 2, 4, and 7
+               intersect at a point.
          \item Let $\F = \Z_2$. Then the points are:
                $$
                \begin{tabular}{@{}|c|c|@{}} \hline
@@ -381,7 +489,7 @@
                   7. & {[(1, 1, 1)]} \\ \hline
                \end{tabular}
                $$
-               and the lines are               
+               and the lines are            
                $$
                \begin{tabular}{@{}|c|c|@{}} \hline
                      & \textbf{Lines.} \\ \hline
@@ -421,6 +529,33 @@
                   19. & {[(1, $b$, 1)]} \\ \hline
                   20. & {[(1, $b$, $a$)]} \\ \hline
                   21. & {[(1, $b$, $b$)]} \\ \hline
+               \end{tabular}
+               $$
+               and the lines are           
+               $$
+               \begin{tabular}{@{}|c|c|@{}} \hline
+                     & \textbf{Lines.} \\ \hline
+                   1. & {[(1, 0, 0), (0, 1, 0)]} \\ \hline
+                   2. & {[(1, 0, 0), (0, 0, 1)]} \\ \hline
+                   3. & {[(1, 0, 0), (0, 1, 1)]} \\ \hline
+                   4. & {[(0, $a$, 1), (1, 0, 0)]} \\ \hline
+                   5. & {[(1, 0, 0), (0, $b$, 1)]} \\ \hline
+                   6. & {[(0, 1, 0), (0, 0, 1)]} \\ \hline
+                   7. & {[(0, 1, 0), (1, 0, 1)]} \\ \hline
+                   8. & {[(0, 1, 0), ($a$, 0, 1)]} \\ \hline
+                   9. & {[(0, 1, 0), ($b$, 0, 1)]} \\ \hline
+                  10. & {[(1, 1, 0), (0, 0, 1)]} \\ \hline
+                  11. & {[(1, 1, 0), (1, 0, 1)]} \\ \hline
+                  12. & {[(1, 1, 0), ($a$, 0, 1)]} \\ \hline
+                  13. & {[(1, 1, 0), ($b$, 0, 1)]} \\ \hline
+                  14. & {[($a$, 1, 0), (0, 0, 1)]} \\ \hline
+                  15. & {[($b$, 1, 0), (1, 0, 1)]} \\ \hline
+                  16. & {[($a$, 1, 0), ($a$, 0, 1)]} \\ \hline
+                  17. & {[($a$, 1, 0), ($b$, 0, 1)]} \\ \hline
+                  18. & {[($b$, 1, 0), (0, 0, 1)]} \\ \hline
+                  19. & {[($a$, 1, 0), (1, 0, 1)]} \\ \hline
+                  20. & {[($b$, 1, 0), ($a$, 0, 1)]} \\ \hline
+                  21. & {[($b$, 1, 0), ($b$, 0, 1)]} \\ \hline
                \end{tabular}
                $$
       \end{enumerate}
