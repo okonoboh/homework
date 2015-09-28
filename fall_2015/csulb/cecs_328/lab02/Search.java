@@ -1,5 +1,5 @@
 // Joseph Okonoboh
-// Lab 01
+// Lab 02
 // CECS 328, Fall 2015
 
 import java.util.Random;
@@ -9,32 +9,24 @@ import java.util.Arrays;
 public class Search {
    public static Random random = new Random();
 
-   public static long averageBinarySearchRunTime(int[] a, int repetition) {  
+   public static long averageBinarySearchRunTime(int[] a) {  
       long startTime = System.nanoTime();
 
-      int key;
-      for(int i = 0; i < repetition; ++i) {
-         key = randomKey(a);
-         binarySearch(a, key);
-      }
+      int key = randomKey(a);
+      binarySearch(a, key);
 
-      long end_time = System.nanoTime();
-
-      return (end_time - startTime) / repetition;
+      return System.nanoTime() - startTime;
    }
 
-   public static long averageLinearSearchRunTime(int[] a, int repetition) {  
+   public static long averageLinearSearchRunTime(int[] a) {  
       long startTime = System.nanoTime();
 
-      int key;
-      for(int i = 0; i < repetition; ++i) {
-         key = randomKey(a);
-         linearSearch(a, key);
-      }
+      int key = randomKey(a);
+      linearSearch(a, key);
 
-      long end_time = System.nanoTime();
+      long end_time = ;
 
-      return (end_time - startTime) / repetition;
+      return System.nanoTime() - startTime;
    }
    
    public static int binarySearch(int[] a, int key) {
@@ -96,29 +88,38 @@ public class Search {
    
    public static void main(String[] args) {
       int n = getArraySize();
-      int repetition = 30;
       
       int[] a = new int[n];
-      populateArray(a, -100, 100);
+      populateArray(a, -5000, 5000);
+      
+      a[n-1] = 7000;
 
-      long linearTime = averageLinearSearchRunTime(a, repetition);
-      long binaryTime = averageBinarySearchRunTime(a, repetition);
+      long linearTime = averageLinearSearchRunTime(a);
+      
+      Arrays.sort(a);
+      long binaryTime = averageBinarySearchRunTime(a);
       
       
-      System.out.format("Using Linear Search, the average time for %d " +
-         "elements with %d repetitions is %d nanoseconds.\n",
-         n, repetition, linearTime);
+      System.out.format("Using Linear Search, the worst case time for %d " +
+         "elements is %d nanoseconds.\n", n, linearTime);
          
-      System.out.format("Using Binary Search, the average time for %d " +
-         "elements with %d repetitions is %d nanoseconds.\n",
-         n, repetition, binaryTime);
+      System.out.format("Using Binary Search, the worst case time for %d " +
+         "elements is %d nanoseconds.\n", n, binaryTime);
+      
+      
+      System.out.format("Using Linear Search, the time for 1 step is %d " +
+         "elements is %d nanoseconds.\n", n, linearTime / 100000);
+         
+      System.out.format("Using Binary Search, the worst case time for %d " +
+         "elements is %d nanoseconds.\n", n, binaryTime / 100000);
+         
+      
    }
 }
 
 // Output
-//    Using Linear Search, the average time for 1000 elements with 30
-//    repetitions is 8263 nanoseconds
+//    Using Linear Search, the worst case time for 100000 elements is
+//    471736 nanoseconds
 //
-//    Using Binary Search, the average time for 1000 elements with 30
-//    repetitions is 2644 nanoseconds
-//
+//    Using Binary Search, the worst case time for 100000 elements is
+//    12 nanoseconds

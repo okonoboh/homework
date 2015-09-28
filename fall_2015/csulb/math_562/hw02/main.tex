@@ -7,6 +7,7 @@
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
 \usepackage{enumitem}
+\usepackage{graphicx}
 %\usepackage[retainorgcmds]{IEEEtrantools}
 
 
@@ -54,6 +55,35 @@
    \item[3.1.4.]  Evaluate $\int_\gamma y\;dx$ both directly and using
                   Green's Theorem, where $\gamma$ is the semicircle in the upper
                   half-plane from $R$ to $-R$.
+                  
+      \textbf{Solution.} Using the following parametrization
+      $$x = R \cos(t), y = R \sin(t) \quad 0 \le t \le \pi$$
+      for $\gamma$, it follows that
+      \begin{align*}
+         \int_\gamma y\;dx &= \int_0^\pi R \sin(t) (-R \sin(t))\;dt \\
+            &= -R^2 \int_0^\pi \sin^2(t)\; \\
+            &= -R^2 \int_0^\pi \frac{1}{2} - \frac{1}{2}\cos(2\theta)\;dt\\
+            &= -R^2 \left(\frac{1}{2}\theta -
+                  \frac{1}{4}\sin(2\theta)\right)\bigg|_0^\pi \\
+            &= -\frac{1}{2}\pi R^2.
+      \end{align*}
+      
+      Let $P(x, y) = y$, $Q(x, y) = 0$, $D$ the region bounded by $\gamma$ and
+      the $x$-axis, and $C = \{(x, 0) : -R \le x \le R\}$. Observe that
+      $\int_C y\;dx = 0$, so that
+      $$\int_{\partial D} P\;dx + Q\;dy = \int_{\gamma} y\;dx + \int_C y\;dx =
+      \int_{\gamma} y\;dx.$$
+      According to Green's Theorem, it follows that
+      \begin{align*}
+         \int_{\gamma} y\;dx = \int_{\partial D} P\;dx + Q\;dy &= \iint_D
+            \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial P}{\partial y}\right)\;dx\;dy \\
+            &= -\int_{-R}^R\int_0^{\sqrt{R^2 - x^2}} dy\;dx \\
+            &= -\int_0^\pi\int_0^R r\;dr\;d\theta \\
+            &= -\int_0^\pi\frac{1}{2}R^2\;d\theta \\
+            &= -\frac{1}{2}\pi R^2,
+      \end{align*}
+      confirming our previous result.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.3.]  Suppose that $P$ and $Q$ are smooth functions on the annulus
                   $\{a < |z| < b\}$ that satisfy
@@ -61,6 +91,41 @@
                   directly using Green's theorem that
                   $\oint_{|z|=r} P\;dx + Q\;dy$ is independent of the radius
                   $r$, for $a < r < b$.
+                  
+      \textbf{Solution.} Suppose that $P$ and $Q$ are smooth functions on the
+      annulus $\{a < |z| < b\}$ that satisfy
+      $\partial P/ \partial y =  \partial Q/ \partial x$. Consider a real number
+      $r \in (a, b)$. Let $D_x$ be region bounded by the circle of radius $x$
+      centered at the origin. Observe that $D_r = D_a \cup \{a < |z| < r\}$ and
+      $D_a \cap \{a < |z| < r\} = \emptyset$. Since
+      $\partial P/ \partial y =  \partial Q/ \partial x$ on the annulus
+      $\{a < |z| < b\}$ and since $a < r < b$, it must be the case that
+      $\partial P/ \partial y =  \partial Q/ \partial x$ on the annulus
+      $\{a < |z| < r\}$. It follows by Green's Theorem that
+      \begin{align*}
+         \oint_{|z|=r} P\;dx + Q\;dy &= \iint_{D_r}
+            \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial P}{\partial y}\right)\;dx\;dy \\
+            &= \iint_{D_a \cup \{a < |z| < r\}}
+            \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial P}{\partial y}\right)\;dx\;dy \\
+            &= \iint_{D_a} \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial P}{\partial y}\right)\;dx\;dy +
+            \iint_{\{a < |z| < r\}} \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial P}{\partial y}\right)\;dx\;dy \\
+            &= \iint_{D_a} \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial P}{\partial y}\right)\;dx\;dy +
+            \iint_{\{a < |z| < r\}} \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial Q}{\partial x}\right)\;dx\;dy \\
+            &= \iint_{D_a} \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial P}{\partial y}\right)\;dx\;dy +
+            \iint_{\{a < |z| < r\}} 0 \;dx\;dy  \\
+            &= \iint_{D_a} \left(\frac{\partial Q}{\partial x} -
+            \frac{\partial P}{\partial y}\right)\;dx\;dy.
+      \end{align*}
+     Since the double integral $\iint_{D_a} \left(\frac{\partial Q}{\partial x}
+     - \frac{\partial P}{\partial y}\right)\;dx\;dy$ does not depend on the $r$,
+     it follows that $\oint_{|z|=r} P\;dx + Q\;dy$ also does not depend on $r$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.3.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.3.1.]  For each of the following harmonic functions $u$, find $du$,
                   find $dv$, and find $v$, the conjugate harmonic function of
@@ -69,6 +134,46 @@
                      \item[(b)] $u(x, y) = x^3 - 3xy^2$.
                      \item[(d)] $u(x, y) = \frac{y}{x^2+y^2}$.
                   \end{enumerate}
+      
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item[(b)] Given $u(x, y) = x^3 - 3xy^2$. We know that
+                    $$du = \frac{\partial u}{\partial x} dx +
+                      \frac{\partial u}{\partial y} dy.$$
+                    Thus
+                    $$du = (3x^2 - 3y^2)\;dx - 6xy\;dy.$$
+                    Using the Cauchy-Riemann equations:
+                    $$\frac{\partial u}{\partial x} = 
+                      \frac{\partial v}{\partial y} \text{ and }
+                      \frac{\partial u}{\partial y} = 
+                      -\frac{\partial v}{\partial x}$$
+                    it follows that
+                    so that $3x^2 - 3y^2 = \frac{\partial v}{\partial y}$, and
+                    thus, $v(x, y) = 3x^2y - y^3 + f(x)$. Thus
+                    $$6xy + f'(x) = \frac{\partial v}{\partial x} =
+                     -\frac{\partial u}{\partial y} = 6xy,$$ so that
+                     $f$ is constant. Thus $v(x, y) = 3x^2y - y^3$, so
+                     that
+                     $$dv = 6xy\;dx + (3x^2 - 3y^2)\;dy.$$
+         \item[(d)] Given $u(x, y) = \frac{y}{x^2+y^2}$, it follows that
+                    $$\frac{\partial u}{\partial x} = -\frac{2xy}{(x^2+y^2)^2}
+                      \text{ and }
+                      \frac{\partial u}{\partial y} = \frac{x^2-y^2}{(x^2+y^2)^2},$$
+                     so that
+                    $$du = -\frac{2xy}{(x^2+y^2)^2}\;dx +  \frac{x^2-y^2}{(x^2+y^2)^2}\;dy.$$
+                    Using the Cauchy-Riemann equations, we must have that
+                    $$\frac{\partial u}{\partial x} = -\frac{2xy}{(x^2+y^2)^2} = 
+                      \frac{\partial v}{\partial y},$$
+                    so that
+                    $$v(x, y) = \frac{x}{x^2+y^2} + f(x).$$
+                    Moreover,
+                    $$\frac{\partial u}{\partial y} = \frac{x^2-y^2}{(x^2+y^2)^2} =
+                      -\frac{\partial v}{\partial x} = \frac{x^2-y^2}{(x^2+y^2)^2} + f'(x),$$
+                   so that $f$ is constant, and we choose $v(x, y) =  \frac{x}{x^2+y^2}$.
+                   Thus
+                   $$dv = \frac{y^2-x^2}{(x^2+y^2)^2}\;dx -\frac{2xy}{(x^2+y^2)^2}\;dy$$
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.3.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.3.5.]  The flux of a function $u$ across a curve $\gamma$ is defined
                   to be
@@ -80,6 +185,39 @@
                   the integral giving the flux is independent of path in $D$.
                   Further, the flux across a path $\gamma$ in $D$ from $A$ to
                   $B$ is $v(B) - v(A)$.
+                  
+      \textbf{Proof.} Suppose that $u$ is a harmonic function on a domain $D$
+      and that $u$ has a conjugate harmonic function $v$ on $D$. Let $\gamma$ be
+      a path in $D$, Let us parametrize $\gamma$ by its arclength; that is,
+      $$\gamma(s) = (x(s), y(s)),$$
+      so that the unit tangent vector is
+      $$\gamma'(s) = \left(\frac{dx}{ds}, \frac{dy}{ds}\right).$$
+      It follows that the unit normal vector is given by
+      $$n(s) = \left(\frac{dy}{ds}, -\frac{dx}{ds}\right).$$
+      Note that since $v$ is the harmonic conjugate of $u$ on $D$, we have that
+      $u_x = v_y$ and $u_y = -v_x$, so that
+      \begin{align*}
+         \int_\gamma\frac{\partial u}{\partial n} ds &=
+                    \int_\gamma\nabla u \cdot \textbf{n}\;ds \\
+            &= \int_\gamma\left(\frac{\partial u}{\partial x},
+               \frac{\partial u}{\partial y}\right) \cdot
+               \left(\frac{dy}{ds}, -\frac{dx}{ds}\right) ds \\
+            &= \int_\gamma\left(\frac{\partial u}{\partial x}\frac{dy}{ds}
+               -\frac{\partial u}{\partial y}\frac{dx}{ds}\right) ds \\
+            &= \int_\gamma\frac{\partial u}{\partial x}dy
+               -\frac{\partial u}{\partial y}dx \\
+            &= \int_\gamma\frac{\partial v}{\partial y}dy
+               +\frac{\partial v}{\partial x}dx \\
+            &= \int_\gamma dv.
+      \end{align*}
+      Now let $P = v_x$ and $Q = v_y$. We just showed that
+      $$\int_\gamma P\;dx + Q\;dy = \int_\gamma dv.$$
+      That is, $\int P\;dx + Q\;dy$ is exact, so it follows by Lemma on
+      Page 77 that $\int P\;dx + Q\;dy$ is independent of path. Indeed, if
+      $\gamma'$ is any path in $D$, from point $A$ to $B$, then we have
+      that
+      $$\int_{\gamma'}\frac{\partial u}{\partial n} ds=\int_A^B dv = v(B) - v(A).$$
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.4.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.4.1.]  Let $f(z)$ be a continuous function on a domain $D$. Show that
                   if $f(z)$ has the mean value property with respect to circles,
@@ -87,6 +225,25 @@
                   respect to disks, that is, if $z_0 \in D$ and $D_0$ is a disk
                   centered at $z_0$ with area $A$ and contained in $D$, then
                   $f(z_0) = \frac{1}{A} \iint_{D_0} f(z)\;dx\;dy$.
+                  
+      \textbf{Proof.} Suppose that $f$ is a continuous function on a domain $D$
+      that has the mean value property with respect to circles. Let $z_0 \in D$
+      and let $D_0$ be a disk with radius $R$ centered at $z_0$ and contained in
+      $D$. It follows that
+      \begin{align*}
+         \frac{1}{A} \iint_{D_0} f(z)\;dx\;dy &= 
+         \frac{1}{A} \int_0^{2\pi}\int_0^R f(z_0 +
+            re^{i\theta})\;r\;dr\;d\theta \\ 
+         &= \frac{1}{A} \int_0^Rr\;dr\int_0^{2\pi} f(z_0 +
+            re^{i\theta})\;d\theta \\ 
+         &= \frac{2\pi}{A} \int_0^Rr\;dr\int_0^{2\pi} f(z_0 +
+            re^{i\theta})\;\frac{d\theta}{2\pi}\\ 
+         &= \frac{2\pi}{A} \int_0^Rr\;dr f(z_0) &[f \text{ has the MVP wrt circles}]\\ 
+         &= f(z_0)\frac{2\pi}{\pi R^2} \int_0^Rr\;dr\\ 
+         &= f(z_0)\frac{2}{R^2} \int_0^Rr\;dr\\ 
+         &= f(z_0)\frac{2}{R^2} \frac{R^2}{2} = f(z_0),
+      \end{align*}
+      so that $f$ has the mean value property with respect to disks. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.4.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.4.3.]  A function $f(t)$ on an interval $I = (a, b)$ has the
                   \textbf{mean value property} if
@@ -95,16 +252,47 @@
                   Show that any affine function $f(t) = At + B$ has the mean
                   value property. Show that any continuous function on $I$ with
                   the mean value property is affine.
+                  
+      \textbf{Note.} I spent more time on this problem that on any other, but
+      I still could not figure it out. I have found a solution to it, but I have
+      decided not to write it down because I did not come up with it.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.5.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.5.1.]  Let $D$ be a bounded domain, and let $u$ be a real-valued
                   harmonic function on $D$ that extends continuously to the
                   boundary $\partial D$. Show that if $a \le u \le b$ on
                   $\partial D$, then $a \le u \le b$ on $D$.
+                  
+      \textbf{Proof.} Suppose that 
+      \begin{equation} \label{1_1}
+         a \le u \le b \text{ on  } \partial D.
+      \end{equation}
+      By subtracting $a$ from the inequalities in \eqref{1_1}, we get
+      $0 \le u - a \le b - a$ on $\partial D$, so that $|u - a| \le b - a$ on
+      $\partial D$. By the Maximum Principle, it follows that
+      $|u - a| \le b - a$ on $D$, so that $2a - b \le u \le b$ on $D$.
+      Particularly, we have $u \le b$ on $D$. Similarly, if we subtract $b$
+      from \eqref{1_1}, we will get $|b - u| \le b -a$ on $\partial D$, and
+      thus $|b - u| \le b - a$ on $D$ by the Maximum Principle. Hence
+      $a \le u \le 2b - a$ on $D$. Particularly $a \le u$ on $D$. So we conclude
+      that $a \le u \le b$ on $D$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.5.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.5.3.]  Use the maximum principle to prove the fundamental theorem of
                   algebra, that any polynomial $p(z)$ of degree $n \ge 1$ has a
                   zero, by applying the maximum principle to $1/p(z)$ on a disk
                   of large radius.
+                  
+      \textbf{Proof.} Let $p(z)$ be a polynomial of degree $n \ge 1$. Let $C(R)$
+      be the circle of radius $R$ centered at the origin and let $D_R$
+      be the disk on radius $R$ centered at the origin. Note that as $|z| \rightarrow \infty$, then
+      $|p(z)| \rightarrow \infty$. Assume to the contrary that $p$ has no
+      zeroes. Then it follows that $|1/p(z)| \rightarrow 0$ as
+      $|z| \rightarrow \infty$. That is, if $\varepsilon > 0$, we can
+      select some large enough radius $R_\varepsilon$ so that
+      $$|1/p(z)| < \varepsilon \text{ for } z \text{ on } C(R_\varepsilon).$$
+      By the Maximum Principle, it follows that
+      $$|1/p(z)| < \varepsilon \text{ for } z \text{ on } D(R_\varepsilon).$$
+      Since $\varepsilon$ was arbitrary, it follows that
+      $|1/p(z)| = 0$, a contradiction. Thus $p$ has at least one zero. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.5.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.5.4.]  Let $f(z)$ be an analytic function on a domain $D$ that has no
                   zeros on $D$.
@@ -115,6 +303,24 @@
                            continuously to the boundary $\partial D$ of $D$,
                            then $|f(z)|$ attains its minimum on $\partial D$.
                   \end{enumerate}
+                  
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item Suppose $|f(z)|$ attains its minimum in $D$. Since $f$ has no
+               zeroes on $D$, it follows that $|1/f(z)|$ attains a maximum on
+               $D$; that is, $|1/f(z)| \le M$ on $D$ and $|1/f(z)| = M$ for some
+               $z_0 \in D$. Thus, by the Strict Maximum Principle, it follows
+               that $1/f(z)$ is constant, so that $f(z)$ is also constant.
+         \item Observe that $D \cup \partial D$ is compact, so that $|f(z)|$
+               attains a maximum and minimum on $D \cup \partial D$ by Theorem
+               on Page 39. Now suppose that $|f(z)|$ does not attain a minumum
+               on $\partial D$; then it must attain this minimum on $D$. Thus
+               $f(z)$ is constant by part (a), so that $|f(z)|$ attains a 
+               minimum on $\partial D$, a contradiction since we assumed that
+               this minimum does not occur on $\partial D$; thus $|f(z)|$ must
+               attain a minimum on $\partial D$. 
+      \end{enumerate} \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.6.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.6.1.]  Consider the fluid flow with constant velocity
                   $\textbf{V} = (2, 1)$. Find the velocity potential $\phi(z)$,
@@ -123,5 +329,31 @@
                   flow. Determine the flux of the flow across the interval
                   $[0, 1]$ on the real axis and across the interval $[0, i]$ on
                   the imaginary axis.
+                  
+      \textbf{Solution.} Consider the fluid flow with constant velocity
+      $\textbf{V} = (2, 1)$. The velocity potential $\phi$ is a function $f$
+      such that $\nabla \phi = \textbf{V}$. That is,
+      $$\frac{\partial \phi}{\partial x} = 2 \text{ and }
+        \frac{\partial \phi}{\partial y} = 1.$$
+      Since $\frac{\partial \phi}{\partial x} = 2$, it follows that
+      $\phi = 2x + f(y)$, so that $f'(y) = 1$, and we conclude that
+      $f(y) = y$. Thus $\phi = 2x + y$. The stream function $\psi$ is a
+      conjugate harmonic function of $\phi$, so we want
+      $$\frac{\partial \phi}{\partial x} = \frac{\partial \psi}{\partial y},$$
+      so that $\frac{\partial \psi}{\partial y} = 2$; that is,
+      $\psi = 2y + h(x)$. Now $-\frac{\partial \psi}{\partial x} = -h'(x) = 1$,
+      so that $h(x) = -x$. That is, $\psi = 2y - x$, and we have that the
+      complex velocity potential $f(z)$ is
+      $$2x + y + i(2y - x) = 2x + 2yi + y - ix = 2(x + yi) - (x + yi)i = 2z - zi.$$
+      The flux across the interval $[0, 1]$ is
+      $$\psi(1) - \psi(0) = -1 - 0 = -1,$$
+      and the flux across the interval $[0, i]$ is
+      $$\psi(i) - \psi(0) = [2(1) - 0] - [2(0) - 0] = 2.$$
+      The streamlines of the fluid flow is defined to be the level curves of
+      $\psi$; that is, $y = \frac{1}{2}c + \frac{1}{2}x$, for constants $c$.
+      These are straight lines with slope $1/2$.
+      \begin{center}
+      \includegraphics[width=\textwidth]{streamline}
+      \end{center}
 \end{enumerate}
 \end{document} 
