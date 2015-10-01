@@ -55,6 +55,83 @@
 
 \begin{document}
 \begin{enumerate}
+   \item[]        \textbf{Lemma 1.} \textit{If $G/N$ is a quotient group, then
+                  $(gN)^\alpha = g^\alpha N$ for all $\alpha \in \Z$}.
+                  
+      \textbf{Proof.} Let $G/N$ be a quotient group. First we shall use
+      induction on $\alpha$ to show that: if $g \in G$, then
+      \begin{equation} \label{1_1}
+         (gN)^\alpha = g^\alpha N
+      \end{equation}
+      for all $\alpha \in \Z^+$. Let $g \in G$. For the base case, we have
+      $\alpha = 1$, so it follows trivially that
+      $$(gN)^1 = gN = g^1N.$$
+      That is, \eqref{1_1} holds whenever $\alpha$ is 1. For the inductive
+      hypothesis, assume that \eqref{1_1} holds for some positive integer $k$.
+      Thus
+      \begin{align*}
+         (gN)^{k+1} &= (gN)^k(gN)^1 &[\text{Definition of }(gN)^{k+1}] \\
+            &= (g^kN)(gN) &[\text{Inductive hypothesis}] \\
+            &= g^kgN &[\text{Proposition 5 (1)}] \\
+            &= g^{k+1}N, &[\text{Definition of }g^{k+1}]
+      \end{align*}
+      so that \eqref{1_1} also holds for $k + 1$. Hence, by mathematical
+      induction, \eqref{1_1} holds for every positive integer $\alpha$. Now let
+      $m$ be a negative integer, so that $m = -n$ for some positive integer $n$.
+      Thus
+      \begin{align*}
+         (gN)^m = (gN)^{-n} &= ((gN)^{-1})^n &[\text{Definition of }(gN)^{-n}]\\
+            &= (g^{-1}N)^n &[\text{Proposition 5 (2)}] \\
+            &= (g^{-1})^nN &[\text{Replace $g$ with $g^{-1}$ in }\eqref{1_1}] \\
+            &= g^{-n}N &[\text{Definition of }g^{-n}] \\
+            &= g^mN,
+      \end{align*}
+      so that \eqref{1_1} also holds for every negative integer $\alpha$.
+      Finally $(g^N)^0 = N = 1N = g^0N$. That is, \eqref{1_1} holds for every
+      integer $\alpha$. \qed
+   \item[]        \textbf{Lemma 2.} \textit{If $g$ and $a$ are elements of a
+                  group $G$, then $(gag^{-1})^n = ga^ng^{-1}$, for all
+                  $n \in \Z$.}
+                  
+                  \textbf{Proof.} Let $G$ be a group and $g, a \in G$. For
+                  an integer $n$, consider the statement
+                  \begin{equation} \label{1_2}
+                     (gag^{-1})^n = ga^ng^{-1}.
+                  \end{equation}
+                  
+                  First we shall show that \eqref{1_2} holds for every positive
+                  integer $n$. Since
+                  $$(gag^{-1})^1 = gag^{-1} = ga^1g^{-1},$$
+                  it follows that \eqref{1_2} holds whenever $n$ is 1. So, for
+                  the inductive hypothesis, assume that \eqref{1_2} holds for
+                  some positive integer $j$. It follows that
+                  \begin{align*}
+                     (gag^{-1})^{j+1} &= (gag^{-1})^j(gag^{-1})^1
+                           &[\text{Definition of }(gag^{-1})^{j+1}] \\
+                        &= (ga^jg^{-1})(gag^{-1})
+                           &[\text{Inductive hypothesis}] \\
+                        &= ga^j(g^{-1}g)ag^{-1} \\
+                        &= ga^jag^{-1} \\
+                        &= ga^{j+1}g^{-1}. &[\text{Definition of }a^{j+1}]
+                  \end{align*}
+                  
+                  That is, \eqref{1_2} holds for $j+1$, and so we conclude by
+                  mathematical induction that it holds for every positive
+                  integer $n$. Now let $r$ be a negative integer, so that
+                  $r = -s$, for some positive integer $s$. Thus
+                  \begin{align*}
+                     (gag^{-1})^r = (gag^{-1})^{-s} &= ((gag^{-1})^{-1})^s
+                        &[\text{Definition of }(gag^{-1})^{-s}] \\
+                        &= (g^{-1})^{-1}a^{-1}g^{-1})^s \\
+                        &= (ga^{-1}g^{-1})^s \\
+                        &= g(a^{-1})^sg^{-1} &[\eqref{1_2}] \\
+                        &= ga^{-s}g^{-1} &[\text{Definition of }a^{-s}] \\
+                        &= ga^rg^{-1},
+                  \end{align*}
+                  so that \eqref{1_2} also holds for every negative integer $n$.
+                  Finally
+                  $$(gag^{-1})^0 = 1 = gg^{-1} = g1g^{-1} = ga^0g^{-1}.$$
+                  Hence \eqref{1_2} holds for every integer $n$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.1.02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.1.2]   Let $\varphi : G \rightarrow H$ be a homomorphism of groups 
                   with kernel $K$ and let $a, b \in \varphi(G)$. Let $X \in G/K$ 
@@ -67,7 +144,7 @@
                   
       \textbf{Proof.} Suppose $XY = Z$ in the quotient group $G/K$. Then it
       follows by definition that $Z$ is the fiber over $ab$. Let $w \in Z$.
-      That is, $\varphi(w) = ab = \varphi(u)b$. Multiply the equality
+      That is, $\varphi(w) = ab = \varphi(u)b$. Pre-multiply the equality
       $\varphi(w) = \varphi(u)b$ by $\varphi(u)^{-1}$ to get
       $\varphi(u)^{-1}\varphi(w) = b$. Use Proposition 1 (2) and the fact that
       $\varphi$ is a homomorphism to arrive at $b = \varphi(u^{-1}w)$. The
@@ -104,7 +181,7 @@
       The kernel of $\varphi$ is the set of complex numbers that lie on the
       circle of radius 1, centered at the origin. The fibers of $\varphi$ are
       circles centered at the orign; that is, if $X$ is a fiber of $\varphi$
-      then there exists a positive real numbers $s$ such that $X$ is the set of
+      then there exists a positive real number $s$ such that $X$ is the set of
       all complex numbers on the circle of radius $\sqrt{s}$, centered at the
       origin. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.1.16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -114,13 +191,15 @@
                   generally that if $G = \cyc{S}$ for any subset $S$ of $G$,
                   then $\overline{G} = \cyc{\overline{S}}$.
                   
-      \textbf{Proof.} Suppose $G = \cyc{S}$, for some $S \subseteq G$. We
-      recall from the definition on Page 63 that
-      $$\cyc{S} = \{{s_1}^{\epsilon_1}{s_2}^{\epsilon_2}
-        \cdots{s_n}^{\epsilon_n} : n \in \Z, n \ge 0 \text{ and }s_i \in S,
-        \epsilon_i = \pm 1, \text{ for each } 1 \le i \le n\}.$$
-        
-      Since $\overline{G}$ is a group, and since
+      \textbf{Proof.} Suppose $G = \cyc{S}$, for some $S \subseteq G$ (for the
+      particular part, where $G = \cyc{x, y}$, let $S = \{x, y\}$ and use the
+      procedure below). First observe that
+      $$\overline{S} = \{\overline{s} : s \in S\}.$$
+      If $S$ is empty, then $\overline{S}$ must also be empty, so that
+      $G = \cyc{S} = \{1\}$, and, thus, every normal subgroup of $G$ must also
+      be the trivial group, so that
+      $G/N = \{N\} = \{\{1\}\} =\cyc{\overline{S}}$. So assume that
+      $S \neq \emptyset$. Since $\overline{G}$ is a group, and since
       $\overline{S} \subseteq \overline{G}$, it follows by closure that
       $\cyc{\overline{S}} \subseteq \overline{G}$. So to show that
       $\cyc{\overline{S}} = \overline{G}$, it suffices to show that
@@ -147,7 +226,7 @@
         \overline{s_n}^{\epsilon_n}$$
       implies that $\overline{g} \in \cyc{\overline{S}}$ so that
       $\overline{G} \subseteq \cyc{\overline{S}}$, and we conclude that
-      $\overline{G} = \cyc{\overline{S}}$.
+      $\overline{G} = \cyc{\overline{S}}$. \qed
       
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.1.22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.1.22]  \begin{enumerate}
@@ -268,21 +347,22 @@
             $S$ is not empty. Let $h \in G$ and $n \in N$. By definition, it
             follows that
             $$n = {s_1}^{\epsilon_1}{s_2}^{\epsilon_2}\cdots{s_m}^{\epsilon_m}$$
-            for some $m \in \Z^+$, $s_i \in S$, $\epsilon_i \in \{-1, 1\}$,
-            for all $1 \le i \le m$. Hence
+            for some nonegative integer $m$, $s_i \in S$,
+            $\epsilon_i \in \{-1, 1\}$, for all $1 \le i \le m$. Hence
             \begin{align*}
                hnh^{-1} &= h({s_1}^{\epsilon_1}{s_2}^{\epsilon_2}
                   \cdots{s_m}^{\epsilon_m})h^{-1} \\
                   &= (h{s_1}^{\epsilon_1}h^{-1})(h{s_2}^{\epsilon_2}h^{-1})
-                  \cdots(h{s_m}^{\epsilon_m}h^{-1}) \\
+                  \cdots(h{s_m}^{\epsilon_m}h^{-1}) &[\text{Apply (a) $m$ times}]\\
                   &= (hs_1h^{-1})^{\epsilon_1}(hs_2h^{-1})^{\epsilon_2}
-                  \cdots(hs_mh^{-1})^{\epsilon_m} &[3.1.26\text{(b)}]
+                  \cdots(hs_mh^{-1})^{\epsilon_m} &[\text{Lemma 2}]
             \end{align*}
 
             By our hypothesis, it follows that $hs_ih^{-1} \in N$, for each
-            $1 \le i \le m$. Also, since $N \le G$, it follows by closure that
-            that $(hs_ih^{-1})^{\epsilon_i} \in N$, for each $1 \le i \le m$. 
-            Similarly, we use the closure property of $N$ to conclude that
+            $1 \le i \le m$. Also, since $N$ is a group, it follows by closure
+            that that $(hs_ih^{-1})^{\epsilon_i} \in N$, for each
+            $1 \le i \le m$. Similarly, we use the closure property of $N$ to
+            conclude that
             $$hnh^{-1} = (hs_1h^{-1})^{\epsilon_1}(hs_2h^{-1})^{\epsilon_2}
               \cdots(hs_mh^{-1})^{\epsilon_m} \in N;$$
             we just proved that $h \in G$ and $n \in N$ implies that
@@ -371,5 +451,9 @@
       $x^{-1}y^{-1}xy = (yx)^{-1}(xy) \in N$. According to Proposition 4,
       $yxN = xyN$. But $yNxN = yxN = xyN = xNyN$, so that $G/N$ is abelian.
       \qed
+      
+      \textbf{Note.} I just noticed that I could have used 3.1.26(a) to write
+      that
+      $$gr^{-1}t^{-1}rtg^{-1} = (gr^{-1}g^{-1})(gt^{-1}g^{-1})(grg^{-1})(gtg^{-1}).$$
 \end{enumerate}
 \end{document}
