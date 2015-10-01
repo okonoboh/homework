@@ -1,0 +1,134 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath, array}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{bm}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 326, Fall 2015\\Section 1 (10772/10773)\\
+  HW \#02, DUE: 2015, September 28
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Computer Science\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{Purpose of the OS.} The Operating System is a family of
+         system software that coordinates the use of hardware and software
+         resources. Operating Systems are typically found in video game systems,
+         cars, embedded systems, computers, smartphones, etc. Without an
+         Operating System, every programmer will have to write low level codes
+         to access devices (such as hard drives and printers), to write 
+         characters to the graphics device (screen), to perform multithreading,
+         to perform networking, and so on; this is practically impossible because
+         different devices will have to programmed differently, and since one
+         cannot be certain as to what kind of devices the users will have, the
+         programmer's program will then be extremely limited to a particular set
+         of devices. Most importantly, every system will only have the
+         capability of running exactly one program if no OS is available. This
+         will severely waste system resources since most applications on
+         general purpose computer are usually not executing. Simply put, an
+         Operating System is akin to a traffic coordinator at a very busy
+         intersection, informing each vehicle about when to move and when to
+         halt. In general purpose computer systems, Operating Systems are
+         responsible for the Abstraction, Sharing, and Isolation of Resources.
+         These concepts are explained below.
+   \item \textbf{Resource Abstraction.} Everyday, billions of people interact
+         with some form of technology; some use the microwave, some drive cars,
+         some use their cell phones, some use elevators, and a variety of other
+         technologies. What is typically common in all these scenarios is that
+         the users have no knowledge about the underlying workings of these
+         systems. In fact, if a person can operate one elevator, then that same
+         person can---in almost all cases---operate another elevator. Indeed,
+         one does not need to understand the intimate details of a computer in
+         order to avail oneself of its services. This is so because the
+         operating system abstracts(or, more accurately, hides) these details
+         from the users. So we can define Resource Abstraction as the process
+         by which an operating system hides the inner workings of its parts, so
+         that the application programmer (or other user) can use the computer
+         relatively easily without bothering about low-level details, such as
+         writing to and reading from specific hardware, polling devices, etc.
+   \item \textbf{Resource Sharing.} Resource Sharing is simply the mechanism
+         wherein multiple programs (processes or their threads) share the
+         resources of a computer. The most common type of sharing occurs in
+         general purpose computers, where the programs share the processor. This
+         is known as time-multiplexed sharing: every process is given a quantum
+         of time to execute and then control in transferred to other processes
+         in a roundrobin fashion. In fact, in most general purpose computers,
+         the executing programs themselves share the main memory, a process
+         known as space-multiplexing. If this were
+         not the case, then a user would have to wait for one program to
+         completely finish its task before another program can use the resources
+         of the computer. Thus, if a file is being downloaded from the Internet,
+         the user would have to wait for the file to be completely downloaded
+         before he or she can startup another program. The operating system
+         coordinates the sharing of the resources of the computer. It tries to
+         do so in an equitable manner; that is, on average, every user program
+         gets an approximately equal amount of time in a particular time period.
+   \item \textbf{Resource Isolation.} Imagine that you parked your car at a
+         particular spot in a parking lot. Except for extradordinary
+         circumstances, no other driver would be able to park his or her car in
+         your spot. We can view the parking spots as resources(which are
+         themselves part of a larger resource, the parking lot) and each car as
+         a process, so that no two different processes can interfere with each
+         other. This property is also desired for executing processes. Each
+         process has its allocated space in main memory---both for data and
+         program---and the integrity of the system will be compromised if a
+         process can illegally access memory locations outside of its boundary.
+         With Resource Isolation, each program is limited to whatever boundary
+         that the OS has imposed on it; that is, a program cannot access other
+         resources that have been allocated to other programs. Of course, the
+         last statement is not entirely true because malicious programs could
+         take advantage of bugs in a program to gain access to other programs.
+         Nevertheless, there are precautions that programmers can take to make
+         sure that their programs are less susceptible to these types of errors.
+\end{enumerate}
+
+\begin{thebibliography}{9}
+
+\bibitem{lamport94}
+  Gary Nutt,
+  \emph{Operating Systems},
+  Pearson,
+  3rd edition,
+  2003.
+
+\end{thebibliography}
+%This is a citation. \autocite{Saussure1995}. Another citation \autocite{Kavanaugh1976}
+
+\end{document}
