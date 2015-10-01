@@ -69,8 +69,8 @@
       follows by definition that $Z$ is the fiber over $ab$. Let $w \in Z$.
       That is, $\varphi(w) = ab = \varphi(u)b$. Multiply the equality
       $\varphi(w) = \varphi(u)b$ by $\varphi(u)^{-1}$ to get
-      $\varphi(u)^{-1}\varphi(w) = b$. Using Proposition 1 (2) and the fact that
-      $\varphi$ is a homomorphism, we arrive at $b = \varphi(u^{-1}w)$. The
+      $\varphi(u)^{-1}\varphi(w) = b$. Use Proposition 1 (2) and the fact that
+      $\varphi$ is a homomorphism to arrive at $b = \varphi(u^{-1}w)$. The
       preceding equality tells us that $u^{-1}w$ is in the fiber of $b$, so that
       $u^{-1}w \in Y$. Let $v = u^{-1}w$ and conclude that $uv = w$, as desired.
       \qed
@@ -280,10 +280,9 @@
             \end{align*}
 
             By our hypothesis, it follows that $hs_ih^{-1} \in N$, for each
-            $1 \le i \le m$. Also, since $N \le G$, it follows by closure of
-            inverses that $(hs_ih^{-1})^{\epsilon_i} \in N$, for each
-            $1 \le i \le m$. Similarly, we use the closure property of $N$ to
-            conclude that
+            $1 \le i \le m$. Also, since $N \le G$, it follows by closure that
+            that $(hs_ih^{-1})^{\epsilon_i} \in N$, for each $1 \le i \le m$. 
+            Similarly, we use the closure property of $N$ to conclude that
             $$hnh^{-1} = (hs_1h^{-1})^{\epsilon_1}(hs_2h^{-1})^{\epsilon_2}
               \cdots(hs_mh^{-1})^{\epsilon_m} \in N;$$
             we just proved that $h \in G$ and $n \in N$ implies that
@@ -348,5 +347,29 @@
                   $N = \cyc{x^{-1}y^{-1}xy : x, y \in G}$ is a normal subgroup
                   of $G$ and $G/N$ is abelian ($N$ is called the
                   \textit{commutator subgroup} of $G$).
+
+      \textbf{Proof.} Let $G$ be a group and consider the subgroup of $G$:
+      $$N = \cyc{S}, \text{ where } S = \{x^{-1}y^{-1}xy : x, y \in G\}.$$
+      The set $S$ is not empty since $1 = 1^{-1}\cdot1^{-1}\cdot1\cdot1$, so
+      that $1 \in S$. Now let $s \in S$ and $g \in G$. That is,
+      $s = r^{-1}t^{-1}rt$, for some $r, t \in G$. It follows that
+      \begin{align*}
+         gsg^{-1} &= gr^{-1}t^{-1}rtg^{-1} \\
+            &= gr^{-1}(1)t^{-1}(1)r(1)tg^{-1} \\
+            &= gr^{-1}(g^{-1}g)t^{-1}(g^{-1}g)r(g^{-1}g)tg^{-1} \\
+            &= (gr^{-1}g^{-1})(gt^{-1}g^{-1})(grg^{-1})(gtg^{-1}) \\
+            &= (grg^{-1})^{-1}(gtg^{-1})^{-1}(grg^{-1})(gtg^{-1})
+      \end{align*}
+      so that $gsg^{-1}$ can be written in the form $x^{-1}y^{-1}xy$, where
+      $x = grg^{-1}$ and $y = gtg^{-1}$. This implies that $gsg^{-1} \in S$, so
+      that, by the arbitrariness of $g$ and $s$, $gsg^{-1} \in S$, for all
+      $g \in G$ and $s \in S$; we thus conclude that
+      $gSg^{-1} \subseteq S \subseteq N$, for all $g \in G$, so that $N 
+      \trianglelefteq G$ by Exercise 3.1.26(c). Finally let $xN$ and $yN$ be
+      elements if $G/N$. By definition of $S$, it follows that
+      $x^{-1}y^{-1}xy \in S$, so that $x^{-1}y^{-1}xy \in N$. That is,
+      $x^{-1}y^{-1}xy = (yx)^{-1}(xy) \in N$. According to Proposition 4,
+      $yxN = xyN$. But $yNxN = yxN = xyN = xNyN$, so that $G/N$ is abelian.
+      \qed
 \end{enumerate}
 \end{document}
