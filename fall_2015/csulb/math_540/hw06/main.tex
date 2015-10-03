@@ -59,6 +59,36 @@
    \item[3.2.4]   Show that if $|G| = pq$ for some primes $p$ and $q$ (not
                   necessarily distinct) then either $G$ is abelian or
                   $Z(G) = 1$. [See Exercise 3.1.36]
+
+      \textbf{Proof.} Let $G$ be a group. Suppose that $|G| = pq$, for some
+      primes $p$ and $q$. If $Z(G) = 1$, then we are done, so suppose that
+      $Z(G) \neq 1$. In order to complete the proof, it suffices to show that
+      $G$ is abelian. We recall that $Z(G) \le G$, so it follows by Lagrange's 
+      Theorem that $|Z(G)|$ divides $|G|$. Since $|G| = pq$ and since $p$ and
+      $q$ are both primes, it follows that
+      $$|Z(G)| \in \{p, q, pq\}.$$
+      Observe that we did not include 1 in the set above because we assumed that
+      $Z(G) \neq 1$, so that $|Z(G)| > 1$. Now let us investigate the possible
+      cases:
+
+      \textbf{Case 1.} $|Z(G)| = pq$. That is, $Z(G)$ must equal $G$, so that
+      $G$ is abelian.
+
+      \textbf{Case 2.} $|Z(G)| = p$. So it follows by Theorem 8 that
+      $|G/Z(G)| = \frac{pq}{p} = q$. Let $\overline{h}$ be a nonidentity element 
+      in $G/Z(G)$. That is, $|\overline{h}| > 1$. By Lagrange's Theorem,
+      $|\cyc{\overline{h}}|$ divides $|G/Z(G)|$. Thus $|\cyc{\overline{h}}| = 1$ 
+      or $|\cyc{\overline{h}}| = q$. But the former is invalid because
+      $|\cyc{\overline{h}}| = |\overline{h}| > 1$, so that
+      $|\cyc{\overline{h}}| = q = |G/Z(G)|$, and we conclude
+      that $\cyc{\overline{h}} = G/Z(G)$. Hence, $G/Z(G)$ is cyclic, so it
+      follows by Exercise 3.1.36 that $G$ is abelian.
+
+      \textbf{Case 3.} $|Z(G)| = q$. Interchange the roles of $p$ and $q$ in
+      Case 2, and conclude that $G$ is abelian.
+
+      We have thus shown that $G$ is abelian if $Z(G)$ is nontrivial, and the
+      proof is done. \qed      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.5]   Let $H$ be a subgroup of $G$ and fix some element $g \in G$.
                   \begin{enumerate}
@@ -68,6 +98,48 @@
                            subgroup of $G$ of order $n$ then
                            $H \trianglelefteq G$.
                   \end{enumerate}
+
+      \textbf{Proof.}
+
+      \begin{enumerate}
+         \item The set $gHg^{-1}$ is nonempty because $1 \in H$, so that
+               $1 = gg^{-1} = g1g^{-1} \in gHg^{-1}$. Now let
+               $x, y \in gHg^{-1}$, so that $x = gh_1g^{-1}$ and
+               $y = gh_2g^{-1}$, for some $h_1, h_2 \in H$. We have that
+               \begin{align*}
+                  xy^{-1} &= gh_1g^{-1}(gh_2g^{-1})^{-1} \\
+                     &= gh_1g^{-1}((g^{-1})^{-1}{h_2}^{-1}g^{-1}) \\
+                     &= gh_1g^{-1}(g{h_2}^{-1}g^{-1}) \\
+                     &= gh_1(g^{-1}g){h_2}^{-1}g^{-1} \\
+                     &= g(h_1{h_2}^{-1})g^{-1}.
+               \end{align*}
+               By the closure $H$, we have that $h_1{h_2}^{-1}$; that is,
+               $xy^{-1} = g(h_1{h_2}^{-1})g^{-1} \in gHg^{-1}$, and we conclude
+               by the Subgroup Criterion that $gHg^{-1} \le G$. Now consider the
+               map
+               $$\phi : H \rightarrow gHg^{-1}, \text{ defined by }
+                   h \mapsto ghg^{-1}.$$
+               To show injectivity of $\phi$, we suppose that
+               $\phi(x) = \phi(y)$, for some $x, y \in H$. That is,
+               $gxg^{-1} = gyg^{-1}$, so that $x = y$ by left and right 
+               cancellations, and thus, $\phi$ is injective. Now let
+               $z \in gHg^{-1}$, so that $z = gx'g^{-1}$, for some $x' \in H$. 
+               Then since $\phi(x') = gx'g^{-1} = z$, we conclude that $\phi$ is 
+               surjective, and thus, $\phi$ is a one to one correspondence 
+               between $H$ and $gHg^{-1}$; in order words, $|H| = |gHg^{-1}|$.
+               \qed
+         \item Suppose that there exists a positive integer $n$ such that
+               $H$ is the unique subgroup of $G$ of order $n$. Let $r \in G$ and
+               $h \in H$. Thus $rhr^{-1} \in rHr^{-1}$. Now $rHr^{-1} \le G$
+               and $|rHr^{-1}| = |H|$ by part (a); but $|H| = n$, so that
+               $|rHr^{-1}| = n$, and since $H$ is the unique subgroup of order
+               $n$, it must be the case that $rHr^{-1} = H$; thus, since
+               $rhr^{-1} \in rHr^{-1}$, we must have that $rhr^{-1} \in H$.
+               Since $r$ and $h$ were arbitrary, it follows that
+               $rhr^{-1} \in H$ for all $r \in G$ and $h \in H$, so that
+               $H \trianglelefteq G$ by Theorem 6 (5).
+      \end{enumerate}
+      \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.8]   Prove that if $H$ and $K$ are finite subgroups of $G$ whose
                   orders are relatively prime then $H \cap K = 1$.      
