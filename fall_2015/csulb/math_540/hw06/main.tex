@@ -75,14 +75,8 @@
       $G$ is abelian.
 
       \textbf{Case 2.} $|Z(G)| = p$. So it follows by Theorem 8 that
-      $|G/Z(G)| = \frac{pq}{p} = q$. Let $\overline{h}$ be a nonidentity element 
-      in $G/Z(G)$. That is, $|\overline{h}| > 1$. By Lagrange's Theorem,
-      $|\cyc{\overline{h}}|$ divides $|G/Z(G)|$. Thus $|\cyc{\overline{h}}| = 1$ 
-      or $|\cyc{\overline{h}}| = q$. But the former is invalid because
-      $|\cyc{\overline{h}}| = |\overline{h}| > 1$, so that
-      $|\cyc{\overline{h}}| = q = |G/Z(G)|$, and we conclude
-      that $\cyc{\overline{h}} = G/Z(G)$. Hence, $G/Z(G)$ is cyclic, so it
-      follows by Exercise 3.1.36 that $G$ is abelian.
+      $|G/Z(G)| = \frac{pq}{p} = q$. Hence, $G/Z(G)$ is cyclic by Corollary 10, 
+      so it follows by Exercise 3.1.36 that $G$ is abelian.
 
       \textbf{Case 3.} $|Z(G)| = q$. Interchange the roles of $p$ and $q$ in
       Case 2, and conclude that $G$ is abelian.
@@ -142,7 +136,18 @@
       \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.8]   Prove that if $H$ and $K$ are finite subgroups of $G$ whose
-                  orders are relatively prime then $H \cap K = 1$.      
+                  orders are relatively prime then $H \cap K = 1$.
+
+      \textbf{Proof.} Suppose $H$ and $K$ are finite subgroups of some group $G$
+      such that
+      $$\gcd(|H|, |K|) = 1.$$
+      The set $H \cap K$ is nonempty because it is a subgroup of $G$, so let
+      $x \in H \cap K$. It follows by definition that $x \in H$ and $x \in K$,
+      so, by Corollary 9, $|x|$ divides both $|H|$ and $|K|$, so that $|x|$ must 
+      also divide the greatest commond divisor of $|H|$ and $|K|$. Hence
+      $|x| \mid 1$, and we conclude that $|x| = 1$. Since the identity element 
+      is the unique element of order 1, we conclude that $x = 1$. We have thus 
+      shown that if $y \in H \cap K$, then $y = 1$; thus $H \cap K = 1$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.12]  Let $H \le G$. Prove that the map $x \mapsto x^{-1}$ sends
                   each left coset of $H$ in $G$ onto a right coset of $H$ and
@@ -154,12 +159,47 @@
                   $(\Z/p\Z)^\times$ to prove \textit{Fermat's Little Theorem: }
                   if $p$ is a prime then $a^p \equiv a$ (mod $p$) for all
                   $a \in \Z$.
+
+      \textbf{Proof.} Let $p$ be a prime and $a$ an integer. Suppose first that
+      $\gcd(a, p) \neq 1$. Then it follows that $a$ must have at least one
+      factor of $p$, so that there exists $k \in \Z$, such that $a = kp$. Thus
+      $a^p - a = (kp)^p - kp = p(k^pp^{p-1} - k)$. That is, $p \mid a^p - a$,
+      or equivalently, $a^p \equiv a$ (mod $p$). Now suppose that $a$ and $p$
+      are relatively prime. It follows by Proposition 0.4 (Page 10) that
+      $\overline{a} \in (\Z/p\Z)^\times$. Also recall that if $\varphi$ is the
+      Euler's totient function, then $|(\Z/p\Z)^\times| = \varphi(p) = p - 1$.
+      Notice that the order of $\overline{a}$ is finite since $(\Z/p\Z)^\times$ 
+      is finite; hence $|\overline{a}| = |\cyc{\overline{a}}|$ divides
+      $p - 1$ by Lagrange's Theorem; that is, $p - 1 = |\overline{a}|s$ for some 
+      integer $s$. Hence,
+      $$\overline{a}^{p-1} = \overline{a}^{|\overline{a}|s} =
+        (\overline{a}^{|\overline{a}|})^s = \overline{1}^s = \overline{1},$$
+      so that
+      $$\overline{a^p} = \overline{a}^p = \overline{a}\cdot
+        \overline{a}^{p-1} = \overline{a} \cdot \overline{1} = \overline{a}.$$
+      Using the equality $\overline{a^p} = \overline{a}$, we conclude that
+      $a^p \equiv a$ (mod $p$), as desired. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.22]  Use Lagrange's Theorem in the multiplicative group
                   $(\Z/n\Z)^\times$ to prove \textit{Euler's Theorem: }
                   $a^{\varphi(n)} \equiv 1$ (mod $n$) for every integer $a$
                   relatively prime to $n$, where $\varphi$ denotes Euler's
                   $\varphi$-function.
+
+      \textbf{Proof.} Let $\varphi$ denote the Euler's totient function and $n$
+      a positive integer. Suppose $a$ is an integer that is relatively prime to
+      $n$. So $\overline{a} \in (\Z/n\Z)^\times$ by Proposition 0.4. Since
+      $(\Z/n\Z)^\times$ is finite, it follows that $\cyc{\overline{a}}$ must
+      also be finite. By Lagrange's Theorem,
+      $|\overline{a}| = |\cyc{\overline{a}}|$ divides
+      $|(\Z/n\Z)^\times| = \varphi(n)$. So we can write
+      $\varphi(n) = |\overline{a}|s$, for some integer $s$. Thus
+      $$\overline{a^{\varphi(n)}} = \overline{a}^{\varphi(n)} =
+        \overline{a}^{|\overline{a}|s} = (\overline{a}^{|\overline{a}|})^s =
+        \overline{1}^s = \overline{1}.$$
+      Using the equality $\overline{a^{\varphi(n)}} = \overline{1}$,
+      we conclude that $a^{\varphi(n)} \equiv 1$ (mod $n$), which is what we
+      wanted to prove. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.4.02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.4.2]   Exhibit all 3 composition series for $Q_8$ and all 7 
                   composition series for $D_8$. List the composition factors in
