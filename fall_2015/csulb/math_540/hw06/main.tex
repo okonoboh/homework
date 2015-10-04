@@ -154,6 +154,34 @@
                   gives a bijection between the set of left cosets and the set
                   of right cosets of $H$ in $G$ (hence the number of left cosets
                   of $H$ in $G$ equals the number of right cosets).
+
+      \textbf{Proof.} Let $L_H$ be the set of left cosets of $H$ in $G$ and
+      $R_H$ the set of right cosets of $H$ in $G$. Consider the map
+      $\varphi : L_H \rightarrow R_H$, where if $g \in G$, then
+      $\varphi(gH) = Hg^{-1}$. First we must show that $\varphi$ is
+      well-defined. So suppose that $g_1H = g_2H$ for some $g_1H, g_2H \in L_H$.
+      To show that $\varphi$ is well defined, it suffices to show that
+      $\varphi(g_1H) = \varphi(g_2H)$; that is, we must show that
+      $Hg_1^{-1} = Hg_2^{-1}$. Let $r \in Hg_1^{-1}$, so that $r = h_1g_1^{-1}$
+      for some $h_1 \in H$. Since $g_1H = g_2H$, Proposition 4 says that
+      $g_1^{-1}g_2 \in H$, so that $g_1^{-1}g_2 = h_2$, for some $h_2 \in H$;
+      that is, $g_1^{-1} = h_2g_2^{-1}$. Thus
+      $r = h_1g_1^{-1} = (h_1h_2)g_2^{-1}$, so that $r \in Hg_2^{-1}$, and we
+      conclude that $Hg_1^{-1} \subseteq Hg_2^{-1}$. Now let $s$ be a member
+      of $Hg_2^{-1}$, so that $s = h_3g_2^{-1}$ for some $h_3 \in H$. Recall
+      that $g_1^{-1}g_2 = h_2$, so that $g_2^{-1} = h_2^{-1}g_1^{-1}$, and thus
+      $s = h_3g_2^{-1} = (h_3h_2^{-1})g_1^{-1}$; hence, $s \in Hg^{-1}$, and it
+      follows  that $Hg_2^{-1} \subseteq Hg_1^{-1}$. We have thus shown that
+      $Hg_1^{-1} = Hg_2^{-1}$; that is, $\varphi$ is well-defined. To show
+      injectivity, we suppose that $\varphi(g_3H) = \varphi(g_4H)$, for some
+      $g_3H, g_4H \in L_H$. That is, $Hg_3^{-1} = Hg_4^{-1}$. Let
+      $t \in Hg_3^{-1}$, so that $t = h_4g_3^{-1} = h_5g_4^{-1}$, for some
+      $h_4, h_5 \in H$. Now the equality $h_4g_3^{-1} = h_5g_4^{-1}$ implies
+      that $g_3^{-1}g_4 = h_4^{-1}h_5$, so that $g_3^{-1}g_4 \in H$, and we use
+      Proposition 4 to claim that $g_3H = g_4H$, so that $\varphi$ is injective.
+      The map $\varphi$ is surjective because if $Hg_5^{-1} \in R_H$, then
+      $\varphi(g_5H) = Hg_5^{-1}$. Thus $\varphi$ is bijective and it follows
+      that $|L_H| = |R_H|$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.16]  Use Lagrange's Theorem in the multiplicative group
                   $(\Z/p\Z)^\times$ to prove \textit{Fermat's Little Theorem: }
