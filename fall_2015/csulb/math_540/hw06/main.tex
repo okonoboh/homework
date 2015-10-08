@@ -63,13 +63,12 @@
       \textbf{Proof.} Let $G$ be a group. Suppose that $|G| = pq$, for some
       primes $p$ and $q$. If $Z(G) = 1$, then we are done, so suppose that
       $Z(G) \neq 1$. In order to complete the proof, it suffices to show that
-      $G$ is abelian. We recall that $Z(G) \le G$, so it follows by Lagrange's 
-      Theorem that $|Z(G)|$ divides $|G|$. Since $|G| = pq$ and since $p$ and
-      $q$ are both primes, it follows that
+      $G$ is abelian. We recall that $Z(G) \le G$; since $|G|$ is finite, it
+      follows by Lagrange's Theorem that $|Z(G)|$ divides $|G|$. Since
+      $|G| = pq$ and $p$ and $q$ are both primes, it follows that
       $$|Z(G)| \in \{p, q, pq\}.$$
-      Observe that we did not include 1 in the set above because we assumed that
-      $Z(G) \neq 1$, so that $|Z(G)| > 1$. Now let us investigate the possible
-      cases:
+      We did not include 1 in the set above because we assumed that
+      $Z(G) \neq 1$. Now let us investigate the possible cases:
 
       \textbf{Case 1.} $|Z(G)| = pq$. That is, $Z(G)$ must equal $G$, so that
       $G$ is abelian.
@@ -81,8 +80,8 @@
       \textbf{Case 3.} $|Z(G)| = q$. Interchange the roles of $p$ and $q$ in
       Case 2, and conclude that $G$ is abelian.
 
-      We have thus shown that $G$ is abelian if $Z(G)$ is nontrivial, and the
-      proof is done. \qed      
+      In each possible case, we showed that $G$ must be abelian, and thus, the
+      proof is done. \mbox{ } \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.5]   Let $H$ be a subgroup of $G$ and fix some element $g \in G$.
                   \begin{enumerate}
@@ -107,10 +106,10 @@
                      &= gh_1(g^{-1}g){h_2}^{-1}g^{-1} \\
                      &= g(h_1{h_2}^{-1})g^{-1}.
                \end{align*}
-               By the closure $H$, we have that $h_1{h_2}^{-1}$; that is,
-               $xy^{-1} = g(h_1{h_2}^{-1})g^{-1} \in gHg^{-1}$, and we conclude
-               by the Subgroup Criterion that $gHg^{-1} \le G$. Now consider the
-               map
+               By the closure $H$, we have that $h_1{h_2}^{-1} \in H$; that is,
+               $$xy^{-1} = g(h_1{h_2}^{-1})g^{-1} \in gHg^{-1},$$
+               and we conclude by the Subgroup Criterion that $gHg^{-1} \le G$.
+               Now consider the map
                $$\phi : H \rightarrow gHg^{-1}, \text{ defined by }
                    h \mapsto ghg^{-1}.$$
                To show injectivity of $\phi$, we suppose that
@@ -141,13 +140,13 @@
       \textbf{Proof.} Suppose $H$ and $K$ are finite subgroups of some group $G$
       such that
       $$\gcd(|H|, |K|) = 1.$$
-      The set $H \cap K$ is nonempty because it is a subgroup of $G$, so let
-      $x \in H \cap K$. It follows by definition that $x \in H$ and $x \in K$,
-      so, by Corollary 9, $|x|$ divides both $|H|$ and $|K|$, so that $|x|$ must 
+      We showed in Exercise 2.1.10 that $H \cap K \le G$; that is,
+      $H \cap K \neq \emptyset$, so let $x \in H \cap K$. Thus, it follows
+      by  definition that $x \in H$ and $x \in K$, so, by Corollary 9, $|x|$ divides both $|H|$ and $|K|$, so that $|x|$ must 
       also divide the greatest commond divisor of $|H|$ and $|K|$. Hence
       $|x| \mid 1$, and we conclude that $|x| = 1$. Since the identity element 
-      is the unique element of order 1, we conclude that $x = 1$. We have thus 
-      shown that if $y \in H \cap K$, then $y = 1$; thus $H \cap K = 1$. \qed
+      is the unique element of order 1, the only possibility is that $x = 1$. We
+      have thus shown that if $y \in H \cap K$, then $y = 1$; thus $H \cap K = 1$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.12]  Let $H \le G$. Prove that the map $x \mapsto x^{-1}$ sends
                   each left coset of $H$ in $G$ onto a right coset of $H$ and
@@ -157,31 +156,41 @@
 
       \textbf{Proof.} Let $L_H$ be the set of left cosets of $H$ in $G$ and
       $R_H$ the set of right cosets of $H$ in $G$. Consider the map
-      $\varphi : L_H \rightarrow R_H$, where if $g \in G$, then
-      $\varphi(gH) = Hg^{-1}$. First we must show that $\varphi$ is
-      well-defined. So suppose that $g_1H = g_2H$ for some $g_1H, g_2H \in L_H$.
-      To show that $\varphi$ is well defined, it suffices to show that
-      $\varphi(g_1H) = \varphi(g_2H)$; that is, we must show that
-      $Hg_1^{-1} = Hg_2^{-1}$. Let $r \in Hg_1^{-1}$, so that $r = h_1g_1^{-1}$
-      for some $h_1 \in H$. Since $g_1H = g_2H$, Proposition 4 says that
-      $g_1^{-1}g_2 \in H$, so that $g_1^{-1}g_2 = h_2$, for some $h_2 \in H$;
-      that is, $g_1^{-1} = h_2g_2^{-1}$. Thus
+      $\varphi : L_H \rightarrow R_H$, where if $x \in L_H$, then
+      $\varphi(x) = Hg^{-1}$, where $g$ is any representative of $x$. First, we
+      have to show that $\varphi$ sends a left coset onto a right coset; that
+      is, we must show that $\varphi$ is well-defined.
+      
+      \textbf{Well-defined.} Suppose that for some $g_1, g_2 \in G$, $g_1H$ and
+      $g_2H$ are two equal left cosets of $H$. To show that $\varphi$ is
+      well-defined, it suffices to show that $\varphi(g_1H) = \varphi(g_2H)$;
+      that is, we must show that $Hg_1^{-1} = Hg_2^{-1}$. Let $r \in Hg_1^{-1}$,
+      so that $r = h_1g_1^{-1}$ for some $h_1 \in H$. Since $g_1H = g_2H$,
+      Proposition 4 says that $g_1^{-1}g_2 \in H$, so that $g_1^{-1}g_2 = h_2$,
+      for some $h_2 \in H$; that is, $g_1^{-1} = h_2g_2^{-1}$. Thus
       $r = h_1g_1^{-1} = (h_1h_2)g_2^{-1}$, so that $r \in Hg_2^{-1}$, and we
       conclude that $Hg_1^{-1} \subseteq Hg_2^{-1}$. Now let $s$ be a member
       of $Hg_2^{-1}$, so that $s = h_3g_2^{-1}$ for some $h_3 \in H$. Recall
       that $g_1^{-1}g_2 = h_2$, so that $g_2^{-1} = h_2^{-1}g_1^{-1}$, and thus
       $s = h_3g_2^{-1} = (h_3h_2^{-1})g_1^{-1}$; hence, $s \in Hg^{-1}$, and it
       follows  that $Hg_2^{-1} \subseteq Hg_1^{-1}$. We have thus shown that
-      $Hg_1^{-1} = Hg_2^{-1}$; that is, $\varphi$ is well-defined. To show
-      injectivity, we suppose that $\varphi(g_3H) = \varphi(g_4H)$, for some
-      $g_3H, g_4H \in L_H$. That is, $Hg_3^{-1} = Hg_4^{-1}$. Let
-      $t \in Hg_3^{-1}$, so that $t = h_4g_3^{-1} = h_5g_4^{-1}$, for some
-      $h_4, h_5 \in H$. Now the equality $h_4g_3^{-1} = h_5g_4^{-1}$ implies
-      that $g_3^{-1}g_4 = h_4^{-1}h_5$, so that $g_3^{-1}g_4 \in H$, and we use
-      Proposition 4 to claim that $g_3H = g_4H$, so that $\varphi$ is injective.
-      The map $\varphi$ is surjective because if $Hg_5^{-1} \in R_H$, then
-      $\varphi(g_5H) = Hg_5^{-1}$. Thus $\varphi$ is bijective and it follows
-      that $|L_H| = |R_H|$. \qed
+      $Hg_1^{-1} = Hg_2^{-1}$; that is, $\varphi$ is well-defined.
+      
+      \textbf{Injectivity.} Suppose that for some $x, y \in L_H$ (where
+      $x = g_3H$ and $y = g_4H$, for some $g_3$, $g_4 \in G$), we have
+      $\varphi(g_3H) = \varphi(g_4H)$. That is, $Hg_3^{-1} = Hg_4^{-1}$. Let
+      $t \in Hg_3^{-1} = Hg_4^{-1}$, so that $t = h_4g_3^{-1} = h_5g_4^{-1}$,
+      for some $h_4, h_5 \in H$. Now the equality $h_4g_3^{-1} = h_5g_4^{-1}$
+      implies that $g_3^{-1}g_4 = h_4^{-1}h_5$, so that $g_3^{-1}g_4 \in H$, and
+      we use Proposition 4 to claim that $g_3H = g_4H$, so that $\varphi$ is
+      injective.
+      
+      \textbf{Surjectivity.} The map $\varphi$ is surjective because if
+      $y \in R_H$, so that $y = Hg_5$ for some $g_5 \in G$, then
+      $\varphi(g_5^{-1}H) = Hg_5 = y$. \\
+      
+      Thus $\varphi$ is bijective since it is 1-1 and onto, and it follows that
+      $|L_H| = |R_H|$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.2.16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.2.16]  Use Lagrange's Theorem in the multiplicative group
                   $(\Z/p\Z)^\times$ to prove \textit{Fermat's Little Theorem: }
@@ -214,9 +223,9 @@
                   relatively prime to $n$, where $\varphi$ denotes Euler's
                   $\varphi$-function.
 
-      \textbf{Proof.} Let $\varphi$ denote the Euler's totient function and $n$
-      a positive integer. Suppose $a$ is an integer that is relatively prime to
-      $n$. So $\overline{a} \in (\Z/n\Z)^\times$ by Proposition 0.4. Since
+      \textbf{Proof.} Let $\varphi$ denote the Euler's totient function and fix
+      a positive integer $n$. Suppose $a$ is an integer that is relatively prime
+      to $n$. So $\overline{a} \in (\Z/n\Z)^\times$ by Proposition 0.4. Since
       $(\Z/n\Z)^\times$ is finite, it follows that $\cyc{\overline{a}}$ must
       also be finite. By Lagrange's Theorem,
       $|\overline{a}| = |\cyc{\overline{a}}|$ divides
@@ -228,15 +237,5 @@
       Using the equality $\overline{a^{\varphi(n)}} = \overline{1}$,
       we conclude that $a^{\varphi(n)} \equiv 1$ (mod $n$), which is what we
       wanted to prove. \qed
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.4.02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[3.4.2]   Exhibit all 3 composition series for $Q_8$ and all 7 
-                  composition series for $D_8$. List the composition factors in
-                  each case.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.4.05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[3.4.5]   Prove that subgroups and quotient groups of a solvable group
-                  are solvable.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3.4.06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[3.4.6]   Prove part(1) of the Jordan-H\"{o}lder Theorem by induction on
-                  $|G|$.
 \end{enumerate}
 \end{document}
