@@ -1,0 +1,318 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath, array}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 590, Fall 2015\\Section 1 (9529)\\
+  HW \#05, DUE: 2015, October 05
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+\newcommand{\col}[2]{\left(\begin{tabular}{@{}c@{}}
+   $#1$ \\
+   $#2$  
+ \end{tabular}\right)}
+
+\newcommand{\li}[3]{\ell\left(\col{#1}{#2}, #3\right)}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\everymath{\displaystyle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the veracity or falsehood of each of the following statements.
+         For bonus, argue for those that you believe are true while providing a
+         counterexample for those that you believe are false. Here $A$ is an
+         $m \times n$ matrix with entries in the field $\F$. We let $r(A)$ be
+         the rank of $A$, which is the dimension of its row space, and also of
+         its column space.
+
+         \begin{enumerate}[start=0,label=\protect\circled{\arabic*}]
+            \item It is possible to have a perfect ternary (over $\Z_3)$ code of
+                  size 11 and dimension 6
+            \item $r(A) = m$ if and only if there exists a matrix $X$ such that
+                  $AX = I_m$.
+            \item $r(A) = n$ if and only if there exists a matrix $X$ such that
+                  $XA = I_n$.
+            \item If $A$ is real, $r(A) = r(AA^T)$
+            \item $r(AA^T) = r(A^TA)$.
+            \item If $m < n$, then $\det(A^TA) = 0$.
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}[start=0,label=\protect\circled{\arabic*}]
+         \item True.
+         \item True. This is so because $r(A) = m$ if and only if $A$ has
+               exactly $m$ linearly independent columns if and only if $Ax = r$
+               has a solution for all $r \in \R^n$  if and only if $AX = I_m$
+               for some $n \times m$ matrix $X$.
+               
+         \item True. We have that $r(A) = n$ if and only if $A$ has $n$
+               linearly independent rows if and only if $xA = r$ has a solution
+               for all $r \in \R^m$   if and only if $AX = I_n$
+               for some $n \times m$ matrix $X$.
+         \item True. Suppose $A$ is real. Let $x$ be in the nullspace of $A$;
+               thus $A^TAx = A^T(Ax) = A^T0 = 0$, so that $x$ is also in the
+               null space of $A^TA$. Now let $y$ be in the nullspace $A^TA$;
+               then it follows that $(Ay)^TAy = y^T(A^TAy) = y^T(0) = 0$, so
+               that $Ay = 0$; that is, $y$ is in the nullspace of $A$. We have
+               thus shown that the nullspace of $A$ and $A^TA$ are the same.
+               Observe that $A$ and $A^TA$ both have $n$ columns; since they
+               also have the same nullity, it follows by the Rank-Nullity
+               Theorem that they must also have the same rank. Thus
+               $r(A) = r(A^TA)$. If we replace $A$ by $A^T$, we shall obtain
+               $r(A^T) = r((A^T)^TA^T) = r(AA^T)$, and since $r(A) = r(A^T)$
+               (column rank = row rank), we conclude that $r(A) = r(AA^T)$.
+         \item If $A$ is real, then we showed in \circled{3} that
+               $r(AA^T) = r(A^TA)$. However, the equality does not hold if
+               $A$ is complex; for example, let $A = \left(\begin{tabular}{@{}cc@{}}
+                  1 & $i$ \\
+                  0 & 0
+               \end{tabular}\right)$. It follows that
+               $r(AA^T) = 0 \neq 1 = r(A^TA)$.
+               
+         \item False. Consider the $1 \times 2$ matrix $A = [1 \quad 2]$. We
+               have $\det(A^TA) = 5 \neq 0$.
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item \textbf{Collineations of Affine 3-Space.} As in the exam problem we
+         have the points $P$ and the lines $L$ of affine 3-space over a field
+         $\F$ of size $q$. A bijection $\alpha : P \rightarrow P$ is called a
+         collineation if for any line $\ell$, there exists a line $\ell_1$ such
+         that $\alpha(\ell) \subseteq \ell_1$.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Prove that the collineations form a subgroup of the group of
+                  all permutations of the points $P$.
+            \item Prove that if $\alpha$ is a collineation, then for any line
+                  $\ell$, $\alpha(\ell)$ is a line.
+            \item Let $p \in P$. Show that the translation:
+                  $T_p : P \rightarrow P$ defined by $T_p(u) = u + p$ is a
+                  collineation.
+            \item Decide if the following is a collineation:
+                  $(a \quad b \quad c) \mapsto (b \quad c \quad a)$ or not.
+         \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item \textbf{Proof.} Let $C$ be the set of collineations and let $id$
+               be the identity map on $P$. Given any $\ell \in L$, we have that
+               $id(\ell) = \ell \subseteq \ell$, so that $id \in C$. Now let
+               $\beta_1, \beta_2 \in C$ and $\ell_2 \in L$. By definition, there
+               exists $\ell_2'$ such that $\beta_2(\ell_2) \subseteq \ell_2'$.
+               Similarly, there exists $\ell_2''$ such that
+               $\beta_1(\ell_2') \subseteq \ell_2''$. Since
+               $\beta_2(\ell_2) \subseteq \ell_2'$ and
+               $\beta_1(\ell_2') \subseteq \ell_2''$, it follows that
+               $\beta_1(\beta_2(\ell_2)) \subseteq \ell_2''$, so that
+               $(\beta_1\circ\beta_2)(\ell_2) \subseteq \ell_2''$; we recall
+               that the composition of two bijections is also a bijection, so
+               that $\beta_1 \circ \beta_2$ is a bijection, and we thus conclude
+               that $\beta_1 \circ \beta_2 \in C$. Observe that since $P$ is
+               finite, $C$ must also be finte, and since $C$ is nonempty and
+               closed under function composition, then $C \le S_P$. \qed
+         \item Let $\alpha$ be a collineation and $\ell \in L$. By definition,
+               there exists $\ell_1 \in L$ such that
+               $\alpha(\ell) \subseteq \ell_1$. We claim that
+               $|\alpha(\ell)| = |\ell_1| = q$, so that
+               $\ell = \ell_1$ (since $\alpha(\ell) \subseteq \ell_1)$). Now we
+               want to show that every line in $L$ contains exactly $q$ points.
+               
+               \textbf{Proof.} Let $\ell' \in L$. By definition, there exists
+               $u, v \in P$, with $u \neq v$, such that
+               $\ell' = \{tu + (1 - t)v : t \in \F\}$. Now $|\ell'| = q$ if and
+               only if
+               $$t_1u + (1 - t_1)v = t_2u + (1 - t_2)v, \text{ for
+               some } t_1, t_2 \in \F,$$
+               then $t_1 = t_2$. So suppose that
+               $$su + (1 - s)v = tu + (1 - t)v, \text{ for some } s,t \in \F.$$
+               That is,
+               $$su + v - sv = tu + v - tv,$$
+               so that
+               $$(s-t)(u-v)=0.$$
+               Recall that $u \neq v$, so that $u - v \neq 0$; thus, we must
+               have that $s - t = 0$; that is, $s = t$. Thus, two different
+               elements in $\F$ determine two different points on $\ell'(u, v)$,
+               so that $|\ell'| = q$. Now since $\alpha$ is injective and
+               $|\ell| = q$, it follows $|\alpha(\ell)| = q$, and we conclude
+               that $\ell = \ell_1$. \qed
+         \item \textbf{Proof.} Let $p \in P$. Consider the translation
+               $$T_p : P \rightarrow P \text{ defined by } u \mapsto u + p.$$
+               The map $T_{-p} : P \rightarrow P$, $u \mapsto u - p$ is a
+               left and right inverse of $T_p$; thus, $T_p$ is a bijection. Now
+               let $\ell \in L$. Then there exist $u, v \in P$, with $u \neq v$,
+               such that $\ell = \{tu + (1-t)v : t \in \F\}$. Thus
+               \begin{align*}
+                  T_p(\ell) &= \{tu + (1-t)v + p : t \in \F\} \\
+                     &= \{tu + v - tv + p : t \in \F\} \\
+                     &= \{tu + v - tv + p + (tp - tp) : t \in \F\} \\
+                     &= \{t(u + p) + v + p - t(v + p) : t \in \F\} \\
+                     &= \{t(u + p) + (1-t)(v + p) : t \in \F\} \\
+                     &= \ell(u+p, v+p).                     
+               \end{align*}
+               Notice that the line $\ell(u+p, v+p)$ is well-defined since
+               $u \neq v$ if and only if $u + p \neq v + p$. Since $\ell$ was
+               arbitrarily chosen, it follows that $T_p$ maps every line in $L$
+               to another line. Thus $T_p$ is a collineation. \qed
+         \item Consider the map
+               $$\gamma : P \rightarrow P, \text{ defined by }
+                 (a \quad b \quad c) \mapsto (b \quad c \quad a).$$
+               We claim that this map is a collineation.
+               
+               \textbf{Proof.} The map $\gamma$ is a bijection because its left
+               and right inverse, $\gamma^{-1}$, given by
+               $$(a \quad b \quad c) \mapsto (c \quad a \quad b).$$
+               For some $u, v \in P$, where $u \neq v$, consider the line
+               $\ell(u, v)$. We can write
+               $$u = (u_1, u_2, u_3) \text{ and } v = (v_1, v_2, v_3),$$
+               so that
+               \begin{align*}
+                  \gamma(\ell(u, v)) &= \gamma(\{tu + (1-t)v : t \in \F\}) \\
+                     &= \gamma(\{t(u_1, u_2, u_3) +
+                           (1-t)(v_1, v_2, v_3) : t \in \F\}) \\
+                     &= \gamma(\{(tu_1+(1-t)v_1, tu_2+(1-t)v_2,
+                           tu_3+(1-t)v_3): t \in \F\}) \\
+                     &= \{(tu_2+(1-t)v_2, tu_3+(1-t)v_3,
+                        tu_1+(1-t)v_1): t \in \F\} \\
+                     &= \{(t(u_2, u_3, u_1) + (1-t)(v_2, v_3, v_1): t \in \F\}\\
+                     &= \ell((u_2, u_3, u_1), (v_2, v_3, v_1)).
+               \end{align*}
+               The line $\ell((u_2, u_3, u_1), (v_2, v_3, v_1))$ is well-defined
+               because $u \neq v$ if and only if $(u_1, u_2, u_3) \neq
+               (v_1, v_2, v_3)$ if and only if $(u_2, u_3, u_1) \neq
+               (v_2, v_3, v_1)$. Thus $\gamma$ maps lines to lines, so that it
+               is a collineation. \qed
+      \end{enumerate}
+   \item \textbf{The Affine 3-Space Again.} Three points are called collinear if
+         they lie on a line.
+
+         \begin{enumerate}[start=0,label=\protect\circled{\arabic*}]
+            \item Show that if $(a \quad b \quad c) \neq 0$, then
+                  $\{(p \quad q \quad r) : ap + bq + cr = 0\}$ is an affine
+                  plane.
+            \item Show that any three non collinear points lie on a unique
+                  plane.
+            \item Find the plane that contains $(1 \quad 0 \quad 0),
+                  (0 \quad 1 \quad 0), (1 \quad 1 \quad 0)$. \\
+                  
+                  \textit{Answer the following about 3-Space when $\F = \Z_3$}:
+            \item How many points are there?
+            \item How many points on a line?
+            \item How many lines through a point?
+            \item How many lines?
+            \item How many points and lines in an affine plane?            
+            \item How many affine planes are there?
+         \end{enumerate}
+         
+      \textbf{Proof.}
+         
+      \begin{enumerate}[start=0,label=\protect\circled{\arabic*}]
+            \item Let $(a \quad b \quad c)$ be a nonzero point in $P$. First we
+                  want to show that the set
+                  $$S = \{(p \quad q \quad r) : ap + bq + cr = 0\}$$
+                  is an affine set. So consider $u, v \in S$, where $u \neq v$.
+                  Let $x \in \ell(u, v)$. That is, $x = tu + (1-t)v$, for some
+                  $t \in \F$. So
+                  $$x = (x_1, x_2, x_3) = (tu_1 + (1-t)v_1,
+                    tu_2 + (1-t)v_2, tu_3 + (1-t)v_3 ),$$
+                  and we have that
+                  \begin{align*}
+                     ax_1 + bx_2 + cx_3 &= 
+                     a(tu_1 + (1-t)v_1) + b(tu_2 + (1-t)v_2) + c(tu_3 + (1-t)v_3)\\
+                     &= t(au_1+bu_2+cu_3)+av_1+bv_2+cv_3-t(av_1+bv_2+cv_3) \\
+                     &= t\cdot0 + 0 -t \cdot 0 = 0,
+                  \end{align*}
+                  so that $x \in S$, and thus $\ell(u, v) \subseteq S$. Clearly
+                  $S$ is not empty because it contains $(0, 0, 0)$. Since
+                  $(a \quad b \quad c)$ is not zero, at least one of $a$, $b$,
+                  and $c$ is not zero, so that at least one of
+                  $(1 \quad 0 \quad 0)$, $(0 \quad 1 \quad 0)$, and
+                  $(0 \quad 0 \quad 1)$ is not in $S$; thus $S \neq \F^3$. Now
+                  observe that the equation
+                  $$ap + bq + cr = 0$$
+                  (if viewed as a matrix $[a\quad b\quad c \quad | \quad 0]$)
+                  has only 1 pivot and two free variables; that is, there are
+                  $q^2$ solutions; but we already showed that a line has exactly
+                  $q$ points; thus $S \neq \ell(m, n)$, for every $m, n \in \F$.
+                  We have that shown that $S$ is an affine plane.
+            \item Let $r$, $s$, and $t$ be three noncollinear points. Let
+                  $a = (a_1, b_1, c_1) = r - s$ and
+                  $b = (a_2, b_2, c_2) = t - s$. The cross product of $a$ and
+                  $b$ is orthogonal to $a$ and $b$ if and only if $a$ is not a
+                  multiple of $b$ if and only if $r$, $s$, and $t$ are
+                  noncollinear points. Let $d = a \times b$, so that
+                  $$d = (b_1c_2 - b_2c_1, a_2c_1 - a_1c_2, a_1b_2 - a_2b_1).$$
+                  The points $r$, $s$, and $t$ are orthogonal to $d$; thus
+                  $r$, $s$, $t$ are in the plane
+                  $$\{p \in P : d \cdot p = 0\}.$$
+                  Now if we observe the solutions to a plane
+                  $$pa + qb + rc = 0$$
+                  for some nonzero $(a, b, c)$, we see that the solution
+                  space has dimension 2. So if $r$, $s$, and $t$ are on some
+                  plance $X$, then $X$ must contain $r - s$ and $t - s$; but
+                  $r - s$ and $t - s$ generate $X$, so that
+                  $X = \{p \in P : d \cdot p = 0\}$, and thus $r$, $s$, and $t$
+                  determine a unique plane.
+            \item We want nonzero $(a \quad b \quad c)$ such that
+                  \begin{align*}
+                     1 \cdot a + 0 \cdot b + 0 \cdot c &= 0 \\
+                     0 \cdot a + 1 \cdot b + 0 \cdot c &= 0 \\
+                     1 \cdot a + 1 \cdot b + 0 \cdot c &= 0.
+                  \end{align*}
+                  That is, $a = b = 0$ and $c$ has no restriction. Thus choose
+                  $(a \quad b \quad c)$ = $(0 \quad 0 \quad 1)$; it follows that
+                  the desired affine plane is
+                  $$\{(p \quad q \quad 0) : p, q \in \F\}.$$
+            \item There are $3^3 = 27$ points.
+            \item There are 3 points on a line.
+            \item For each point, exactly $\frac{3^3-1}{3-1} = 13$ lines must
+                  go through it.
+            \item There are $\frac{\D\binom{27}{2}}{3} = 117$ lines.
+            \item There are $3^2 = 9$ points on a plane, and thus
+                  $\frac{\D\binom{9}{2}}{3} = 12$ lines on a plane.
+            \item There are $(3^3-1)/(3-1) = 13$ affine planes.
+      \end{enumerate}
+\end{enumerate}
+\end{document}
