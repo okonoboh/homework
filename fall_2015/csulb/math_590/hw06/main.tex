@@ -1,0 +1,229 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath, array}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 590, Fall 2015\\Section 1 (9529)\\
+  HW \#06, DUE: 2015, October 12
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+\newcommand{\col}[2]{\left(\begin{tabular}{@{}c@{}}
+   $#1$ \\
+   $#2$  
+ \end{tabular}\right)}
+
+\newcommand{\li}[3]{\ell\left(\col{#1}{#2}, #3\right)}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\everymath{\displaystyle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Consider the veracity or falsehood of each of the following statements.
+         For bonus, argue for those that you believe are true while providing a
+         counterexample for those that you believe are false.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item A matrix cannot be both a generating matrix for a code and a
+                  parity-check matrix for the same code.
+            \item If vectors in $\Z^n$ are independent over $\Q$, and none of
+                  them mod out to 0 when viewed mod 2, then the vectors mod 2
+                  are also independent.
+            \item If $A$ is an invertible matrix in $\Z_p$, then $A$ is
+                  invertible when viewed as in $\Q$.
+            \item If $A$ is an invertible matrix in $\Z$, then $A$ is invertible
+                  in $\Z_p$ for any $p$.
+            \item The code in Quiz 5 is a self-dual code.
+         \end{enumerate}
+
+      \textbf{Answer.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item False.
+
+               \textbf{Counterexample.} Consider the code   
+               $$V = \{(0 \quad 0), (1 \quad 1)\} \le \Z_2^2.$$
+               The matrix $M = \left(\begin{tabular}{@{}cc@{}}
+                  1 & 1
+               \end{tabular}\right)$ is both a generating matrix and
+               parity-check for $V$.
+         \item False.
+
+               \textbf{Counterexample.} The vectors $(1 \quad 1)$ and
+               $(3 \quad 1)$ are linearly independent over $\Q$. But they are
+               equal when viewed mod 2, so that they are linearly dependent when
+               viewed mod 2.
+         \item True. 
+
+               \textbf{Proof.} Suppose that $A$ is an invertible matrix in
+               $\Z_p$, for some $p \in \N$. Let $\det(A) \equiv k$ (mod $p$), 
+               where $0 \le k \le p -1$. Since $A$ is invertible, it follows
+               that $0 < k \le p - 1$, so that if $A$ is viewed in $\Q$, we 
+               would have $\det(A) = k + pn$ for some integer $n$. If
+               $k + pn = 0$, then that would imply that $k \equiv 0$ (mod $p$), 
+               a contradiction; thus $k + pn \neq 0$, and it follows that
+               $\det(A) \neq 0$ in $\Q$, so that $A$ is invertible in $\Q$. \qed
+         \item False.
+
+               \textbf{Counterexample.} Let $p$ be a positive integer. Consider
+               the $p \times p$ diagonal matrix $A$, with 1s on the main
+               diagonal except at the $(1, 1)$ entry, where its value is $p$.
+               Now, in $\Z$, we have $\det(A) = p \neq 0$, so that $A$ is
+               invertible in $\Z$; however, we have that
+               $\det(A) = p \equiv 0$ (mod $p$), so that $A$ has a zero
+               determinant in $\Z_p$, and is therefore singular in $\Z_p$.
+         \item TODO
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Recall that in the exam we investigated graphs whose adjacency matrix
+         $A$ satisfied $A^2 + A = (k - 1)I + J$ and was regular of degree $k$.
+         It was shown that $\sqrt{4k-3} = d$ could only be 3, 5, 15. Find the
+         size and the spectrum when $d = 15$.
+
+      \textbf{Solution.} We obtain $k = 57$ from the equation
+      $\sqrt{4k-3} = 15$, so that $A$ is a $3250 \times 3250$ matrix. Since the
+      spectrum of $J$ is $3250^{(1)}, 0^{(3249)}$, it follows that the spectrum 
+      of $A^2 + A$ is $3306^{(1)}, 56^{(3249)}$.
+      That is, one of the eigenvalue of $A$ must satisfy $\mu^2+\mu=3306$. We 
+      know that $AJ = 57J$, so this eigenvalue must be 57. The other eigenvalues 
+      must satisfy $\lambda^2+\lambda = 56$; thus $\lambda = -8$ or
+      $\lambda = 7$. Let $m$ and $n$ be the multiplicities of $-8$ and $7$ 
+      respectively. It follows that
+      $$m + n = 3249 \text{ and } 57 - 8m + 7n = 0.$$
+      Solving these equations will yield $m = 1520$ and $n = 1729$. Thus the 
+      spectrum of $A$ is $57^{(1)}, -8^{(1520)}, 7^{(1729)}$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Define a family of codes of length $2^k$ (over $\Z_2$) as follows.
+         $V_k$ is defined recursively as follows:
+
+         $V_1 = \Z_2^2$ and if $V_n$ is defined, then $V_{n+1} = \{(\textbf{u} 
+          \quad\textbf{u}), (\textbf{u}\quad\textbf{u}+\textbf{1}) :
+          \textbf{u} \in V_n\}$.
+
+         \begin{enumerate}[label=\protect\circled{\arabic*}]
+            \item Give the elements of $V_2$ and $V_3$.
+            \item Prove that $V_k$ is in fact linear.
+            \item Find the dimension of $V_k$.
+            \item Find the weight enumerator of $V_k$.
+         \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item Given that $V_1 = \{(0 \quad 0), (0 \quad 1), (1 \quad 0),
+               (1 \quad 1)\}$. We have that
+               \begin{equation*}
+                  \begin{split}
+                     V_2 = \{&(0 \quad 0 \quad 0 \quad 0),
+                           (0 \quad 0 \quad 1 \quad 1),
+                           (0 \quad 1 \quad 0 \quad 1),
+                           (0 \quad 1 \quad 1 \quad 0), \\
+                           &(1 \quad 0 \quad 1 \quad 0),
+                            (1 \quad 0 \quad 0 \quad 1),
+                            (1 \quad 1 \quad 1 \quad 1),
+                            (1 \quad 1 \quad 0 \quad 0)\}
+                  \end{split}
+               \end{equation*}
+               \begin{equation*}
+                  \begin{split}
+                     V_3 = \{&(0 \quad 0 \quad 0 \quad 0 \quad
+                               0 \quad 0 \quad 0 \quad 0), (0 \quad 0 \quad
+                               0 \quad 0 \quad 1 \quad 1 \quad 1 \quad 1) \\
+                             &(0 \quad 0 \quad 1 \quad 1 \quad
+                               0 \quad 0 \quad 1 \quad 1), (0 \quad 0 \quad
+                               1 \quad 1 \quad 1 \quad 1 \quad 0 \quad 0) \\
+                             &(0 \quad 1 \quad 0 \quad 1 \quad
+                               0 \quad 1 \quad 0 \quad 1), (0 \quad 1 \quad
+                               0 \quad 1 \quad 1 \quad 0 \quad 1 \quad 0) \\
+                             &(0 \quad 1 \quad 1 \quad 0 \quad
+                               0 \quad 1 \quad 1 \quad 0), (0 \quad 1 \quad
+                               1 \quad 0 \quad 1 \quad 0 \quad 0 \quad 1) \\
+                             &(1 \quad 0 \quad 1 \quad 0 \quad
+                               1 \quad 0 \quad 1 \quad 0), (1 \quad 0 \quad
+                               1 \quad 0 \quad 0 \quad 1 \quad 0 \quad 1) \\
+                             &(1 \quad 0 \quad 0 \quad 1 \quad
+                               1 \quad 0 \quad 0 \quad 1), (1 \quad 0 \quad
+                               0 \quad 1 \quad 0 \quad 1 \quad 1 \quad 0) \\
+                             &(1 \quad 1 \quad 1 \quad 1 \quad
+                               1 \quad 1 \quad 1 \quad 1), (1 \quad 1 \quad
+                               1 \quad 1 \quad 0 \quad 0 \quad 0 \quad 0) \\
+                             &(1 \quad 1 \quad 0 \quad 0 \quad
+                               1 \quad 1 \quad 0 \quad 0), (1 \quad 1 \quad
+                               0 \quad 0 \quad 0 \quad 0 \quad 1 \quad 1)\}
+                  \end{split}
+               \end{equation*}
+         \item We shall proceed by induction on $k$ to show that
+               \begin{equation} \label{3_1}
+                  V_k \le \Z_2^{2^k}.
+               \end{equation}
+               By definition, we have that $V_1 = \Z_2^2$, so that \eqref{3_1} 
+               holds whenever $k$ is 1. Now suppose that \eqref{3_1} holds for
+               some positive integer $j$. To complete the proof, we must now
+               show that $V_{j+1}$ is a linear code; that is, we must show that
+               $V_{j+1} \le \Z_2^{2^{j+1}}$. Since
+               $(\underbrace{0 \quad 0 \cdots 0}_{2^j \text{ times }}) \in V_j$, 
+               it follows by recursive definition that
+               $$(\underbrace{0 \quad 0 \cdots 0}_{2^j \text{ times }}
+                  \underbrace{0 \quad 0 \cdots 0}_{2^j \text{ times }}) = 
+                  (\underbrace{0 \quad 0 \cdots 0}_{2^{j+1} \text{ times }})
+                  \in V_{j+1},$$
+               so that $V_{j+1}$ contains the 0 vector. Now $V_{j+1}$ is
+               trivially closed under scalar multiplication since
+               $\Z_2 = \{0, 1\}$. All that remains is to show closure under
+               addition, so let $\textbf{a}, \textbf{b} \in V_{j+1}$. That is,
+               there exist $\textbf{u} = (u_1 \cdots u_j)$,
+               $\textbf{v} = (v_1 \cdots v_j) \in V_j$ such that
+               $$\textbf{a} = (\textbf{u} \quad \textbf{u}) \text{ or }
+                 \textbf{a} = (\textbf{u} \quad \textbf{u} + \textbf{1})$$
+               and
+               $$\textbf{b} = (\textbf{v} \quad \textbf{v}) \text{ or }
+                 \textbf{b} = (\textbf{v} \quad \textbf{v} + \textbf{1}).$$
+
+               \textbf{Case 1.} $\textbf{a} = (\textbf{u} \quad \textbf{u})$ and
+               $\textbf{b} = (\textbf{v} \quad \textbf{v})$. It follows that
+               $$\textbf{a} + \textbf{b} = (\textbf{u}+\textbf{v} \quad
+               \textbf{u}+\textbf{v})$$
+      \end{enumerate}
+\end{enumerate}
+\end{document}
