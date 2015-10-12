@@ -90,10 +90,15 @@
                parity-check for $V$.
          \item False.
 
-               \textbf{Counterexample.} The vectors $(1 \quad 1)$ and
-               $(3 \quad 1)$ are linearly independent over $\Q$. But they are
-               equal when viewed mod 2, so that they are linearly dependent when
-               viewed mod 2.
+               \textbf{Counterexample.} Let $\textbf{a}, \textbf{b} \in \Z^n$
+               such that
+               $$\textbf{a} = (3 \quad 1 \quad 1 \quad \cdots \quad 1)
+                 \text{ and }
+                 \textbf{b} = (1 \quad 1 \quad 1 \quad \cdots \quad 1).$$
+               The vectors \textbf{a} and \textbf{b} are linearly independent
+               in $\Z_n$; however, observe that both vectors are equal when
+               viewed mod 2; that is, they are not independent when viewed mod
+               2.
          \item True. 
 
                \textbf{Proof.} Suppose that $A$ is an invertible matrix in
@@ -113,7 +118,12 @@
                invertible in $\Z$; however, we have that
                $\det(A) = p \equiv 0$ (mod $p$), so that $A$ has a zero
                determinant in $\Z_p$, and is therefore singular in $\Z_p$.
-         \item TODO
+         \item False. Let $V$ be the given code. If $V$ were self-dual, then we
+               would have $V = V^{\perp}$; however,
+               $(1 \quad 0 \quad 0 \quad 0 \quad 1 \quad 1)$ and
+               $(0 \quad 1 \quad 0 \quad 1 \quad 0 \quad 1)$ are nonorthogonal
+               vectors in $V$; that is, they are not in $V^{\perp}$ and it
+               follows that $V \neq V^{\perp}$, so that $V$ is not self-dual.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Recall that in the exam we investigated graphs whose adjacency matrix
@@ -152,7 +162,7 @@
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
          \item Given that $V_1 = \{(0 \quad 0), (0 \quad 1), (1 \quad 0),
-               (1 \quad 1)\}$. We have that
+               (1 \quad 1)\}$, and using the recursive definition, we have that
                \begin{equation*}
                   \begin{split}
                      V_2 = \{&(0 \quad 0 \quad 0 \quad 0),
@@ -165,6 +175,7 @@
                             (1 \quad 1 \quad 0 \quad 0)\}
                   \end{split}
                \end{equation*}
+               and
                \begin{equation*}
                   \begin{split}
                      V_3 = \{&(0 \quad 0 \quad 0 \quad 0 \quad
