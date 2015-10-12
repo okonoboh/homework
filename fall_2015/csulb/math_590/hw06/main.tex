@@ -208,22 +208,36 @@
                   \underbrace{0 \quad 0 \cdots 0}_{2^j \text{ times }}) = 
                   (\underbrace{0 \quad 0 \cdots 0}_{2^{j+1} \text{ times }})
                   \in V_{j+1},$$
-               so that $V_{j+1}$ contains the 0 vector. Now $V_{j+1}$ is
-               trivially closed under scalar multiplication since
+               so that $V_{j+1}$ contains the \textbf{0} vector. Now $V_{j+1}$
+               is trivially closed under scalar multiplication since
                $\Z_2 = \{0, 1\}$. All that remains is to show closure under
                addition, so let $\textbf{a}, \textbf{b} \in V_{j+1}$. That is,
-               there exist $\textbf{u} = (u_1 \cdots u_j)$,
-               $\textbf{v} = (v_1 \cdots v_j) \in V_j$ such that
+               there exist $\textbf{u}, \textbf{v} \in V_j$ such that
                $$\textbf{a} = (\textbf{u} \quad \textbf{u}) \text{ or }
                  \textbf{a} = (\textbf{u} \quad \textbf{u} + \textbf{1})$$
                and
                $$\textbf{b} = (\textbf{v} \quad \textbf{v}) \text{ or }
                  \textbf{b} = (\textbf{v} \quad \textbf{v} + \textbf{1}).$$
 
-               \textbf{Case 1.} $\textbf{a} = (\textbf{u} \quad \textbf{u})$ and
-               $\textbf{b} = (\textbf{v} \quad \textbf{v})$. It follows that
-               $$\textbf{a} + \textbf{b} = (\textbf{u}+\textbf{v} \quad
-               \textbf{u}+\textbf{v})$$
+               It follows that
+               $$\textbf{a} + \textbf{b} = (\textbf{u}+\textbf{u} \quad
+                 \textbf{v} + \textbf{v}) \text{ or } (\textbf{u}+\textbf{v} 
+                 \quad \textbf{u} + \textbf{v} + \textbf{1}).$$
+
+               Since $V_j$ is a vector space, we have that
+               $\textbf{u} + \textbf{v} \in V_j$; thus, by the recursive
+               definition, it follows that both
+               $(\textbf{u}+\textbf{v} \quad \textbf{u}+\textbf{v})$ and
+               $(\textbf{u}+\textbf{v} \quad \textbf{u}+\textbf{v} +\textbf{1})$ 
+               are in $V_{j+1}$, so that $\textbf{a} + \textbf{b} \in V_{j+1}$;
+               that is, $V_{j+1}$ is closed under addition, and we conclude that
+               $V_{j+1} \le \Z_2^{2^{j+1}}$. This says that \eqref{3_1} also
+               holds for $j + 1$, so that, by induction, it holds for all each 
+               positive integer $k$. We have thus shown that if $k \in \N$, then
+               $V_k$ is a linear code.
+         \item We have $|V_k| = 2^{k+1} = |\Z_2|^{k+1}$; thus
+               $\dim(V_k) = k + 1$.
+         \item $w_{V_k}(x) = 1 + (2^{k+1} - 2)x^{2^{k-1}} + x^{2^k}$.
       \end{enumerate}
 \end{enumerate}
 \end{document}
