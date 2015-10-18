@@ -1,0 +1,117 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  CECS 540, Fall 2015\\Section 3 (4265)\\
+  HW \#2
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\everymath{\displaystyle}
+\newcommand{\CYC}[1]{\left\langle #1 \right\rangle}
+%\setcounter{section}{-1}
+
+\setlength{\tabcolsep}{0.5em} % for the horizontal padding
+{\renewcommand{\arraystretch}{1.5}% for the vertical padding
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[]
+   \item $$
+         \begin{tabular}{|l|p{0.7\linewidth}|} \hline
+            \textbf{Use Case:} & Create New Account \\ \hline
+            \textbf{Primary Actor:} & Server \\ \hline
+            \textbf{Goal:} & Creates a new account for a potential user \\ \hline
+            \textbf{Precondition:} & The user has succesfully connected to the
+            server. \\ \hline
+            \textbf{Trigger} & Upon connecting to the Server, the user decides
+            to create a new account, so that they can play a game. \\ \hline
+            \textbf{Scenario:} &
+            \begin{enumerate}[label=(\arabic*)]
+               \item User executes Blackjack program
+               \item Program connects to Server
+               \item User selects ``Create New Account" option
+               \item Server prompts user for username and password
+               \item Server checks to see if username is not taken.
+               \item If username is taken, Server tells user to choose a 
+                     different username
+               \item Server attempts to create a new account with the given
+                     username and password, and then adds the account to the
+                     database.
+               \item Server notifies the user of success or failure
+            \end{enumerate} \\ \hline
+            \textbf{Postcondition:} & A new account has been created \\ \hline
+            \textbf{Exceptions:} & Server \\ \hline
+         \end{tabular} 
+         $$
+   \item $$
+         \begin{tabular}{|l|p{0.7\linewidth}|} \hline
+            \textbf{Use Case:} & Login \\ \hline
+            \textbf{Primary Actor:} & Server \\ \hline
+            \textbf{Goal:} & Logs a user into the game \\ \hline
+            \textbf{Precondition:} & The user has succesfully connected to the
+            server. \\ \hline
+            \textbf{Trigger} & Upon connecting to the Server, the user decides
+            to create a new account, so that they can play a game. \\ \hline
+            \textbf{Scenario:} &
+            \begin{enumerate}[label=(\arabic*)]
+               \item User executes Blackjack program
+               \item Program connects to Server
+               \item User selects ``Create New Account" option
+               \item Server prompts user for username and password
+               \item Server checks to see if username is not taken.
+               \item If username is taken, Server tells user to choose a 
+                     different username
+               \item Server attempts to create a new account with the given
+                     username and password, and then adds the account to the
+                     database.
+               \item Server notifies the user of success or failure
+            \end{enumerate} \\ \hline
+            \textbf{Postcondition:} & A new account has been created \\ \hline
+            \textbf{Exceptions:} & Server \\ \hline
+         \end{tabular} 
+         $$
+\end{enumerate}
+\end{document}
