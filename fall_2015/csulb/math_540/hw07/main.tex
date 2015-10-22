@@ -85,7 +85,8 @@
       let $Z = \{1, (1\;2)(3\;4)\} \le V$; since $V$ is abelian, all its 
       subgroups must be normal, so that $Z \trianglelefteq V$. Since $|Z/{1}|$, 
       $|V/Z|$, and $|A_4/V|$ are all prime, it follows that $Z/{1}$, $V/Z$, and 
-      $A_4/V$ are all simple groups; thus we have the composition series
+      $A_4/V$ are all simple groups; thus we have the composition series for
+      $A_4$:
       $$\{1\} \trianglelefteq Z \trianglelefteq V \trianglelefteq A_4.$$
       By Corollary 3.10, it follows that $Z/{1}$, $V/Z$, and $A_4/V$ are also
       cyclic, and thus, abelian. Hence, using the composition series above, we
@@ -166,7 +167,79 @@
       $g \in G$ and $n \in N$, so we conclude by Theorem 6 (5) that
       $N \trianglelefteq G$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%ExtraC%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[Extra Credit]  Prove part (1) of the Jordan-H$\ddot{\text{o}}$lder Theorem by induction
-                        on $|G|$.
+   \item[Extra Credit]  Prove part (1) of the Jordan-H$\ddot{\text{o}}$lder
+                        Theorem by induction on $|G|$.
+                        
+      \textbf{Proof.} For a positive integer $n \ge 2$, consider the statement
+      \begin{equation*}
+         P(n) := \text{ If $G$ is a group, with $|G| = n$, then $G$ has a
+         composition series}.
+      \end{equation*}
+      We shall show by Strong Induction that $P(n)$ holds for all $n \ge 2$. So
+      we have:
+      
+      \textbf{Base Case.} $n = 2$. Let $G$ be a group of order 2. Since $G$ has
+      prime order, it follows that it is simple; thus $G/\{1\}$ is also simple
+      because $G/\{1\} \cong G$, and we have the following composition series
+      for $G$:
+      $$\{1\} \trianglelefteq G.$$
+      That is, $P(2)$ is true. Also note that $P(3)$ holds for the same reason.
+      
+      \textbf{Inductive Hypothesis.} Suppose that
+      $$P(2), P(3), \ldots, P(k)$$
+      all hold for some positive integer $k \ge 3$. To complete the complete the
+      proof, we must now show that $P(k + 1)$ also holds. So let $H$ be a group
+      of order $k + 1$. If $H$ is simple, we are done because
+      $$\{1\} \trianglelefteq H$$
+      is a composition series for $H$; so suppose that $H$ is not simple. It
+      follows by definition that there exists $N \trianglelefteq H$ such that
+      $N \neq \{1\}$ and $N \neq H$. Since $N$ is a proper nontrivial subgroup
+      of $H$, we have that $2 \le |N| < k + 1$. By Lagrange's Theorem we know
+      that $N$ has at most half the elements of $H$. So we have that
+      $2 \le |N| \le  (k+1)/2$. Let us now investigate the following possible
+      cases:
+      
+      \textbf{Case 1.} \textit{$H/N$ is simple.} Since
+      $2 \le |N| \le  (k+1)/2 < k$, it follows by the Inductive Hypothesis that 
+      $N$ has a composition series
+      $$\{1\} = H_1 \trianglelefteq H_2 \trianglelefteq \cdots \trianglelefteq
+        H_r = N,$$
+      for some positive integer $r$. Thus
+      $$H_1 \trianglelefteq H_2 \trianglelefteq \cdots \trianglelefteq
+        H_r \trianglelefteq H$$
+      is a composition series for $H$.
+      
+      \textbf{Case 2.} \textit{$H/N$ is not simple.} Since
+      $2 \le |N| \le  (k+1)/2$, it follows that
+      $$2 \le |H/N| = (k+1)/|N| \le (k+1)/2 < k.$$
+      Thus the Inductive Hypothesis tells us that $H/N$ has a composition series
+      $$\{1\} = K_1 \trianglelefteq K_2 \trianglelefteq \cdots \trianglelefteq
+        K_s = H/N,$$
+      for some positive integer $s$. By the Fourth Isomorphism Theorem, there
+      exist subgroups $A_i$ containing $N$ such that $A_i/N = K_i$. Thus the
+      composition series for $H/N$ becomes:
+      $$\{1\} = A_1/N \trianglelefteq A_2/N \trianglelefteq \cdots \trianglelefteq
+        A_s/N,$$
+      where $A_1 = N$ and $A_s = H$. Now since $A_{s-1}/N$ is normal in $H/N$,
+      it follows by the Fourth Isomorphism Theorem (5) that $A_{s-1}$ is normal
+      in $H$. So we have that $N \trianglelefteq H$,
+      $A_{s-1} \trianglelefteq H$, and $N \le A_{s-1}$; that is,
+      $(H/N)/(A_{s-1}/N) \cong H/A_{s-1}$ by the Third Isomorphism Theorem. But
+      $(H/N)/(A_{s-1}/N)$ is a simple group (by definition of a composition
+      series), so that $H/A_{s-1}$ is also simple. If $|A_{s-1}| = 1$, then
+      $H/A_{s-1} \cong H$, a contradiction since we assumed that $H$ is not
+      simple. If, however, $|A_{s-1}| = k + 1$, then $H/A_{s-1} \cong \{1\}$,
+      so that $H/A_{s-1}$ cannot be simple, another contradiction. Thus
+      $2 \le A_{s-1} \le k$. It follows by the Inductive Hypothesis that
+      $A_{s-1}$ has a composition series
+      $$\{1\} = L_1 \trianglelefteq L_2 \trianglelefteq \cdots \trianglelefteq
+        L_t = A_{s-1},$$
+      for some positive integer $t$. Thus
+      $$L_1 \trianglelefteq L_2 \trianglelefteq \cdots \trianglelefteq
+        L_t \trianglelefteq H$$
+      is a composition series for $H$. \\
+      
+      We have shown that in any case $P(k+1)$ is true and we conclude by
+      mathematical induction that $P(n)$ is true for all $n \ge 2$. \qed
 \end{enumerate}
 \end{document}
