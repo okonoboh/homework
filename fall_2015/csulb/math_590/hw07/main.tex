@@ -60,6 +60,21 @@
 \begin{document}
 \begin{enumerate}[label=\protect\circled{\arabic*}]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[\textbf{Lemma 1.}]   If $H$ is a subgroup of some group $G$ and we have
+                              that $gHg^{-1} \subseteq H$ for all $g \in G$,
+                              then $H \trianglelefteq G$.
+                              
+      \textbf{Proof.} Let $G$ be a group. Suppose $H \le G$ and
+      $xHx^{-1} \subseteq H$ for all $x \in G$. Let $g \in G$. We want to show
+      that $gH = Hg$. Let $y_1 \in gH$, so that $y_1 = gh_1$ for some
+      $h_1 \in H$. By our hypothesis, we must have that $gh_1g^{-1} = h_2$ for
+      some $h_2 \in H$, so that $y_1 = gh_1 = h_2g \in Hg$; that is,
+      $gH \subseteq Hg$. Similarly, if we let $y_2 \in Hg$, so that $y_2 = h_3g$
+      for some $h_3 \in H$. Then, by hypothesis,
+      $g^{-1}h_3g = g^{-1}h_3(g^{-1})^{-1} = h_4$ for some $h_4 \in H$. That is,
+      $y_2 = h_3g = gh_4 \in gH$, and thus, $Hg \subseteq gH$, so that
+      $gH = Hg$. Hence $xH = Hx$ for all $x \in G$; that is, $H$ is normal in
+      $G$. \qed
    \item Consider the veracity or falsehood of each of the following statements.
          For bonus, argue for those that you believe are true while providing a
          counterexample for those that you believe are false. $G$, $K$ are
@@ -81,20 +96,185 @@
       \textbf{Answer.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item 
+         \item True.
+         
+               \textbf{Proof.} We have $\alpha(1) = 1$, so that
+               $1 \in \text{ker}(\alpha)$; that is, $\text{ker}(\alpha)$ is
+               nonempty. If $a, b \in \text{ker}(\alpha)$, then
+               $$\alpha(ab^{-1}) = \alpha(a)\alpha(b)^{-1} = 1 \cdot 1,$$
+               so that $ab^{-1} \in \text{ker}(\alpha)$, and we conclude that
+               the kernel of $\alpha$ is a subgroup of $G$. Let $g \in G$ and
+               $n \in \text{ker}(\alpha)$. It follows that
+               $$\alpha(gng^{-1}) = \alpha(g)\alpha(n)\alpha(g^{-1}) = 
+                 \alpha(g)1\alpha(g)^{-1} = \alpha(g)\alpha(g)^{-1} = 1;$$
+               that is, $gng^{-1} \in \text{ker}(\alpha)$. Since $g$ and $n$
+               were arbitrarily chosen, we conclude that
+               $g\text{ker}(\alpha)g^{-1} \subseteq \text{ker}(\alpha)$ for all
+               $g \in G$, so that $\text{ker}(\alpha) \trianglelefteq G$ by
+               Lemma 1. \qed
+         \item False.
+         
+               \textbf{Counterexample.} Let $D_6 = \{1, r, r^2, s, sr, sr^2\}$
+               denote the group of isometries of a triangle. Consider the map
+               $\varphi : \Z \rightarrow D_6$, defined by
+               $\text{even} \mapsto 1$, $\text{odd} \mapsto s$. First we shall
+               show that $\varphi$ is a homomorphism; to that end, we let
+               $z_1, z_2 \in \Z$, and investigate the possible cases:
+               
+               \textbf{Case 1.} $z_1$ and $z_2$ are both even. Thus $z_1 + z_2$
+               is even and it follows that
+               $$\varphi(z_1 + z_2) = 1 = 1 \circ 1 =
+                 \varphi(z_1)\circ\varphi(z_2).$$
+               
+               \textbf{Case 2.} $z_1$ and $z_2$ are both odd. Thus $z_1 + z_2$
+               is even and it follows that
+               $$\varphi(z_1 + z_2) = 1 = s \circ s =
+                 \varphi(z_1)\circ\varphi(z_2).$$
+               
+               \textbf{Case 3.} $z_1$ is even and $z_2$ is odd.
+               Thus $z_1 + z_2$ is odd and it follows that
+               $$\varphi(z_1 + z_2) = s = 1 \circ s =
+                 \varphi(z_1)\circ\varphi(z_2).$$
+               
+               \textbf{Case 4.} $z_1$ is odd and $z_2$ is even. Interchange the
+               roles of $z_1$ and $z_2$ in Case 3 to conclude that
+               $$\varphi(z_1 + z_2) = \varphi(z_1)\circ\varphi(z_2).$$
+               
+               It follows from above that
+               $\varphi(x + y) = \varphi(x) \circ \varphi(y)$ for all
+               $x, y \in \Z$, so that $\varphi$ is a homomorphism. Clearly
+               $\text{Im}(\varphi) = \{1, s\}$; since
+               $$r\{1, s \}r^{-1} = \{r1r^{-1}, rsr^{-1}\} = \{1, sr\} \neq
+               \{1, s\},$$
+               it follows that $r$ does not normalize the subgroup $\{1, s\}$.
+               Thus $\{1, s\}$ is not normal in $D_6$.
+         \item True.
+         
+               \textbf{Proof.} Suppose $H$ is normal in $G$. To complete the
+               proof, it suffices to show that the operation is well-defined;
+               that is, suppose that for some $g_1, g_2, g_3, g_4 \in G$, we
+               have $Hg_1 = Hg_3$ and $Hg_2 = Hg_4$; we must show that
+               $H(g_1g_2) = H(g_3g_4)$. Now let $x \in H(g_1g_2)$, so that
+               $x = h_1g_1g_2$ for some $h_1 \in H$. Observe that
+               $h_1g_1 \in  Hg_1$ and thus we must have that $h_1g_1 \in Hg_3$
+               because $Hg_1 = Hg_3$; so we can write $h_1g_1 = h_2g_3$ for some
+               $h_2 \in H$. Similarly we have that $g_2 = 1g_2 \in Hg_2$, so
+               that $g_2 \in Hg_4$ since $Hg_2 = Hg_4$; that is, $g_2 = h_3g_4$
+               for some $h_3 \in H$. Putting it together, we get
+               $$x = h_1g_1g_2 = h_2g_3h_3g_4.$$
+               Since $H$ is normal in $G$, it must be the case that
+               $g_3H = Hg_3$; thus $g_3h_3 = h_4g_3$ for some $h_4 \in H$,
+               and thus, $x = h_2g_3h_3g_4 = (h_2h_4)g_3g_4 \in H(g_3g_4)$. 
+               That is, $H(g_1g_2) \subseteq H(g_3g_4)$. By the arbitrariness of
+               $g_1$, $g_2$, $g_3$, and $g_4$, we can also conclude that
+               $H(g_3g_4) \subseteq H(g_1g_2)$, so that $H(g_1g_2) = H(g_3g_4)$.
+               That is, the operation is independent of the choice of a
+               representative in a right coset, so that the operation is
+               well-defined. \qed
+         \item True.
+         
+               \textbf{Proof.} Suppose $\alpha$ is surjective and $H$ is normal
+               in $G$. First we recall that homomorphisms map subgroups to
+               subgroups; thus $\alpha(H) \le K$. Now let $k \in K$. Since
+               $\alpha$ is onto, there exists $g \in G$ such that
+               $\alpha(g) = k$. Now let $y \in \alpha(H)$; that is,
+               $y = \alpha(h)$ for some $h \in H$. So we have that
+               $$kyk^{-1} = \alpha(g)\alpha(h)\alpha(g)^{-1} =
+               \alpha(ghg^{-1}).$$
+               Since $H$ is normal in $G$, it follows that $g$ normalizes $H$;
+               that is, $gHg^{-1} = H$, and we have that $ghg^{-1} \in H$, so
+               that $\alpha(ghg^{-1}) \in \alpha(H)$; thus
+               $k\alpha(H)k^{-1} \subseteq \alpha(H)$ for all $k \in K$, and we
+               conclude by Lemma 1 that $\alpha(H)$ is normal in $K$. \qed
+         \item \textbf{Proof.} Suppose $N$ is normal in $K$. We first recall
+               that the pullback of a subgroup of a homomorphism is also a
+               subgroup; thus $\alpha^{-1}(N) \le G$. So let $g \in G$ and
+               $y \in \alpha^{-1}(N)$. We have that $\alpha(g) \in K$, so since
+               $N \trianglelefteq K$, it follows that $\alpha(g)$ normalizes
+               $N$, so that $\alpha(g)N\alpha(g)^{-1} = N$. That is,
+               $\alpha(gyg^{-1}) = \alpha(g)\alpha(y)\alpha(g)^{-1} \in N$, so
+               that $gyg^{-1} \in \alpha^{-1}(N)$, and thus,
+               $g\alpha^{-1}(N)g^{-1} \subseteq \alpha^{-1}(N)$ for all 
+               $g \in G$. It follows by Lemma 1 that $\alpha^{-1}(N)$ is normal
+               in $G$. \qed
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $H$ be a subgroup of $G$. The normalizer of $H$ in $G$, is
          defined by $N_G(H) = \{g \in G : Hg = gH\}$.
 
          \begin{enumerate}[label=\protect\circled{\arabic*}]
-            \item $H \le N_g(H) \le G$.
+            \item $H \le N_G(H) \le G$.
             \item Prove that $N_G(H)$ is the largest subgroup of $G$ in which
                   $H$ is normal.
             \item Show that if $|G| = 2|H|$, then $N_G(H) = G$.
-            \item[\text{Bonus.}] Give an example where $|G| = 3|H|$ and
+            \item[\textbf{Bonus.}] Give an example where $|G| = 3|H|$ and
                   $N_G(H) = H$.
          \end{enumerate}
+         
+      \textbf{Solution.}
+      
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item \textbf{Proof.} First, we want to show that $N_G(H) \le G$. The
+               identity element, 1, is a member of $N_g(H)$ because
+               $1H = H = H1$. Now let $x, y \in N_G(H)$. To complete the proof,
+               it suffices to show that $xy^{-1} \in N_G(H)$. That is, we must
+               show that $Hxy^{-1} = xy^{-1}H$. Now let $z_1 \in Hxy^{-1}$, so
+               that $z_1 = h_1xy^{-1}$ for some $h_1 \in H$. Since $x$
+               normalizes $H$, it follows that $Hx = xH$; thus $h_1x = xh_2$ for
+               some $h_2 \in H$. Similarly, since $y$ normalizes $H$, it follows 
+               that $yh_2^{-1} = h_3y$ for some $h_3 \in H$; that is,
+               $h_2y^{-1} = y^{-1}h_3^{-1}$. Thus
+               $$z_1 = h_1xy^{-1} = xh_2y^{-1} = xy^{-1}h_3^{-1} \in xy^{-1}H,$$
+               so that $Hxy^{-1} \subseteq xy^{-1}H$. Now let
+               $z_2 \in xy^{-1}H$, so that $z_2 = xy^{-1}h_4$ for some
+               $h_4 \in H$. Since $y$ normalizes $H$, it follows that
+               $h_4^{-1}y = yh_5$ for some $h_5 \in H$, so that
+               $y^{-1}h_4 = h_5^{-1}y^{-1}$. Also $xh_5^{-1} = h_6x$ for some
+               $h_6 \in H$ because $x$ normalizes $H$. Thus
+               $$z_2 = xy^{-1}h_4 = xh_5^{-1}y^{-1} = h_6xy^{-1} \in Hxy^{-1},$$
+               so that $xy^{-1}H \subseteq Hxy^{-1}$, and we conclude that
+               $xy^{-1}H = Hxy^{-1}$. That is, $xy^{-1}$ normalizes $H$. Thus it
+               follows that $N_G(H) \le G$. Now notice that since $H \le G$, it
+               follows that $H \le N_G(H)$ if and only if  $H \subseteq N_G(H)$.
+               So let $h \in H$. Recall that a group acts transitively on itself
+               by left (or right) multiplication. So let us consider the left(or
+               right) action of $H$ on itself by left(or right) multiplication.
+               Since the action is transitive, the orbit of $h$ is $H$. But
+               $hH$ and $Hh$ are the orbits of $h$ under the left action and
+               right action, respectively. Thus $Hh = H = hH$, and it follows
+               that $H \subseteq N_G(H)$. Hence $H \le N_G(H)$.
+               \qed
+         \item \textbf{Proof.} Suppose $K \le G$, such that
+               $H \trianglelefteq K$. Let $k \in K$. Since $H$ is normal in $K$,
+               it follows immediately that $N_K(H) = K$; that is, $kH = Hk$, so
+               that $k \in N_G(H)$, and thus $H \subseteq N_G(H)$. We have just
+               shown that if $H$ is normal in a subgroup of $G$, then that
+               subgroup must be contained in $N_G(H)$, so that $N_G(H)$ is the
+               largest subgroup of $G$ in which $H$ is normal. \qed
+         \item \textbf{Proof.} Suppose that $|G| = 2|H|$. That is, $H$ has
+               exactly two left cosets and exactly two right cosets in $G$. Since
+               $|G| > |H|$, there exists some $g \in G$, such that $g \notin H$.
+               Thus the left cosets of $H$ in $G$ are $1H$ and $gH$ and the
+               right cosets of $H$ in $G$ are $H1$ and $Hg$. Since the sets
+               $\{1H, gH\}$ and $\{H1, Hg\}$ both partition $G$ and
+               since $1H = H = H1$, we are forced to conclude that $gH = Hg$.
+               Now let $g' \in G$. If $g' \notin H$, then we already showed that
+               $g'H = Hg'$; if, however, $g' \in H$, then it follows that
+               $g'H = 1H = H = H1 = Hg'$, since a coset is independent of the
+               choice of representative. Thus $gH = Hg$ for all $g \in G$, so
+               that $N_G(H) = G$; that is, $H$ is normal in $G$. \qed
+         \item[\textbf{Bonus.}] Let $G = D_6 = \{1, r, r^2, s, sr, sr^2\}$ and
+               $H = \{1, s\}$. Clearly $|G| = 3|H|$. Since $N_G(H) \le G$, it
+               follows by Lagrange's Theorem that
+               $$|N_G(H)| \in \{1, 2, 3, 6\}.$$
+               In 2.1, we showed that $H \subseteq N_G(H)$, so that
+               $|N_G(H)| \ge 2$. In 1.2, we showed that $r$ does not normalize
+               $H$, so that $N_G(H) \neq G$. Thus we have that $|N_G(H)| = 2$
+               or 3. But since $H \le N_G(H)$, it must be the case that
+               $|H| = 2$ divides $|N_G(H)|$; that is, the size of $N_G(H)$
+               cannot be 3. Thus $|N_G(H)| = 2$, so that $N_G(H) = H$, as
+               desired.               
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $V$ be the code generated by the matrix
          $\left(\begin{tabular}{@{}ccccccc@{}}
@@ -103,5 +283,34 @@
             0 & 0 & 1 & 1 & 1 & 0 & 1
          \end{tabular}\right)$. Use the MacWilliams equations to find the weight
          enumerators for $V$ and $V^\perp$.
+         
+      \textbf{Solution.} The codes in $V$ and their corresponding weights are
+      $$
+         \begin{tabular}{@{}|c|c|c|@{}} \hline
+            & \textbf{Code} & \textbf{Weight} \\ \hline
+          1. & \textbf{0000000} & 0 \\ \hline
+          2. & \textbf{0011101} & 4 \\ \hline
+          3. & \textbf{0110011} & 4 \\ \hline
+          4. & \textbf{0101110} & 4 \\ \hline
+          5. & \textbf{1000111} & 4 \\ \hline         
+          6. & \textbf{1011010} & 4 \\ \hline
+          7. & \textbf{1110100} & 4 \\ \hline
+          8. & \textbf{1101001} & 4 \\ \hline
+         \end{tabular}
+      $$
+      So $w_V = 1 + 7x^4$. By the MacWilliams' Identity, it follows that the
+      weight enumerator of $V^\perp$ is
+      \begin{align*}
+         w_{V^\perp}(x) &= \frac{1}{2^3}(1+x)^7
+            w_V\left(\frac{1-x}{1+x}\right) \\
+            &= \frac{1}{8}(1+x)^7
+               \left(1 + 7\frac{(1-x)^4}{(1+x)^4}\right) \\
+            &= \frac{1}{8}(1+x)^3((1+x)^4 + 7(1-x)^4) \\
+            &= \frac{1}{8}(1+x)^3(1 + 4x + 6x^2 + 4x^3 + x^4 + 7 - 28x +
+                  42x^2 - 28x^3 + 7x^4) \\
+            &= \frac{1}{8}(1+x)^3(8 - 24x + 48x^2 - 24x^3 + 8x^4) \\
+            &= (1+x)^3(1 - 3x + 6x^2 - 3x^3 + x^4) \\
+            &= 1 + 7x^3 + 7x^4 + x^7.
+      \end{align*}
 \end{enumerate}
 \end{document}
