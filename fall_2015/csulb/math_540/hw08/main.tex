@@ -106,6 +106,22 @@
                   Show that $\sigma(a) \neq a$ for all $\sigma \in G - \{1\}$
                   and all $a \in A$. Deduce that $|G| = |A|$. [Use the preceding
                   exercise.]
+                  
+      \textbf{Proof.} Suppose that $G$ is an abelian, transitive subgroup of
+      $S_A$. Let $a \in A$. Now consider some $b \in A$. Since $G$ is transitive
+      on $A$, it follows that there exists $\sigma \in G$ such that
+      $\sigma(a) = b$. Using Exericse 4.1.2 and the assumption that $G$ is
+      abelian we have
+      $$G_b = G_{\sigma(a)} = \sigma G_a\sigma^{-1} =
+        \sigma\sigma^{-1}G_a = G_a.$$
+      That is, all elements in $A$ have the same stabilizer; thus, the kernel
+      of the action of $G$ on $A$ is $G_a$; from Exercise 4.1.2, we have that
+      $G_a = \{1\}$. Hence if a permutation stabilizes an element of $A$, then
+      that permutation must be the identity. Equivalently, if
+      $\alpha \in G - \{1\}$ and $c \in A$, then $\alpha(c) \neq c$. The orbit
+      of $a$ is $A$ because the action is transitive; thus from Proposition 4.2,
+      it follows that $|A| = |G : G_a| = |G|/|G_a| = |G|/1$, and we conclude
+      that $|A| = |G|$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.1.08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.1.8]   A transitive permutation group $G$ on a set $A$ is called
                   \textit{doubly transitive} if for any (hence all) $a \in A$
@@ -117,6 +133,58 @@
                            Deduce that $D_8$ is not doubly transitive in its
                            action on the 4 vertices of a square.
                   \end{enumerate}
+                  
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item Let $G = S_n$, $I_n = \{1, 2, \ldots, n\}$. If $n = 2$, then
+               $G_1$ is transitive on $\{2\}$ because the identity in $G_1$ maps
+               2 to 2; $G_2$ is similarly transitive on $\{1\}$. Now suppose
+               that $n \ge 3$, so that $I_n$ has at least three elements. Let
+               $a \in I_n$. Since $n \ge 3$, consider $c, d \in I_n - \{a\}$,
+               where $c \neq d$. Consider the permutation
+               $\sigma = (c \quad d) \in G$. We have that $\sigma(a) = a$, so
+               that $\sigma \in G_a$ and $\sigma(c) = d$. If $c = d$, then the
+               identity in $G_a$ maps $c$ to $d$. Thus $G_a$ is transitive on
+               $I_n - \{a\}$, and we conclude that $S_n$ is doubly transitive on
+               $I_n$, $n \ge 2$.
+         \item Let $G$ be a doubly transitive group on a set $A$. If $|A| = 2$,
+               then the only blocks are the trivial ones; so assume that $A$
+               has more than 2 elements. Let $B$ be a nonempty proper subset of
+               $A$ with more than 1 element. Let $b_1, b_2 \in B$,
+               $b_1 \neq b_2$. Since $B \subsetneq A$, there exists $b_3 \in A$
+               such that $b_3 \notin B$. Since $G$ is transitive on $A$, there
+               exists $\alpha \in G$ such that $\alpha(b_1) = b_2$. If
+               $\alpha(b_2) = b_2$, then we would have that
+               $\alpha(b_2) = \alpha(b_1)$, so that $b_1 = b_2$ (since $\alpha$
+               is injective), a contradiction. Thus
+               $\alpha(b_2), b_3 \notin A - \{b_2\}$. Since $G$ is doubly
+               transitive on $A$, there exists $\beta \in G_{b_2}$ such that
+               $\beta(\alpha(b_2)) = b_3$. Now
+               $$\beta(\alpha(b_1)) = \beta(b_2) = b_2.$$
+               Thus $(\beta\alpha)(B) \neq B$ because
+               $b_3 = (\beta\alpha)(b_2) \in (\beta\alpha)(B)$ but
+               $b_3 \notin B$. Moreover, $b_2 \in B$ and
+               $b_2 = (\beta\alpha)(b_1) \in (\beta\alpha)(B)$, so that
+               $(\beta\alpha)(B) \cap B \neq \emptyset$. We have thus shown
+               that $B$ is not a block of $A$, so that the only blocks of $A$
+               are the trivial ones, and we conclude that $G$ is primitive. Let
+               $D_8 = \cyc{r, s}$, where $r$ is a clockwise rotation by $90^\circ$
+               through the origin of a square (labelled as on Page 24) and $s$
+               is a reflection through vertex 1. Let $D_8$ act on the vertices
+               of the square, $V = \{1, 2, 3, 4\}$. Let $B = \{1 , 3\}$. Then we
+               have that
+               \begin{align*}
+                  1\{1, 3\} &= \{1, 3\} & s\{1, 3\} &= \{1, 3\} \\
+                  r\{1, 3\} &= \{2, 4\} & sr\{1, 3\} &= \{2, 4\} \\
+                  r^2\{1, 3\} &= \{1, 3\} & sr^2\{1, 3\} &= \{1, 3\} \\
+                  r^3\{1, 3\} &= \{2, 4\} & sr^3\{1, 3\} &= \{2, 4\},
+               \end{align*}
+               so that $\sigma(B) = B$ or $\sigma(B) \cap B = \emptyset$. That
+               is, $B$ is a nontrivial block of $V$. It follows by the preceding
+               proof that $D_8$ is not doubly transitive. \qed
+               
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.2.04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.2.4]   Use the left regular representation of $Q_8$ to produce two
                   elements of $S_8$ which generate a subgroup of $S_8$
