@@ -61,6 +61,46 @@
                   Prove that $\sigma G_a\sigma^{-1} = G_{\sigma(a)}$. Deduce
                   that if $G$ acts transitively on $A$ then
                   $$\bigcap_{\sigma \in G}\sigma G_a\sigma^{-1} = 1.$$
+                  
+      \textbf{Proof.} $(\subseteq):$ Let $\gamma \in \sigma G_a\sigma^{-1}$.
+      Then $\gamma = \sigma \beta\sigma^{-1}$ for some $\beta \in G_a$. So we
+      have that
+      \begin{align*}
+         \gamma(\sigma(a)) = (\sigma \beta\sigma^{-1})(\sigma(a)) &=
+            (\sigma \beta)(\sigma^{-1}(\sigma(a))) \\
+            &= (\sigma \beta)((\sigma^{-1}\sigma)(a)) \\
+            &= (\sigma \beta)(a) \\
+            &= \sigma(\beta(a)) \\
+            &= \sigma(a),  & [\beta \in G_a]
+      \end{align*}
+      so that $\gamma \in G_{\sigma(a)}$, and thus,
+      $\sigma G_a\sigma^{-1} \subseteq G_{\sigma(a)}$.
+      
+      $(\supseteq)$: Let $\alpha \in G_{\sigma(a)}$. Since
+      \begin{align*}
+         (\sigma^{-1}\alpha\sigma)(a) &= \sigma^{-1}((\alpha\sigma)(a)) \\
+            &= \sigma^{-1}(\alpha(\sigma(a))) \\
+            &= \sigma^{-1}(\sigma(a)) &[\alpha \in G_{\sigma(a)}] \\
+            &= (\sigma^{-1}\sigma)(a) \\
+            &= a,
+      \end{align*}
+      it follows that $\sigma^{-1}\alpha\sigma \in G_a$. Hence
+      $$\alpha = \sigma(\sigma^{-1}\alpha\sigma)\sigma^{-1} \in \sigma
+        G_a\sigma^{-1},$$
+      so that $\sigma G_a\sigma^{-1} \supseteq G_{\sigma(a)}$, and we conclude
+      that $\sigma G_a\sigma^{-1} = G_{\sigma(a)}$.
+
+      Now suppose that $G$ acts transitively on $A$. This implies that if
+      $b \in A$, then there is a permutation in $G$ that maps $a$ to $b$. Thus
+      \begin{align*}
+         \bigcap_{\sigma \in G}\sigma G_a\sigma^{-1} &=
+            \bigcap_{\sigma \in G} G_{\sigma(a)} \\
+            &= \bigcap_{b \in A} G_b \\
+            &= \text{Kernel of the action of $G$ on $A$} \\
+            &= 1.
+      \end{align*}
+      The last equality follows because the trivial permutation is the only
+      permutation in $S_A$ that fixes all elements of $A$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.1.03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.1.3]   Assume that $G$ is an abelian, transitive subgroup of $S_A$.
                   Show that $\sigma(a) \neq a$ for all $\sigma \in G - \{1\}$
