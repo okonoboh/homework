@@ -182,13 +182,26 @@
                \end{align*}
                so that $\sigma(B) = B$ or $\sigma(B) \cap B = \emptyset$. That
                is, $B$ is a nontrivial block of $V$. It follows by the preceding
-               proof that $D_8$ is not doubly transitive. \qed
-               
+               proof that $D_8$ is not doubly transitive. \qed               
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.2.04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.2.4]   Use the left regular representation of $Q_8$ to produce two
                   elements of $S_8$ which generate a subgroup of $S_8$
                   isomorphic to the quaternion group $Q_8$.
+                  
+      \textbf{Proof.} Label the elements of $Q_8$, $1$, $-1$, $i$, $-i$, $j$,
+      $-j$, $k$, $-k$, as 1, 2, 3, 4, 5, 6, 7, and 8 respectively. Let
+      $\pi : Q_8 \rightarrow S_8$ be the homomorphism of the representation
+      induced by the action of $Q_8$ on itself by left multiplication. It
+      follows by Theorem 4.3(3) (in this case $H = \{1\}$) that the kernel of
+      this action is trivial, so that $\pi$ is injective, and we have by the
+      First Isomorphism Theorem that
+      $Q_8/\{1\} \cong Q_8 \cong \pi(Q_8) \le S_8$. Recall that
+      $Q_8 = \cyc{i, j}$, so it follows that $\pi(i)$ and $\pi(j)$ generate
+      $\pi(Q_8)$, where
+      $$\pi(i) = (1 \quad 3 \quad 2 \quad 4)(5 \quad 7 \quad 6 \quad 8)
+        \text{ and }
+        \pi(j) = (1 \quad 5 \quad 2 \quad 6)(3 \quad 8 \quad 4 \quad 7).$$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.2.07%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.2.7]   Let $Q_8$ be the quaternion group of order 8.
                   \begin{enumerate}
