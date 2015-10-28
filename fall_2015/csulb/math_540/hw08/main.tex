@@ -213,6 +213,38 @@
                            point $a \in A$ must contain the subgroup
                            $\cyc{-1}$.]
                   \end{enumerate}
+                  
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item Since $Q_8$ is a group of order 8, it follows by Corollary 4.4
+               that $Q_8$ isomorphic to a subgroup of $S_8$.
+         \item Suppose to the contrary that $Q_8$ is isomorphic to a subgroup of
+               $S_n$, where $n \ge 7$; that is, there exists an injective
+               homomorphism
+               $$\pi : Q_8 \rightarrow S_n.$$
+               By Proposition 4.1, there exists an action of $Q_8$ on
+               $A = \{1, 2, \ldots, n\}$, where the kernel of this action is the
+               kernel of $\pi$. Since $\pi$ is injective, its action is trivial,
+               so that the action of $Q_8$ on $A$ is also trivial. Let
+               $a \in A$ and $O_a$ be the orbit of $a$. It follows by
+               Proposition 4.2 that $|O_a| = |Q_8 : Q_{8_a}|$, so that
+               $8 = |Q_8| = |O_a| \cdot |Q_{8_a}|$. Recall that $Q_{8_a}$ is a
+               subgroup of $Q_8$, so we have by Lagrange's Theorem that
+               $$|Q_{8_a}| \in \{1, 2, 4, 8\}.$$
+               If $|Q_{8_a}| = 1$, then we would have that $|O_a| = 8$, a
+               contradiction since $O_a \subseteq A$ and $|A| \le 7$. Thus
+               $$|Q_{8_a}| \in \{2, 4, 8\},$$
+               so that $2$ divides the order of $Q_{8_a}$, and it follows by
+               Cauchy's Theorem that $Q_{8_a}$ has an element of order 2. But
+               $-1$ is the only element of order 2 in $Q_8$; thus
+               $-1 \in Q_{8_a}$. Since $a$ was arbitrary, it follows that
+               $\cyc{-1} \subseteq Q_{8_a}$ for all $a \in A$. Thus
+               $-1$ stabilizes every element of $A$, so that $-1$ is in the
+               kernel of this action. That is, the kernel of this action is not
+               trivial, a contradiction. So we conclude that $Q_8$ is not
+               isomorphic to a subgroup of $S_n$, where $n \le 7$. \qed
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.2.10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.2.10]  Prove that every non-abelian group of order 6 has a nonnormal
                   subgroup of order 2. Use this to classify groups of order 6.
