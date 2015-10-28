@@ -75,7 +75,29 @@
       \textbf{Answer.}
 
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item TODO
+         \item False.
+         
+               \textbf{Counterexample.} Let
+               $G = D_8 = \{1, r, r^2, r^3, s, sr, sr^2, sr^3\}$
+               (the group of isometries of a square), $K = \{1, s, r^2, sr^2\}$,
+               and $H = \{1, s\}$. We have that $H \le K$ and $K \le G$.
+               Moreover, since $|K| = 2|H|$ and $|G| = 2|K|$, it follows by
+               homework 7 Problem 2.3 that $H \trianglelefteq K$ and
+               $K \trianglelefteq G$. Observe that
+               $rHr^{-1} = \{1, sr^2\} \neq H$, so that $r \notin N_H(G)$; that
+               is, $N_H(G) \neq G$, and it follows that $H$ is not normal in
+               $G$.
+         \item True.
+         
+               Suppose that $H \le K$ and $K \le G$. It follows immediately that
+               $H \le G$ because $H \subseteq G$ and $H$ is closed under
+               multiplication and taking inverses.
+         \item True.
+         \item True. (See Problem 2.3) We can view every $\sigma \in S_5$ as an
+               automorphism of the Petersen graph. Let
+               $\sigma =(1\;2\;3)(4\;5)$ so that $|\sigma| = 6$.
+         \item True. Similarly let $\sigma = (1\;2\;3\;4) \in S_5$, so that
+               $|\sigma| = 4$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $V = \{\{x, y\} : x, y \in \{1, 2, 3, 4, 5\}\}$.
@@ -97,7 +119,51 @@
       \textbf{Solution.}
       
       \begin{enumerate}[label=\protect\circled{\arabic*}]
-         \item TODO
+         \item $|V| = \binom{5}{2} = 10$.
+         \item The degree of \{1, 2\} is 3 because it is connected to exactly
+               three other vertices: \{3, 4\}, \{3, 5\}, and \{4, 5\}.
+         \item Let $I_5 = \{1, 2, 3, 4, 5\}$, $\sigma \in S_5$ and consider the
+               map $g : S_5 \times V \rightarrow V$, defined
+               by $(\sigma, \{h, k\}) \mapsto \{\sigma(h), \sigma(k)\}$. We
+               shall write $\sigma\{h, k\}$ instead of $g(\sigma, \{h, k\})$.
+               Now we want to show that $S_5$ acts on $V$. So let
+               $\sigma, \beta \in S_5$ and $\{h, k\} \in V$. Thus
+               $$(\sigma \circ \beta)\{h, k\} = \{(\sigma \circ \beta)h,
+                 (\sigma \circ \beta)k\} = \{\sigma(\beta(h)),
+                 \sigma(\beta(k))\} = \sigma\{\beta(h), \beta(k)\}.$$
+               Finally we have that
+               $1\{h, k\} = \{1h, 1k\} = \{h, k\}$. Thus the identity in $S_5$
+               fixes every vertex in $V$. We have shown that $S_5$ acts on $V$.
+               By our discussion of group actions, we know that every element
+               of $S_5$ induces a permutation of $V$. For $\sigma \in S_5$, we
+               shall identity this permutation as $f_\sigma$, where
+               $f_\sigma : V \rightarrow V$, defined by
+               $\{h, k\} \mapsto g(\sigma, \{h, k\})$. To complete the proof, we
+               want to now show that $f_\sigma$ is an automorphism; that is, we
+               must now show that $f_\sigma$ maps every pair of connected
+               vertices to another pair of  connected vertices. To that end, let
+               $\{a, b\}$ and $\{c, d\}$ be arbitrary connected vertices in
+               $V$; that is,
+               $$a, b, c, d \in I_5, a \neq b, c \neq d,
+               \text{ and } \{a, b\} \cap \{c, d\} = \emptyset.$$
+               Suppose to the contrary that $f_\sigma(\{a, b\})$ and
+               $f_\sigma(\{c, d\})$ are not connected; thus, it follows by
+               definition that
+               $$\{\sigma(a), \sigma(b)\} \cap \{\sigma(c), \sigma(d)\} \neq
+                 \emptyset.$$               
+               So assume without loss of generality that
+               $\sigma(a) = \sigma(c)$; thus $a = c$ because $\sigma$ is
+               injective. This is a contradiction since we assumed that
+               $\{a, b\} \cap \{c, d\} = \emptyset$, so we conclude that
+               $f_\sigma(\{a, b\}) \cap f_\sigma(\{c, d\}) = \emptyset$; that
+               is, $f_\sigma(\{a, b\})$ is connected to $f_\sigma(\{c, d\})$,
+               and the proof is complete. \qed
+         \item Since
+               $$\{1, 2\} \sim \{4, 5\} \sim \{1, 3\}
+                  \sim \{2, 5\} \sim \{3, 4\} \sim \{1, 2\},$$
+               it follows that the vertices above form a pentagon.
+         \item The graph below represents $\mathcal{G}$. Relabelling the
+               graph shows us that it is the Petersen graph. \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $G$ act on set $X$.
@@ -117,5 +183,52 @@
                   $z_2, u_2, v_2 \in X$, there exists $g \in G$ such that
                   $gz_1 = z_2$, $gu_1 = u_2$, and $gv_1 = v_2$.
          \end{enumerate}
+         
+      \textbf{Solution.}      
+      
+      \begin{enumerate}[label=\protect\circled{\arabic*}]
+         \item Suppose $O_x = O_y$. Particularly, we have that $x$ and $y$ are
+               in the same orbit; thus $gx = y$ for some $g \in G$. Now we
+               claim that $gG_xg^{-1} = G_y$;
+               
+               $(\subseteq):$ Let $a \in gG_xg^{-1}$. Then $a = ghg^{-1}$ for
+               some $h \in G_x$. It follows that
+               $$(ghg^{-1})y = (gh)(g^{-1}y) = (gh)(x) = g(h(x)) = gx = y.$$
+               That is, $ghg^{-1} \in G_y$, and we conclude that
+               $gG_xg^{-1} \subseteq G_y$.
+               
+               $(\supseteq):$ Let $b \in G_y$. Now we have that
+               $$(g^{-1}bg)x = (g^{-1}b)(gx) = (g^{-1}b)y = g^{-1}(by) =
+                 g^{-1}y = x,$$
+               so that $g^{-1}bg \in G_x$. Since
+               $b = g(g^{-1}bg)g^{-1} \in gG_xg^{-1}$, it follows that
+               $G_y \subseteq  gG_xg^{-1}$; thus $gG_xg^{-1} = G_y$, and we
+               conclude that $G_x$ and $G_y$ are conjugates.
+         \item Suppose $G$ acts transitively on $X$; also suppose that $G_i$
+               acts on $X\backslash\{i\}$ for all $i \in X$. Consider
+               $y_1, z_1, y_2, z_2 \in X$, with $y_1 \neq z_1$ and
+               $y_2 \neq z_2$. Since $G$ acts transitively on $X$, there exists
+               $g \in G$ such that $gy_1 =  y_2$. If $gz_1 = y_2$, then we would
+               have $gy_1 = gz_1$, so that $y_1 = z_1$, a contradiction; thus
+               $gz_1 \neq y_2$, and we have that
+               $gz_1, z_2 \in X\backslash\{y_2\}$, so that there exists
+               $h \in G_{y_2}$ such that $h(gz_1) = z_2$. Hence
+               $(hg)y_1 = h(gy_1) = h(y_2) = y_2$ and
+               $(hg)z_1 = h(gz_1) = z_2$. Thus $G$ is doubly transitive on $X$.
+         \item Suppose $G$ acts doubly transitively on $X$ and suppose that
+               $G_{xy} = \{g : gx = x, gy = y\}$. Let $x_1$, $y_1$, and $z_1$ be
+               different points in $X$ and $x_2$, $y_2$, and $z_2$ be
+               different points in $X$. Since $G$ is doubly transitive on $X$
+               there exists $g \in G$ such that $gx_1 = x_2$ and $gy_1 = y_2$.
+               Now $gz_1 = x_2$ implies that $x_1 = z_1$ and $gz_1 = y_2$
+               implies $z_1 = y_1$, both contradictions; thus $gz_1 \neq x_2$
+               and $gz_1 \neq y_2$; that is, $gz_1, z_2 \in
+               X\backslash\{x_2, y_2\}$, so that there exists
+               $h \in X\backslash\{x_2, y_2\}$ such that $h(gz_1) = z_2$.
+               Now we have that $(hg)x_1 = hx_2 = x_2$, $(hg)y_1 = hy_2 = y_2$,
+               and $(hg)z_1 = h(gz_1) = z_2$, so that $G$ acts triply
+               transitive on $X$.
+               
+      \end{enumerate}
 \end{enumerate}
 \end{document}
