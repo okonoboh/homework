@@ -1,0 +1,323 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 540, Fall 2015\\Section 1 (9932)\\
+  HW \#12, DUE: 2015, December 03
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\everymath{\displaystyle}
+\newcommand{\CYC}[1]{\left\langle #1 \right\rangle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.5.03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.5.3]   Let $F$ be a field. Prove that $F$ contains a unique smallest
+                  subfield $F_0$ and that $F_0$ is isomorphic to either $\Q$ or
+                  $\Z/p\Z$ for some prime $p$. ($F_0$ is called the
+                  \textit{prime subfield} of $F$).
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.1.1c%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.1.1]   Determine the gcd of $a$ and $b$ and write it as a linear
+                  combination $ax + by$ of $a$ and $b$: $a = 11391$, $b = 5673$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.1.04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.1.4]   Let $R$ be a Euclidean Domain.
+                  \begin{enumerate}
+                     \item Prove that if $(a, b) = 1$ and $a$ divides $bc$, then
+                           $a$ divides $c$. More generally, show that if $a$
+                           divides $bc$ with nonzero $a$, $b$ then
+                           $\frac{a}{(a, b)}$ divides $c$.
+                     \item Consider the Diophantine Equation $ax + by = N$ where
+                           $a$, $b$, and $N$ are integers and $a$, $b$ are
+                           nonzero. Suppose $x_0$, $y_0$ is a solution:
+                           $ax_0 + by_0 = N$. Prove that the full set of
+                           solutions to this equation is given by
+                           $$x = x_0 + m\frac{b}{(a, b)}, \qquad
+                             y = y_0 - m\frac{a}{(a, b)}$$
+                           as $m$ ranges over the integers. [If $x$, $y$ is a
+                           solution to $ax + by = N$, show that
+                           $a(x - x_0) = b(y_0 - y)$ and use (a).]
+                  \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item Let $a$, $b$, and $c$ be elements of $R$. Suppose that $a$
+               divides $bc$. Now assume that $(a, b) = 1$. So by Theorem 8.4, 
+               there exist $x$, $y \in R$ such that
+               \begin{equation} \label{1_1}
+                  1 = ax + by.
+               \end{equation}
+
+               Multiply \eqref{1_1} by $c$ to get $c = acx + bcy$. Since $a$
+               divides $bc$ by hypothesis, it follows that $a$ divides $bcy$.
+               Also note that $a$ divides $acx$; thus, since $c = acx + bcy$, it 
+               follows that $a$ divides $c$. Now let us prove the general case.
+               Assume that $a$ and $b$ are nonzero and let $d = (a, b)$. By 
+               Theorem 8.4, there exist $x'$, $y' \in R$ such that
+               \begin{equation} \label{1_2}
+                  d = ax' + by'.
+               \end{equation}
+               By definition, we have that $d \mid a$ and $d \mid b$. Thus
+               \begin{equation} \label{1_3}
+                  a = a'd \text{ and } b = b'd
+               \end{equation}
+               for some $a'$, $b' \in R$. Substitute \eqref{1_3} into
+               \eqref{1_2} and rearrange to get
+               \begin{equation} \label{1_4}
+                  d(a'x' + b'y' - 1) = 0.
+               \end{equation}
+               Since $a$ and $b$ are nonzero, \eqref{1_3} says that $d \neq 0$;
+               thus, since $R$ is an integral domain and $d \neq 0$, we conclude
+               from \eqref{1_4} that
+               \begin{equation} \label{1_5}
+                  a'x' + b'y' = 1.
+               \end{equation}
+               Note that $1 \mid a'$ and $1 \mid b'$. Also if $k \mid a'$ and
+               $k \mid b'$ for some $k \in R$, then \eqref{1_5} says that
+               $k \mid 1$. So it follows by definition that $(a', b') = 1$. By
+               assumption, we have that $a \mid bc$; that is, $bc = am$ for some
+               $m \in R$. Substitute \eqref{1_3} into  $bc = am$ and rearrange
+               to get
+               $$d(b'c - a'm) = 0,$$
+               so that $b'c = a'm$ because $d \neq 0$ and $R$ is an integral
+               domain. Hence $a' \mid b'c$. Since we also have that
+               $(a', b') = 1$, we conclude by the first part of the proof that
+               $a' \mid c$. But $a' = \frac{a}{(a, b)}$, and the proof is done.
+         \item Let $d = (a, b)$. By definition $d$ divides $a$ and $b$; thus
+               $a = a'd$ and $b = b'd$ for some integers $a'$ and $b'$. Let
+               $$S = \{(x_0 + mb', y_0 - ma') : m \in \Z\}.$$
+               We want to show that $S$ is the full set of solutions of the
+               given Diophantine Equation. First, we shall show that every
+               element in $S$ solves the Diophantine Equation. Let
+               $(r, s) \in S$. Then $r = x_0 + lb'$ and $s = y_0 - la'$ for some
+               integer $l$. Now
+               \begin{align*}
+                  ar + bs &= a(x_0 + lb') + b(y_0 - la') \\
+                          &= ax_0 + by_0 + l(ab' - ba') \\
+                          &= N + l(\frac{ab}{d} - \frac{ba}{d}) \\
+                          &= N + l \cdot 0 = N, 
+               \end{align*}
+               so that $(r, s)$ solves the Diophantine Equation. Thus every
+               element in $S$ solves the Diophantine Equation. Now suppose that
+               $ax + by = N$ for some integers $x$ and $y$. Then it follows that
+               $ax + by = N = ax_0 + by_0$; that is, $ax - ax_0 = by_0 - by$, so
+               that
+               \begin{equation} \label{1_6}
+                  a(x - x_0) = b(y_0 - y).
+               \end{equation}
+               From \eqref{1_6}, we have that $a \mid b(y_0 - y)$, so it follows
+               by (a) that $a' \mid y_0 - y$. So $y_0 - y = ta'$, or
+               equivalently, $y = y_0 - ta'$ for some $t \in \Z$. Substitute
+               $y = y_0 - ta'$ into \eqref{1_6} to get $x = x_0 + tb'$. That is,
+               $(x, y) \in S$. Thus, $S$ is the full set of solutions of the
+               Diophantine Equation.
+      \end{enumerate} \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.1.8a%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.1.8]   Let $F = \Q(\sqrt{D})$ be a quadratic field with associated
+                  quadratic integer $\mathcal{O}$ and field norm $N$ as in
+                  Section 7.1 Suppose $D = -2$. Prove that $\mathcal{O}$ is a
+                  Euclidean Domain with respect to $N$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.1.10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.1.10]  Prove that the quotient ring $\Z[i]/I$ is finite for any
+                  nonzero ideal $I$ of $\Z[i]$. [Use the fact that
+                  $I = (\alpha)$ for some nonzero $\alpha$ and then use the
+                  Division Algorithm in this Euclidean Domain to see that every
+                  coset of $I$ is represented by an element of norm less than
+                  $N(\alpha)$]
+
+      \textbf{Proof.} Let $I$ be a nonzero ideal of $\Z[i]$. On page 271, 
+      Example 3 proved that $\Z[i]$ is an Euclidean Domain, so that $I$ is a
+      principal ideal by Proposition 8.1. Thus there exist integers $a$ and $b$
+      (at least one of $a$ and $b$ is nonzero) such that $I = (a + bi)$. Now let 
+      $S = \{z \in \Z[i] : N(z) < N(a + bi)\}$. The set $S$ is nonempty since
+      $0 + 0i \in S$. Let $z \in S$, so that $z = z_1 + z_2i$ for some integers
+      $z_1$ and $z_2$. By membership in $S$, it follows that $N(z) < N(a + bi)$,
+      so that $z_1^2 + z_2^2 < a^2 + b^2$. Since $z_1^2 \le z_1^2 + z_2^2$ and
+      $z_2^2 \le z_1^2 + z_2^2$, it follows that $z_1^2 < a^2 + b^2$ and
+      $z_2^2 < a^2 + b^2$; that is,
+      $$0 \le |z_1| < \sqrt{a^2 + b^2} \text{ and }
+        0 \le |z_2| < \sqrt{a^2 + b^2}.$$
+      Since there is a finite number of integers in the interval
+      $[0, \sqrt{a^2 + b^2})$, it follows that $z_1$ and $z_2$ can only take on
+      a finite number of integers; thus $S$ is finite. Now let $g \in \Z[i]/I$
+      be a coset of $I$. Then $g = (g_1 + g_2i) + I = \overline{g_1 + g_2i}$,
+      for some integers $g_1$ and $g_2$. Since $\Z[i]$ is an Euclidean Domain,
+      it follows by the Division Algorithm that
+      $$g_1 + g_2i = q(a + bi) + r \text{ for some }q, r \in \Z[i],$$
+      where $r = 0$ or $N(r) < N(a + bi)$. Thus $r \in S$. So
+      $$g = \overline{g_1 + g_2i} = \overline{q(a + bi) + r} =
+        \overline{q(a + bi)} + \overline{r} = \overline{0} + \overline{r} =
+        \overline{r}.$$
+      Thus every coset of $I$ can be written as $r + I$ for some $r \in S$.
+      Since $S$ is finite, it follows that the number of cosets of $I$ must also
+      be finite; that is, $\Z[i]/I$ must also be finite. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.1.12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.1.12]  (\textit{A Public Key Code}) Let $N$ be a positive integer.
+                  Let $M$ be an integer relatively prime to $N$ and let $d$ be
+                  an integer relatively prime to $\varphi(N)$, where $\varphi$
+                  denotes Euler's $\varphi$-function. Prove that if
+                  $M_1 \equiv M^d$ (mod $N$) then $M \equiv M_1^{d'}$ (mod $N$)
+                  where $d'$ is the inverse of $d$ mod $\varphi(N)$:
+                  $dd' \equiv 1$ (mod $\varphi(N))$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.2.01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.2.01]  Prove that in a Principal Ideal Domain two ideals $(a)$ and
+                  $(b)$ are comaximal (cf. Section 7.6) if and only if a
+                  greatest common divisor of $a$ and $b$ is 1 (in which case $a$
+                  and $b$ are said to be \textit{coprime} or
+                  \textit{relatively prime}).
+
+      \textbf{Proof.} Let $R$ be a P.I.D. Let $a$, $b \in R$.
+
+      ($\Leftarrow$) Suppose that $(a, b) = 1$. To show that $(a)$ and $(b)$ are 
+      comaximal, it suffices to show that $(a) + (b) = R$. By Theorem 8.4, there
+      exist $x, y \in R$ such that
+      \begin{equation} \label{2_1}
+         ax + by = 1.
+      \end{equation}
+      Now let $r \in R$, so that $axr + byr = r$ if we multiply \eqref{2_1} by
+      $r$. Since $axr \in (a)$ and $byr \in (b)$, it follows that
+      $r \in (a) + (b)$, so that $R \subseteq (a) + (b)$. We also have that
+      $(a) + (b) \subseteq R$ because $R$ is closed under addition. Thus
+      $(a) + (b) = R$, so that $(a)$ and $(b)$ are comaximal.
+
+      ($\Rightarrow$) Suppose now that $(a)$ and $(b)$ are comaximal. That is,
+      $(a) + (b) = R$. Since $R$ is an integral domain, it contains 1. So
+      $1 \in (a) + (b)$; that is, $ax' + by' = 1$ for some $x'$, $y' \in R$. We
+      have that $1 \mid a$ and $1 \mid b$. Also if $k \mid a$ and $k \mid b$,
+      for some $k \in R$, then the equality $ax' + by' = 1$ says that
+      $k \mid 1$; hence, it follows by definition that $(a, b) = 1$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.2.03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.2.3]   Prove tha a quotient of a P.I.D. by a prime ideal is again a
+                  P.I.D.
+
+      \textbf{Proof.} Let $R$ be a P.I.D and $P$ a prime ideal in $R$. If $P$ is
+      the zero ideal, then $R/P = R/(0)$ is a P.I.D because $R/(0) \cong R$. So
+      suppose that $P \neq (0)$. By Proposition 8.7, $P$ is a maximal ideal, so
+      that $R/P$ is a field by Proposition 7.12. Hence the only ideals of $R/P$
+      are $(0)$ and $(1)$ by Proposition 7.9(2), so that $R/P$ is a P.I.D.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.2.05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.2.5]   Let $R$ be the quadratic integer ring $\Z[\sqrt{-5}]$. Define
+                  the ideals $I_2 = (2, 1 + \sqrt{-5})$,
+                  $I_3 = (3, 2 + \sqrt{-5})$, and $I_3' = (3, 2 - \sqrt{-5})$.
+                  \begin{enumerate}
+                     \item[(a)]  Prove that $I_2$, $I_3$, $I_3'$ are
+                                 nonprincipal ideals in $R$.
+                     \item[(c)]  Prove similarly that $I_2I_3 = (1-\sqrt{-5})$ 
+                                 and $I_2I_3' = (1 + \sqrt{-5})$ are principal. 
+                                 Conclude that the principal ideal (6) is the 
+                                 product of 4 ideals: $(6) = I_2^2I_3I_3'$.
+                  \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item[(a)]
+               We shall borrow the ideas from Example 2 on Page 273. Example 2
+               already showed that $I_3$ is nonprincipal, so we shall show that
+               $I_2$ and $I_3'$ are also nonprincipal. Suppose first that $I_2$
+               is principal. Then it follows by definition that
+               $I_2 = (2, 1 + \sqrt{-5}) = (a + b\sqrt{-5})$, for some integers 
+               $a$ and $b$, where at least one of $a$ and $b$ is nonzero. Since 
+               $2$ and $1 + \sqrt{-5}$ are members of $I_2$, it follows that
+               \begin{equation} \label{3_1}
+                  2 = \alpha(a + b\sqrt{-5}) \text{ and }
+                  1 + \sqrt{-5} = \beta(a + b\sqrt{-5})
+               \end{equation}
+               for some $\alpha$, $\beta \in \Z[\sqrt{-5}]$. Taking the norm in
+               the first equality in \eqref{3_1}, we get
+               $$4 = N(\alpha)(a^2 + 5b^2).$$
+               Recall that one of $a$ and $b$ is nonzero, so that $a^2 + 5b^2$
+               is positive. Thus $a^2 + 5b^2$ is one of 1, 2, and 4. We can
+               immediately eliminate 2 because $a^2 + 5b^2 \neq 2$ for any 
+               integers $a$ and $b$. Suppose first that $a^2 + 5b^2 = 4$. Then 
+               we must have that $N(\alpha) = 1$, so that $\alpha = \pm1$. It 
+               follows from \eqref{3_1} that $a + b\sqrt{-5} = \pm2$, so that
+               $\pm2\beta = 1 + \sqrt{-5}$, a contradiction since $2$ does
+               not divide $1 + \sqrt{-5}$ in $\Z[\sqrt{-5}]$. The only remaining
+               possibility is $a^2 + 5b^2 = 1$. That is, $a + b\sqrt{-5}$ is a
+               unit as claimed on Page 230. Thus
+               $I_2 = (2, 1 + \sqrt{-5}) = \Z[\sqrt{-5}]$ by Proposition 7.9(1).
+               Hence there exist $\alpha'$, $\beta' \in \Z[\sqrt{-5}]$ such that
+               $1 = 2\alpha' + (1 + \sqrt{-5})\beta'$. Multiply the
+               preceding equality by $1 - \sqrt{-5}$ to arrive at
+               $$1 - \sqrt{-5} = 2(1 - \sqrt{-5})\alpha' + 6\beta' =
+                 2((1 - \sqrt{-5})\alpha' + 3\beta'),$$
+               a contradiction because the equalities claim that 2 divides
+               $1 - \sqrt{-5}$. Thus, we have shown that $I_2$ is nonprincipal.
+               Now suppose that $I_3'$ is principal. So
+               $I_3' = (3, 2 - \sqrt{-5}) = (c + d\sqrt{-5})$, where $c$ and $d$
+               are integers such that at least one of them is nonzero. Since
+               3 and $2 - \sqrt{-5}$ are elements of $I_3'$, it follows that
+               \begin{equation} \label{3_2}
+                  3 = \gamma(c + d\sqrt{-5}) \text{ and }
+                  2 - \sqrt{-5} = \delta(c + d\sqrt{-5})
+               \end{equation}
+               for some $\gamma$, $\delta \in \Z[\sqrt{-5}]$. Take the norm in
+               the first equality in \eqref{3_2} to get
+               $$9 = N(\gamma)(c^2 + 5d^2).$$
+               Because one of $c$ and $d$ is nonzero, it follows that
+               $c^2 + 5d^2$ is positive, so that by the preceding equality
+               $c^2 + 5d^2$ is one of 1, 3, and 9. Eliminate 3 because
+               $c^2 + 5d^2$ cannot equal 3 for any choice of integers $c$ and
+               $d$. Now first suppose that $c^2 + 5d^2 = 9$, so that
+               $N(\gamma) = 1$. That is, $\gamma = \pm1$, and we conclude from
+               \eqref{3_2} that $c + d\sqrt{-5} = \pm3$ and thus,
+               $2 - \sqrt{-5} = \pm3\delta$, a contradiction because 3 does not
+               divide $2 - \sqrt{-5}$ in $\Z[\sqrt{-5}]$. Finally, suppose that
+               $c^2 + 5d^2 = 1$, so that $c + d\sqrt{-5}$ is a unit. Thus
+               $I_3' = (3, 2 - \sqrt{-5}) = \Z[\sqrt{-5}]$ by Proposition
+               7.9(1). Hence, there exist $\gamma'$,
+               $\delta' \in \Z[\sqrt{-5}]$ such that
+               $1 = 3\gamma' + (2 - \sqrt{-5})\delta'$. Multiply the
+               preceding equality by $2 + \sqrt{-5}$ to arrive at
+               $$2 + \sqrt{-5} = 3(2 + \sqrt{-5})\gamma' + 9\delta' =
+                 3((2 + \sqrt{-5})\alpha' + 3\beta'),$$
+               a contradiction because the equalities claim that 3 divides
+               $2 + \sqrt{-5}$. Thus $I_3'$ is nonprincipal.
+      \end{enumerate}
+\end{enumerate}
+\end{document}

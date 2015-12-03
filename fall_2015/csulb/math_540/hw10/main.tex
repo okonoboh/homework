@@ -1,0 +1,91 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 540, Fall 2015\\Section 1 (9932)\\
+  HW \#10, DUE: 2015, November 12
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\everymath{\displaystyle}
+\newcommand{\CYC}[1]{\left\langle #1 \right\rangle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.5.08%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.5.8]   Exhibit two distinct Sylow 2-subgroups of $S_5$ and an element
+                  of $S_5$ that conjugates one into the other.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.5.13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.5.13]  Prove that a group of order 56 has a normal Sylow
+                  $p$-subgroup for some prime $p$ dividing its order.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.5.14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.5.14]  Prove that a group of order 312 has a normal Sylow
+                  $p$-subgroup for some prime $p$ dividing its order.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.5.15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.5.15]  Prove that a group of order 351 has a normal Sylow
+                  $p$-subgroup for some prime $p$ dividing its order.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.5.16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.5.16]  Let $|G| = pqr$, where $p$, $q$, and $r$ are primes with
+                  $p < q < r$. Prove that $G$ has a normal Sylow subgroup for
+                  either $p$, $q$, or $r$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.5.29%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.5.29]  If $G$ is a non-abelian simple group of order $< 100$, prove
+                  that $G \cong A_5$. [Eliminate all orders but 60]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.1.03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.1.3]   Let $R$ be a ring with identity and let $S$ be a subring of
+                  $R$ containing the identity. Prove that if $u$ is a unit in
+                  $S$ then $u$ is a unit in $R$. Show by example that the
+                  converse is false.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.1.09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.1.9]   For a fixed element $a \in R$ define
+                  $C(a) = \{r \in R : ra = ar\}$. Prove that $C(a)$ is a subring
+                  of $R$ containing $a$. Prove that the center of $R$ is the
+                  intersection of the subrings $C(a)$ over all $a \in R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.1.12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.1.12]  Prove that any subring of a field which contains the identity
+                  is an integral domain.
+\end{enumerate}
+\end{document}

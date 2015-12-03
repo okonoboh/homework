@@ -1,0 +1,304 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 540, Fall 2015\\Section 1 (9932)\\
+  HW \#11, DUE: 2015, November 19
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\everymath{\displaystyle}
+\newcommand{\CYC}[1]{\left\langle #1 \right\rangle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.2.06%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.2.6]   Let $S$ be a ring with identity $1 \neq 0$. Let $n \in \Z^+$
+                  and let $A$ be an $n \times n$ matrix with entries from $S$
+                  whose $i$, $j$ entry is $a_{ij}$. Let $E_{ij}$ be the element
+                  of $M_n(S)$ whose $i$, $j$ entry is 1 and whose other entries
+                  are all 0.
+
+                  \begin{enumerate}
+                     \item Prove that $E_{ij}A$ is the matrix whose
+                           $i^{\text{th}}$ row equals the $j^{\text{th}}$ row of
+                           $A$ and all other rows are zero.
+                     \item Prove that $AE_{ij}$ is the matrix whose
+                           $j^{\text{th}}$ column equals the $i^{\text{th}}$
+                           column of $A$ and all other columns are zero.
+                     \item Deduce that $E_{pq}AE_{rs}$ is the matrix whose $p$,
+                           $s$ entry is $a_{qr}$ and all other entries are zero.
+                  \end{enumerate}
+
+      \textbf{Proof.} Fix positive integers $i$, $j$, $p$, $q$, $r$, and $s$.
+      Now let $e_{lm}$ be the $l$, $m$ entry of $E_{ij}$.
+      \begin{enumerate}
+         \item Let $c_{lm}$ be the $l$, $m$ entry of $C = E_{ij}A$. To show that 
+               the $i^{\text{th}}$ row of $C$ equals the $j^{\text{th}}$ row of
+               $A$, it suffices to show that $c_{ik} = a_{jk}$ for
+               $k = 1, 2, \ldots, n$, so consider $c_{ik}$,
+               where $1 \le k \le n$. By definition of matrix multiplication, it 
+               follows that
+               \begin{align*}
+                  c_{ik} &= \sum_{t=1}^ne_{it}a_{tk} \\
+                         &= e_{ij}a_{jk} &[e_{it} = 0 \text{ if } t \neq j] \\
+                         &= 1 \cdot a_{jk} = a_{jk}.
+               \end{align*}
+               That is, the $i^{\text{th}}$ row of $C$ equals the
+               $j^{\text{th}}$ row of $A$. Now consider $c_{lk}$, where
+               $l, k \in \{1, 2, \ldots, n\}$ and $l \neq i$. Then it follows
+               that
+               \begin{align*}
+                  c_{lk} &= \sum_{t=1}^ne_{lt}a_{tk} \\
+                         &= \sum_{t=1}^n0 \cdot a_{tk} &[\text{Since }e_{lk} = 0
+                            \text{ if } l \neq i] \\
+                         &= 0.
+               \end{align*}
+               Our last result says that every entry of $C$ not in the
+               $i^{\text{th}}$ row is 0; thus every other row of $C$ save for
+               the $i^{\text{th}}$ row is 0.
+         \item Let $d_{lm}$ be the $l$, $m$ entry of $D = AE_{ij}$. To show that 
+               the $j^{\text{th}}$ column of $D$ equals the $i^{\text{th}}$
+               column of $A$, it suffices to show that $d_{kj} = a_{ki}$ for
+               $k = 1, 2, \ldots, n$, so consider $d_{kj}$,
+               where $1 \le k \le n$. By definition of matrix multiplication, it 
+               follows that
+               \begin{align*}
+                  d_{kj} &= \sum_{t=1}^na_{kt}e_{tj} \\
+                         &= a_{ki}e_{ij} &[e_{tj} = 0 \text{ if } t \neq i] \\
+                         &= a_{ki} \cdot 1 = a_{ki}.
+               \end{align*}
+               That is, the $j^{\text{th}}$ column of $D$ equals the
+               $i^{\text{th}}$ column of $A$. Now consider $d_{kl}$, where
+               $l, k \in \{1, 2, \ldots, n\}$ and $l \neq j$. Then it follows
+               that
+               \begin{align*}
+                  d_{kl} &= \sum_{t=1}^na_{kt}e_{tl} \\
+                         &= \sum_{t=1}^na_{kt} \cdot 0 &[e_{tl} = 0
+                            \text{ if } l \neq j] \\
+                         &= 0.
+               \end{align*}
+               Our last result says that every entry of $D$ not in the
+               $j^{\text{th}}$ column is 0; thus every other column of $D$ save 
+               for the $j^{\text{th}}$ column is 0.
+         \item Let $X = E_{pq}A$, $Y = XE_{rs}$, $y_{lm}$ and $x_{lm}$ the $l$, 
+               $m$ entries of $Y$ and $X$ respectively. By definition of 
+               matrix multiplication, it follows that
+               \begin{align*}
+                  y_{ps} &= \sum_{t=1}^nx_{pt}e_{ts} \\
+                     &= \sum_{t=1}^na_{qt}e_{ts} &[\text{By }(a)] \\
+                     &= a_{qr}e_{rs} &[e_{ts} = 0 \text{ if } t \neq r] \\
+                     &= a_{qr} \cdot 1 = a_{qr}. 
+               \end{align*}
+               Now consider $y_{lk}$, where $l, k \in \{1, 2, \cdots, n\}$ and
+               $l \neq p$. It follows that
+               \begin{align*}
+                  y_{lk} &= \sum_{t=1}^nx_{lt}e_{tk} \\
+                     &= \sum_{t=1}^n0 \cdot e_{tk} &[\text{By }(a)] \\
+                     &= 0.
+               \end{align*}
+               If no restriction is placed on $l$ and $k \neq s$, it follows
+               that
+               \begin{align*}
+                  y_{lk} &= \sum_{t=1}^nx_{lt}e_{tk} \\
+                     &= \sum_{t=1}^nx_{lt} \cdot 0 &[e_{tk} = 0 \text{ if }
+                        k \neq s] \\
+                     &= 0,
+               \end{align*}
+               so that if $y_{lk}$ is an entry of $Y$, where $l \neq p$ or
+               $k \neq s$, then $y_{lk} = 0$.
+      \end{enumerate} \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.2.09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.2.9]   Let $\alpha = r + r^2 - 2s$ and $\beta = -3r^2 + rs$ be the
+                  two elements of the integral group ring $\Z D_8$ described in
+                  this section. Compute the following elements of $\Z D_8$:
+                  \begin{enumerate}
+                     \item $\beta\alpha$,
+                     \item $\alpha^2$,
+                     \item $\alpha\beta - \beta\alpha$,
+                     \item $\beta\alpha\beta$.
+                  \end{enumerate}
+
+      \textbf{Solution.}
+
+      \begin{enumerate}
+         \item \begin{align*}
+                  \beta\alpha &= (-3r^2 + rs)(r + r^2 - 2s) \\
+                     &= -3r^2(r + r^2 - 2s) + rs(r + r^2 - 2s) \\
+                     &= -3r^3 - 3 + 6r^2s + rsr + rsr^2 - 2rs^2 \\
+                     &= -3r^3 - 3 + 6r^2s + s + r^3s - 2r \\
+                     &= - 3 - 2r - 3r^3 + s + 6r^2s + r^3s.
+               \end{align*}
+         \item \begin{align*}
+                  \alpha^2 &= (r + r^2 - 2s)(r + r^2 - 2s) \\
+                     &= r(r + r^2 - 2s) + r^2(r + r^2 - 2s) - 2s(r + r^2 - 2s)\\
+                     &= r^2 + r^3 - 2rs + r^3 + 1 - 2r^2s - 2sr -2sr^2 + 4s^2 \\
+                     &= r^2 + r^3 - 2rs + r^3 + 1 - 2r^2s - 2r^3s -2r^2s + 4 \\
+                     &= 5 + r^2 + 2r^3 - 2rs - 4r^2s - 2r^3s.
+               \end{align*}
+         \item \begin{align*}
+                  \alpha\beta &= (r + r^2 - 2s)(-3r^2 + rs) \\
+                     &= r(-3r^2 + rs) + r^2(-3r^2 + rs) - 2s(-3r^2 + rs) \\
+                     &= -3r^3 + r^2s - 3 + r^3s + 6sr^2 - 2srs \\
+                     &= -3r^3 + r^2s - 3 + r^3s + 6r^2s - 2r^3 \\
+                     &= -3 - 5r^3 + 7r^2s + r^3s,
+               \end{align*}
+               so we have that
+               \begin{align*}
+                  \alpha\beta - \beta\alpha &= (-3 - 5r^3 + 7r^2s + r^3s) -
+                     (-3 - 2r - 3r^3 + s + 6r^2s + r^3s) \\
+                     &= -3 - 5r^3 + 7r^2s + r^3s + 3 + 2r + 3r^3 - s -
+                        6r^2s - r^3s \\
+                     &= 2r - 2r^3 - s + r^2s.
+               \end{align*}
+         \item \begin{align*}
+                  \beta\alpha\beta &= \beta(\alpha\beta) \\
+                     &= (-3r^2 + rs)(-3 - 5r^3 + 7r^2s + r^3s) \\
+                     &= -3r^2(-3 - 5r^3 + 7r^2s + r^3s) +
+                        rs(-3 - 5r^3 + 7r^2s + r^3s) \\
+                     &= 9r^2 + 15r - 21s - 3rs - 3rs - 5rsr^3 + 7rsr^2s +
+                        rsr^3s \\
+                     &= 9r^2 + 15r - 21s - 3rs - 3rs - 5r^2s + 7r^3 + r^2 \\
+                     &= 15r + 10r^2 + 7r^3 - 21s - 6rs - 5r^2s.
+               \end{align*}
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.2.12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.2.12]  Let $G = \{g_1, \ldots, g_n\}$ be a finite group. Prove that
+                  the element $N = g_1 + g_2 + \cdots + g_n$ is in the center of
+                  the group ring $RG$.
+
+      \textbf{Proof.} Let $H \in RG$. Then there exist $r_1$, $r_2$, $\ldots$,
+      $r_n \in R$ such that
+      $$H = r_1g_1 + r_2g_2 + \cdots + r_ng_n.$$
+      We first want to show that $N$ commutes with $r_ig_i$, where
+      $1 \le i \le n$. Recall that if $G$ acts on itself by left multiplication
+      each element of $G$ induces a permutation of $G$; thus the product
+      $g_iN = g_i(g_1 + g_2 + \cdots + g_n)$ has the effect of permuting the 
+      terms in the sum $(g_1 + g_2 + \cdots + g_n)$; that is,
+      $$g_iN = h_1 + h_2 + \cdots + h_n,$$
+      where $h_k \in G$ for each $1 \le k \le n$ and $h_k = h_j$ if and only if 
+      $k = j$. Thus $g_iN = N$.  By definition, we have that
+      \begin{align*}
+         HN &= (r_1g_1 + r_2g_2 + \cdots + r_ng_n)N \\
+            &= r_1g_1N + r_2g_2N + \cdots + r_ng_nN
+      \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.3.17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.3.17]  Let $R$ and $S$ be nonzero rings with identity and denote
+                  their respective identities by $1_R$ and $1_S$. Let
+                  $\varphi : R \rightarrow S$ be a nonzero homomorphism of
+                  rings.
+                  \begin{enumerate}
+                     \item Prove that if $\varphi(1_R) \neq 1_S$ then
+                           $\varphi(1_R)$ is a zero divisor in $S$. Deduce that
+                           if $S$ is an integral domain then every ring
+                           homomorphism from $R$ to $S$ sends the identity of
+                           $R$ to the identity of $S$.
+                     \item Prove that if $\varphi(1_R) = 1_S$ then $\varphi(u)$
+                           is a unit in $S$ and that
+                           $\varphi(u^{-1}) = \varphi(u)^{-1}$ for each unit $u$
+                           of $R$.
+                  \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.3.34%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.3.34]  Let $I$ and $J$ be ideals of $R$.
+                  \begin{enumerate}
+                     \item Prove that $I + J$ is the smallest ideal of $R$
+                           containing both $I$ and $J$.
+                     \item Prove that $IJ$ is an ideal contained in $I \cap J$.
+                     \item Give an example where $IJ \neq I \cap J$.
+                     \item Prove that if $R$ is commutative and if $I + J = R$
+                           then $IJ = I \cap J$.
+                  \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.4.6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.4.6]   Prove that $R$ is a division ring if and only if its only left
+                  ideals are $(0)$ and $R$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.4.11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.4.11]  Assume $R$ is commutative. Let $I$ and $J$ be ideals of $R$
+                  and assume $P$ is a prime ideal of $R$ that contains $IJ$.
+                  Prove that either $I$ or $J$ is contained in $P$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.4.13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.4.13]  Let $\varphi : R \rightarrow S$ be a homomorphism of
+                  commutative rings.
+                  \begin{enumerate}
+                     \item Prove that if $P$ is a prime ideal of $S$ then either
+                           $\varphi^{-1}(P) = R$ or $\varphi^{-1}(P)$ is a prime
+                           ideal of $R$. Apply this to the special case when $R$
+                           is a subring of $S$ and $\varphi$ is the inclusion
+                           homomorphism to deduce that if $P$ is a prime ideal
+                           of $S$ then $P \cap R$ is either $R$ or a prime ideal
+                           of $R$.
+                     \item Prove that if $M$ is a maximal ideal of $S$ and
+                           $\varphi$ is surjective then $\varphi^{-1}(M)$ is a
+                           maximal ideal of $R$. Give an example to show that
+                           this need not be the cae if $\varphi$ is not
+                           surjective.
+                  \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%7.4.14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[7.4.14]  Assume $R$ is commutative. Let $x$ be an indeterminate, let
+                  $f(x)$ be a monic polynomial in $R[x]$ of degree $n \ge 1$ and
+                  use the bar notation to denote passage to the quotient ring
+                  $R[x]/(f(x))$.
+                  \begin{enumerate}
+                     \item Show that every element of $R[x]/(f(x))$ is of the
+                           form $\overline{p(x)}$ for some polynomial
+                           $p(x) \in R[x]$ of degree less than $n$, i.e.,
+                           $$R[x]/(f(x)) = \{\overline{a_0} + \overline{a_1x}
+                             + \cdots + \overline{a_{n-1}x^{n-1}} : a_0, a_1, 
+                             \ldots, a_{n-1} \in R\}.$$
+                     \item Prove that if $p(x)$ and $q(x)$ are distinct
+                           polynomials in $R[x]$ which are both of degree less
+                           than $n$, then $\overline{p(x)} \neq\overline{q(x)}$.
+                     \item If $f(x) = a(x)b(x)$ where both $a(x)$ and $b(x)$
+                           have degree less than $n$, prove that
+                           $\overline{a(x)}$ is a zero divisor in $R[x]/(f(x))$.
+                     \item If $f(x) = x^n - a$ for some nilpotent element
+                           $a \in R$, prove that $\overline{x}$ is nilpotent in
+                           $R[x]/(f(x))$.
+                     \item Let $p$ be a prime, assume $R = \F_p$ and
+                           $f(x) = x^p - a$ for some $a \in \F_p$. Prove that
+                           $\overline{x-a}$ is nilpotent in $R[x]/(f(x))$.
+                  \end{enumerate}
+\end{enumerate}
+\end{document}
