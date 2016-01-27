@@ -114,10 +114,10 @@
       abelian we have
       $$G_b = G_{\sigma(a)} = \sigma G_a\sigma^{-1} =
         \sigma\sigma^{-1}G_a = G_a.$$
-      That is, all elements in $A$ have the same stabilizer; thus, the kernel
-      of the action of $G$ on $A$ is $G_a$; from Exercise 4.1.2, we have that
-      $G_a = \{1\}$. Hence if a permutation stabilizes an element of $A$, then
-      that permutation must be the identity. Equivalently, if
+      That is, all elements in $A$ have the same stabilizer, $G_a$; thus, the
+      kernel of the action of $G$ on $A$ is also $G_a$; from Exercise 4.1.2, we
+      have that $G_a = \{1\}$. Hence if a permutation stabilizes an element of
+      $A$, then that permutation must be the identity. Equivalently, if
       $\alpha \in G - \{1\}$ and $c \in A$, then $\alpha(c) \neq c$. The orbit
       of $a$ is $A$ because the action is transitive; thus from Proposition 4.2,
       it follows that $|A| = |G : G_a| = |G|/|G_a| = |G|/1$, and we conclude
@@ -149,8 +149,8 @@
                $I_n - \{a\}$, and we conclude that $S_n$ is doubly transitive on
                $I_n$, $n \ge 2$.
          \item Let $G$ be a doubly transitive group on a set $A$. If $|A| = 2$,
-               then the only blocks are the trivial ones; so assume that $A$
-               has more than 2 elements. Let $B$ be a nonempty proper subset of
+               then the only blocks of $A$ are the trivial ones; so assume that
+               $A$ has more than 2 elements. Let $B$ be a nonempty proper subset of
                $A$ with more than 1 element. Let $b_1, b_2 \in B$,
                $b_1 \neq b_2$. Since $B \subsetneq A$, there exists $b_3 \in A$
                such that $b_3 \notin B$. Since $G$ is transitive on $A$, there
@@ -158,7 +158,7 @@
                $\alpha(b_2) = b_2$, then we would have that
                $\alpha(b_2) = \alpha(b_1)$, so that $b_1 = b_2$ (since $\alpha$
                is injective), a contradiction. Thus
-               $\alpha(b_2), b_3 \notin A - \{b_2\}$. Since $G$ is doubly
+               $\alpha(b_2), b_3 \in A - \{b_2\}$. Since $G$ is doubly
                transitive on $A$, there exists $\beta \in G_{b_2}$ such that
                $\beta(\alpha(b_2)) = b_3$. Now
                $$\beta(\alpha(b_1)) = \beta(b_2) = b_2.$$
@@ -181,8 +181,9 @@
                   r^3\{1, 3\} &= \{2, 4\} & sr^3\{1, 3\} &= \{2, 4\},
                \end{align*}
                so that $\sigma(B) = B$ or $\sigma(B) \cap B = \emptyset$. That
-               is, $B$ is a nontrivial block of $V$. It follows by the preceding
-               proof that $D_8$ is not doubly transitive. \qed               
+               is, $B$ is a nontrivial block of $V$. It follows by the 
+               contrapositive of the preceding proof that $D_8$ is not doubly
+               transitive. \qed               
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%4.2.04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.2.4]   Use the left regular representation of $Q_8$ to produce two
@@ -223,10 +224,10 @@
                $S_n$, where $n \ge 7$; that is, there exists an injective
                homomorphism
                $$\pi : Q_8 \rightarrow S_n.$$
-               By Proposition 4.1, there exists an action of $Q_8$ on
-               $A = \{1, 2, \ldots, n\}$, where the kernel of this action is the
-               kernel of $\pi$. Since $\pi$ is injective, its action is trivial,
-               so that the action of $Q_8$ on $A$ is also trivial. Let
+               By Proposition 4.1, there exists an action, $\phi$, of $Q_8$ on
+               $A = \{1, 2, \ldots, n\}$, where the kernel of $\phi$  is the
+               kernel of $\pi$. Since $\pi$ is injective, its kernel is trivial,
+               so that the kernel of $\phi$ is also trivial. Let
                $a \in A$ and $O_a$ be the orbit of $a$. It follows by
                Proposition 4.2 that $|O_a| = |Q_8 : Q_{8_a}|$, so that
                $8 = |Q_8| = |O_a| \cdot |Q_{8_a}|$. Recall that $Q_{8_a}$ is a
@@ -241,7 +242,7 @@
                $-1 \in Q_{8_a}$. Since $a$ was arbitrary, it follows that
                $\cyc{-1} \subseteq Q_{8_a}$ for all $a \in A$. Thus
                $-1$ stabilizes every element of $A$, so that $-1$ is in the
-               kernel of this action. That is, the kernel of this action is not
+               kernel of $\phi$. That is, the kernel of $\phi$ is not
                trivial, a contradiction. So we conclude that $Q_8$ is not
                isomorphic to a subgroup of $S_n$, where $n \le 7$. \qed
       \end{enumerate}
@@ -249,5 +250,55 @@
    \item[4.2.10]  Prove that every non-abelian group of order 6 has a nonnormal
                   subgroup of order 2. Use this to classify groups of order 6.
                   [Produce an injective homomorphism into $S_3$.]
+                  
+      \textbf{Proof.} Let $G$ be a nonabelian group of order 6. By Cauchy's
+      Theorem, there exists $h \in G$ such that $|h| = 2$. Thus $H = \{1, h\}$
+      is a subgroup of $G$ of order 2. Now suppose to the contrary that $H$ is
+      normal. Let $g \in G$. Since $H$ is normal, it follows that
+      $ghg^{-1} \in H$, so that $ghg^{-1} = 1$ or $ghg^{-1} = g$; the former
+      implies that $h = 1$, a contradiction since $|h| = 2$, so we must have
+      that $ghg^{-1} = h$, so that $gh = hg$; that is, $h \in Z(G)$. By
+      Lagrange's Theorem, we have that $|Z(G)| = \{1, 2, 3, 6\}$; but since
+      $h \in Z(G)$ and $G$ is nonabelian, it follows that $|Z(G)| = 2$ or
+      $|Z(G)| = 3$, so that $|G/Z(G)| = 3$ or $|G/Z(G)| = 2$; thus, the order of
+      $G/Z(G)$ is prime and it follows that $G/Z(G)$ is cyclic by Corollary
+      3.10, so that $G$ is abelian by Exercise 3.1.36, a contradiction. Thus $H$
+      is not normal. Indeed, since $H$ was arbitrary, it follows that every
+      subgroup of order 2 in a nonabelian group of order 6 must be nonnormal.
+      Now we claim that, up to isomorphism, there are exactly two groups of
+      order 6. So let $G$ be a group of order 6. We now want to show that
+      \begin{itemize}
+         \item If $G$ is non-abelian, then $G \cong S_3$
+         \item If $G$ is abelian, then $G \cong \Z/6\Z$.
+      \end{itemize}
+      
+      \textbf{Non-abelian $G$}. We already showed that $G$ has a subgroup $H$ of
+      order 2. That is, $H$ has 3 left cosets in $G$. Let us now consider the
+      action of $G$ on the left cosets of $H$ by left multiplication. Let $\pi$
+      be the permutation representation induced by this action. By Theorem
+      4.3 (3), the kernel of $\pi$ is the largest normal subgroup of $G$
+      contained in $H$. Thus the kernel of $\pi$ is either trivial or $H$. But
+      $H$, as we previously showed, is not normal; thus the kernel of $\pi$ must
+      be trivial, so that $\pi : G \rightarrow S_3$ is injective. Since
+      $|G| = |S_3|$, it follows that $\pi$ is onto, so that $\pi$ is an
+      isomorphism and we conclude that $G \cong S_3$.
+      
+      \textbf{Abelian $G$}. By Cauchy's Theorem there exists $r, s \in G$, such
+      that $|r| = 2$ and $|s| = 3$. We now want to show that $G = \cyc{rs}$. It
+      suffices to show that $\cyc{rs}$ contains at least 4 elements; this is so
+      because Lagrange's Theorem says that $|\cyc{rs}| \in \{1, 2, 3, 6\}$, so
+      if $\cyc{rs}$ has four elements of $G$, then it must equal $G$. Since
+      $G$ is abelian, $r$ and $s$ commute and we have:
+      \begin{align*}
+         (rs)^2 = r^2s^2 &= s^2 \\
+         (rs)^3 = r^3s^3 &= r \\
+         (rs)^4 = r^4s^4 &= s \\
+         (rs)^6 = r^6s^6 &= 1.
+      \end{align*}
+      Thus $1, s, s^2, r \in \cyc{rs}$. Now $1, s, s^2$ are different elements
+      because $|s| = 3$. The element $r$ cannot equal 1 because $|r| = 2$. Also
+      $r$ cannot equal $s$ or $s^2$ because $|s| = |s^2| = 3$. Thus $1$, $s$,
+      $s^2$, and $r$ are four different element in $\cyc{rs}$. Thus $\cyc{rs} = G$, so
+      that $G$ is cyclic. It follows by Theorem 2.4 that $G \cong \Z/6\Z$. \qed
 \end{enumerate}
 \end{document}
