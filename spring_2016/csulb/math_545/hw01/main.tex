@@ -59,23 +59,70 @@ Let $V, W$, and $U$ be finite dimensional vector spaces over some field $k$. For
 vector spaces $X, Y$ over $k$, denote the set of all linear transformations from
 $X$ to $Y$ by $\mathcal{L}(X, Y)$. Fix a linear transformation
 $\phi : V \rightarrow W$, and consider the maps
-$$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
-  \text{ defined by } \psi \mapsto \psi \circ \phi$$
-and
 $$\phi \circ \_ : \mathcal{L}(U, V) \rightarrow \mathcal{L}(U, W)
-  \text{ defined by } \psi \mapsto \phi \circ \psi.$$
+  \text{ defined by } \psi \mapsto \phi \circ \psi$$
+and
+$$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
+  \text{ defined by } \psi \mapsto \psi \circ \phi.$$
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[1.]   Prove that $\_ \circ \phi$ and $\phi \circ \_$ are linear
-               transformations.
+   \item Prove that $\phi \circ \_$ and $\_ \circ \phi$ are linear
+         transformations.
 
-      \textbf{Proof.} First we will show that $\_ \circ \phi$ is a linear
+      \textbf{Proof.} First we will show that $\phi \circ \_$ is a linear
       transformation.
-
+      
+      \begin{itemize}
+         \item \textbf{additivity.} Let $\alpha$ and $\beta$ be linear
+               transformations in $\mathcal{L}(U, V)$. We want to show that
+               \begin{equation} \label{1_1}
+                  (\phi\circ\_)(\alpha+\beta) = (\phi\circ\_)(\alpha) +
+                  (\phi\circ\_)(\beta).
+               \end{equation}
+               So it suffices to show that
+               $$[(\phi\circ\_)(\alpha+\beta)](u) = [(\phi\circ\_)(\alpha)](u) +
+                 [(\phi\circ\_)(\beta)](u)$$
+               for all $u \in U$. To that end, we let $u$ be an arbitrary
+               element in $U$. Hence
+               \begin{align*}
+                  [(\phi\circ\_)(\alpha+\beta)](u) &=
+                     [\phi\circ(\alpha+\beta)](u)
+                        &[\text{Definition of }\phi\circ\_ ] \\
+                     &= \phi((\alpha+\beta)(u)) \\
+                     &= \phi(\alpha(u)+\beta(u)) \\
+                     &= \phi(\alpha(u))+\phi(\beta(u))
+                        &[\phi \text{ is additive}] \\
+                     &= (\phi\circ\alpha)(u)+(\phi\circ\beta)(u) \\
+                     &= [(\phi\circ\_)(\alpha)](u) + [(\phi\circ\_)(\beta)](u),
+               \end{align*}
+               as desired, and we conclude that \eqref{1_1} holds, so that
+               $\phi\circ\_$ is additive.
+         \item \textbf{homogeneity.} Let $a \in k$. We want to show that
+               \begin{equation} \label{1_2}
+                  (\phi\circ\_)(a\alpha) = a[(\phi\circ\_)(\alpha)].
+               \end{equation}
+               The equality in \eqref{1_2} holds if and only if for every
+               $v \in V$, we have
+               $$[(\phi\circ\_)(a\alpha)](v) = a([(\phi\circ\_)(\alpha)](v)).$$
+               So let $v \in V$. It follows that \eqref{1_2} holds because
+               \begin{align*}
+                  [(\phi\circ\_)(a\alpha)](v) &= [\phi\circ(a\alpha)](v)
+                     &[\text{Definition of }\phi\circ\_ ] \\
+                     &= \phi((a\alpha)(v)) \\
+                     &= \phi(a\alpha(v)) \\
+                     &= a\phi(\alpha(v)) 
+                        &[\phi\text{ is a linear transformation}] \\
+                     &= a((\phi\circ\alpha)(v)) \\
+                     &= a([(\phi\circ\_)(\alpha)](v)).
+               \end{align*}
+      \end{itemize}
+      Thus we conclude from above that $\phi\circ\_$ is a linear transformation.
+      Now we will show that $\_\circ\phi$ is also a linear transformation.
+      
       \begin{itemize}
          \item \textbf{additivity.} Let $\alpha$ and $\beta$ be linear
                transformations in $\mathcal{L}(W, U)$. We want to show that
-               \begin{equation} \label{1_1}
+               \begin{equation} \label{1_3}
                   (\_\circ\phi)(\alpha+\beta) = (\_\circ\phi)(\alpha) +
                   (\_\circ\phi)(\beta).
                \end{equation}
@@ -93,59 +140,16 @@ $$\phi \circ \_ : \mathcal{L}(U, V) \rightarrow \mathcal{L}(U, W)
                      &= (\alpha\circ\phi)(v) + (\beta\circ\phi)(v) \\
                      &= [(\_\circ\phi)(\alpha)](v) + [(\_\circ\phi)(\beta)](v),
                \end{align*}
-               as desired, and we conclude that \eqref{1_1} holds, so that
-               $\_\circ\phi$ is additive.
-         \item \textbf{homogeneity.} Let $a \in k$. We want to show that
-               \begin{equation} \label{1_2}
-                  (\_\circ\phi)(a\alpha) = a(\_\circ\phi)(\alpha).
-               \end{equation}
-               The equality in \eqref{1_2} holds if and only if for every
-               $v \in V$, we have
-               $$[(\_\circ\phi)(a\alpha)](v) = a([(\_\circ\phi)(\alpha)](v)).$$
-               So let $v \in V$. It follows that \eqref{1_2} holds because
-               \begin{align*}
-                  [(\_\circ\phi)(a\alpha)](v) &= [(a\alpha)\circ\phi](v)
-                     &[\text{Definition of }\_\circ\phi ] \\
-                     &= (a\alpha)(\phi(v)) \\
-                     &= a(\alpha(\phi(v))) \\
-                     &= a((\alpha\circ\phi)(v)) \\
-                     &= a([(\_\circ\phi)(\alpha)](v)).
-               \end{align*}
-      \end{itemize}
-      Thus we conclude from above that $\_\circ\phi$ is a linear transformation.
-      Now we will show that $\phi\circ\_$ is also a linear transformation.
-
-      \begin{itemize}
-         \item \textbf{additivity.} Let $\alpha$ and $\beta$ be linear
-               transformations in $\mathcal{L}(U, V)$. We want to show that
-               \begin{equation} \label{1_3}
-                  (\phi\circ\_)(\alpha+\beta) = (\phi\circ\_)(\alpha) +
-                  (\phi\circ\_)(\beta).
-               \end{equation}
-               So it suffices to show that
-               $$[(\phi\circ\_)(\alpha+\beta)](u) = [(\phi\circ\_)(\alpha)](u) +
-                 [(\phi\circ\_)(\beta)](u)$$
-               for all $u \in U$. To that end, we let $u$ be an arbitrary
-               element in $U$. Hence
-               \begin{align*}
-                  [(\phi\circ\_)(\alpha+\beta)](u) &=
-                     [\phi\circ(\alpha+\beta)](u)
-                        &[\text{Definition of }\_\circ\phi ] \\
-                     &= (\alpha + \beta)(\phi(v)) \\
-                     &= \alpha(\phi(v)) + \beta(\phi(v)) \\
-                     &= (\alpha\circ\phi)(v) + (\beta\circ\phi)(v) \\
-                     &= [(\_\circ\phi)(\alpha)](v) + [(\_\circ\phi)(\beta)](v),
-               \end{align*}
-               as desired, and we conclude that \eqref{1_1} holds, so that
+               as desired, and we conclude that \eqref{1_3} holds, so that
                $\_\circ\phi$ is additive.
          \item \textbf{homogeneity.} Let $a \in k$. We want to show that
                \begin{equation} \label{1_4}
-                  (\_\circ\phi)(a\alpha) = a(\_\circ\phi)(\alpha).
+                  (\_\circ\phi)(a\alpha) = a[(\_\circ\phi)(\alpha)].
                \end{equation}
-               The equality in \eqref{1_2} holds if and only if for every
+               The equality in \eqref{1_4} holds if and only if for every
                $v \in V$, we have
                $$[(\_\circ\phi)(a\alpha)](v) = a([(\_\circ\phi)(\alpha)](v)).$$
-               So let $v \in V$. It follows that \eqref{1_2} holds because
+               So let $v \in V$. It follows that \eqref{1_4} holds because
                \begin{align*}
                   [(\_\circ\phi)(a\alpha)](v) &= [(a\alpha)\circ\phi](v)
                      &[\text{Definition of }\_\circ\phi ] \\
@@ -155,5 +159,82 @@ $$\phi \circ \_ : \mathcal{L}(U, V) \rightarrow \mathcal{L}(U, W)
                      &= a([(\_\circ\phi)(\alpha)](v)).
                \end{align*}
       \end{itemize}
+      Thus $\phi\circ\_$ is a linear transformation. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Show that
+         \begin{enumerate}
+            \item if $\phi$ is injective, then $\phi\circ\_$ is injective and
+                  $\_\circ\phi$ is surjective, and
+            \item if $\phi$ is surjective, then $\phi\circ\_$ is surjective and
+                  $\_\circ\phi$ is injective.
+         \end{enumerate}
+         
+      \textbf{Solution.} Let $\{v_1, v_2, \ldots, v_n\}$ be a basis for $V$,
+      $\{w_1, w_2, \ldots, w_m\}$ a basis for $W$, and
+      $\{u_1, u_2, \ldots, u_s\}$ a basis for $U$, where $n, m$, and $s$ are
+      positive integers.
+      
+      \begin{enumerate}
+         \item \textbf{Proof.} Suppose that $\phi$ is injective.
+               \begin{itemize}
+                  \item \textit{Show that $\phi\circ\_$ is injective}. So
+                        suppose that
+                        $(\phi\circ\_)(\alpha) = (\phi\circ\_)(\beta)$ for some
+                        $\alpha, \beta \in \mathcal{L}(U, V)$. That is,
+                        $\phi\circ\alpha = \phi\circ\beta$. Let $u \in U$. Since
+                        $\phi\circ\alpha = \phi\circ\beta$, it follows that
+                        $(\phi\circ\alpha)(u) = (\phi\circ\beta)(u)$; i.e.,
+                        $\phi(\alpha(u)) = \phi(\beta(u)$, so that by the
+                        injectivity of $\phi$, we have $\alpha(u) = \beta(u)$.
+                        Thus $\alpha(u) = \beta(u)$ for all $u \in U$, or
+                        equivalently, $\alpha = \beta$, so that $\phi\circ\_$ is
+                        injective.
+                  \item \textit{Show that $\_\circ\phi$ is surjective}. Let
+                        $\alpha \in \mathcal{L}(V, U)$. We want to find
+                        $\psi \in \mathcal{L}(W, U)$ so that
+                        $\psi\circ\phi = \alpha$. First we will show that
+                        $$\phi(v_1), \phi(v_2), \ldots, \phi(v_n)$$
+                        are linearly independent in $W$. To that end, suppose
+                        that
+                        $$k_1\phi(v_1) + \cdots + k_n\phi(v_n) = 0$$
+                        for some scalars $k_1, \ldots, k_n \in k$. Using the
+                        linear properties of $\phi$, we have that
+                        $\phi(k_1v_1 + \cdots + k_nv_n) = 0$. Now $\phi(0) = 0$
+                        because $\phi$ is a homomorphism of groups. But since
+                        $\phi$ is injective, we conclude that
+                        $k_1v_1 + \cdots + k_nv_n = 0$; i.e.,
+                        $k_1 = k_2 = \cdots = k_n = 0$ because
+                        $v_1, \ldots, v_n$ are linearly independent. Thus
+                        $\phi(v_1), \ldots, \phi(v_n)$ are linearly independent.
+                        Let $w_i = \phi(v_i)$, where $1 \le i \le n$. Extend the
+                        linearly independent set $\{w_1, \ldots, w_n\}$ to a 
+                        basis $\{w_1, \ldots, w_n, b_1, b_2, \ldots, b_j\}$ for
+                        $W$, where $j \ge 0$ and $n + j = m$. So let
+                        $\psi \in \mathcal{L}(W, U)$, such that
+                        $$\psi(w_i) = \alpha(v_i), \text{ where } 1 \le i \le n
+                          \text{ and } \psi(b_i) = 0, \text{ where }
+                          1 \le i \le j.$$
+                        It remains to show that $\psi\circ\phi = \alpha$. So let
+                        $v \in  V$. Thus there exist scalars $a_1, \ldots, a_n$
+                        in $k$ such that
+                        $$v = a_1v_1 + \cdots + a_nv_n.$$
+                        Hence
+                        \begin{align*}
+                           (\psi\circ\phi)(v) &= 
+                              (\psi\circ\phi)(a_1v_1 + \cdots + a_nv_n) \\
+                              &= \psi(\phi(a_1v_1 + \cdots + a_nv_n)) \\
+                              &= \psi(\phi(a_1v_1) + \cdots + \phi(a_nv_n)) \\
+                              &= \psi(a_1\phi(v_1) + \cdots + a_n\phi(v_n)) \\
+                              &= \psi(a_1w_1 + \cdots + a_nw_n) \\
+                              &= a_1\psi(w_1) + \cdots + a_n\psi(w_n) \\
+                              &= a_1\alpha(v_1) + \cdots + a_n\alpha(v_n) \\
+                              &= \alpha(a_1v_1) + \cdots + \alpha(a_nv_n) \\
+                              &= \alpha(a_1v_1 + \cdots + a_nv_n) \\
+                              &= \alpha(v),
+                        \end{align*}
+                        so that $\psi\circ\phi = \alpha$.
+               \end{itemize} \qed
+         \item \textbf{Proof.} Suppose $\phi$ is surjective.
+      \end{enumerate}
 \end{enumerate}
 \end{document}
