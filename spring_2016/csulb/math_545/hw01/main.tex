@@ -232,9 +232,53 @@ $$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
                               &= \alpha(a_1v_1 + \cdots + a_nv_n) \\
                               &= \alpha(v),
                         \end{align*}
-                        so that $\psi\circ\phi = \alpha$.
+                        so that $\psi\circ\phi = \alpha$, and thus,
+                        $\_\circ\phi$ is surjective.
                \end{itemize} \qed
          \item \textbf{Proof.} Suppose $\phi$ is surjective.
+               \begin{itemize}
+                  \item \textit{Show that $\phi\circ\_$ is surjective}. Let
+                        $\alpha \in \mathcal{L}(U, W)$. We want to find
+                        $\psi \in \mathcal{L}(U, V)$ such that
+                        $\phi\circ\psi = \alpha$. Since $\phi$ is surjective,
+                        there exist $b_1, \ldots, b_s \in V$ such that
+                        $\phi(b_i) = \alpha(u_i)$, for all $1 \le i \le s$. So
+                        let $\psi \in \mathcal{L}(U, V)$ such that
+                        $\psi(u_i) = b_i$, for all $1 \le i \le s$. It remains
+                        to show that $\phi\circ\psi = \alpha$. Let $u \in U$.
+                        Thus
+                        $$u = c_1u_1 + \cdots + c_su_s$$
+                        for some scalars $c_1, \ldots, c_s \in k$. Thus
+                        \begin{align*}
+                           (\phi\circ\psi)(u) &= (\phi\circ\psi)(
+                              c_1u_1 + \cdots + c_su_s) \\
+                              &= \phi(\psi(c_1u_1 + \cdots + c_su_s)) \\
+                              &= \phi(\psi(c_1u_1) + \cdots + \psi(c_su_s)) \\
+                              &= \phi(c_1\psi(u_1) + \cdots + c_s\psi(u_s)) \\
+                              &= \phi(c_1\psi(u_1))+\cdots+\phi(c_s\psi(u_s)) \\
+                              &= c_1\phi(\psi(u_1))+\cdots+c_s\phi(\psi(u_s)) \\
+                              &= c_1\phi(b_1)+\cdots+c_s\phi(b_s) \\
+                              &= c_1\alpha(u_1)+\cdots+c_s\alpha(u_s) \\
+                              &= \alpha(c_1u_1)+\cdots+\alpha(c_su_s) \\
+                              &= \alpha(c_1u_1+\cdots+c_su_s) \\
+                              &= \alpha(u),
+                        \end{align*}
+                        so that $\phi\circ\psi = \alpha$, and thus,
+                        $\phi\circ\_$ is surjective.
+                  \item \textit{Show that $\_\circ\phi$ is injective}. Suppose
+                        that $(\_\circ\phi)(\alpha) = (\_\circ\phi)(\beta)$ for
+                        some $\alpha, \beta \in \mathcal{L}(W, U)$. That is,
+                        $\alpha\circ\phi = \beta\circ\phi$. Let $w \in W$. Since
+                        $\phi$ is surjective, there exists $v \in V$ such that
+                        $\phi(v) = w$. Since $\alpha\circ\phi = \beta\circ\phi$,
+                        it follows that
+                        $(\alpha\circ\phi)(v) = (\beta\circ\phi)(v)$, so that
+                        $\alpha(\phi(v)) = \beta(\phi(v))$; i.e.,
+                        $\alpha(w) = \beta(w)$. Since $w$ was arbitrary, we
+                        conclude that $\alpha(w) = \beta(w)$ for all $w \in W$,
+                        so that $\alpha = \beta$, and thus, $\_\circ\phi$ is
+                        injective.
+               \end{itemize} \qed
       \end{enumerate}
 \end{enumerate}
 \end{document}
