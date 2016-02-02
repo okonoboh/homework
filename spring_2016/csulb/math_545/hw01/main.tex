@@ -55,6 +55,15 @@
 %\setcounter{section}{-1}
 
 \begin{document}
+We shall make use of the following facts from Linear Algebra
+\begin{itemize}
+   \item \textbf{F1.} A linearly independent set in a finite dimensional vector
+         space can be extended to a basis for that vector space.
+   \item \textbf{F2.} If $\{v_1, \ldots, v_n\}$ is a basis for a vector space
+         $V$ and $w_1, \ldots, w_n$ are elements in a vector space $W$ (both
+         over the same field), then there exists a unique linear transformation
+         from $V$ to $W$ that maps $v_i$ to $w_i$, for $i = 1, \ldots, n$.
+\end{itemize}
 Let $V, W$, and $U$ be finite dimensional vector spaces over some field $k$. For 
 vector spaces $X, Y$ over $k$, denote the set of all linear transformations from
 $X$ to $Y$ by $\mathcal{L}(X, Y)$. Fix a linear transformation
@@ -65,21 +74,25 @@ and
 $$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
   \text{ defined by } \psi \mapsto \psi \circ \phi.$$
 \begin{enumerate}
+   \item Prove for all $r \in R$, $m \in M$
+         $$r(-m) = -r(m) = -(rm)$$
+   \item Read and understand def of annihilator and prove statement in AK
+         starting with ``Clearly..." Page 14.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Prove that $\phi \circ \_$ and $\_ \circ \phi$ are linear
          transformations.
 
       \textbf{Proof.} First we will show that $\phi \circ \_$ is a linear
-      transformation.
+      transformation. Now let $\alpha$ and $\beta$ be linear transformations in
+      $\mathcal{L}(U, V)$.
       
       \begin{itemize}
-         \item \textbf{additivity.} Let $\alpha$ and $\beta$ be linear
-               transformations in $\mathcal{L}(U, V)$. We want to show that
+         \item \textbf{additivity.} It suffices to show that
                \begin{equation} \label{1_1}
                   (\phi\circ\_)(\alpha+\beta) = (\phi\circ\_)(\alpha) +
                   (\phi\circ\_)(\beta).
                \end{equation}
-               So it suffices to show that
+               That is, we want to show that
                $$[(\phi\circ\_)(\alpha+\beta)](u) = [(\phi\circ\_)(\alpha)](u) +
                  [(\phi\circ\_)(\beta)](u)$$
                for all $u \in U$. To that end, we let $u$ be an arbitrary
@@ -117,11 +130,11 @@ $$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
                \end{align*}
       \end{itemize}
       Thus we conclude from above that $\phi\circ\_$ is a linear transformation.
-      Now we will show that $\_\circ\phi$ is also a linear transformation.
+      Now we will show that $\_\circ\phi$ is also a linear transformation. So
+      let $\alpha$ and $\beta$ be linear transformations in $\mathcal{L}(W, U)$.
       
       \begin{itemize}
-         \item \textbf{additivity.} Let $\alpha$ and $\beta$ be linear
-               transformations in $\mathcal{L}(W, U)$. We want to show that
+         \item \textbf{additivity.} We want to show that
                \begin{equation} \label{1_3}
                   (\_\circ\phi)(\alpha+\beta) = (\_\circ\phi)(\alpha) +
                   (\_\circ\phi)(\beta).
@@ -177,8 +190,8 @@ $$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
       \begin{enumerate}
          \item \textbf{Proof.} Suppose that $\phi$ is injective.
                \begin{itemize}
-                  \item \textit{Show that $\phi\circ\_$ is injective}. So
-                        suppose that
+                  \item \textit{Show that $\phi\circ\_$ is injective}. Suppose
+                        that
                         $(\phi\circ\_)(\alpha) = (\phi\circ\_)(\beta)$ for some
                         $\alpha, \beta \in \mathcal{L}(U, V)$. That is,
                         $\phi\circ\alpha = \phi\circ\beta$. Let $u \in U$. Since
@@ -204,19 +217,20 @@ $$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
                         $\phi$ is injective, we conclude that
                         $k_1v_1 + \cdots + k_nv_n = 0$; i.e.,
                         $k_1 = k_2 = \cdots = k_n = 0$ because
-                        $v_1, \ldots, v_n$ are linearly independent. Thus
-                        $\phi(v_1), \ldots, \phi(v_n)$ are linearly independent.
-                        Let $w_i = \phi(v_i)$, where $1 \le i \le n$. Extend the
-                        linearly independent set $\{w_1, \ldots, w_n\}$ to a 
-                        basis $\{w_1, \ldots, w_n, b_1, b_2, \ldots, b_j\}$ for
-                        $W$, where $j \ge 0$ and $n + j = m$. So let
-                        $\psi \in \mathcal{L}(W, U)$, such that
-                        $$\psi(w_i) = \alpha(v_i), \text{ where } 1 \le i \le n
-                          \text{ and } \psi(b_i) = 0, \text{ where }
-                          1 \le i \le j.$$
+                        $v_1, \ldots, v_n$ are linearly independent in $V$. Thus
+                        $\phi(v_1), \ldots, \phi(v_n)$ are linearly independent
+                        in $W$. Let $w_i = \phi(v_i)$, for $i = 1, \ldots n$.
+                        Using \textbf{F1}, we extend the linearly independent
+                        set $\{w_1, \ldots, w_n\}$ to a basis
+                        $\{w_1, \ldots, w_n, b_1, b_2, \ldots, b_j\}$ for $W$,
+                        where $j \ge 0$ and $n + j = m$. Using \textbf{F2}, we
+                        let $\psi \in \mathcal{L}(W, U)$ such that
+                        $$\psi(w_i) = \alpha(v_i), \text{ for } i = 1, \ldots, n
+                          \text{ and } \psi(b_i) = 0, \text{ for }
+                          i = 1, \ldots, j.$$
                         It remains to show that $\psi\circ\phi = \alpha$. So let
-                        $v \in  V$. Thus there exist scalars $a_1, \ldots, a_n$
-                        in $k$ such that
+                        $v \in  V$. Since $\{v_1, \ldots, v_n\}$ spans $V$,
+                        there exist scalars $a_1, \ldots, a_n$ in $k$ such that
                         $$v = a_1v_1 + \cdots + a_nv_n.$$
                         Hence
                         \begin{align*}
@@ -242,11 +256,12 @@ $$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
                         $\psi \in \mathcal{L}(U, V)$ such that
                         $\phi\circ\psi = \alpha$. Since $\phi$ is surjective,
                         there exist $b_1, \ldots, b_s \in V$ such that
-                        $\phi(b_i) = \alpha(u_i)$, for all $1 \le i \le s$. So
-                        let $\psi \in \mathcal{L}(U, V)$ such that
-                        $\psi(u_i) = b_i$, for all $1 \le i \le s$. It remains
-                        to show that $\phi\circ\psi = \alpha$. Let $u \in U$.
-                        Thus
+                        $\phi(b_i) = \alpha(u_i)$, for $i = 1, \ldots, s$. By
+                        \textbf{F2}, we let $\psi \in \mathcal{L}(U, V)$ such
+                        that $\psi(u_i) = b_i$, for $i = 1, \ldots, s$. It
+                        remains to show that $\phi\circ\psi = \alpha$. Let
+                        $u \in U$. Since $\{u_1, \ldots, u_s\}$ spans $U$, we
+                        have that
                         $$u = c_1u_1 + \cdots + c_su_s$$
                         for some scalars $c_1, \ldots, c_s \in k$. Thus
                         \begin{align*}
@@ -278,7 +293,7 @@ $$\_ \circ \phi : \mathcal{L}(W, U) \rightarrow \mathcal{L}(V, U)
                         conclude that $\alpha(w) = \beta(w)$ for all $w \in W$,
                         so that $\alpha = \beta$, and thus, $\_\circ\phi$ is
                         injective.
-               \end{itemize} \qed
+               \end{itemize} \qed     
       \end{enumerate}
 \end{enumerate}
 \end{document}
