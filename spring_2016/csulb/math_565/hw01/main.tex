@@ -1,0 +1,100 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 566, Spring 2016\\Section 1 (9519)\\
+  HW \#1, DUE: 2016, February 02
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\everymath{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.2.2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.2.2.]  How many roots does $z^9 + z^5 - 8z^3 + 2z + 1$ have between
+                  the circles $\{|z| = 1\}$ and $\{|z| = 2\}$?
+
+      \textbf{Solution.} Let $p(z) = z^9 + z^5 - 8z^3 + 2z + 1$. We want to find
+      the number of zeros of $p(z)$ in the annulus $1 < |z| < 2$. Let
+      $$D_1 := \{z \in \C : |z| < 1\} \text{ and }
+        D_2 := \{z \in \C : |z| < 2\}.$$
+      Now write $p(z) = f_1(z) + h_1(z)$, where $f_1(z) = -8z^3$ and
+      $h_1(z) = z^9 + z^5 + 2z + 1$. For $z \in \delta D_1$, we have
+      \begin{align*}
+         |h_1(z)| &= |z^9 + z^5 + 2z + 1| \\
+            &\le |z^9| + |z^5| + |2z| + |1| &[\text{Triangle Inequality}] \\
+            &= |z|^9 + |z|^5 + 2|z| + 1 \\
+            &= 1^9 + 1^5 + 2 \cdot 1 + 1 \\
+            &= 5 < 8 = 8 \cdot 1^3 = 8|z|^3 = |-8z^3| = |f_1(z)|.      
+      \end{align*}
+      That is,
+      $$|h_1(z)| < |f_1(z)| \qquad \text{ for all } z \in \delta D_1.$$
+      And since $f_1(z)$ has three zeroes in $D_1$, it follows by Rouch\'{e}'s
+      Theorem that $p(z) = f_1(z) + h_1(z)$ has three zeroes in $D_1$. Next, we
+      write $p(z) = f_2(z) + h_2(z)$, where $f_2(z) = z^9$ and
+      $h_2(z) = z^5 - 8z^3 + 2z + 1$. For $z \in \delta D_2$, we have
+      \begin{align*}
+         |h_2(z)| &= |z^5 - 8z^3 + 2z + 1| \\
+            &\le |z^5| + |-8z^3| + |2z| + |1| &[\text{Triangle Inequality}] \\
+            &= |z|^5 + 8|z|^3 + 2|z| + 1 \\
+            &= 2^5 + 8(2^3) + 2 \cdot 2 + 1 \\
+            &= 101 < 512 \cdot 2^9 = |z|^9 = |f_2(z)|
+      \end{align*}
+      so that
+      $$|h_2(z)| < |f_2(z)| \qquad \text{ for all } z \in \delta D_2,$$
+      and since $f_2(z)$ has nine zeroes in $D_2$, it follows by Rouch\'{e}'s
+      Theorem that $p(z) = f_2(z) + h_2(z)$ has nine zeroes in $D_2$. Conclude
+      that $p(z)$ has $9 - 3 = 6$ zeros in the annulus $1 < |z| < 2$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.2.2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.2.6.]  Let $p(z) = z^6 + 9z^4 + z^3 + 2z + 4$ be the polynomial
+                  treated in the example in this section.
+                  \begin{enumerate}
+                     \item Determine which quadrants contain the four zeros of
+                           $p(z)$ that lie inside the unit circle.
+                     \item Determine which quadrants contain the two zeros of
+                           $p(z)$ that lie outside the unit circle.
+                     \item Show that the two zeros of $p(z)$ that lie outside
+                           the unit circle satisfy $\{|z \pm 3i| < 1/10\}$.
+                  \end{enumerate}
+\end{enumerate}
+\end{document} 
