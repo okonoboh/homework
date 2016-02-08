@@ -127,6 +127,51 @@ Let $R$ be a ring.
    \item[5.]   Prove that if $M$ and $N$ are $R$-modules then
                $M \oplus N$ is an $R$-module.
 
-      \textbf{Proof.} Assume that $M$ and $N$ are $R$-modules.
+      \textbf{Proof.} Assume that $M$ and $N$ are $R$-modules. By Exercises 28
+      and 29 from Section 1.1 in Dummit and Foote, it follows that $M \oplus N$
+      is an abelian group. It remains to show that $M \oplus N$ is closed under
+      scalar multiplication by $R$, distributive, associative, and unitary. So
+      let $x, y \in R$ and $a, b \in M \oplus N$. Then $a = (m, n)$ and
+      $b = (m', n')$ for some $m, m' \in M$ and $n, n' \in N$. So 
+      \begin{itemize}
+         \item \textbf{closed under scalar multiplication.} Since $M$ and $N$
+               are $R$-modules, it follows that $xm \in M$ and $xn \in N$; thus,
+               $xa = x(m, n) = (xm, xn) \in M \oplus N$, so that $M \oplus N$
+               is closed under scalar multiplication by $R$.
+         \item \textbf{distributive.} This follows because
+               \begin{align*}
+                  x(a + b) &= x((m, n) + (m', n')) \\
+                     &= x(m + m', n + n') &[\text{Definition}] \\
+                     &= (x(m + m'), x(n + n')) &[\text{Definition}] \\
+                     &= (xm + xm', xn + xn')
+                        &[M\text{ and }N \text{ are } R\text{-modules}] \\
+                     &= (xm, xn) + (xm', xn') &[\text{Definition}] \\
+                     &= x(m, n) + x(m', n') &[\text{Definition}] \\
+                     &= xa + xb
+               \end{align*}
+               and
+               \begin{align*}
+                  (x + y)a &= (x + y)(m, n) \\
+                     &= ((x + y)m, (x + y)n) &[\text{Definition}] \\
+                     &= (xm + ym, xn + yn)
+                        &[M\text{ and }N \text{ are } R\text{-modules}] \\
+                     &= (xm, xn) + (ym, yn) &[\text{Definition}] \\
+                     &= x(m, n) + y(m, n) &[\text{Definition}] \\
+                     &= xa + ya.
+               \end{align*}
+         \item \textbf{associative.} This follows because
+               \begin{align*}
+                  x(ya) &= x(y(m, n)) \\
+                     &= x(ym, yn) &[\text{Definition}] \\
+                     &= (x(ym), x(yn)) &[\text{Definition}] \\
+                     &= ((xy)m, (xy)n) 
+                        &[M\text{ and }N \text{ are } R\text{-modules}] \\
+                     &= (xy)(m, n) &[\text{Definition}] \\
+                     &= (xy)a.
+               \end{align*}
+         \item \textbf{unitary.} This follows since
+               $$1\cdot a = 1(m, n) = (1 \cdot m, 1 \cdot n) = (m, n) = a.$$
+      \end{itemize}
+      So conclude that $M \oplus N$ is an $R$-module. \qed
 \end{enumerate}
 \end{document}
