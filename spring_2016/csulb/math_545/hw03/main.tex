@@ -252,10 +252,11 @@ Let $R$ be a ring.
       \textbf{Proof.} Let $M$ and $N$ be $R$-modules and let addition and scalar
       multiplication by $R$ be defined as stated above. First, we will show that
       $\text{Hom}_R(M, N)$ is an abelian group. So let $\alpha$, $\beta$, and
-      $\gamma$ be arbitrary elements in $\text{Hom}_R(M, N)$.
+      $\gamma$ be arbitrary elements in $\text{Hom}_R(M, N)$, $x$, $y$,
+      $z \in M$, and $r, s \in R$.
 
       \begin{itemize}
-         \item \textbf{closure.} Let $x, y \in M$ and $r \in R$. It follows that
+         \item \textbf{closure.} It follows that
                \begin{align*}
                   (\alpha + \beta)(x + y) &= \alpha(x + y) + \beta(x + y)
                      &[\text{Definition}] \\
@@ -276,12 +277,10 @@ Let $R$ be a ring.
                \end{align*}
                Thus $\alpha+\beta \in \text{Hom}_R(M, N)$, so that
                $\text{Hom}_R(M, N)$ is closed under addition.
-         \item \textbf{associativity.} Let $x, y \in M$ and $r \in R$. It
-               follows that
+         \item \textbf{associativity.} It follows that
                \begin{align*}
-                  [(\alpha + \beta) + \gamma](x + y) &=
-                     (\alpha+\beta)(x + y) + \gamma(x + y)
-                     &[\text{Definition}] \\
+                  [(\alpha + \beta) + \gamma](x) &=
+                     (\alpha+\beta)(x) + \gamma(x) &[\text{Definition}] \\
                      &= [\alpha(x + y) + \beta(x + y)] + \gamma(x + y)
                         &[\text{Definition}] \\
                      &= \alpha(x + y) + [\beta(x + y) + \gamma(x + y)]
@@ -314,7 +313,60 @@ Let $R$ be a ring.
       associativity,
       \begin{itemize}
          \item \textbf{closure of scalar multiplication.} We want to show that
-               $r \cdot \alpha \in (\text{Hom}_R(M, N)$.
+               $r \cdot \alpha \in \text{Hom}_R(M, N)$. So for $x, y \in M$ and
+               $s \in R$, we
+               have
+               \begin{align*}
+                  (r\alpha)(x + y) &= r (\alpha(x + y)) &[\text{Definition}] \\
+                     &= r(\alpha(x) + \alpha(y)) &[\alpha \text{ is linear}] \\
+                     &= r\alpha(x) + r\alpha(y)
+                        &[N \text{ is an } R\text{-module}] \\
+                     &= (r\alpha)(x) + (r\alpha)(y) &[\text{Definition}]
+               \end{align*}
+               and
+               \begin{align*}
+                  (r\alpha)(sx) &= r (\alpha(sx)) &[\text{Definition}] \\
+                     &= r(s\alpha(x)) &[\alpha \text{ is linear}] \\
+                     &= (rs)(\alpha(x)) &[N \text{ is an } R\text{-module}] \\
+                     &= (sr)(\alpha(x)) &[R \text{ is commutative}] \\
+                     &= s(r\alpha(x)) &[N \text{ is an } R\text{-module}] \\
+                     &= s((r\alpha)(x)). &[\text{Definition}]
+               \end{align*}
+               Hence $r \cdot \alpha \in \text{Hom}_R(M, N)$, and thus,
+               $\text{Hom}_R(M, N)$ is closed under scalar multiplication by
+               $R$.
+         \item \textbf{distributivity.} Since
+               \begin{align*}
+                  [r_1(\alpha + \beta)](m_1) &= r_1[(\alpha + \beta)(m_1)]
+                     &[\text{Definition}] \\
+                     &= r_1(\alpha(m_1) + \beta(m_1)) &[\text{Definition}] \\
+                     &= r_1\alpha(m_1) + r_1\beta(m_1)
+                        &[N \text{ is an } R\text{-module}] \\
+                     &= (r_1\alpha)(m_1) + (r_1\beta)(m_1),
+               \end{align*}
+               so that $r_1(\alpha + \beta) = r_1\alpha + r_1\beta$, and
+               \begin{align*}
+                  [(r_1 + r_2)\alpha](m_1) &= (r_1 + r_2)(\alpha(m_1))
+                     &[\text{Definition}] \\
+                     &= r_1(\alpha(m_1) + r_2(\alpha(m_1) 
+                        &[N \text{ is an } R\text{-module}] \\
+                     &= (r_1\alpha)(m_1) +(r_2\alpha)(m_1), &[\text{Definition}]
+               \end{align*}
+               so that $(r_1 + r_2)\alpha = r_1\alpha + r_2\alpha$,
+               distributivity follows.
+         \item \textbf{associativity.} Since
+               \begin{align*}
+                  [r_1(r_2\alpha)](m_1) &= r_1[(r_2\alpha)(m_1)]
+                     &[\text{Definition}] \\
+                     &= r_1[r_2(\alpha(m_1))] &[\text{Definition}] \\
+                     &= (r_1r_2)(\alpha(m_1))
+                        &[N \text{ is an } R\text{-module}] \\
+                     &= [(r_1r_2)\alpha](m_1), &[\text{Definition}]
+               \end{align*}
+               so that $r_1(r_2\alpha) = (r_1r_2)\alpha$, associativity follows.
+         \item It follows trivially from the definition of scalar multiplication
+               that $1 \cdot\tau = \tau$ for all $\tau \in \text{Hom}_R(M, N)$.
       \end{itemize}
+      Conclude that $\text{Hom}_R(M, N)$ is an $R$-module homomorphism.
 \end{enumerate}
 \end{document}
