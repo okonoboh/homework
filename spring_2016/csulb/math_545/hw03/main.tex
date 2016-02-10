@@ -241,7 +241,80 @@ Let $R$ be a ring.
       \end{align*}
       so that $\pi$ is a surjective $R$-module homomorphism. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%09%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[9.]   Prove that if $M$ and $N$ are $R$-modules, then
-               $\text{Hom}_R(M, N)$ is an $R$-module.
+   \item[9.]   Prove that if $M$ and $N$ are $R$-modules, and we endow the set
+               $\text{Hom}_R(M, N)$ with addition and scalar multiplication such
+               that
+               $$(\alpha + \beta)(m) = \alpha(m) + \beta(m) \text{ and }
+                 (r \cdot \alpha)(m) = r \cdot(\alpha(m))$$
+               for all $\alpha, \beta \in \text{Hom}_R(M, N)$, $m \in M$, and
+               $r \in R$, then $\text{Hom}_R(M, N)$ is an $R$-module.
+
+      \textbf{Proof.} Let $M$ and $N$ be $R$-modules and let addition and scalar
+      multiplication by $R$ be defined as stated above. First, we will show that
+      $\text{Hom}_R(M, N)$ is an abelian group. So let $\alpha$, $\beta$, and
+      $\gamma$ be arbitrary elements in $\text{Hom}_R(M, N)$.
+
+      \begin{itemize}
+         \item \textbf{closure.} Let $x, y \in M$ and $r \in R$. It follows that
+               \begin{align*}
+                  (\alpha + \beta)(x + y) &= \alpha(x + y) + \beta(x + y)
+                     &[\text{Definition}] \\
+                     &= \alpha(x) + \alpha(y) + \beta(x) + \beta(y)
+                        &[\alpha \text{ and } \beta \text{ are linear maps}] \\
+                     &= \alpha(x) + \beta(x) + \alpha(y) + \beta(y) \\
+                     &= (\alpha+\beta)(x) + (\alpha+\beta)(y)
+                        &[\text{Definition}] 
+               \end{align*}
+               and
+               \begin{align*}
+                  (\alpha + \beta)(rx) &= \alpha(rx) + \beta(rx)
+                     &[\text{Definition}] \\
+                     &= r\alpha(x) + r\beta(x)
+                        &[\alpha \text{ and } \beta \text{ are linear maps}] \\
+                     &= r(\alpha(x) + \beta(x)) &[\text{Distributivity}] \\
+                     &= r[(\alpha+\beta)(x)]. &[\text{Definition}] 
+               \end{align*}
+               Thus $\alpha+\beta \in \text{Hom}_R(M, N)$, so that
+               $\text{Hom}_R(M, N)$ is closed under addition.
+         \item \textbf{associativity.} Let $x, y \in M$ and $r \in R$. It
+               follows that
+               \begin{align*}
+                  [(\alpha + \beta) + \gamma](x + y) &=
+                     (\alpha+\beta)(x + y) + \gamma(x + y)
+                     &[\text{Definition}] \\
+                     &= [\alpha(x + y) + \beta(x + y)] + \gamma(x + y)
+                        &[\text{Definition}] \\
+                     &= \alpha(x + y) + [\beta(x + y) + \gamma(x + y)]
+                        &[(N, +) \text{ is associative}] \\
+                     &= \alpha(x + y) + (\beta+\gamma)(x + y) \\
+                     &= [\alpha + (\beta + \gamma)](x+y), &[\text{Definition}]
+               \end{align*}
+               so that $\text{Hom}_R(M, N)$ is associative under addition.
+         \item \textbf{identity.} The zero $R$-module homomorphism in
+               $\text{Hom}_R(M, N)$ is the additive identity for the
+               $\text{Hom}_R(M, N)$.
+         \item \textbf{inverse.} Since
+               $$[\alpha + (-\alpha)](x) = \alpha(x) + (-\alpha)(x) =
+                 \alpha(x) - \alpha(x) = 0$$
+               for all $x \in M$, it follows that $\alpha + (-\alpha)$ is the
+               zero homomorphism. Thus $-\alpha$ is the additive inverse of
+               $\alpha$.
+         \item \textbf{commutativity.} Because
+               \begin{align*}
+                  (\alpha+\beta)(x) &= \alpha(x) + \beta(x)
+                     &[\text{Definition}] \\
+                     &= \beta(x) + \alpha(x) &[(N, +) \text{ is abelian}] \\
+                     &= (\beta+\alpha)(x),
+               \end{align*}
+               we have $\alpha + \beta = \beta + \alpha$, so that addition in
+               $\text{Hom}_R(M, N)$ is commutative.
+      \end{itemize}
+      Conclude from above that $(\text{Hom}_R(M, N), +)$ is an abelian group.
+      Next we will show the closure of scalar multiplication, distributivity,
+      associativity,
+      \begin{itemize}
+         \item \textbf{closure of scalar multiplication.} We want to show that
+               $r \cdot \alpha \in (\text{Hom}_R(M, N)$.
+      \end{itemize}
 \end{enumerate}
 \end{document}
