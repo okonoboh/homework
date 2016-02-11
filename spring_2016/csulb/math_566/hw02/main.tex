@@ -137,6 +137,40 @@
         \frac{f'(\zeta)}{f(\zeta) - w}d\zeta.
       \end{align*}
       That is, $f(z)$ attains each each $w \in f(\mathbb{D})$ exactly 1 time in
-      $\mathbb{D}$, so that $f(z)$ is one-to-one on $\mathbb{D}$.
+      $\mathbb{D}$, so that $f(z)$ is one-to-one on $\mathbb{D}$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.4.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.4.5.]  Let $f(z) = p(z)/q(z)$ be a rational function, where $p(z)$
+                  and $q(z)$ are polynomials that are relatively prime (no
+                  common zeros). We define the \textbf{degree} of $f(z)$ to be
+                  the larger of the degrees of $p(z)$ and $q(z)$. Denote the
+                  degree of $f(z)$ by $d$.
+                  \begin{enumerate}
+                     \item Show that each value $w \in \C$, $w \neq f(\infty)$,
+                           is assumed $d$ times by $f(z)$ on $\C$.
+                     \item Show that $f(z)$ attains each value $w \in \C^*$ $d$
+                           times on $\C^*$ (as always, counting multiplicity)
+                  \end{enumerate}
+             
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.4.8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.4.8.]  Let $D$ be a bounded domain, and let $f(z)$ be a continuous
+                  function on $D \cup \delta D$ that is analytic on $D$. Show
+                  that $\delta(f(D)) \subseteq f(\delta D)$, that is, the 
+                  boundary of the open set $f(D)$ is contained in the image
+                  under $f(z)$ of the boundary of $D$.
+
+      \textbf{Proof.} Let $w_0 \in \delta(f(D))$. Since $w_0$ is on the boundary
+      of $f(D)$ there exist points of $f(D)$ in every disk
+      $\mathbb{D}_r(w_0) = \{|z - w_0| < r\}$. So construct a sequence
+      $\{z_n\} \subseteq D$ such that $f(z_n) \in \mathbb{D}_{1/n}(w_0)$. That
+      is, $f(z_n) \rightarrow w_0$. Now assume that $z_n$ converges. Since
+      $D \cup \delta D$ is compact, it must contain all its limit points so that
+      $z_n \rightarrow z_0 \in D \cup \delta D$. By Lemma on Page 36, it follows
+      that $f(z) \rightarrow w_0$ as $z \rightarrow z_0$, and since $f(z)$ is
+      continuous on $D \cup \delta D$, it follows that $f(z_0) = w_0$. Since $D$
+      is open, it follows by the Open Mapping Theorem that $f(D)$ is open, so
+      that $w_0 \notin f(D)$ (since $w_0$ is on the boundary of $f(D)$). Finally
+      since $z_0 \in D \cup \delta D$ and $f(z_0) = w_0 \notin f(D)$, it follows
+      that $z_0 \in \delta D$, so that $w_0 \in f(\delta D)$, and thus,
+      $\delta(f(D)) \subseteq f(\delta D)$. \qed
 \end{enumerate}
 \end{document} 
