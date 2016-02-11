@@ -1,0 +1,109 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 566, Spring 2016\\Section 1 (9519)\\
+  HW \#2, DUE: 2016, February 11
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\everymath{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.3.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.3.1.]  Let $\{f_k(z)\}$ be a sequence of analytic functions on $D$
+                  that converges normally to $f(z)$, and suppose that $f(z)$ has
+                  a zero of order $N$ at $z_0 \in D$. Use Rouch\'{e}'s theorem
+                  to show that there exists $\rho > 0$ such that for $k$ large,
+                  $f_k(z)$ has exactly $N$ zeros counting multiplicity on the
+                  disk $\{z \in \C : |z - z_0| < \rho\}$.
+
+      \textbf{Proof.} Since the sequence of functions converges normally to
+      $f(z)$, it follows that this sequence converges uniformly to $f(z)$ on
+      some compact set $E \subseteq D$ (so that $f(z)$ is analytic on $E$)
+      containing $z_0$. Recall that the zeros of an analytic function are
+      isolated. So there exists $\rho > 0$ such that $f(z) \neq 0$ on
+      $\{z \in \C : 0 < |z - z_0| \le \rho\} \subseteq E$. We can use the
+      Minimum Modulus Principle to find a $\delta > 0$ such that
+      $|f(z)| \ge \delta > 0$ on the circle $\{z \in \C : |z - z_0| = \rho\}$.
+      Since $\{f_k(z)\}$ converges  uniformly to $f(z)$ on $E$, it follows by
+      definition that there exists a positive integer $k'$ such that
+      $$|f_k(z) - f(z)| < \delta \text{ for all } k \ge k' \text{ and }
+         z \in E.$$
+      Particularly, we have
+      $$|f_k(z) - f(z)| < \delta \le |f(z)|\text{ for all } k \ge k'\text{ and }
+         |z - z_0| = \rho.$$
+      It follows by Rouch\'{e}'s theorem that, for $k \ge k'$,
+      $[f_k(z) - f(z)] + f(z) = f_k(z)$  must have the same number of zeros
+      (counting multiplicity) on the disk $\{z \in \C : |z - z_0| < \rho\}$ as
+      $f(z)$. Thus $f_k(z)$ has $N$ zeros on the disk
+      $\{z \in \C : |z - z_0| < \rho\}$, for all $k \ge k'$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.4.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.4.3.]  Let $\{f_k(z)\}$ be a sequence of analytic functions on a
+                  domain $D$ that converges normally to $f(z)$. Suppose that
+                  $f_k(z)$ attains each value $w$ at most $m$ times (counting
+                  multiplicity) in $D$. Show that either $f(z)$ is constant, or
+                  $f(z)$ attains each value $w$ at most $m$ times in $D$.
+
+      \textbf{Proof.} Let $E \subseteq D$ be a compact set. Suppose that $f(z)$
+      is not constant. We want to first show that $f(z)$ attains each value $w$
+      at most $m$ times in $E$. So let $w \in D$. For each positive integer $k$,
+      let
+      $$a_k = \frac{1}{2\pi i}\int_{\delta E}\frac{f_k'(z)}{f_k(z) - w} dz.$$
+      Observe that $a_k$ is the number of zeros of $f_k - w$ in $E$; thus, we
+      have $a_k \le m$ for all $k \ge 1$. Now let
+      $$a = \frac{1}{2\pi i}\int_{\delta E}\frac{f(z)}{f(z) - w} dz,$$
+      so that $a$ is the number of zeros of $f(z) - w$ in $E$. Since
+      $\{f_k(z)\}$ converges normally to $f(z)$ on $D$, it follows that
+      $\{f_k(z)\}$ converges uniformally to $f(z)$ on $E$. Thus
+      $\lim_{k\rightarrow\infty}a_k = a$. But each $a_k \le m$, so that
+      $a \le m$. That is, $f(z)$ attains $w$ at most $m$ times in $E$. Now
+      suppose to the contrary that $f(z)$ attains $w$ at least $m + 1$ times in
+      $D$. Then there exists compact set $E' \subseteq D$(by extending the
+      boundary of $E$) containing all the $m+1$ zeros of $f(z) - w$. But this is
+      a contradiction since we just showed that every compact set in $D$ must
+      contain at most $m$ zeros of $f(z) - w$. Thus $f(z)$ attains $w$ at most
+      $m$ times in $D$. Since $w$ was arbitrarily chosen, the result follows.
+      \qed
+\end{enumerate}
+\end{document} 
