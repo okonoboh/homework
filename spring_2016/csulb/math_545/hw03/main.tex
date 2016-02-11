@@ -272,7 +272,7 @@ Let $R$ be a ring.
                      &[\text{Definition}] \\
                      &= r_1\alpha(m_1) + r_1\beta(m_1)
                         &[\alpha \text{ and } \beta \text{ are linear maps}] \\
-                     &= r_1(\alpha(m_1) + \beta(m_1)) &[\text{Distributivity}]\\
+                     &= r_1(\alpha(m_1) + \beta(m_1))  &[N \text{ is an } R\text{-module}]\\
                      &= r_1[(\alpha+\beta)(m_1)]. &[\text{Definition}] 
                \end{align*}
                Thus $\alpha+\beta \in \text{Hom}_R(M, N)$, so that
@@ -297,7 +297,9 @@ Let $R$ be a ring.
                  \alpha(m) - \alpha(m) = 0$$
                for all $m \in M$, it follows that $\alpha + (-\alpha)$ is the
                zero homomorphism. Thus $-\alpha$ is the additive inverse of
-               $\alpha$.
+               $\alpha$. Note that $-\alpha \in \text{Hom}_R(M, N)$ since
+               $\text{Hom}_R(M, N)$ is closed under scalar multiplication by
+               $R$ (see proof below).
          \item \textbf{commutativity.} Because
                \begin{align*}
                   (\alpha+\beta)(m_1) &= \alpha(m_1) + \beta(m_1)
@@ -309,28 +311,27 @@ Let $R$ be a ring.
                $\text{Hom}_R(M, N)$ is commutative.
       \end{itemize}
       Conclude from above that $(\text{Hom}_R(M, N), +)$ is an abelian group.
-      Next we will show the closure of scalar multiplication, distributivity,
-      associativity,
+      Next we will that the remaining properties hold.
       \begin{itemize}
          \item \textbf{closure of scalar multiplication.} We want to show that
                $r_1 \cdot \alpha \in \text{Hom}_R(M, N)$. So 
                \begin{align*}
-                  (r\alpha)(x + y) &= r (\alpha(x + y)) &[\text{Definition}] \\
-                     &= r(\alpha(x) + \alpha(y)) &[\alpha \text{ is linear}] \\
-                     &= r\alpha(x) + r\alpha(y)
+                  (r_1\alpha)(m_1 + m_2) &= r (\alpha(m_1 + m_2)) &[\text{Definition}] \\
+                     &= r_1(\alpha(m_1) + \alpha(m_2)) &[\alpha \text{ is linear}] \\
+                     &= r_1\alpha(m_1) + r_1\alpha(m_2)
                         &[N \text{ is an } R\text{-module}] \\
-                     &= (r\alpha)(x) + (r\alpha)(y) &[\text{Definition}]
+                     &= (r_1\alpha)(m_1) + (r_1\alpha)(m_2) &[\text{Definition}]
                \end{align*}
                and
                \begin{align*}
-                  (r\alpha)(sx) &= r (\alpha(sx)) &[\text{Definition}] \\
-                     &= r(s\alpha(x)) &[\alpha \text{ is linear}] \\
-                     &= (rs)(\alpha(x)) &[N \text{ is an } R\text{-module}] \\
-                     &= (sr)(\alpha(x)) &[R \text{ is commutative}] \\
-                     &= s(r\alpha(x)) &[N \text{ is an } R\text{-module}] \\
-                     &= s((r\alpha)(x)). &[\text{Definition}]
+                  (r_1\alpha)(r_2m_1) &= r_1 (\alpha(r_2m_1)) &[\text{Definition}] \\
+                     &= r_1(r_2\alpha(m_1)) &[\alpha \text{ is linear}] \\
+                     &= (r_1r_2)(\alpha(m_1)) &[N \text{ is an } R\text{-module}] \\
+                     &= (r_2r_1)(\alpha(m_1)) &[R \text{ is commutative}] \\
+                     &= r_2(r_1\alpha(m_1)) &[N \text{ is an } R\text{-module}] \\
+                     &= r_2((r_1\alpha)(m_1)). &[\text{Definition}]
                \end{align*}
-               Hence $r \cdot \alpha \in \text{Hom}_R(M, N)$, and thus,
+               Hence $r_1 \cdot \alpha \in \text{Hom}_R(M, N)$, and thus,
                $\text{Hom}_R(M, N)$ is closed under scalar multiplication by
                $R$.
          \item \textbf{distributivity.} Since
@@ -365,6 +366,28 @@ Let $R$ be a ring.
          \item It follows trivially from the definition of scalar multiplication
                that $1 \cdot\tau = \tau$ for all $\tau \in \text{Hom}_R(M, N)$.
       \end{itemize}
-      Conclude that $\text{Hom}_R(M, N)$ is an $R$-module homomorphism.
+      Conclude that $\text{Hom}_R(M, N)$ is an $R$-module homomorphism. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[10.]   Let $M, N$, and $T$ be $R$-modules and fix a surjective
+    		    $\pi : M \rightarrow N$ $R$-module homomorphism. Show by providing
+                a counterexample that the map
+                $$\pi \circ \_ : \text{Hom}_R(T, M) \rightarrow
+                    \text{Hom}_R(T, N) \text{ defined by } \beta
+                    \mapsto \pi \circ \beta $$
+                is not necessarily surjective.
+                
+      \textbf{Counterexample.} Let $M = \Z$, $N = T = \Z/2\Z$. Now observe that
+      $\text{Hom}_R(\Z/2\Z, \Z)$ contains only the zero homomorphism. We can
+      see this because if $\alpha \in \text{Hom}_R(\Z/2\Z, \Z)$ such that
+      $\alpha(1) \neq 0$. Then we would have
+      $$0 = \alpha(0) = \alpha(1 + 1) = \alpha(1) + \alpha(1),$$
+      a contradiction because $\alpha(1) \neq 0$. Thus $\alpha(1) = 0$; since
+      $\alpha(0) = 0$, it follows that $\alpha$ is the zero homomorphism. Now
+      let $i$ be the identity homomorphism in $\text{Hom}_R(\Z/2\Z,\Z/2\Z)$.
+      Now observe that $(\pi \circ \_)(\alpha)$ is the zero homomorphism in
+      $\text{Hom}_R(\Z/2\Z, \Z/2\Z)$. Thus no element in
+      $\text{Hom}_R(\Z/2\Z, \Z)$ maps to the identity in
+      $\text{Hom}_R(\Z/2\Z, \Z/2\Z)$, so that $\pi \circ \_$ is not surjective.
+                
 \end{enumerate}
 \end{document}
