@@ -85,25 +85,58 @@
                   multiplicity) in $D$. Show that either $f(z)$ is constant, or
                   $f(z)$ attains each value $w$ at most $m$ times in $D$.
 
-      \textbf{Proof.} Let $E \subseteq D$ be a compact set. Suppose that $f(z)$
-      is not constant. We want to first show that $f(z)$ attains each value $w$
-      at most $m$ times in $E$. So let $w \in D$. For each positive integer $k$,
-      let
+      \textbf{Proof.} Suppose that $f(z)$ is not constant. We want to first show
+      that $f(z)$ attains each value $w$ at most $m$ times in $E$, where
+      $E \subseteq D$ is a compact set such that $f(z) - w \neq 0$ for all
+      $z \in \delta E$. So let $w \in \C$. For each positive integer $k$, let
       $$a_k = \frac{1}{2\pi i}\int_{\delta E}\frac{f_k'(z)}{f_k(z) - w} dz.$$
       Observe that $a_k$ is the number of zeros of $f_k(z) - w$ in $E$; thus, we
       have $a_k \le m$ for all $k \ge 1$. Now let
-      $$a = \frac{1}{2\pi i}\int_{\delta E}\frac{f(z)}{f(z) - w} dz,$$
+      $$a = \frac{1}{2\pi i}\int_{\delta E}\frac{f'(z)}{f(z) - w} dz,$$
       so that $a$ is the number of zeros of $f(z) - w$ in $E$. Since
       $\{f_k(z)\}$ converges normally to $f(z)$ on $D$, it follows that
-      $\{f_k(z)\}$ converges uniformally to $f(z)$ on $E$. Thus
+      $\{f_k(z)\}$ converges uniformly to $f(z)$ on $E$. Thus
       $\lim_{k\rightarrow\infty}a_k = a$. But each $a_k \le m$, so that
       $a \le m$. That is, $f(z)$ attains $w$ at most $m$ times in $E$. Now
       suppose to the contrary that $f(z)$ attains $w$ at least $m + 1$ times in
-      $D$. Then there exists compact set $E' \subseteq D$(by extending the
-      boundary of $E$) containing all the $m+1$ zeros of $f(z) - w$. But this is
-      a contradiction since we just showed that every compact set in $D$ must
-      contain at most $m$ zeros of $f(z) - w$. Thus $f(z)$ attains $w$ at most
-      $m$ times in $D$. Since $w$ was arbitrarily chosen, the result follows.
-      \qed
+      $D$. Then there exists a compact set $E' \subseteq D$ (by extending the
+      boundary of $E$) whose interior contains all the $m+1$ zeros of
+      $f(z) - w$. But this is a contradiction since we just showed that every
+      compact set in $D$ must contain at most $m$ zeros of $f(z) - w$. Thus
+      $f(z)$ attains $w$ at most $m$ times in $D$. Since $w$ was arbitrarily
+      chosen, the result follows. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.4.4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.4.4.]  Let $f(z)$ be an analytic function on the open disk
+                  $\mathbb{D} = \{|z| < 1\}$. Suppose there is an annulus
+                  $U = \{r < |z| < 1\}$ such that the restriction of $f(z)$ to
+                  $U$ is one-to-one. Show that $f(z)$ is one-to-one on
+                  $\mathbb{D}$.
+
+      \textbf{Proof.} Consider $\rho \in \R$, with $r < \rho < 1$. Since the
+      circle $\{|z| = \rho\}$ lies in $U$ and since $f(z)$ is one-to-one on $U$,
+      it follows that $f(z)$ maps $\{|z| = \rho\}$ to a simple closed path, say
+      $\gamma$. Let $w$ be in the image of $\{|z| < \rho\}$ under $f$; i.e.,
+      $w \in f(\{|z| < \rho\})$. Now the integral
+      $$\frac{1}{2\pi i}\int_{|\zeta| = \rho}
+        \frac{f'(\zeta)}{f(\zeta) - w}d\zeta$$
+      is the number of times that $f(z)$ attains $w$ in $\{|z| < \rho\}$. Make
+      the change of variable $z = f(\zeta)$, so that $dz = f'(\zeta)d\zeta$, and
+      substitute in the integral above to get
+      $$\frac{1}{2\pi i}\int_{|\zeta| = \rho}
+        \frac{f'(\zeta)}{f(\zeta) - w}d\zeta = \frac{1}{2\pi i}\int_\gamma
+        \frac{1}{z - w}dz = 1,$$
+      where we have used the fact that the integral
+      $\frac{1}{2\pi i}\int_\gamma\frac{1}{z - w}dz$ represents the number of
+      times that the identity function attains $w$ in the interior of $\gamma$,
+      which is 1. Now
+      \begin{align*}
+         1 &= \lim_{\rho \rightarrow 1}1 \\
+         &= \lim_{\rho \rightarrow 1}\left(\frac{1}{2\pi i}\int_{|\zeta| = \rho}
+        \frac{f'(\zeta)}{f(\zeta) - w}d\zeta\right) \\
+         &= \frac{1}{2\pi i}\int_{\delta \mathbb{D}}
+        \frac{f'(\zeta)}{f(\zeta) - w}d\zeta.
+      \end{align*}
+      That is, $f(z)$ attains each each $w \in f(\mathbb{D})$ exactly 1 time in
+      $\mathbb{D}$, so that $f(z)$ is one-to-one on $\mathbb{D}$.
 \end{enumerate}
 \end{document} 
