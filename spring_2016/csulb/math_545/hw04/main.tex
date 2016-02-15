@@ -97,8 +97,24 @@
                \end{itemize}
                So we conclude that $\text{im}(\alpha') = \text{ker}(\beta')$;
                i.e., the induced sequence is exact at $N$.
-         \item \textbf{exactness at $N''$.}
+         \item \textbf{exactness at $N''$.} It suffices to show that
+               $\text{im}(\beta') = N''$; that is, it suffices to show that
+               $\beta'$ is surjective. To that end, we let $n'' \in N''$. Since
+               $N'' = \beta(N)$, it follows that $n'' = \beta(n)$ for some
+               $n \in N$. That is, $\beta(n) = \beta'(n)$, so that $\beta'$ is
+               surjective. Hence, the induced sequence is exact at $N''$.
       \end{itemize}
-                
+      Conclude that the induced sequence is short exact. \qed
+   \item[12.]  Given a short exact sequence
+               $$0 \rightarrow M' \stackrel{\alpha}{\longrightarrow} M
+                 \stackrel{\beta}{\longrightarrow}M'' \rightarrow 0.$$
+               Show that if there is a homomorphism $\sigma : M''\rightarrow M$,
+               with $\beta \circ \sigma = i_{M''}$, then the exact sequence
+               splits.
+
+      \textbf{Proof.} Suppose there exists an homomorphism
+      $\sigma : M''\rightarrow M$ such that $\beta \circ \sigma = i_{M''}$ and
+      consider $\varphi : M' \oplus M'' \rightarrow M$, defined by
+      $(m', m'') \mapsto \alpha(m') + \sigma(m'')$.
 \end{enumerate}
 \end{document}
