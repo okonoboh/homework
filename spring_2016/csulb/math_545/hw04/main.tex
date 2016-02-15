@@ -81,8 +81,23 @@
          \item \textbf{exactness at $N$.} It suffices to show that
                $\text{im}(\alpha') = \text{ker}(\beta')$.
                \begin{itemize}
-                  \item (\subseteq:)
+                  \item ($\subseteq$): Let $y \in \text{im}(\alpha')$. Then
+                        $y = \alpha'(n')$ for some $n' \in N'$. So
+                        $$y = \alpha'(n') = \alpha(n') \in \text{im}(\alpha) =
+                         \text{ker}(\beta),$$
+                        where the last equality follows from the exactness of
+                        the original sequence at $M$. Thus $\beta(y) = 0$. Since
+                        $N' = \alpha^{-1}(N)$, we have that
+                        $y = \alpha(n') \in N$, so $y \in \text{ker}(\beta')$.
+                        Thus $\text{im}(\alpha') \subseteq \text{ker}(\beta')$.
+                  \item ($\supseteq$): Since $N' = \alpha^{-1}(N)$, it follows
+                        that
+                        $$\text{im}(\alpha') = \alpha'(N') = \alpha(N') = N
+                          \supseteq \text{ker}(\beta').$$
                \end{itemize}
+               So we conclude that $\text{im}(\alpha') = \text{ker}(\beta')$;
+               i.e., the induced sequence is exact at $N$.
+         \item \textbf{exactness at $N''$.}
       \end{itemize}
                 
 \end{enumerate}
