@@ -115,6 +115,75 @@
       \textbf{Proof.} Suppose there exists an homomorphism
       $\sigma : M''\rightarrow M$ such that $\beta \circ \sigma = i_{M''}$ and
       consider $\varphi : M' \oplus M'' \rightarrow M$, defined by
-      $(m', m'') \mapsto \alpha(m') + \sigma(m'')$.
+      $(m', m'') \mapsto \alpha(m') + \sigma(m'')$. To show that the sequence
+      splits, it suffices to show that $\varphi$ is an isomorphism. First, we
+      will show that $\varphi$ is an $R$-module homomorphism (where all the
+      modules are over some ring $R$). So let $a, b \in M' \oplus M''$. Then
+      $a = (x', x'')$ and $b = (y', y'')$ for some $x', y' \in M'$ and
+      $x'', y'' \in M''$. 
+      \begin{itemize}
+         \item \textbf{additivity.} It follows that $\varphi$ is an homomorphism
+               of groups because
+               \begin{align*}
+                  \varphi(a + b) &= \varphi((x', x'') + (y', y'')) \\
+                     &= \varphi((x' + y', x'' + y'')) \\
+                     &= \alpha(x' + y') + \sigma(x'' + y'')
+                        &[\text{Definition}] \\
+                     &= \alpha(x') + \alpha(y') + \sigma(x'') + \sigma(y'')
+                        &[\alpha \text{ and } \sigma\text{ are homomorphisms}]\\
+                     &= \alpha(x') + \sigma(x'') + \alpha(y') + \sigma(y'') \\
+                     &= \varphi((x', x'')) + \varphi((y', y'')) \\
+                     &= \varphi(a) + \varphi(b).
+               \end{align*}
+         \item \textbf{show $\varphi(ra) = r\varphi(a)$ for all $r \in R$}. Let
+               $r \in R$. Then it follows that
+               \begin{align*}
+                  \varphi(ra) &= \varphi(r(x', x'')) \\
+                     &= \varphi((rx', rx'')) \\
+                     &= \alpha(rx') + \sigma(rx'') &[\text{Definition}] \\
+                     &= r\alpha(x') + r\sigma(x'') &[\alpha \text{ and }
+                        \sigma\text{ are $R$-homomorphisms}] \\
+                     &= r(\alpha(x') + \sigma(x'')) \\
+                     &= r\varphi((x', x'')) \\
+                     &= r\varphi(a),
+               \end{align*}
+               so that $\varphi(ra) = r\varphi(a)$ for all $r \in R$.
+      \end{itemize}
+      Conclude that $\varphi$ is an homomorphism. Next we will show that
+      $\varphi$ is bijective.
+      \begin{itemize}
+         \item \textbf{surjectivity.} Let $m \in M$. Using the fact that
+               $\beta\circ\sigma$ is the identity on $M''$ and that $\beta$ is a
+               homomorphism, we have that
+               $$\beta(m - \sigma(\beta(m))) =
+                 \beta(m) - \beta(\sigma(\beta(m))) = \beta(m) - \beta(m) = 0,$$
+               so that $m - \sigma(\beta(m)) \in\text{ker}(\beta)=
+               \text{im}(\alpha)$, where we have used the exactness of the
+               sequence in the last equality. So there exists $m' \in M'$ such
+               that $\alpha(m') = m - \sigma(\beta(m))$. Now let
+               $m'' = \beta(m) \in M''$, so that $(m', m'') \in M' \oplus M''$.
+               It follows immediately that $\varphi$ is surjective because
+               $$\varphi((m', m'')) = \alpha(m') + \sigma(m'') =
+                 m - \sigma(\beta(m)) + \sigma(\beta(m)) = m.$$
+         \item \textbf{injectivity.} Suppose $\varphi(p) = \varphi(q)$ for
+               some $p, q \in M' \oplus M''$. Then $p = (p', p'')$ and
+               $q = (q', q'')$ for some $p', q' \in M'$ and $p'', q'' \in M''$.
+               Now
+               $\varphi(p) = \varphi(q)$ implies that
+               $$\alpha(p') + \sigma(p'') = \varphi(p) =
+                 \varphi(q) = \alpha(q') + \sigma(q''),$$
+               so that $\alpha(p' - q') = \sigma(q'' - p'')$. Thus
+               $$0 = \beta(\alpha(p' - q')) =
+                 \beta(\sigma(q'' - p'')) = q'' - p'',$$
+               where the first equality follows from the fact that
+               $\text{im}(\alpha) = \text{ker}(\beta)$, so that
+               $\beta \circ \alpha$ is the zero map on $M'$; thus $q'' = p''$.
+               Now since $\alpha(p') + \sigma(p'') = \alpha(q') + \sigma(q'')$
+               and $q'' = p''$, it follows that $\alpha(p') = \alpha(q')$. Since
+               the given sequence is exact at $M'$, it follows that $\alpha$ is
+               injective, so that $p' = q'$. Thus $p = q$ and we conclude that
+               $\varphi$ is injective.
+      \end{itemize}
+      Thus $\varphi$ is bijective.
 \end{enumerate}
 \end{document}
