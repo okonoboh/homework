@@ -57,7 +57,7 @@
 \begin{document}
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[13.]  Show that the Snake Lemma exact sequence is exact at $C$.
+   \item[13.]  Show that the Snake Lemma sequence is exact at $C$.
 
       \textbf{Proof.} It suffices to show that
       $\text{im}(\phi') = \text{ker}(\psi')$. So we will show each set is
@@ -90,8 +90,9 @@
                horizontal sequence is exact at $M''$, it follows that $\beta$ is
                surjective, so $\beta(m) = m''$ for some $m \in M$. Thus
                $\beta'(n) = \gamma''(m'') = \gamma''(\beta(m)) =
-                \beta'(\gamma(m))$, where we have used the commutativity of the
-               original diagram. Hence $\beta'(n) = \beta'(\gamma(m))$, so that
+                \beta'(\gamma(m))$, where, in last equality, we used the
+               commutativity of the original diagram. Hence
+               $\beta'(n) = \beta'(\gamma(m))$, so that
                $\beta'(n - \gamma(m)) = 0$; i.e.,
                $n - \gamma(m) \in \text{ker}(\beta') = \text{im}(\alpha')$, and
                thus, $n = \alpha'(t') + \gamma(m)$ for some $t' \in N'$. Since
@@ -105,6 +106,39 @@
                \end{align*}
                so that $\text{im}(\phi') \supseteq \text{ker}(\psi')$.
       \end{itemize}
-      Conclude that $\text{im}(\phi') = \text{ker}(\psi')$. \qed
+      Conclude that $\text{im}(\phi') = \text{ker}(\psi')$. That is, the Snake
+      Lemma sequence is exact at $C$. \qed
+   \item[14.]  Prove that if the two rows in Fig 1. are short exact, then the
+               long exact sequence in the Snake Lemma also has 0s on the
+               outside.
+
+      \textbf{Proof.} Suppose that the two rows in Fig 1 are short exact. To
+      show that the long exact sequence in the Snake Lemma also has 0s on the
+      outside, it suffices to show that $\phi$ is injective and that $\psi'$ is
+      surjective.
+
+      \begin{itemize}
+         \item \textbf{injectivity of $\phi$.} Suppose that $\phi(x) = \phi(y)$,
+               for some $x, y \in \text{ker}(\gamma')$. So
+               \begin{align*}
+                  0 &= \phi(x - y) &[\phi(x) = \phi(y)] \\
+                    &= \alpha(x - y). &[\phi = \alpha|_{_{K'}}]
+               \end{align*}
+               But $\alpha$ is injective because the sequence $0 \rightarrow M'
+               \stackrel{\alpha}{\longrightarrow} M
+               \stackrel{\beta}{\longrightarrow}M'' \rightarrow 0$ is exact, so
+               we conclude that $x - y = 0$, so that $x = y$. That is, $\phi$ is
+               injective.
+         \item \textbf{surjectivity of $\psi'$.} Let $c'' \in C''$. So
+               $c'' = n'' + \text{im}(\gamma'')$, for some $n'' \in N''$. Since
+               $0 \rightarrow N'\stackrel{\alpha'}{\longrightarrow} N
+               \stackrel{\beta'}{\longrightarrow}N'' \rightarrow 0$ is exact, it
+               follows that $\beta'$ is surjective. So there exists $n \in N$
+               such that $\beta'(n) = n''$. Particularly, we have that
+               $n + \text{im}(\gamma) \in C$. Since
+               $\psi'(n + \text{im}(\gamma)) = \beta'(n) + \text{im}(\gamma'') =
+                n'' + \text{im}(\gamma'') = c''$, it follows that $\psi'$ is
+               surjective.
+      \end{itemize}
 \end{enumerate}
 \end{document}
