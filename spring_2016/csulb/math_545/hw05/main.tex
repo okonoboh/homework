@@ -1,0 +1,110 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 545, Spring 2016\\Section 1 (9515)\\
+  HW \#5, DUE: 2016, February 17
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\D}{\displaystyle}
+\DeclareTextCommand{\_}{OT1}{%
+  \leavevmode \kern.06em\vbox{\hrule width.6em}}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[13.]  Show that the Snake Lemma exact sequence is exact at C.
+
+      \textbf{Proof.} It suffices to show that
+      $\text{im}(\phi') = \text{ker}(\psi')$. So we will show each set is
+      contained in the other.
+      \begin{itemize}
+         \item ($\subseteq$): Let $x \in \text{im}(\phi')$. Then
+               $x = \phi'(n' + \text{im}(\gamma'))$, for some $n' \in N'$. So
+               \begin{align*}
+                  \psi'(x) &= \psi'(\phi'(n' + \text{im}(\gamma'))) \\
+                     &= \psi'(\alpha'(n') + \text{im}(\gamma)) \\
+                     &= \beta'(\alpha'(n')) + \text{im}(\gamma'') \\
+                     &= 0 + \text{im}(\gamma'')
+                        &[\text{im}(\alpha') = \text{ker}(\beta')] \\
+                     &= \text{im}(\gamma'') \\
+                     &= 0,
+               \end{align*}
+               so that $x \in \text{ker}(\psi')$. Thus 
+               $\text{im}(\phi') \subseteq \text{ker}(\psi')$.
+         \item ($\supseteq$): Let $y \in \text{ker}(\psi')$. Since
+               $\text{ker}(\psi') \subseteq C$, it follows that $y \in C$, so
+               $y = n + \text{im}(\gamma)$ for some $n \in N$. Now since $y$ is
+               in the kernel of $\psi'$, we have that
+               $$0 = \text{im}(\gamma'') = \psi'(y) =
+                 \psi'(n + \text{img}(\gamma)) =
+                 \beta'(n) + \text{im}(\gamma'').$$
+               From the equalities above, we have
+               $\beta'(n) + \text{im}(\gamma'') = \text{im}(\gamma'')$, and this
+               implies that $\beta'(n) \in \text{im}(\gamma'')$. So
+               $\beta'(n) = \gamma''(m'')$ for some $m'' \in M''$. Since the
+               horizontal sequence is exact at $M''$, it follows that $\beta$ is
+               surjective, so $\beta(m) = m''$ for some $m \in M$. Thus
+               $\beta'(n) = \gamma''(m'') = \gamma''(\beta(m)) =
+                \beta'(\gamma(m))$, where we have used the commutativity of the
+               original diagram. Hence $\beta'(n) = \beta'(\gamma(m))$, so that
+               $\beta'(n - \gamma(m)) = 0$; i.e.,
+               $n - \gamma(m) \in \text{ker}(\beta') = \text{im}(\alpha')$, and
+               thus, $n = \alpha'(t') + \gamma(m)$ for some $t' \in N'$. Since
+               $t' \in N'$, we have that $t' + \text{im}(\gamma') \in C'$. So
+               \begin{align*}
+                  y &= n + \text{im}(\gamma) \\
+                    &= [\alpha'(t') + \gamma(m)] + \text{im}(\gamma) \\
+                    &= \alpha'(t') + \text{im}(\gamma) &[\text{Since }\gamma(m)
+                          \in \text{im}(\gamma)] \\
+                    &= \phi'(t' + \text{im}(\gamma')) \in \text{im}(\phi'),
+               \end{align*}
+               so that $\text{im}(\phi') \supseteq \text{ker}(\psi')$.
+      \end{itemize}
+      Conclude that $\text{im}(\phi') = \text{ker}(\psi')$. \qed
+\end{enumerate}
+\end{document}
