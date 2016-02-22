@@ -6,7 +6,7 @@
 \usepackage{comment}
 \usepackage{fancyhdr}
 \usepackage{mathrsfs}
-\usepackage{enumitem}
+\usepackage{amscd}
 %\usepackage[retainorgcmds]{IEEEtrantools}
 
 \everymath{\displaystyle}
@@ -49,6 +49,9 @@
 \newcommand{\M}{\mathbb{M}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Coker}{\text{Coker}}
+\newcommand{\im}{\text{Im}}
 \newcommand{\D}{\displaystyle}
 \DeclareTextCommand{\_}{OT1}{%
   \leavevmode \kern.06em\vbox{\hrule width.6em}}
@@ -56,89 +59,138 @@
 
 \begin{document}
 \begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%SnakeLemma%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[\textbf{Snake Lemma.}] If the diagram below is commutative with exact
+                                rows, then it yields the following exact
+      \begin{equation}\label{5_1}
+         \begin{CD}
+            @. M' @>\alpha>> M @>\beta>> M'' @>>> 0 \\
+            @. @V\gamma'VV @V{\gamma}VV @V\gamma''VV \\
+            0 @>>> N' @>\alpha'>> N @>\beta'>> N''
+         \end{CD}
+      \end{equation}
+      sequence:
+      \begin{equation} \label{5_2}
+         \Ker(\gamma') \stackrel{\varphi}{\rightarrow} \Ker(\gamma)
+         \stackrel{\psi}{\rightarrow} \Ker(\gamma'')
+         \stackrel{\partial}{\rightarrow} \Coker(\gamma')
+         \stackrel{\varphi'}{\rightarrow} \Coker(\gamma)
+         \stackrel{\psi'}{\rightarrow} \Coker(\gamma'').
+      \end{equation}
+      We proved in class that $\varphi'$ and $\psi'$ are well-defined, wherein
+      $$\varphi'(n'+\im(\gamma'))=\alpha'(n') + \im(\gamma) \text{ and }
+      \psi'(n + \im(\gamma))=\beta'(n') + \im(\gamma'').$$
+      Also, $\varphi = \alpha|_{_{\Ker(\gamma')}}$ and
+      $\psi = \beta|_{_{\Ker(\gamma)}}$.
+%\begin{comment}
+\item[\textbf{Diagram From Class.}] We will make use of the following augmented
+                                    diagram that was created in class to prove
+                                    the Snake Lemma.
+      \begin{equation*}
+         \begin{CD}
+            @. 0             @.          0            @.       0 \\
+            @. @VVV                      @VVV                  @VVV \\
+            @. \Ker(\gamma') @>\varphi>> \Ker(\gamma) @>\psi>> \Ker(\gamma'') \\
+            @. @VVV                      @VVV                  @VVV \\
+            @. M'            @>\alpha>>  M            @>\beta>> M'' @>>> 0 \\
+            @. @V\gamma'VV                      @V{\gamma}VV   @V\gamma''VV \\
+            0 @>>> N' @>\alpha'>> N @>\beta'>> N''\\
+            @. @VVV                      @VVV                  @VVV \\
+            @. \Coker(\gamma') @>\varphi'>> \Coker(\gamma) @>\psi'>> \Coker(\gamma'') \\
+            @. @VVV                      @VVV                  @VVV \\
+            @. 0             @.          0            @.       0 \\
+         \end{CD}
+      \end{equation*}
+      where $\varphi = \alpha|_{_{\Ker(\gamma')}}$,
+      $\psi = \beta|_{_{\Ker(\gamma)}}$,
+      $\varphi'(n' + \im(\gamma')) = \alpha'(m') + \im(\gamma)$, and      
+      $\psi'(n + \im(\gamma)) = \beta'(n') + \im(\gamma'')$.
+%\end{comment}
+      
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%13%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[13.]  Show that the Snake Lemma sequence is exact at $C$.
+   \item[13.]  Show that the Snake Lemma sequence is exact at $\Coker(\gamma)$.
 
       \textbf{Proof.} It suffices to show that
-      $\text{im}(\phi') = \text{ker}(\psi')$. So we will show each set is
+      $\im(\varphi') = \Ker(\psi')$. So we will show each set is
       contained in the other.
       \begin{itemize}
-         \item ($\subseteq$): Let $x \in \text{im}(\phi')$. Then
-               $x = \phi'(n' + \text{im}(\gamma'))$, for some $n' \in N'$. So
+         \item ($\subseteq$): Let $x \in \im(\varphi')$. Then
+               $x = \varphi'(n' + \im(\gamma'))$, for some $n' \in N'$. So
                \begin{align*}
-                  \psi'(x) &= \psi'(\phi'(n' + \text{im}(\gamma'))) \\
-                     &= \psi'(\alpha'(n') + \text{im}(\gamma)) \\
-                     &= \beta'(\alpha'(n')) + \text{im}(\gamma'') \\
-                     &= 0 + \text{im}(\gamma'')
-                        &[\text{im}(\alpha') = \text{ker}(\beta')] \\
-                     &= \text{im}(\gamma'') \\
+                  \psi'(x) &= \psi'(\varphi'(n' + \im(\gamma'))) \\
+                     &= \psi'(\alpha'(n') + \im(\gamma)) \\
+                     &= \beta'(\alpha'(n')) + \im(\gamma'') \\
+                     &= 0 + \im(\gamma'')
+                        &[\im(\alpha') = \Ker(\beta')] \\
+                     &= \im(\gamma'') \\
                      &= 0,
                \end{align*}
-               so that $x \in \text{ker}(\psi')$. Thus 
-               $\text{im}(\phi') \subseteq \text{ker}(\psi')$.
-         \item ($\supseteq$): Let $y \in \text{ker}(\psi')$. Since
-               $\text{ker}(\psi') \subseteq C$, it follows that $y \in C$, so
-               $y = n + \text{im}(\gamma)$ for some $n \in N$. Now since $y$ is
-               in the kernel of $\psi'$, we have that
-               $$0 = \text{im}(\gamma'') = \psi'(y) =
+               so that $x \in \Ker(\psi')$. Thus 
+               $\im(\varphi') \subseteq \Ker(\psi')$.
+         \item ($\supseteq$): Let $y \in \Ker(\psi')$. Since
+               $\Ker(\psi') \subseteq \Coker(\gamma)$, it follows that
+               $y \in \Coker(\gamma)$, so $y = n + \im(\gamma)$ for some
+               $n \in N$. Now since $y$ is in the kernel of $\psi'$, we have
+               that
+               $$0 = \im(\gamma'') = \psi'(y) =
                  \psi'(n + \text{img}(\gamma)) =
-                 \beta'(n) + \text{im}(\gamma'').$$
+                 \beta'(n) + \im(\gamma'').$$
                From the equalities above, we have
-               $\beta'(n) + \text{im}(\gamma'') = \text{im}(\gamma'')$, and this
-               implies that $\beta'(n) \in \text{im}(\gamma'')$. So
+               $\beta'(n) + \im(\gamma'') = \im(\gamma'')$, and this
+               implies that $\beta'(n) \in \im(\gamma'')$. So
                $\beta'(n) = \gamma''(m'')$ for some $m'' \in M''$. Since the
                horizontal sequence is exact at $M''$, it follows that $\beta$ is
                surjective, so $\beta(m) = m''$ for some $m \in M$. Thus
                $\beta'(n) = \gamma''(m'') = \gamma''(\beta(m)) =
                 \beta'(\gamma(m))$, where, in last equality, we used the
-               commutativity of the original diagram. Hence
+               commutativity of \eqref{5_1}. Hence
                $\beta'(n) = \beta'(\gamma(m))$, so that
                $\beta'(n - \gamma(m)) = 0$; i.e.,
-               $n - \gamma(m) \in \text{ker}(\beta') = \text{im}(\alpha')$, and
+               $n - \gamma(m) \in \Ker(\beta') = \im(\alpha')$, and
                thus, $n = \alpha'(t') + \gamma(m)$ for some $t' \in N'$. Since
-               $t' \in N'$, we have that $t' + \text{im}(\gamma') \in C'$. So
+               $t' \in N'$, we have that
+               $t' + \im(\gamma') \in \Coker(\gamma')$. So
                \begin{align*}
-                  y &= n + \text{im}(\gamma) \\
-                    &= [\alpha'(t') + \gamma(m)] + \text{im}(\gamma) \\
-                    &= \alpha'(t') + \text{im}(\gamma) &[\text{Since }\gamma(m)
-                          \in \text{im}(\gamma)] \\
-                    &= \phi'(t' + \text{im}(\gamma')) \in \text{im}(\phi'),
+                  y &= n + \im(\gamma) \\
+                    &= [\alpha'(t') + \gamma(m)] + \im(\gamma) \\
+                    &= \alpha'(t') + \im(\gamma) &[\text{Since }\gamma(m)
+                          \in \im(\gamma)] \\
+                    &= \varphi'(t' + \im(\gamma')) \in \im(\varphi'),
                \end{align*}
-               so that $\text{im}(\phi') \supseteq \text{ker}(\psi')$.
+               so that $\im(\varphi') \supseteq \Ker(\psi')$.
       \end{itemize}
-      Conclude that $\text{im}(\phi') = \text{ker}(\psi')$. That is, the Snake
-      Lemma sequence is exact at $C$. \qed
-   \item[14.]  Prove that if the two rows in Fig 1. are short exact, then the
-               long exact sequence in the Snake Lemma also has 0s on the
-               outside.
+      Conclude that $\im(\varphi') = \Ker(\psi')$. That is, the
+      Snake Lemma sequence is exact at $\Coker(\gamma)$. \qed
+   \item[14.]  Prove that if the two rows in \eqref{5_1} are short exact, then
+               \eqref{5_2} also has 0s on the outside.
 
-      \textbf{Proof.} Suppose that the two rows in Fig 1 are short exact. To
-      show that the long exact sequence in the Snake Lemma also has 0s on the
-      outside, it suffices to show that $\phi$ is injective and that $\psi'$ is
-      surjective.
+      \textbf{Proof.} Suppose that the two rows in \eqref{5_1} are short exact.
+      To show that \eqref{5_2} also has 0s on the outside, it suffices to show
+      that $\varphi$ is injective and that $\psi'$ is surjective.
 
       \begin{itemize}
-         \item \textbf{injectivity of $\phi$.} Suppose that $\phi(x) = \phi(y)$,
-               for some $x, y \in \text{ker}(\gamma')$. So
+         \item \textbf{injectivity of $\varphi$.} Suppose that
+               $\varphi(x) = \varphi(y)$, for some $x, y \in \Ker(\gamma')$. So
                \begin{align*}
-                  0 &= \phi(x - y) &[\phi(x) = \phi(y)] \\
-                    &= \alpha(x - y). &[\phi = \alpha|_{_{K'}}]
+                  0 &= \varphi(x - y) &[\varphi(x) = \varphi(y)] \\
+                    &= \alpha(x - y). &[\varphi = \alpha|_{_{\Ker(\gamma')}}]
                \end{align*}
                But $\alpha$ is injective because the sequence $0 \rightarrow M'
                \stackrel{\alpha}{\longrightarrow} M
                \stackrel{\beta}{\longrightarrow}M'' \rightarrow 0$ is exact, so
-               we conclude that $x - y = 0$, so that $x = y$. That is, $\phi$ is
-               injective.
-         \item \textbf{surjectivity of $\psi'$.} Let $c'' \in C''$. So
-               $c'' = n'' + \text{im}(\gamma'')$, for some $n'' \in N''$. Since
+               we conclude that $x - y = 0$, so that $x = y$. That is, $\varphi$
+               is injective.
+         \item \textbf{surjectivity of $\psi'$.} Let $c'' \in \Coker(\gamma'')$.
+               So $c'' = n'' + \im(\gamma'')$, for some $n'' \in N''$. Since
                $0 \rightarrow N'\stackrel{\alpha'}{\longrightarrow} N
                \stackrel{\beta'}{\longrightarrow}N'' \rightarrow 0$ is exact, it
                follows that $\beta'$ is surjective. So there exists $n \in N$
                such that $\beta'(n) = n''$. Particularly, we have that
-               $n + \text{im}(\gamma) \in C$. Since
-               $\psi'(n + \text{im}(\gamma)) = \beta'(n) + \text{im}(\gamma'') =
-                n'' + \text{im}(\gamma'') = c''$, it follows that $\psi'$ is
+               $n + \im(\gamma) \in \Coker(\gamma)$. Since
+               $\psi'(n + \im(\gamma)) = \beta'(n) + \im(\gamma'') =
+                n'' + \im(\gamma'') = c''$, it follows that $\psi'$ is
                surjective.
       \end{itemize}
+      So conclude that \eqref{5_2} also has 0s on the outside. \qed
 \end{enumerate}
 \end{document}

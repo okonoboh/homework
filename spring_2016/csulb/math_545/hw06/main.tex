@@ -1,0 +1,91 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{amscd}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 545, Spring 2016\\Section 1 (9515)\\
+  HW \#6, DUE: 2016, February 22
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Coker}{\text{Coker}}
+\newcommand{\im}{\text{Im}}
+\newcommand{\D}{\displaystyle}
+\DeclareTextCommand{\_}{OT1}{%
+  \leavevmode \kern.06em\vbox{\hrule width.6em}}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[15.]  Show that the Snake Lemma sequence is exact at $\Coker(\gamma')$.
+
+      \textbf{Proof.} It suffices to show that
+      $\im(\partial) = \Ker(\varphi')$. So we will show each set is
+      contained in the other.
+      \begin{itemize}
+         \item ($\subseteq$): Let $x \in \im(\partial)$. Then
+               $x = \partial(k'')$, for some $k'' \in \Ker(\gamma'')$. From our
+               definition of $\partial$, it follows that there exist $m \in M$
+               and $n' \in N'$ such that $\beta(m) = k''$,
+               $\gamma(m) = \alpha(n')$ and $\partial(k'') =n' + \im(\gamma')$.
+               So
+               \begin{align*}
+                  \varphi'(\partial(k'')) &= \varphi'(n'+\im(\gamma')) \\
+                     &= \alpha'(n') + \im(\gamma) \\
+                     &= \gamma(m) + \im(\gamma) \\
+                     &= \im(\gamma) &[\gamma(m) \in \im(\gamma)] \\
+                     &= 0,
+               \end{align*}
+               so that $x \in \Ker(\varphi')$. Thus 
+               $\im(\partial) \subseteq \Ker(\varphi')$.
+         \item ($\supseteq$): Let $y \in \Ker(\varphi')$. 
+      \end{itemize}
+      Conclude that $\im(\varphi') = \Ker(\psi')$. That is, the
+      Snake Lemma sequence is exact at $\Coker(\gamma)$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[16.]  
+\end{enumerate}
+\end{document}
