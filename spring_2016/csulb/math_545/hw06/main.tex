@@ -81,10 +81,25 @@
                \end{align*}
                so that $x \in \Ker(\varphi')$. Thus 
                $\im(\partial) \subseteq \Ker(\varphi')$.
-         \item ($\supseteq$): Let $y \in \Ker(\varphi')$. 
+         \item ($\supseteq$): Let $y \in \Ker(\varphi')$, where
+               $y = s' + \im(\gamma')$ for some $s' \in N'$. Since
+               $y \in \Ker(\varphi')$, it follows that
+               $$\im(\gamma) = 0 = \varphi'(y) = \varphi'(s' + \im(\gamma')) =
+                 \alpha'(s') + \im(\gamma),$$
+               so that $\alpha'(s') \in \im(\gamma)$. That is,
+               $\alpha'(s') = \gamma(t)$ for some $t \in M$. Now we have that
+               \begin{align*}
+                  0 &= \beta'(\alpha'(s')) &[\im(\alpha')=\Ker(\beta')] \\
+                    &= \beta'(\gamma(t)) \\
+                    &= \gamma''(\beta(t)), &[\text{Commutativity}]                    
+               \end{align*}
+               so that $d'' \in \Ker(\gamma'')$, where $d'' = \beta(t)$. By the
+               definition of $\partial$, it follows that
+               $y = s' + \im(\gamma') = \partial(d'') \in \im(\partial)$. Thus,
+               $\im(\partial) \supseteq \Ker(\varphi')$.
       \end{itemize}
-      Conclude that $\im(\varphi') = \Ker(\psi')$. That is, the
-      Snake Lemma sequence is exact at $\Coker(\gamma)$. \qed
+      Conclude that $\im(\partial) = \Ker(\varphi')$. That is, the
+      Snake Lemma sequence is exact at $\Coker(\gamma')$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[16.]  
 \end{enumerate}
