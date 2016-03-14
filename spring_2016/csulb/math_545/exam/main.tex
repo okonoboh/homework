@@ -291,7 +291,38 @@
       \textbf{Solution.}
       
       \begin{enumerate}
-         \item d
+         \item \textbf{Proof.} Let $r, s \in R$ and $p(x), q(x) \in M[x]$. So
+               $p(x) = p_nx^n + \cdots + p_1x + p_0$ and
+               $q(x) = q_mx^m + \cdots + q_1x + q_0$, where $p_i, q_j \in M$ and
+               $m, n \in \Z^+$. Assume without loss of generality that
+               $m \le n$. So $q(x) = q_nx^n + \cdots + q_1x + q_0$, where
+               $q_i = 0$ if $i > m$.
+               \begin{itemize}
+                  \item \textbf{closure.} Since $M$ is an $R$-module, it follows
+                        that $rp_i \in M$ for $i = 0, 1, \ldots, n$, so that
+                        $rp(x) = rp_nx^n + \cdots + rp_1x + rp_0 \in M[x]$, and
+                        thus, $M[x]$ is closed under scalar multiplication by
+                        $R$.
+                  \item \textbf{distributivity.} Distributivity follows because
+                        \begin{align*}
+                           r(p(x) + q(x)) &= r(p_nx^n + \cdots + p_1x + p_0 +
+                              q_nx^n + \cdots + q_1x + q_0) \\
+                              &= r((p_n+q_n)x^n + \cdots + (p_1+q_1)x + (p_0+q_0)) \\
+                              &= r(p_n+q_n)x^n + \cdots + r(p_1+q_1)x + r(p_0+q_0)) \\
+                              &= (rp_n+rq_n)x^n + \cdots + (rp_1+rq_1)x + rp_0+rq_0 \\
+                              &= rp_nx^n + \cdots + rp_1x + rp_0+rq_nx^n + \cdots + rq_1x + rq_0 \\
+                              &= rp(x) + rq(x).
+                        \end{align*}
+                  \item \textbf{associativity.} Associativity follows because
+                        \begin{align*}
+                           r(sp(x)) &= r(sp_nx^n + \cdots + sp_1x + sp_0) \\
+                              &= r(sp_n)x^n + \cdots + r(sp_1)x + r(sp_0) \\
+                              &= (rs)p_nx^n + \cdots + (rs)p_1x + (rs)p_0 \\
+                              &= (rs)(p(x)).
+                        \end{align*}
+                  And finally, $1p(x) = 1p_nx^n + \cdots + 1p_1x + 1p_0 = p(x)$,
+                  so that $M[x]$ is an $R$-module.
+               \end{itemize}
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.]   Prove that $\Q$ is not a projective $\Z$-module. (\textit{Hint}:
