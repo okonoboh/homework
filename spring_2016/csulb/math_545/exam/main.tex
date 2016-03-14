@@ -176,7 +176,23 @@
                         representation of $r_1r_2$ by $u_1u_2s^{n_1+n_2}$ is
                         unique. So
                         $\omega(r_1r_2) = n_1+n_2 = \omega(r_1) + \omega(r_2)$.
+                  \item Let $r_1$ and $r_2$ be as in (i) and suppose that
+                        $n_1 < n_2$.
+                  \item In $\Z_{((3))}$, we have $\omega(1/2) = \omega(1/1) = 0$,
+                        but $\omega(1/2 + 1/1) = \omega(3/2) = 1$.
                \end{enumerate}
+         \item \textbf{Proof.} Let $J$ be an ideal of $R$. If $J = \{0\}$,
+               then $J$ is principal, so assume that $J \neq \{0\}$. That is,
+               $J$ contains some nonzero element, so that the set
+               $S := \{\omega(r) : r \in J\}$ is nonempty. By the Well Ordering
+               Principle, $S$ has a minimum element, say $n_1$. That is, there
+               exist $r \in R$ and a unit $u_1 \in R$ such that
+               $r = u_1s^{n_1}$. It suffices to show that $J = (r)$. Let $t$ be
+               a nonzero element of $J$. By 1(b), $t = us^n$ for some unit
+               $u \in R$ and $n \ge 0$. Now $n \in S$, so by minimality, we have
+               that $n_1 \le n$; so
+               $t = u{u_1}^{-1}s^{n-n_1}\cdot u_1s^{n_1} \in (r)$. Conclude that
+               $J$ is principal so that $R$ is a PID.
       \end{enumerate}
 \end{enumerate}
 \end{document}
