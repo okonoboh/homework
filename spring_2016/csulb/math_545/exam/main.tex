@@ -1,0 +1,181 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{amscd}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 545, Spring 2016\\Section 1 (9515)\\
+  Exam, DUE: 2016, March 14
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Coker}{\text{Coker}}
+\newcommand{\im}{\text{Im}}
+\newcommand{\D}{\displaystyle}
+\DeclareTextCommand{\_}{OT1}{%
+  \leavevmode \kern.06em\vbox{\hrule width.6em}}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%01%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[1.]   Let $R$ be a local ring that is an integral domain, and let $I$
+               be its maximal ideal. Assume further that $I$ is principal with
+               generator $s$ and that $\bigcap_{n\in\Z^+}I^n = (0)$.
+               \begin{enumerate}
+                  \item Show that the set $\Z_{((3))}$, which is the set of all
+                        rational numbers whose lowest-term denominators are not
+                        divisible by 3, is much a ring. (Prove everything ---
+                        starting with the fact that it is a ring.)
+                  \item Back to the general case. Prove that every nonzero
+                        element $r$ of $R$ can be written uniquely as
+                        $r = us^n$, where $u$ is a unit and $n$ is a nonnegative
+                        integer. (\textit{Hint}: $r$ cannot lie in every power
+                        of $I$!)
+                  \item For each $r \in R/\{0\}$, define $\omega(r)$ to
+                        be the nonnegative integer $n$ that occurs in the
+                        factorization $r = us^n$ from part 1b.
+                        \begin{enumerate}
+                           \item Prove that for $r_1$, $r_2 \in R/\{0\}$,
+                                 $\omega(r_1r_2) = \omega(r_1)+\omega(r_2)$.
+                           \item Prove that $r_1, r_2 \in R/\{0\}$ with
+                                 $\omega(r_1) < \omega(r_2)$,
+                                 $\omega(r_1+r_2) = \omega(r_1)$.
+                           \item Give an example from $\Z_{((3))}$ to show that
+                                 when $\omega(r_1) = \omega(r_2)$,
+                                 $\omega(r_1+r_2)$ may be different from
+                                 $\omega(r_1)$.
+                        \end{enumerate}
+                  \item Prove that $R$ is a PID. (\textit{Hint}: For an ideal
+                        $J$, consider the set $\{\omega(r) : r \in J\}$.)
+               \end{enumerate}
+
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item \textbf{Proof.} Let $a, b \in \Z_{((3))}$, so that $a = q_1/s_1$
+               and $b = q_2/s_2$, where $q_1$ and $q_2$ are integers, $s_1$ and
+               $s_2$ are nonzero integers, and
+               $\gcd(3, s_1) = \gcd(3, s_2) = 1$.
+
+               \begin{itemize}
+                  \item \textbf{closure.} We have that
+                        $$a + b = \frac{q_1}{s_1} + \frac{q_2}{s_2} =
+                          \frac{q_1s_2 + q_2s_1}{s_1s_2} \text{ and }
+                          ab = \frac{q_1q_2}{s_1s_2}.$$
+         
+                        Since $s_1$ and $s_2$ both have no factors of 3, it
+                        follows that $s_1s_2$ has no factors of 3; that is, the
+                        denominators of the lowest terms of $a + b$ and $ab$
+                        have no factors of 3, and thus,
+                        $a + b, ab \in \Z_{((3))}$.
+                  \item \textbf{identity.} Since $\Z_{((3))} \subseteq \Q$ and
+                        $0 = 0/1, 1 = 1/1\in\Z_{((3))}$, it follows that 0 and 1
+                        are the additive and multiplicative identity of
+                        $\Z_{((3))}$, respectively.
+                  \item \textbf{inverse.} Since
+                        $1 = \gcd(3, s_1) = \gcd(3, -s_1)$, it follows that
+                        $$-a = -\frac{q_1}{s_1} = 
+                          \frac{q_1}{-s_1} \in \Z_{((3))}.$$
+               \end{itemize}
+
+               The associativity and commutativity of addition and
+               multiplicative on $\Z_{((3))}$ and distributivity follow because
+               $\Z_{((3))}$ is a subset of $\Q$. That is,
+               $\Z_{((3))}$ is a ring. \qed        
+         \item \textbf{Proof.} Let $r \in R/\{0\}$. First suppose that $r$ is a
+               unit. Then it follows that $r = rs^0$. To show uniqueness,
+               suppose that $r = us^i$, for some $u \in R$ and $i \ge 1$. Since
+               $r$ is a unit and $r = (us^{i-1})s \in (s) = I$, it follows by
+               Proposition 7.9 (DF) that $I = R$, contradicting the maximality
+               of $I$. Thus, $i = 0$, so that $u = r$. Now suppose that $r$ is
+               not a unit. Then it follows by Theorem 1 that $r \in I$. Let us
+               now make the following observations:
+               \begin{itemize}
+                  \item Since $I = (s)$, it follows that $I^n = (s^n)$.
+                  \item If $t \in I^m$, then $t \in I^i$ for $i = 1, \ldots, m$.
+                        To see this, suppose $t \in I^m$, with $m \in \Z^+$, so
+                        that $t = ws^m$, for some $w \in R$. For
+                        $i \in \{1, \ldots, m\}$, we have
+                        $$t = (ws^{m-i})s^i \in (s^i) = I^i.$$
+                        So if $v \notin I^m$, then $v \notin I^i$ for all
+                        $i \ge m$.
+               \end{itemize}
+
+               Now if $r \in I^n$ for all $n \in \Z^+$, we would have that
+               $r \in \bigcap_{n\in\Z^+}I^n = \{0\}$, a contradiction because
+               $r \neq 0$. Thus there exists $p \in \Z^+$ such that
+               $r \notin I^p$. Indeed, $p \notin I^i$ for all $i \ge p$. So the
+               set $S_r := \{n \in \Z^+ : r \in I^n\}$ is finite. Let
+               $x = \max\{S_r\}$. Hence $r \in (s^x) = I^x$, so that $r = ys^x$
+               for some $y \in R$. If $y$ is not a unit, then $y \in I$ by
+               Theorem 1. By repeating the same process above, we can conclude
+               that $y \in I^{x'}$, where $x' \in \Z^+$ and $x'$ is maximal
+               (i.e., $y \notin I^i$ for all $i > x'$.) So $y = y's^{x'}$ for
+               some $y' \in R$, and thus,
+               $r = ys^x = y's^{x'}s^x = y's^{x'+x} \in I^{x'+x}$, so that
+               $x' + x \in S_r$, a contradiction since $x' + x > x'$ and $x'$
+               was assumed to be the maximum element of $S_r$. Thus $y$ is a
+               unit. Finally, for uniqueness, suppose that $r = as^j$ for some
+               unit $a$ in $R$ and $j \ge 1$. Assume without loss that
+               $j \ge x$. So $r = ys^x = as^j$. Since $R$ is an integral domain,
+               we can cancel to get $y = as^{j-x}$, so that $ay^{-1} = s^{j-x}$.
+               If $j > x$, then $ay^{-1} \in (s)$, a contradiction since that
+               would imply that $I$ contains a unit. Thus $j = x$ and it follows
+               that $ay^{-1} = 1$, so that $a = y$. Thus the representation is
+               unique. \qed
+         \item \begin{enumerate}
+                  \item Let $r_1, r_2 \in R/\{0\}$. By 1(b), we can uniquely
+                        write $r_1 = u_1s^{n_1}$ and $r_2 = u_2s^{n_2}$, where
+                        $u_1$ and $u_2$ are units in $R$ and $n_1$ and $n_2$ are
+                        nonnegative integers. Now $r_1r_2 = u_1u_2s^{n_1+n_2}$.
+                        Since $u_1$ and $u_2$ are units, it follows that
+                        $u_1u_2$ is also a unit in $R$. By 1(b), the
+                        representation of $r_1r_2$ by $u_1u_2s^{n_1+n_2}$ is
+                        unique. So
+                        $\omega(r_1r_2) = n_1+n_2 = \omega(r_1) + \omega(r_2)$.
+               \end{enumerate}
+      \end{enumerate}
+\end{enumerate}
+\end{document}
