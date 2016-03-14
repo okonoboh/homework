@@ -192,7 +192,98 @@
                $u \in R$ and $n \ge 0$. Now $n \in S$, so by minimality, we have
                that $n_1 \le n$; so
                $t = u{u_1}^{-1}s^{n-n_1}\cdot u_1s^{n_1} \in (r)$. Conclude that
-               $J$ is principal so that $R$ is a PID.
+               $J$ is principal so that $R$ is a PID. \qed
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%02%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[2.]   Let $R$ be a ring, $I$ an ideal of $R$.
+               \begin{enumerate}
+                  \item For $M$ an $R$-module, show that $M/IM$ is an
+                        $R/I$-module directly, by proving that it satisfies the
+                        module axioms. Then cite a homeowork problem that I
+                        assigned that gives you this result ``abstractly."
+                  \item For a module homomorphism $\alpha : M \rightarrow N$,
+                        prove that $\alpha$ induces a natural homomorphism
+                        $\overline{\alpha} : M/IM \rightarrow N/IN$.
+                  \item Now suppose in the situation of part (b) that
+                        $I \subseteq \text{Jac }R$. Prove that $\alpha$ is
+                        surjective if and only if $\overline{\alpha}$ is
+                        surjective.
+               \end{enumerate}
+
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item \textbf{Proof.} Let $x + I, y + I \in R/I$ and
+               $m + IM, n + IM \in M/IM$, where $x, y \in R$ and $m, n \in M$.
+               \begin{itemize}
+                  \item \textbf{well-definedness of scalar multiplication.} To
+                        show that $(x+I)(m+IM) = xm + IM$ is well-defined,
+                        suppose $x + I = t + I$, for some $t \in R$. Then
+                        $x - t \in I$, so that $xm - tm = (x-t)m \in IM$. Thus,
+                        $xm + IM = tm + IM$, so that scalar multiplication is
+                        well defined.
+                  \item \textbf{closure.} Since $M$ is an $R$-module, it follows
+                        that $xm \in M$, so that
+                        $(x+I)(m+IM) = xm + IM \in M/IM$.
+                  \item \textbf{distributivity.} Distributivity follows because
+                        \begin{align*}
+                           (x+I)(m+IM +n+IM) &= (x+I)[(m+n)+IM] \\
+                              &= x(m+n) + IM \\
+                              &= (xm + xn) + IM
+                                 &[M \text{ is an } R\text{-module}] \\
+                              &= xm + IM + xn + IM \\
+                              &= (x+I)(m+IM) + (x+I)(n+IM).
+                        \end{align*}
+                  \item \textbf{associativity.} Associativity follows because
+                        \begin{align*}
+                           (x+I)[(y+I)(m+IM)] &= (x+I)[ym+IM] \\
+                              &= x(ym) + IM \\
+                              &= (xy)m + IM
+                                 &[M \text{ is an } R\text{-module}] \\
+                              &= (xy+I)(m+IM) \\
+                              &= [(x+I)(y+I)](m+IM).
+                        \end{align*}
+                  And finally, $(1 + I)(m+IM) = 1m + IM = m + IM$, so that
+                  $M+IM$ is an $R/I$-module.
+               \end{itemize}
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[3.]   Let $R$ be a ring, $M$ an $R$-module. Define $M[x]$ to be the set
+               of all ``polynomials in $x$ with coefficients in $M$," that is,
+               the set of all finite sums
+               $m_nx^n + \cdots + m_1x + m_0, m_j \in M$. Notice that since $M$
+               does not have multiplication defined on it, this is not a ring.
+               \begin{enumerate}
+                  \item Show that $M[x]$ is an $R$-module with the appropriate
+                        definitions of addition and scalar multiplication.
+                  \item Use the UMP to prove that $M[x] \cong M \otimes_R R[x]$.
+               \end{enumerate}
+
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item d
+      \end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[4.]   Prove that $\Q$ is not a projective $\Z$-module. (\textit{Hint}:
+               Find a surjection $M \rightarrow Q$ that doesn't have a section
+               $\Q \rightarrow M$.)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[5.]   Let $I = (x, y) \subseteq k[x, y]]$, where $k$ is a field.
+               \begin{enumerate}
+                  \item Show that $R/I \cong k$. Therefore, what kind of ideal
+                        is $I$?
+                  \item Cite a result in AK to show that $I/I^2$ is a $k$-vector
+                        space, and find its dimension. (The solution I have in
+                        mind here is just to find a basis!)
+                  \item Regarding $k$ as the $R$-module $R/I$, prove that $k$ is
+                        not flat.
+               \end{enumerate}
+
+      \textbf{Solution.}
+      
+      \begin{enumerate}
+         \item d
       \end{enumerate}
 \end{enumerate}
 \end{document}
