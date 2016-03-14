@@ -246,6 +246,35 @@
                   And finally, $(1 + I)(m+IM) = 1m + IM = m + IM$, so that
                   $M+IM$ is an $R/I$-module.
                \end{itemize}
+         \item Consider the map $\overline{\alpha} : M/IM \rightarrow N/IN$,
+               defined by $m + IM \mapsto \alpha(m) + IN$.
+               \begin{itemize}
+                  \item \textbf{well-definedness.} Suppose $m + IM = n + IM$ for
+                        some $m, n \in M$, so that $m - n \in IM$. That is,
+                        $m - n = i_1m_1 + \cdots + i_km_k$, where $k \in \Z^+$,
+                        $i_j \in I$, and $m_j \in M$, and thus,
+                        $$\alpha(m) - \alpha(n) = \alpha(m - n)=
+                          \alpha(i_1m_1 + \cdots + i_km_k)=
+                          i_1\alpha(m_1) + \cdots + i_k\alpha(m_k) \in IN.$$
+                        Hence $\overline{\alpha}(m) = \alpha(m) + IN =
+                        \alpha(n) + IN = \overline{\alpha}(n)$, so that
+                        $\overline{\alpha}$ is well-defined.
+                  \item \textbf{linearity.} Let $x + I, y + I \in R/I$ and
+                        $m + IM, n + IM \in M/IM$, where $x, y \in R$ and
+                        $m, n \in M$. It follows that
+                        \begin{align*}
+                           \overline{\alpha}((x+I)(m+IM) + (y+I)(n+IM)) &=
+                              \overline{\alpha}(xm+IM +yn+IM) \\
+                              &= \overline{\alpha}((xm+yn)+IM) \\
+                              &= \alpha(xm+yn)+IN \\
+                              &= (x\alpha(m)+y\alpha(n)) + IN \\
+                              &= x\alpha(m) + IN + y\alpha(n) + IN \\
+                              &= (x+I)(\alpha(m) + IN)+(y+I)(\alpha(n) + IN) \\
+                              &= (x+I)\overline{\alpha}(m+IM)+(y+I)\overline{\alpha}(n+IM).
+                        \end{align*}
+               \end{itemize}
+               Conclude that $\overline{\alpha}$ is an $R/I$-module
+               homomorphism.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%03%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[3.]   Let $R$ be a ring, $M$ an $R$-module. Define $M[x]$ to be the set
