@@ -1,0 +1,99 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{amscd}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 545, Spring 2016\\Section 1 (9515)\\
+  HW \#7, DUE: 2016, February 24
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Ker}{\text{Ker}}
+\newcommand{\Coker}{\text{Coker}}
+\newcommand{\im}{\text{Im}}
+\newcommand{\D}{\displaystyle}
+\DeclareTextCommand{\_}{OT1}{%
+  \leavevmode \kern.06em\vbox{\hrule width.6em}}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[17.]  Let $M, N$, and $P$ be $R$-modules,
+               $\gamma \in \text{Hom}(M, \text{Hom}(N, P))$, and define
+               $\tilde{\gamma} : M \times N \rightarrow P$ by
+               $(m, n) \mapsto [\gamma(m)](n)$. Show that
+               $\tilde{\gamma} \in \text{Bil}(M, N ; P)$.
+               
+      \textbf{Proof.} Let $m' \in M$ and $n' \in N$. It suffices to show that
+      the maps $\alpha : N \rightarrow P$, defined by
+      $n \mapsto \tilde{\gamma}(m', n)$, and $\beta : M \rightarrow P$, defined
+      by $m \mapsto \tilde{\gamma}(m, n')$, are $R$-linear. That is, it suffices
+      to show that
+      $$\alpha(xn_1+yn_2)=x\alpha(n_1) + y\alpha(n_2) \text{ and }
+        \beta(xm_1+ym_2)=x\beta(m_1) + y\beta(m_2),$$
+      for all  $x, y \in R$, $n_1, n_2 \in N$ and $m_1, m_2 \in M$. The
+      equalities above follow immediately because for $x, y \in R$,
+      $n_1, n_2 \in N$ and $m_1, m_2 \in M$, we have that
+      \begin{align*}
+         \alpha(xn_1 + yn_2) &= \tilde{\gamma}(m', xn_1+yn_2) \\
+            &= [\gamma(m')](xn_1+yn_2) \\
+            &= x([\gamma(m')](n_1)) + y([\gamma(m')](n_2))
+               &[\gamma(m') \text{ is $R$-linear}] \\
+            &= x[\tilde{\gamma}(m', n_1)]+ y[\tilde{\gamma}(m', n_2)]\\
+                     &= x\alpha(n_1) + y\alpha(n_2)
+      \end{align*}
+      and
+      \begin{align*}
+         \beta(xm_1 + ym_2) &= \tilde{\gamma}(xm_1+ym_2, n') \\
+            &= [\gamma(xm_1+ym_2)](n') \\
+            &= [x\gamma(m_1)+y\gamma(m_2)](n')
+               &[\gamma \text{ is $R$-linear}] \\
+            &= x([\gamma(m_1)](n'))+y([\gamma(m_2)](n')) \\
+            &= x\tilde{\gamma}(m_1, n')+y\tilde{\gamma}(m_2, n') \\
+            &= x\beta(m_1) + y\beta(m_2).
+      \end{align*}
+      Thus $\tilde{\gamma} \in \text{Bil}(M, N ; P)$. \qed
+\end{enumerate}
+\end{document}

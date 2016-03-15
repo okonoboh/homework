@@ -101,6 +101,98 @@
       Conclude that $\im(\partial) = \Ker(\varphi')$. That is, the
       Snake Lemma sequence is exact at $\Coker(\gamma')$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item[16.]  
+   \item[16.]  Let
+               $$0 \rightarrow M' \stackrel{\alpha}{\longrightarrow} M
+               \stackrel{\beta}{\longrightarrow} M'' \rightarrow 0$$
+               be a short exact sequence, and $N$ a module. Show that the
+               sequence
+               $$0 \rightarrow \text{Hom}(M'', N) \stackrel{\_\circ\beta}
+               {\longrightarrow} \text{Hom}(M, N)
+               \stackrel{\_\circ\alpha}{\longrightarrow} \text{Hom}(M', N).$$
+               is exact.
+               
+      \textbf{Proof.} It suffices to show that $\_\circ\beta$ is injective and
+      that $\im(\_\circ\beta) = \Ker(\_\circ\alpha)$. Since $\beta$ is onto, the
+      former follows by our discussion in class, so it remains to show the
+      latter.
+      
+      \begin{itemize}
+         \item \textbf{Show that } $\im(\_\circ\beta) = \Ker(\_\circ\alpha)$.
+               \begin{itemize}
+                  \item $(\subseteq):$ Let $\gamma \in \im(\_\circ\beta)$. Then
+                        $\gamma = \phi\circ\beta$ for some
+                        $\phi \in \text{Hom}(M'', N)$. It follows that
+                        \begin{align*}
+                           (\_\circ\alpha)(\gamma) &= \gamma \circ \alpha \\
+                              &= (\phi\circ\beta)\circ\alpha \\
+                              &= \phi\circ(\beta\circ\alpha) \\
+                              &= 0,
+                        \end{align*}
+                        where the last equality follows because
+                        $\beta\circ\alpha$ is a zero map
+                        (since $\im(\alpha) = \Ker(\beta)$) and because every
+                        module maps 0 to 0. That is,
+                        $\gamma \in \Ker(\_\circ\alpha)$, and thus,
+                        $\im(\_\circ\beta) \subseteq \Ker(\_\circ\alpha)$.
+                  \item $(\supseteq):$ Let $\sigma \in \Ker(\_\circ\alpha)$, so
+                        that $(\_\circ\alpha)(\sigma) = \sigma\circ\alpha = 0$.
+                        Define a function $\delta : M'' \rightarrow N$, such
+                        that if $m'' \in M''$, then $\delta(m'') = \sigma(m)$,
+                        where $m'' = \beta(m)$, for some $m \in M$. Observe that
+                        $(\delta\circ\beta)(m) = \sigma(m)$ for all $m \in M$,
+                        so that $\delta\circ\beta = \sigma$. Also observe that
+                        since $\beta$ is onto, the function $\delta$ is defined for every
+                        $m'' \in M$. It remains to show
+                        that $\delta \in \text{Hom}(M'', N)$; that is, we must
+                        show that $\delta$ is a well defined $R$-module
+                        homomorphism.
+                        \begin{itemize}
+                           \item \textbf{$\delta$ is well-defined.} Let $m'' \in M$;
+                                 Since $\beta$ is onto, there exists $m_1 \in M$
+                                 such that $m'' = \beta(m_1)$. Now suppose that
+                                 $\beta(m_1) = \beta(m_2)$ for some
+                                 $m_2 \in M$. It suffices to show that
+                                 $\sigma(m_1) = \sigma(m_2)$. Since
+                                 $\beta(m_1) = \beta(m_2)$, it follows that
+                                 $m_1 - m_2 \in \Ker(\beta) = \im(\alpha)$, so
+                                 that $m_1 - m_2 = \alpha(t')$ for some
+                                 $t' \in M'$. Since $\sigma\circ\alpha = 0$, it
+                                 follows that
+                                 $$\sigma(m_1) - \sigma(m_2) = \sigma(m_1 - m_2)
+                                 = \sigma(\alpha(t')) = 0,$$
+                                 so that $\sigma(m_1) = \sigma(m_2)$, and thus,
+                                 $\delta$ is well-defined.
+                           
+                           \item \textbf{$\delta$ is an $R$-module
+                                 homomorphism.} Let $r \in R$ and let
+                                 $a'', b'' \in M''$. Thus $\delta(a'') = \sigma(a)$ and
+                                 $\delta(b'') = \sigma(b)$, where $\beta(a) = a''$
+                                 and $\beta(b) = b''$, for some $a, b \in M$.
+                                 Thus
+                                 \begin{align*}
+                                    \delta(a''+b'')&=\delta(\beta(a)+\beta(b))\\
+                                       &= \delta(\beta(a+b)) \\
+                                       &= \sigma(a+b) \\
+                                       &= \sigma(a)+\sigma(b)\\
+                                       &= \delta(a'')+\delta(b''),
+                                 \end{align*}
+                                 and
+                                 $$\delta(ra'') = \delta(r\beta(a)) =
+                                   \delta(\beta(ra)) = \sigma(ra) = r\sigma(a)
+                                   = r\delta(a'').$$
+                                 That is, $\delta$ is an $R$-module homomorphism.
+                                 Hence $\delta \in \text{Hom}(M'', N)$.
+                        \end{itemize}
+                        Since  $\delta\circ\beta = \sigma$, it follows that
+                        $\sigma \in \im (\_\circ\beta)$, so that
+                        $\im(\_\circ\beta) \supseteq \Ker(\_\circ\alpha)$.
+               \end{itemize}
+               Conclude that $\im(\_\circ\beta) = \Ker(\_\circ\alpha)$.
+      \end{itemize}
+      Thus the sequence 
+               $$0 \rightarrow \text{Hom}(M'', N) \stackrel{\_\circ\beta}
+               {\longrightarrow} \text{Hom}(M, N)
+               \stackrel{\_\circ\alpha}{\longrightarrow} \text{Hom}(M', N)$$
+               is exact. \qed
 \end{enumerate}
 \end{document}

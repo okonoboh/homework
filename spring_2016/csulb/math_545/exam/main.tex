@@ -44,7 +44,7 @@
 
 \newcommand{\cyc}[1]{\langle #1 \rangle}
 \newcommand{\Z}{\mathbb{Z}}
-\newcommand{\I}{\mathbb{I}}
+\newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\M}{\mathbb{M}}
 \newcommand{\R}{\mathbb{R}}
@@ -123,7 +123,17 @@
                The associativity and commutativity of addition and
                multiplicative on $\Z_{((3))}$ and distributivity follow because
                $\Z_{((3))}$ is a subset of $\Q$. That is,
-               $\Z_{((3))}$ is a ring. \qed        
+               $\Z_{((3))}$ is a ring.
+               Now let $I = (3) \subseteq \Z_{((3))}$. The ideal $(3)$ is proper
+               because since $\frac{1}{3} \notin \Z_{((3))}$, $1 \notin (3)$.
+               Let $x \in J$, where be $J$ is a proper ideal of $\Z_{((3))}$,
+               with $x \neq 0$. Now $x$ cannot be a unit (otherwise $J$ would equal $\Z_{((3))}$);
+               so $x = \frac{3p}{q}$ for some $p, q \in \Z$, where
+               $\gcd(3p, q) = 1$. Thus $p/q \in \Z_{((3))}$, so that
+               $x \in (3)$. That is, $J \subseteq I$, so that every proper ideal
+               of $\Z_{((3))}$ is contained in $I$. This says that $I$ is the
+               unique maximal ideal of $\Z_{((3))}$, so that $\Z_{((3))}$ is a
+               local ring. \qed
          \item \textbf{Proof.} Let $r \in R/\{0\}$. First suppose that $r$ is a
                unit. Then it follows that $r = rs^0$. To show uniqueness,
                suppose that $r = us^i$, for some $u \in R$ and $i \ge 1$. Since
@@ -323,11 +333,37 @@
                   And finally, $1p(x) = 1p_nx^n + \cdots + 1p_1x + 1p_0 = p(x)$,
                   so that $M[x]$ is an $R$-module. \qed
                \end{itemize}
+         \item Consider the map $\beta : M \times R[x] \rightarrow M[x]$,
+               defined by $(m, r_nx^n + \cdots + r_0) \mapsto (r_nm)x^n + \cdots
+               + r_0m$.
       \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%04%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[4.]   Prove that $\Q$ is not a projective $\Z$-module. (\textit{Hint}:
-               Find a surjection $M \rightarrow Q$ that doesn't have a section
+               Find a surjection $M \rightarrow \Q$ that doesn't have a section
                $\Q \rightarrow M$.)
+               
+      \textbf{Proof.} Suppose to the contrary that $\Q$ is a $\Z$-module.
+      Consider the surjective $\Z$-homomorphism
+      $$\beta : \Z^{\oplus \N} \rightarrow \Q,$$
+      defined by $(a_1, a_2, \ldots, ) \mapsto \sum_{i\in N}\frac{1}{a_i}$, where
+      $N = \{i \in \N : a_i \neq 0\}$, and $(0, 0, 0, \ldots) \mapsto 0$. Since
+      $\Q$ is a projective module, it follows by Theorem 5.22 (AK) that
+      $\Z$-module 
+      $$0 \rightarrow \Z^{\oplus \N} \stackrel{i}{\longrightarrow} \Z^{\oplus \N}
+      \stackrel{\beta}{\longrightarrow}\Q \rightarrow 0$$
+      is exact, where $i : \Z^{\oplus \N} \rightarrow \Z^{\oplus \N}$ is the
+      identity function. By Proposition 5.9 (AK), there exists a section
+      $\sigma : \Q \rightarrow \Z^{\oplus \N}$ such that $\beta\sigma = 1_\Q$.
+      Let $\sigma(1) = (b_1, b_2, b_3, \ldots)$, where $b_i \in \Z$, and let
+      $b = \max\{|b_i| : i \in \Z\}$. The number $b$ exists because only a
+      finite number of the $b_i$s are nonzero. If $b = 0$, then $\alpha(1) = 0$,
+      so that $\sigma(7) = \sigma(7 \cdot 1) = 7\cdot\sigma(1) = 0$; that is,
+      $\beta\sigma(7) = 0 \neq 7$, a contradiction. Thus $b > 0$. Now we have
+      that
+      $$\sigma(1) = \sigma\left(b + 1 \cdot \frac{1}{b+1}\right) =
+         (b+1)\sigma\left(\frac{1}{b+1}\right).$$
+      The above equality says that $b + 1$ divides $b$, a contradiction since
+      $0 < b < b + 1$. Thus $\Q$ is not a projective $\Z$-module. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%05%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item[5.]   Let $R = k[x, y]$ and $I = (x, y) \subseteq R$, where $k$ is a
                field.
@@ -345,7 +381,11 @@
       
       \begin{enumerate}
          \item \textbf{Proof.} Consider the map $\alpha : R \rightarrow k$,
-               defined by $p(x, y) \mapsto p(0, 0)$.
+               defined by $p(x, y) \mapsto p(0, 0)$. By Example (5), 7.3 (DF),
+               $\alpha$ is an evaluation map at (0, 0), so that it is an
+               homomorphism. Its kernel is $I$ and since $\alpha$ is surjective
+               $R/I \cong k$ by the First Isomorphism Theorem. It follows that
+               $I$ is a maximal ideal.
       \end{enumerate}
 \end{enumerate}
 \end{document}

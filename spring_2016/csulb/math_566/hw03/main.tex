@@ -1,0 +1,160 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 566, Spring 2016\\Section 1 (9519)\\
+  HW \#3, DUE: 2016, February 18
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Long Beach
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\everymath{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.5.1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.5.1.]  Find the critical points and critical values of
+                  $f(z) = z + 1/z$. Sketch the curves where $f(z)$ is real.
+                  Sketch the regions where Im $f(z) > 0$ and where
+                  Im $f(z) < 0$.
+                  
+      \textbf{Solution.} We have $f'(z) = 1 - 1/z^2$. Since $f'(z) = 0$ if and
+      only if $z = \pm1$, it follows that the critical points of $f$ are
+      $1$ and $-1$, with critical values $f(1) = 2$ and $f(-1) = -2$. Write
+      $z = x + yi$, so that
+      $$f(x + iy) = x + yi + \frac{1}{x+yi} = x + yi + \frac{x-yi}{x^2+y^2} =
+        x + \frac{x}{x^2+y^2} + \left(y - \frac{y}{x^2+y^2}\right)i.$$
+        
+      \begin{itemize}
+         \item \textbf{Curves where $f(z)$ is real.} So $f(x+yi)$ is real if and
+               only if $y - \frac{y}{x^2+y^2} = 0$ if and only if
+               $y\left(1 - \frac{1}{x^2+y^2}\right) = 0$ if and only if
+               $y = 0 (x \neq 0)$ or $x^2 + y^2 = 1$. Thus $f(z)$ is
+               real if and only if $z$ is real and nonzero or $|z| = 1$. \\ \\
+               \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
+         \item \textbf{Region where } Im $f(z) > 0$\textbf{.} Im $f(z) > 0$
+               if and only if $y - \frac{y}{x^2 + y^2} > 0$. Solving this
+               inequality will give us
+               $$\{x + iy : y > 0 \text{ and }
+               x^2 + y^2 > 1\} \cup \{x + iy : y < 0 \text{ and }
+               x^2 + y^2 < 1\}$$ \\ \\
+               \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
+         \item \textbf{Region where } Im $f(z) < 0$\textbf{.} We simply take
+               the complement of the region above to get \\ \\
+               \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
+      \end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.5.10%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.5.10.] Locate the critical points and critical values in the
+                  extended complex plane of the polynomial $f(z) = z^4 - 2z^2$.
+                  Determine the order of each critical point. Sketch the set of
+                  points $z$ such that Im $f(z) \ge 0$.
+                  
+      \textbf{Solution.}  We have $f'(z) = 4z^3 - 4z = 4z(z^2 - 1) =
+      4z(z-1)(z+1)$, so that 0, 1, and $-1$ are critical points of $f(z)$ with
+      critical values $f(0) = 0$, $f(1) = f(-1) = -1$. If we let
+      $g(z) = 4(z^2-1)$, $h(z) = 4z(z+1)$, and $r(z) = 4z(z-1)$, then since
+      $$f'(z) = (z-0)g(z) = (z - 1)h(z) = (z + 1)r(z),$$
+      where $g(z)$ is entire and $g(0) \neq 0$, $h(z)$ is entire and
+      $h(1) \neq 0$, and $r(z)$ is entire and $r(-1) \neq 0$, it follows that
+      the orders of 0, 1, and $-1$ are all 1. Now we want to find the set of
+      points $z$ such that Im $(f(z) \ge 0$. Let $z = x + yi$, so that
+      $$f(z) = z^2(z^2 - 2) = (x+yi)^2((x+yi)^2 - 2) = (x^2-y^2 + 2xyi)
+       (x^2-y^2-2 + 2xyi).$$
+      Thus Im $f(x+yi) = 2xy(x^2-y^2) + 2xy(x^2-y^2-2) = 4xy(x^2 - y^2 -1)$.
+      That is, Im $f(z) \ge 0$ if and only if $z \in \{x + yi : y \ge 1/x
+      \text{ or } x^2 - y^2 \ge 1\}$. We sketch the results below: \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
+   
+                  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.6.3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.6.3.]  Let $f(z)$ be analytic on an open set containing a closed
+                  path $\gamma$, and suppose $f(z) \neq 0$ on $\gamma$. Show
+                  that the increase in arg $f(z)$ around $\gamma$ is
+                  $2\pi W(f \circ \gamma, 0)$.
+                  
+      \textbf{Proof.} Since $\gamma$ is a closed path, it follows by the
+      discussion in Section 1 that
+      $$\frac{1}{2\pi i}\int_\gamma\frac{f'(z)}{f(z)}dz =
+        \frac{1}{2\pi}\int_\gamma d\text{ arg}(f(z)),$$
+      where $d\text{ arg}(f(z))$ is the increase in arg $f(z)$ around $\gamma$.
+      If we make the substitution $w = f(z)$, so that $dw = f'(z)dz$, we get
+      \begin{align*}
+         \frac{1}{2\pi}\int_\gamma d\text{ arg}(f(z)) &=
+            \frac{1}{2\pi i}\int_\gamma\frac{f'(z)}{f(z)}dz \\
+            &= \frac{1}{2\pi i}\int_{f(\gamma)}\frac{dw}{w - 0} \\
+            &= \frac{1}{2\pi}\int_{f(\gamma)}d \text{ arg}(w) \\
+            &= W(f(\gamma), 0) = W(f \circ \gamma, 0),
+      \end{align*}
+      so that $\int_\gamma d\text{ arg}(f(z)) = 2\pi W(f \circ\gamma, 0)$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.6.5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.6.5.]  Show that if $\gamma$ is a piecewise smooth closed curve in
+                  the complex plane, with trace $\Gamma$, and if
+                  $z_0 \notin \Gamma$, then
+                  $$\int_\gamma\frac{1}{(z-z_0)^n}dz = 0,\qquad n \ge 2.$$
+                  
+      \textbf{Proof.} Let $f(z) = z - z_0$. We differentiate the formula on the Theorem on page 244
+      to get
+      $$\frac{1}{2\pi i }\int_\gamma\frac{f(z)}{(z-z_0)^{n+1}}dz = \frac{1}{n!}
+      W(\gamma, z_0)f^{n}(z_0) = 0$$
+      since $f^n = 0$, for $n \ge 2$. Thus
+      $$\int_\gamma\frac{1}{(z-z_0)^n}dz = \frac{1}{2\pi i }\int_\gamma\frac{f(z)}{(z-z_0)^{n+1}} = 0,$$
+      for $n \ge 2$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%8.6.7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item[8.6.7.]  Evaluate
+                  $$\frac{1}{2\pi i}\int_\gamma \frac{dz}{z(z^2-1)},$$
+                  where $\gamma$ is the curve shown on page 246.
+                 
+      \textbf{Solution.} Splitting the integrand into partial fractions, we
+      obtain
+      \begin{align*}
+         \frac{1}{2\pi i}\int_\gamma \frac{dz}{z(z^2-1)} &=
+            \frac{1}{2\pi i}\int_\gamma\left(\frac{1}{z} + \frac{1}{2(z+1)} +
+            \frac{1}{2(z-1)}\right)dz \\
+            &= \frac{1}{2\pi i}\int_\gamma \frac{dz}{z-0} +
+               \frac{1}{2}\left(\frac{1}{2\pi i}
+               \int_\gamma \frac{dz}{z-(-1)}\right) +               
+               \frac{1}{2}\left(\frac{1}{2\pi i}
+               \int_\gamma \frac{dz}{z-1}\right) \\
+            &= W(\gamma, 0) + \frac{1}{2}W(\gamma, -1)+\frac{1}{2}W(\gamma, 1)\\
+            &= 0 + \frac{1}{2} \cdot 2 + \frac{1}{2} \cdot 1 \\
+            &= \frac{3}{2}.
+      \end{align*}
+\end{enumerate}
+\end{document} 
