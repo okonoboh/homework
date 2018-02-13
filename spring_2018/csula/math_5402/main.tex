@@ -1,0 +1,212 @@
+\documentclass[9pt]{article}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{comment}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+%\usepackage[retainorgcmds]{IEEEtrantools}
+
+\everymath{\displaystyle}
+
+\usepackage{tikz}
+
+\voffset = -50pt
+%\textheight = 700pt
+\addtolength{\textwidth}{60pt}
+\addtolength{\evensidemargin}{-30pt}
+\addtolength{\oddsidemargin}{-30pt}
+%\setlength{\headheight}{44pt}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all fields
+\fancyhead[R]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  MATH 5402, Spring 2018\\Section 1 (9932)\\
+  HW, DUE: N/A
+  \end{tabular}}
+\fancyhead[L]{%
+  \scshape
+  \begin{tabular}[t]{@{}r@{}}
+  JOSEPH OKONOBOH\\Mathematics\\Cal State Los Angeles
+  \end{tabular}}
+\fancyfoot[C]{\thepage}
+
+\newcommand{\qed}{\hfill \ensuremath{\Box}}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\cyc}[1]{\langle #1 \rangle}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\D}{\displaystyle}
+%\setcounter{section}{-1}
+
+\begin{document}
+\begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%014%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $R$ be a commutative ring with $1 \neq 0$. Prove $R$ is an integral
+         domain, if and only if, whenever $ab = 0$, then either $a = 0$ or
+         $b = 0$.
+         
+      \textbf{Proof.} Suppose $R$ is a commutative ring with $1 \neq 0$.
+      
+      $(\Leftarrow)$ First assume that $R$ is an integral domain and suppose that
+      $ab = 0$ for some $a, b \in R$. If $a = 0$, we are done, so suppose that
+      $a \neq 0$. If $b \neq 0$, then $a$ is a zero divisor, contradicting our
+      assumption that $R$ is an integral domain; thus $b = 0$.
+      
+      $(\Rightarrow)$ Now assume that if $ab = 0$, for some $a, b \in R$, then
+      $a = 0$ or $b = 0$. That is, $R$ contains no zero divisors. Conclude that
+      $R$ is an integral domain. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%015%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Show that $n\Z = \{nz : z \in \Z\}$ is an ideal of $\Z$, for all
+         integers $n$.
+         
+      \textbf{Proof.} Fix $n \in \Z$. Let $x, y \in n\Z$. So there exist
+      integers $a$ and $b$ such that $x = na$ and $y = nb$. Since
+      $a - b$ and $nab$ are integers, conclude that $x - y = n(a - b)$, 
+      $xy = n(nab) \in n\Z$. It follows that $n\Z$ is an ideal of $\Z$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%016%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose $\varphi : R \rightarrow S$ is a ring homomorphism. Show that
+         the $\textit{kernel}$ of the homomorphism
+         $ker(\varphi) = \{a \in R : \varphi(a) = 0\}$ is an ideal of $R$.
+         
+      \textbf{Proof.} First, we want to show that $\varphi(0) = 0$, so that
+      $ker(\varphi)$ is nonempty. Now
+      $$\varphi(0) = \varphi(0 + 0) = \varphi(0) + \varphi(0).$$
+      Add $-\varphi(0)$ to both sides of the preceding equality to get
+      $\varphi(0) = 0$. Note that if $x \in R$, then
+      $$0 = \varphi(0) = \varphi(x + (-x)) = \varphi(x) + \varphi(-x),$$
+      so that $\varphi(-x) = -\varphi$ for each $x \in R$.
+      Let $a, b \in ker(\varphi)$. So
+      $$\varphi(a - b) = \varphi(a + (-b)) = \varphi(a) + \varphi(-b) =
+      \varphi(a) + (-\varphi(b)) = 0 + (-0) = 0  + 0 = 0.$$
+      That is, $a - b \in ker(\varphi)$. Let $r \in R$. Since
+      $\varphi(ra) = \varphi(r)\varphi(a) = \varphi(r)\cdot 0 = 0$ and
+      $\varphi(ar) = \varphi(a)\varphi(r) = 0 \cdot\varphi(a) = 0$, it follows
+      that $ra, ar \in ker(\varphi)$ for each $r \in R$. Conclude that
+      $ker(\varphi)$ is an ideal of $R$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%018%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item The intersection of any collection of ideals in $R$, is an ideal of
+         $R$.
+         
+      \textbf{Proof.} Let $\{I_j : j \in J\}$ be a collection of ideals in $R$,
+      where $J$ is some nonempty indexing set. We want to show that
+      $S = \bigcap_{j \in J}I_j$ is an ideal of $R$. To that end, we let $x, y
+      \in S$ and $r \in R$ ($S$ is nonempty because $0 \in I_j$ for each
+      $j \in J$, so that $0 \in S$). Let $k \in J$. Then $x, y \in I_k$. Since
+      $I_k$ is an ideal of $R$, it follows that $x - y, rx, xr \in I_k$. Since
+      $I_k$ was arbitrarily chosen, it follows that $x - y, rx, xr \in I_j$ for
+      each $j \in J$. Hence, $x - y, rx, xr \in S$. Conclude that $S$ is an
+      ideal of $R$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%019%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $S$ be a subset of a ring $R$. Show that $\cyc{S}$ is the smallest
+         ideal containing $S$ (in the sense that $\cyc{S}$ is contained in
+         every ideal containing $S$.)
+         
+      \textbf{Proof.} Let $I_S$ be the set of ideals containing $S$.
+      Let $H \in I_S$. By definition
+      $$\cyc{S} = \bigcap_{I \in I_S}I \subseteq H,$$
+      so that $\cyc{S}$ is the smallest ideal containing $S$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%020%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose $R$ is a ring with identity 1. Show the only ideal containing
+         1 is $R$, therefore $\cyc{1} = R$.
+         
+      \textbf{Proof.}  Let $I$ be an ideal of $R$. Suppose $1 \in I$ and let
+      $r \in R$. Since $I$ is an ideal, we have that $1 \cdot r = r \in I$. That
+      is, $R \subseteq I$. By definition $I \subseteq R$, so conclude that
+      $I = R$. Particularly, since $1 \in \cyc{1}$, it follows that
+      $\cyc{1} = R$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%021%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item In the rings of integers $\Z$ show:
+         \begin{enumerate}
+            \item $n\Z = \cyc{n}$,
+            \item $\cyc{6, 10} = \cyc{2}$,
+            \item $\cyc{60} \subsetneq \cyc{2}$,
+            \item $\cyc{2} \cup \cyc{3}$ is not an ideal.
+         \end{enumerate}
+         
+      \textbf{Proof.}
+      
+      \begin{enumerate}
+         \item Fix $n \in \Z$. By Exercise 15, $n\Z$ is an ideal of $\Z$. Since
+               $n \in n\Z$, it follows by Exercise 19 that
+               $\cyc{n} \subseteq n\Z$. Now let $x \in n\Z$, so that $x = nm$
+               for some integer $m$. Since $\cyc{n}$ is an ideal containing $n$,
+               it follows that $x = n \cdot m \in \cyc{n}$, so that
+               $n\Z \subseteq \cyc{n}$. Conclude that $n\Z = \cyc{n}$.
+         \item Since $6, 10 \in \cyc{6, 10}$ and $2, 3 \in \Z$, we have that
+               $18 = 3 \cdot 6 \in \cyc{6, 10}$ and
+               $20 = 2 \cdot 10 \in \cyc{6, 10}$. By definition, we have that
+               $2 = 20 - 18 \in \cyc{6, 10}$. Thus, $\cyc{6, 10}$ is an ideal
+               containing 2, so that $\cyc{2} \subseteq \cyc{6, 10}$ by Exercise
+               15. Similarly, $\cyc{2}$ is an ideal containing 6 and 10 (because
+               $6 = 2 \cdot 3$ and $10 = 2 \cdot 5$), so that
+               $\cyc{6, 10} \subseteq \cyc{2}$. Conclude that
+               $\cyc{6, 10} = \cyc{2}$.
+         \item By part(a), we have $\cyc{60} = 60\Z$ and $\cyc{2} = 2\Z$. Now
+               $x \in 60\Z$, so that $x = 60y$ for some integer $y$. Thus
+               $x = 60y = 2(30y) \in 2\Z$, so that $60\Z \subseteq 2\Z$. Now
+               $2 \in 2\Z$ but $2 \notin 60\Z$ because the smallest positive
+               integer in $60\Z$ is 60. Thus $\cyc{60} \subsetneq 2\Z$.
+         \item By part (a), $I = \cyc{2} \cup \cyc{3}$ is the set of all integers
+               that is a multiple of 2 or 3. If $I$ were an ideal, then it would
+               contain $1 = -1 \cdot 2 + 3$, a contradiction because $1$ is
+               neither a multiple of 2 nor 3.
+      \end{enumerate} \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%022%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose $R$ is a commutative ring with identity 1 and $a \in R$; show
+         that $\cyc{a} = aR = \{ar : r \in R\}$.
+         
+      \textbf{Proof.} Assume that $R$ is a commutative ring with identity 1 and
+      consider $a \in R$. First we want to show that $aR$ is an ideal of $R$.
+      Let $x, y \in aR$ ($aR$ is nonempty because $a = a \cdot 1 \in aR$, so
+      that $x = ar$ and $y = as$ for some $r, s \in R$. By closure of $R$, we
+      have that $r - s \in R$, so that $x - y = ar - as = a(r - s) \in aR$. For
+      $t \in R$, we have that
+      \begin{align*}
+         tx &= xt &[R \text{ is commutative}] \\
+            &= (ar)t = a(rt) \in aR, &[\text{Associativity \& Closure}]
+      \end{align*}
+      so that $aR$ is an ideal of $R$. Let $I$ be an ideal containing $a$. It
+      follows that $ar \in I$, for each $r \in R$. That is, $aR \subseteq I$.
+      Particularly, we have that $aR \subseteq \cyc{a}$. Since $aR$ is an ideal
+      containing $a$, it follows by Exercise 15 that $\cyc{a} \subseteq aR$, so
+      that $\cyc{a} =aR$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%023%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that a division ring has no nonzero proper ideals.
+         
+      \textbf{Proof.} Let $I \neq 0$ be an ideal of a division ring $R$. Since
+      $I$ is nonzero, it contains a nonzero element, say $a$. Since $R$ is a
+      division ring, $a^{-1}$ exists, so that $a(a^{-1}) = 1 \in I$. Conclude by
+      Exercise 20 that $I = R$. Thus a division ring has no nonzero proper
+      ideals. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%024%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove if $R$ is a ring with more than one element, such that $aR = R$
+         for every nonzero element $a$ of $R$, then $R$ is a division ring.
+         
+      \textbf{Proof.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%025%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item If $I$ is an ideal of a ring $R$, then $I[x]$ is an ideal of $R[x]$.
+         
+      \textbf{Proof.} Suppose that $I$ is an ideal of a ring $R$. Let
+      $f, g \in I[x]$. Then $f = a_0 + \cdots + a_nx^n$ and
+      $g = b_0 + \cdots + b_mx^m$, where $n$ and $m$ are nonnegative integers
+      and $a_0, \ldots, a_n, b_0, \ldots, b_m \in I$. Assume without loss of
+      generality that $n \le m$. Since $I$ is an ideal, we have that
+      $a_i - b_i \in I$, where $1 \le i \le n$. Thus
+      $$f - g = (a_0 - b_0) + \cdots + (a_n - b_n)x^n + b_{n + 1}x^{n + 1} +
+        \cdots + b_mx^m \in I[x].$$
+\end{enumerate}
+\end{document}
