@@ -201,12 +201,44 @@
    \item If $I$ is an ideal of a ring $R$, then $I[x]$ is an ideal of $R[x]$.
          
       \textbf{Proof.} Suppose that $I$ is an ideal of a ring $R$. Let
-      $f, g \in I[x]$. Then $f = a_0 + \cdots + a_nx^n$ and
-      $g = b_0 + \cdots + b_mx^m$, where $n$ and $m$ are nonnegative integers
-      and $a_0, \ldots, a_n, b_0, \ldots, b_m \in I$. Assume without loss of
-      generality that $n \le m$. Since $I$ is an ideal, we have that
-      $a_i - b_i \in I$, where $1 \le i \le n$. Thus
-      $$f - g = (a_0 - b_0) + \cdots + (a_n - b_n)x^n + b_{n + 1}x^{n + 1} +
+      $f, g \in I[x]$. Then $f = a_0 + \cdots + a_kx^k$ and
+      $g = b_0 + \cdots + b_mx^m$, where the coefficients are elements of $I$
+      and $n$ and $m$ are nonnegative integers. Assume without loss that
+      $k \le m$. Since $I$ is an ideal, we have that $a_i - b_i \in I$, where
+      $1 \le i \le k$. Thus
+      $$f - g = (a_0 - b_0) + \cdots + (a_k - b_k)x^k + b_{k + 1}x^{k + 1} +
         \cdots + b_mx^m \in I[x].$$
+      For each $n \ge 0$, let $P(n)$ be the statement that if $h \in R[x]$ is 
+      a polynomial of degree $n$, then $h \cdot f, f \cdot h \in I[x]$. Proceed
+      by induction on $n$. If $h$ is a polynomial in $R[x]$ of degree 0, then
+      $h = r_0 \in R$, $r_0 \neq 0$. We have
+      that $r_0a_i$, $a_ir_0 \in I$, where $0 \le i \le k$ because $I$ is an
+      ideal. So
+      $$hf = r_0(a_0 + \cdots + a_kx^k) =  r_0a_0 + \cdots + r_0a_kx^k\in I[x]$$
+      and
+      $$fh = (a_0 + \cdots + a_kx^k)r_0 =  a_0r_0 + \cdots +a_kr_0x^k\in I[x].$$
+      That is, $P(0)$ holds. Now suppose that for some nonnegative integer $k$
+      that $P(0)$, $P(1)$, $\ldots$, $P(k)$ hold and let $h = c_0 + \cdots + 
+      c_kx^k + c_{k+1}x^{k+1} \in R[x]$ be a polynomial of degree $k + 1$. Write
+      $h = q + r$, where $q = c_0 + \cdots + c_kx^k$ and $r = c_{k+1}x^{k+1}$.
+
+      \textbf{Case 1.} $c_0 = \ldots = c_k = 0$. Thus $h = r$ and it follows
+      that
+      $$hf = rf = c_{k+1}x^k(a_0 + \cdots + a_kx^k) = (c_{k+1}a_0)x^k + \cdots +
+         (c_{k+1}a_k)x^{2k} \in I[x]$$
+      and
+      $$fh = fr = (a_0 + \cdots + a_kx^k)c_{k+1}x^k = (a_0c_{k+1})x^k + \cdots +
+         (a_kc_{k+1})x^{2k} \in I[x]$$
+      because, as $I$ is an ideal, we have
+      $c_{k+1}a_i$, $a_ic_{k+1} \in I$, $0 \le i \le k$.
+
+      \textbf{Case 2.} There exists $0 \le i \le k$ such that $c_i \neq 0$. That 
+      is, $0 \le \text{degree}(q) \le k$. By our Inductive Hypothesis, we have
+      that $fq, qf \in I[x]$. Conclude from Case 1 and closure of $I[x]$ under
+      addition that $hf = (q + r)f = qf +  rf \in I[x]$ and
+      $fh = f(q + r) = fq + fr \in I[x]$, so that $P(k + 1)$ holds. Conclude
+      that $P(n)$ holds for each $n \ge 0$. Clearly
+      $0 \cdot f = f \cdot 0 = 0 \in I[x]$. Thus $I[x]$ is an ideal of $R[x]$.
+      \qed
 \end{enumerate}
 \end{document}
