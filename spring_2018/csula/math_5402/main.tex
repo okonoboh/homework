@@ -54,6 +54,32 @@
 
 \begin{document}
 \begin{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%001%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%002%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%003%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%004%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%005%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%006%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%007%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%008%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%009%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%010%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%011%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%012%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%013%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%014%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $R$ be a commutative ring with $1 \neq 0$. Prove $R$ is an integral
          domain, if and only if, whenever $ab = 0$, then either $a = 0$ or
@@ -97,6 +123,8 @@
       $\varphi(ar) = \varphi(a)\varphi(r) = 0 \cdot\varphi(a) = 0$, it follows
       that $ra, ar \in ker(\varphi)$ for each $r \in R$. Conclude that
       $ker(\varphi)$ is an ideal of $R$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%017%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%018%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item The intersection of any collection of ideals in $R$, is an ideal of
          $R$.
@@ -196,7 +224,62 @@
    \item Prove if $R$ is a ring with more than one element, such that $aR = R$
          for every nonzero element $a$ of $R$, then $R$ is a division ring.
          
-      \textbf{Proof.}
+      \textbf{Proof.} Assume that $R$ is a ring with more than one element, such
+      that $aR = R$ for every nonzero element $a$ of $R$. Let $a$ be a nonzero
+      element of $R$. First, we want to show that $a$ is not a zero divisor. So
+      suppose to the contrary that there exists a nonzero element $b \in R$, such
+      that $ab = 0$. Since $a \neq 0$, it follows by assumption that $aR = R$,
+      so that $ae = b$, for some $e \in R$. Observe that $e \neq 0$, for
+      otherwise, $ae$ would be 0. Similarly, $bR = R$, so there exists $c \in R$
+      such that $bc = e$. Thus
+      \begin{align*}
+         a &= ae \\
+           &= a(bc) \\
+           &= (ab)c &[\text{Associativity of } \cdot] \\
+           &= 0 \cdot c = 0,
+      \end{align*}
+      a contradiction since $a \neq 0$. Thus $a$ is not a zero divisor; since
+      $a$ was an arbitrarily chosen nonzero element of $R$, conclude that $R$
+      has no zero divisors. Now we want to show that $e$ is the multiplicative
+      identity of $R$. To that end, let $x$ be an arbitrary element of $R$.
+      Thus
+      \begin{align*}
+         a(x - ex) &= ax - a(ex) &[\text{Distributivity}] \\
+            &= ax - (ae)x &[\text{Associativity of }\cdot] \\
+            &= ax - a x = 0,
+      \end{align*}
+      so that $x - ex = 0$ (because $a$ is not a zero divisor). Thus
+      \begin{equation} \label{l1}
+         ex = x \quad \text{for each } x \in R
+      \end{equation}
+      Now there exists $a' \in R$ so that $aa' = e$. If $a' = 0$, then
+      $e = aa' = 0$, a contradiction because $e \neq 0$, so $a' \neq 0$. Hence
+      \begin{align*}
+         (ea - a)a' &= (ea)a' - aa' &[\text{Distributivity}] \\
+            &= e(aa') - e &[\text{Associativity}] \\
+            &= ee - e \\
+            &= e - e &[\text{Let }x = e \text{ in }\eqref{l1}] \\
+            &= 0,
+      \end{align*}
+      so that $ea - a = 0$ ($a'$ is not a zero divisor), or equivalently,
+      $ea = a$. Since
+      \begin{align*}
+         (x - xe)a &= xa - (xe)a &[\text{Distributivity}] \\ 
+            &= xa - x(ea) = xa - xa = 0,
+      \end{align*}
+      it follows that
+      \begin{equation} \label{l2}
+         xe = x \quad \text{for each } x \in R.
+      \end{equation}
+      Conclude from \eqref{l1} and \eqref{l2} that $e = 1$. It remains to show
+      that every nonzero element of $R$ is a unit. To that end, we have
+      \begin{align*}
+         a(a'a - e) &= a(a'a) - ae &[\text{Distributivity}] \\ 
+            &= (aa')a - a &[\text{Associativity}] \\
+            &= ea - a = a - a = 0,
+      \end{align*}
+      so that $a'a = e = aa'$. That is, $a$ is a unit. So every nonzero element
+      of $R$ is a unit. Conclude that $R$ is a division ring. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%025%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item If $I$ is an ideal of a ring $R$, then $I[x]$ is an ideal of $R[x]$.
          
