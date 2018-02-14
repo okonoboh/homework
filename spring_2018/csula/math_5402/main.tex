@@ -283,12 +283,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%025%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item If $I$ is an ideal of a ring $R$, then $I[x]$ is an ideal of $R[x]$.
          
-      \textbf{Proof.} Suppose that $I$ is an ideal of a ring $R$. Let
-      $f, g \in I[x]$. Then $f = a_0 + \cdots + a_kx^k$ and
-      $g = b_0 + \cdots + b_mx^m$, where the coefficients are elements of $I$
-      and $n$ and $m$ are nonnegative integers. Assume without loss that
-      $k \le m$. Since $I$ is an ideal, we have that $a_i - b_i \in I$, where
-      $1 \le i \le k$. Thus
+      \textbf{Proof.} Suppose that $I$ is an ideal of a ring $R$. Since $I$ is
+      an ideal, it is nonempty, so let $c \in I$. It follows that $I[x]$ is also
+      nonempty because $c + cx \in I[x]$. Now let $f, g \in I[x]$. Then
+      $f = a_0 + \cdots + a_kx^k$ and $g = b_0 + \cdots + b_mx^m$, where the
+      coefficients are elements of $I$ and $k$ and $m$ are nonnegative integers.
+      Assume without loss that $k \le m$. Since $I$ is an ideal, we have that
+      $a_i - b_i \in I$, where $1 \le i \le k$. Thus
       $$f - g = (a_0 - b_0) + \cdots + (a_k - b_k)x^k + b_{k + 1}x^{k + 1} +
         \cdots + b_mx^m \in I[x].$$
       For each $n \ge 0$, let $P(n)$ be the statement that if $h \in R[x]$ is 
@@ -323,5 +324,44 @@
       that $P(n)$ holds for each $n \ge 0$. Clearly
       $0 \cdot f = f \cdot 0 = 0 \in I[x]$. Thus $I[x]$ is an ideal of $R[x]$.
       \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%026%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Suppose $I$ and $J$ are ideals of the ring $R$. Show:
+         \begin{enumerate}
+            \item If $R$ is commutative, then $R/I$ is also commutative.
+            \item If $R$ has an identity 1, then $R/I$ has an identity $1 + I$.
+            \item The set $I + J = \{a + b: a \in I, b \in J\}$ is an ideal of
+                  $R$.
+         \end{enumerate}
+         
+      \textbf{Proof.}
+      
+      \begin{enumerate}
+         \item Suppose $R$ is commutative. Let $x, y \in R/I$. Then
+               $x = a + I$ and $y = b + I$ for some $a, b \in R$. Since $R$ is
+               commutative, we have that $ab = ba$, so that
+               $$xy = (a + I)(b + I) = (ab) + I = (ba) + I =
+                 (b + I)(a + I) = yx;$$
+               that is, $R/I$ is commutative.
+         \item Suppose $R$ has an identity 1. Let $x \in R/I$, so that
+               $x = a + I$ for some $a \in R$. Since
+               $$x \cdot (1 + I) = (a + I)(1 + I) = (a\cdot 1) + I = a + I =x$$
+               and
+               $$(1 + I) \cdot x = (1 + I)(a + I) = (1\cdot a) + I = a + I =x,$$
+               it follows that $1 + I$ is an identity of $R/I$.
+         \item Since $I$ and $J$ are ideals, they are both nonempty, so let
+               $i \in I$ and $j \in J$, so that $i + j \in I + J$; that is,
+               $I + J$ is nonempty. Now let $x, y \in I + J$. Then there exist
+               $i_1, i_2 \in I$ and $j_1, j_2 \in J$ such that $x = i_1 + j_1$
+               and $y = i_2 + j_2$. By closure $i_1 - 1_2 \in I$ and
+               $j_1 - j_2 \in J$, so it follows that
+               $$x - y = (i_1 + j_1) - (i_2 + j_2) =
+                 (i_1 - i_2) + (j_1 - j_2) \in I + J.$$
+               For each $r \in R$, we have that $ri_1, i_1r \in I$ and
+               $rj_1, j_1r \in J$ because $I$ and $J$ are ideals, so
+               $$rx = r(i_1 + j_1) = ri_1 + rj_1 \in I + J$$
+               and
+               $$xr = (i_1 + j_1)r = i_1r + j_1r \in I + J.$$
+               Conclude that $I + J$ is an ideal of $R$.
+      \end{enumerate} \qed
 \end{enumerate}
 \end{document}
