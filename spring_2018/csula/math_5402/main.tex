@@ -55,11 +55,52 @@
 \begin{document}
 \begin{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%001%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Verify that the set $R = \{0\}$, with only element the additive
+         identity, is a ring.
+
+      \textbf{Proof.} Let + and $\cdot$ be binary operations on $R$. That is,
+      for every $a, b \in R$, we have $a + b, a \cdot b \in R$. But $R$ is a
+      singleton, so it follows that $a + b = a \cdot b = 0$ for every
+      $a, b \in R$. For $x, y, z \in R$, it follows that
+      $$(x + y) + z = 0 + z = 0 = x + 0 = x + (y + z)$$
+      and
+      $$(x\cdot y) \cdot z = 0 \cdot z = 0 = x \cdot 0 = x \cdot (y \cdot z),$$
+      so that $R$ is associative under + and $\cdot$. The element $0 \in R$ is
+      an additive identity because
+      $$x + 0 = 0 = 0 + x.$$
+      The preceding equality also says that $-x = 0$, so that every element of
+      $R$ has an additive inverse. Conclude that $(R, +)$ is a group; indeed,
+      since $x + y = 0 = y + x$, it is an abelian group. Since
+      $$x \cdot (y + z) = x \cdot 0 = 0 = 0 \cdot 0 = x \cdot y + x \cdot z$$
+      and
+      
+      $$(y + z) \cdot x  = 0 \cdot x = 0 = 0 \cdot 0 = y \cdot x + z \cdot x,$$
+      conclude that $R$ is a ring. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%002%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Let $R$ be a ring. Show that $\every a, b \in R$:
+         \begin{enumerate}
+            \item $a0 = 0a$,
+            \item $a(-b) = (-a)b = -(ab).$
+         \end{enumerate}
+         
+      \textbf{Proof.}
+      
+      \begin{enumerate}
+         \item 
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%003%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item It is customary to write simply $-ab$ instead of $-(ab)$. Using this
+         notation show $\every a, b, c \in R$:
+         \begin{enumerate}
+            \item $a(b - c) = ab - ac$,
+            \item $(b - c)a = ba - ca.$
+         \end{enumerate}
+         
+      \textbf{Proof.}
+      
+      \begin{enumerate}
+         \item 
+      \end{enumerate}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%004%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%005%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
