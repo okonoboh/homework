@@ -164,23 +164,73 @@
       \end{align*}
       thus $Q(n)$ holds for each positive integer $n$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%005%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Prove that if $R$ is a commutative ring, then $(ab)^m = a^mb^m$ for
+         every positive integer $m$, and $a, b \in R$.
+
+      \textbf{Proof.} Suppose $R$ is a commutative ring. Let $a, b \in \R$. We
+      shall proceed by induction on $m$. The statement is holds trivially for
+      $m = 1$ because $(ab)^1 = ab = a^1b^1$. Now suppose that $(ab)^k = a^kb^k$
+      for some positive integer $k$. So
+      \begin{align*}
+         (ab)^{k+1} &= (ab)^k(ab) &[\text{Exercise 4}] \\
+            &= (a^kb^k)ab &[\text{Inductive Hypothesis}] \\
+            &= (a^ka)(b^kb) &[R \text{ is commutative}] \\
+            &= a^{k+1}b^{k+1}, &[\text{Exercise 4}]
+      \end{align*}
+      so that our statement holds for $m = k + 1$. Conclude by Induction that
+      $(ab)^m = a^mb^m$ for every positive integer $m$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%006%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Prove that $R$ is a commutative ring, if and only if,
+         $$(a + b)^2 = a^2 + 2ab + b^2$$
+         for all
+         $a, b \in R$.
+
+      \textbf{Proof.} Let $a$ and $b$ be elements of some ring $R$. Assume that 
+      first that $R$ is commutative ring. So
+      \begin{align*}
+         (a + b)^2 &= (a + b)(a + b) \\
+            &= (a + b)a + (a + b)b &[\text{Distributivity}] \\
+            &= a^2 + ba + ab + b^2 &[\text{Distributivity}] \\
+            &= a^2 + ab + ab + b^2 &[R \text{ is commutative}] \\
+            &= a^2 + 2ab +b^2.
+      \end{align*}
+      Now assume that $(a + b)^2 = a^2 + 2ab + b^2$. Thus
+      $$a^2 + 2ab + b^2 = (a + b)^2 = a^2 + ba + ab + b^2.$$
+      By cancellation, we get $2ab = ba + ab$; that is $ab + ab = ba + ab$, so
+      that $ab = ba$. Conclude that $R$ is commutative. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%007%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Let $R$ be a ring. Prove that a subset $S$ of $R$ is a subring, if and
+         only if, $S$ is nonempty and $a, b \in S \rightarrow a - b \in S$,
+         $ab \in S$.
+
+      \textbf{Proof.} Suppose first that $S$ is a subring of $R$. It follows 
+      particularly that $(S, +)$ is an additive subgroup of $(R, +)$. That is,
+      $0 \in S$, so that $S$ is nonempty. Now let $a, b \in S$. Since $S$ is a
+      ring we have that $ab \in S$ and $-b \in S$. Thus
+      $a - b = a + (-b) \in S$. Now assume the hypothesis of the converse. Since
+      $S$ is nonempty and $x - y \in S$ for each $x, y \in S$, conclude by the
+      Subgroup Criterion that $(S, +)$ is a subgroup of $(R, +)$. Since the
+      latter group is abelian, the former is also abelian. Since
+      $x \cdot y \in S$ for each $x, y \in S$, conclude that $\cdot$ is a binary
+      operation on $S$. The distributive properties of $R$ extends to $S$ since
+      $S \subseteq R$. Thus $S$ is a subrinf of $R$. \qed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%008%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Verify that $\mathcal{P}(S)$ is a ring under the operations given in
+         Example 4.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%009%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%010%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Determine the characteristic of each of the rings in the above
+         examples, and which are rings with zero-divisors.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%011%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Determine which of the above examples are rings with nonzero nilpotent
+         elements.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%012%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item For what positive integers $n$ does the ring $\Z_n$ have no nonzero
+         nilpotent elements?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%013%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-   \item 
+   \item Prove that if $a$ and $b$ are nilpotent elements of a commutative ring,
+         then $a + b$ is nilpotent.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%014%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
    \item Let $R$ be a commutative ring with $1 \neq 0$. Prove $R$ is an integral
          domain, if and only if, whenever $ab = 0$, then either $a = 0$ or
