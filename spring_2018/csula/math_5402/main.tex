@@ -548,5 +548,38 @@
                Exercise 24 that $R$ is a division ring. Since $R$ is also
                commutative, it is a field.
       \end{enumerate} \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%028%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Prove that if $p \in \Z$ is a prime number, then $\cyc{p}$ is a maximal
+         ideal of $\Z$.
+         
+      \textbf{Proof.} Let $p \in \Z$ be a prime number. Suppose $I$ is an ideal
+      of $\Z$ such that
+      $$\cyc{p} \subsetneq I \subseteq \Z.$$
+      Since $\cyc{p}$ is properly contained in $I$, there exists $a \in I$ such
+      that $a \notin \cyc{p}$. That is, $p \nmid a$, so that $\gcd(a, p) = 1$.
+      Thus there exist integers $x$ and $y$ such that
+      $$ax + py = 1.$$
+      Now $ax, py \in I$ because $I$ is an ideal of $\Z$. Thus
+      $ax + py = 1 \in \Z$, so that $I = \Z$ by Exercise 20. Thus $\cyc{p}$ is a
+      maximal ideal of $\Z$. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%029%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Let $R = 2\Z$, and $I = 4\Z$. Show that $I$ is a maximal ideal of $R$,
+         but $R/I$ is not a field. Is this consistent with the above theorem?
+         
+      \textbf{Proof.} Suppose $4\Z \subsetneq T \subseteq 2\Z$, where $T$ is some
+      ideal of $2\Z$. There exists $y \in T$ such that $y \notin 4\Z$. That is,
+      $y = 2k$, where $k$ is an odd integer. That is, $k + 1$ is even and we
+      have $2(k + 1) \in 4\Z$, so that $2 = 2(k + 1) - 2k \in T$. Thus
+      $2r \in T$ for all integer $r$. Conclude that $T = 2\Z$. That is, $4\Z$ is
+      a maximal ideal of $2\Z$. Now
+      $$2\Z/4\Z = \{0 + 4\Z, 2 + 4\Z\}$$
+      is not a field because $(2 + 4\Z)(2 + 4\Z) = 4 + 4\Z = 0 + 4\Z$ is a zero
+      divisor. \qed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%030%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \item Show $\cyc{5}$ is a prime ideal in $\Z$, and $\cyc{x}$ is a prime ideal
+         in $\Q[x]$.
+         
+      \textbf{Proof.} Suppose $ab \in \cyc{5}$, where $a$ and $b$ are integers.
+      If $5 \mid a$, we are done. So suppose $5 \nmid b$.
 \end{enumerate}
 \end{document}
